@@ -1,2 +1,8 @@
-title: My Site
-theme: minima   # simple built-in theme
+title: Laurence Wayne
+description: A personal website and blog where I share my creative ideas, projects, and thoughts on technology, development, and more.
+theme: minima
+author:
+  name: Laurence
+email: cloud.point88@gmail.com
+github_username: LanceWW0
+twitter_username: solodevdude

@@ -1,0 +1,60 @@
+<footer class="site-footer">
+  <div class="footer-wrap">
+
+    <!-- Brand / Tagline -->
+    <div class="footer-brand">
+      <h2 class="footer-title">
+        <a href="{{ '/' | relative_url }}">
+          {{ site.title | default: "My Site" }}
+        </a>
+      </h2>
+      {% if site.description %}
+      <p class="footer-tagline">{{ site.description }}</p>
+      {% endif %}
+    </div>
+
+    <!-- Navigation -->
+    <nav class="footer-nav" aria-label="Footer">
+      <h2 class="footer-title">Website Sections</h2>
+      <a href="{{ '/apps/' | relative_url }}">Apps</a>
+      <a href="{{ '/blog/' | relative_url }}">Blog</a>
+      <a href="{{ '/about/' | relative_url }}">About</a>
+    </nav>
+
+    <!-- Contact + Social -->
+    <div class="footer-meta">
+      <h2 class="footer-title">Connect with me</h2>
+      <ul class="footer-contact">
+        {% if site.email %}
+        <li>
+          <a href="mailto:{{ site.email | escape }}" style="display: flex; align-items: center; gap: 8px;">
+        <img src="/assets/images/email.svg" alt="Email" style="filter: invert(1); width: 32px; height: 32px;">
+        {{ site.email }}
+          </a>
+        </li>
+        {% endif %}
+      </ul>
+
+      <div class="footer-social" style="display: flex; gap: 16px;"></div>
+        {% if site.github_username %}
+        <a href="https://github.com/{{ site.github_username }}" aria-label="GitHub" style="display: flex; align-items: center; gap: 8px;">
+          <img src="/assets/images/github.svg" alt="GitHub" style="filter: invert(1); width: 32px; height: 32px;">
+          <span>{{ site.github_username }}</span>
+        </a>
+        {% endif %}
+        {% if site.twitter_username %}
+        <a href="https://twitter.com/{{ site.twitter_username }}" aria-label="Twitter" style="display: flex; align-items: center; gap: 8px;">
+          <img src="/assets/images/twitter.svg" alt="Twitter" style="filter: invert(1); width: 32px; height: 32px;" />
+          <span>{{ site.twitter_username }}</span>
+        </a>
+        {% endif %}
+        <!-- Add more socials here -->
+      </div>
+
+      <p class="footer-copy">
+        © {{ site.time | date: "%Y" }} {{ site.title }}. All rights reserved.
+      </p>
+    </div>
+
+  </div>
+</footer>

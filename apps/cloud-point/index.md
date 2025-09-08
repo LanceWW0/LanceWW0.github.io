@@ -42,29 +42,29 @@ last_updated: 2025-09-06
 <section class="section" id="features">
   <h2 class="section-title">Why you’ll love it</h2>
   <div class="grid-cards">
-    <article class="card">
+   <article class="card" style="background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%); border-left: 6px solid #0288d1;">
       <h3 class="card-title">AI cloud identification</h3>
       <p class="card-body">Snap a photo or upload one from your library and get a best-guess cloud type with confidence.</p>
     </article>
-    <article class="card">
+   <article class="card" style="background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); border-left: 6px solid #f57c00;">
       <h3 class="card-title">Climate Science impact!</h3>
       <p class="card-body">Each photo you upload has a direct & tangible impact on the world of climate science!</p>
     </article>
-    <article class="card">
+   <article class="card" style="background: linear-gradient(135deg, #f3e5f5 0%, #ce93d8 100%); border-left: 6px solid #8e24aa;">
       <h3 class="card-title">Learn as you go</h3>
       <p class="card-body">Concise explanations for each cloud type: typical conditions, formation, and weather implications.</p>
     </article>
-    <article class="card">
+   <article class="card" style="background: linear-gradient(135deg, #e8f5e9 0%, #a5d6a7 100%); border-left: 6px solid #388e3c;">
       <h3 class="card-title">Your sky gallery</h3>
       <p class="card-body">Build a personal log of cloud sightings and share your favorite captures.</p>
     </article>
-    <article class="card">
+     <article class="card" style="background: linear-gradient(135deg, #fffde7 0%, #fff9c4 100%); border-left: 6px solid #fbc02d;">
       <h3 class="card-title">Location-based</h3>
       <p class="card-body">See where everyone else's photos have been taken.</p>
     </article>
-    <article class="card">
+    <article class="card" style="background: linear-gradient(135deg, #e0f2f1 0%, #80cbc4 100%); border-left: 6px solid #00897b;">
       <h3 class="card-title">Privacy-respecting</h3>
-      <p class="card-body">Clear controls and a straightforward privacy policy. Your photos are yours.</p>
+      <p class="card-body">Clear controls and a straightforward privacy policy. Your photos are yours and yours alone.</p>
     </article>
   </div>
 </section>

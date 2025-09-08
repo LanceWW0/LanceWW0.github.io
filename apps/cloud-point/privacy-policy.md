@@ -25,7 +25,7 @@ Cloud Point respects your privacy. This page explains what data is (and isn’t)
 
 **Information You Provide**
 - Email Addresses: We collect the email addresses you provide when creating an account or contacting us for support.
-- Photos: The App allows users to upload photos. These photos are stored securely and used solely for the purpose of providing the services within the App. Only images of clouds should be uploaded (with no personal idenitifers of any kind present).
+- Photos: The App allows users to upload photos. These photos are stored securely via Firebase and used solely for the purpose of providing the services within the App. They are sent via Google's Gemini API for image interpretation which has it's own privacy policy. Only images of clouds should be uploaded (with no personal idenitifers of any kind present).
 - Location (_optional_): You have the option of saving the approximate location (coordinates are rounded) of images uploaded to the app. This will then be visible on the community maps page.
 - Usernames: Upon signing up to the app, you will be asked to create a username that is publicly visible on the community pages if you upload a post. This can be changed later.
 - Profile Photo: You have the option of uploading a photo to act as your community visible profile photo. This can be changed later.
@@ -63,6 +63,7 @@ Cloud Point may make use of the following third-party services:
 - **RevenueCat** (for payments systems)
 - **Google's Firebase** (for back-end & analytics)
 - **Google's AdMob** (for providing Google Ads)
+- **Google's Gemini API** (for image interpretation)
 
 Each third-party service has its own privacy policy.
 

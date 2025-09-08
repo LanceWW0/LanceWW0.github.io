@@ -4,7 +4,12 @@
 
 <section class="apps-grid">
   {%- for app in site.data.apps -%}
-    <article class="app-card">
+    <article
+      class="app-card fancy"
+      style="
+        --accent:  {{ app.accent  | default: '#6C5CE7' }};
+        --accent2: {{ app.accent2 | default: '#A29BFE' }};
+      ">
       <a class="app-card-link" href="{{ app.url | relative_url }}">
         <img class="app-icon" src="{{ app.icon | relative_url }}" alt="{{ app.name }} app icon" width="88" height="88" />
         <div class="app-meta">
@@ -18,6 +23,7 @@
     </article>
   {%- endfor -%}
 </section>
+
 -->
 
 <p class="apps-note">Looking for privacy policies? You’ll find each one on its app page.</p>

@@ -190,6 +190,7 @@ img { max-width: 100%; height: auto; }
 }
 
 .footer-contact {
+  color: #c9ced6;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -337,3 +338,157 @@ section.apps-grid,
   }
 }
 
+/* Simple colorful hover effect for app cards */
+.app-card.fancy {
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  transition: transform .18s ease, box-shadow .25s ease, border-color .25s ease;
+  border: 2px solid transparent;
+}
+
+.app-card.fancy:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0,0,0,.12);
+  border-color: #6C5CE7; /* accent colour — tweak to your brand */
+}
+
+/* Icon lifts slightly */
+.app-card.fancy .app-icon {
+  transition: transform .2s ease;
+}
+.app-card.fancy:hover .app-icon {
+  transform: translateY(-3px);
+}
+
+/* ---------- Grid layout: 3/2/1 columns ---------- */
+.apps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+@media (max-width: 1024px) { .apps-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px)  { .apps-grid { grid-template-columns: 1fr; } }
+
+/* ---------- Fancy card base ---------- */
+.app-card.fancy {
+  --accent:  #6C5CE7;         /* fallback if not provided via style= */
+  --accent2: #A29BFE;
+
+  position: relative;
+  border-radius: 16px;
+  /* Gradient border trick */
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(135deg, var(--accent), var(--accent2)) border-box;
+  border: 1px solid transparent;
+
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0,0,0,.06);
+  transition: transform .18s ease, box-shadow .25s ease;
+  will-change: transform;
+}
+
+/* Inner layout stays like you had it */
+.app-card-link {
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  gap: 14px;
+  padding: 18px;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Animated background blobs */
+.app-card.fancy::before,
+.app-card.fancy::after {
+  content: "";
+  position: absolute;
+  inset: -20% -10%;                 /* extend outside edges for soft glow */
+  background: radial-gradient(35% 35% at 30% 20%, color-mix(in oklab, var(--accent) 35%, transparent), transparent 70%),
+              radial-gradient(40% 40% at 80% 10%, color-mix(in oklab, var(--accent2) 35%, transparent), transparent 70%);
+  filter: blur(20px);
+  opacity: .25;
+  z-index: 0;
+  transition: transform .5s ease, opacity .3s ease;
+}
+.app-card.fancy::after {
+  inset: -15% -20%;
+  transform: translate3d(-6px, -4px, 0);
+  opacity: .18;
+}
+
+/* Lift + subtle tilt on hover; background glows a bit more */
+.app-card.fancy:hover {
+  transform: translateY(-6px) rotate(.15deg);
+  box-shadow: 0 12px 32px rgba(0,0,0,.12);
+}
+.app-card.fancy:hover::before { opacity: .33; transform: translate3d(4px, -2px, 0) scale(1.02); }
+.app-card.fancy:hover::after  { opacity: .24; transform: translate3d(-2px, 3px, 0) scale(1.03); }
+
+/* Icon float/parallax */
+.app-icon {
+  position: relative;
+  z-index: 1;                       /* above blobs */
+  border-radius: 22%;
+  box-shadow: 0 2px 10px rgba(0,0,0,.06);
+  transition: transform .2s ease;
+}
+.app-card.fancy:hover .app-icon { transform: translateY(-4px) scale(1.03); }
+
+/* Title/desc */
+.app-meta { z-index: 1; position: relative; }
+.app-title { margin: 2px 0 6px; font-size: 18px; line-height: 1.2; }
+.app-desc  { margin: 0; color: #3c4046; }
+
+/* Chips read a subtle tint from accent */
+.chip {
+  display: inline-block;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--accent) 18%, #e9eaee);
+  color: #222;
+}
+
+/* Shine sweep (tasteful) */
+.app-card.fancy .app-card-link::after {
+  content: "";
+  position: absolute;
+  top: 0; left: -120%;
+  width: 50%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.45), transparent);
+  transform: skewX(-16deg);
+  opacity: 0;
+  transition: opacity .2s ease;
+  pointer-events: none;
+}
+.app-card.fancy:hover .app-card-link::after {
+  animation: sweep 900ms ease forwards;
+  opacity: 1;
+}
+@keyframes sweep {
+  0%   { left: -120%; }
+  100% { left: 130%;  }
+}
+
+/* Keyboard focus ring on the link */
+.app-card-link:focus-visible {
+  outline: 3px solid color-mix(in oklab, var(--accent) 50%, transparent);
+  outline-offset: 3px;
+  border-radius: 12px;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .app-card.fancy,
+  .app-card.fancy::before,
+  .app-card.fancy::after,
+  .app-card.fancy .app-icon,
+  .app-card.fancy .app-card-link::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}

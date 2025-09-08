@@ -3,45 +3,62 @@
   icon: /assets/images/apps/cloud-point/logo.png
   description: Identify cloud types with AI and learn what they mean for the weather.
   tags: [iOS, Education, Vision/ML, Community]
+  accent:  "#B0B0B0"   # Grey
+  accent2: "#000000"   # Black
 
 - name: Geology AI
   url: /apps/geology-ai/
   icon: /assets/images/apps/geology-ai/logo.png
   description: Explore geological formations and learn about different rock types.
   tags: [iOS, Education, Vision/ML, Toolkit]
+  accent:  "#FF7A59"   # Coral
+  accent2: "#FFCA1A"   # Warm yellow
 
 - name: Earthquake Tracker & Monitor
   url: /apps/earthquake-tracker/
   icon: /assets/images/apps/earthquake-tracker/logo.png
   description: Monitor seismic activity globally and learn about earthquake preparedness.
   tags: [iOS, Education, Data Visualisation]
+  accent:  "#FFCA1A"   # Warm yellow
+  accent2: "#B91C1C"   # Dark red
 
 - name: What Cow - AI Cattle Identifier
   url: /apps/what-cow/
   icon: /assets/images/apps/what-cow/logo.png
   description: Identify different cow breeds and learn about their characteristics.
   tags: [iOS, Education, Vision/ML]
+  accent:  "#7BD3EA"   # Soft sky blue
+  accent2: "#5D9CFF"   # Bright blue
 
 - name: CO2 Shopper - Eco AI Scanner
   url: /apps/co2-shopper/
   icon: /assets/images/apps/co2-shopper/logo.png
   description: Learn about carbon footprints and make eco-friendly shopping choices.
   tags: [iOS, Education, Vision/ML, Sustainability]
+  accent:  "#34D399"   # Emerald green
+  accent2: "#5D9CFF"   # Bright blue
 
 - name: TickIt AI Grocery List Maker
   url: /apps/tickit/
   icon: /assets/images/apps/tickit/logo.png
   description: Create and manage smart grocery lists with AI assistance.
   tags: [iOS, Utility, AI]
+  accent:  "#8B5CF6"   # Purple
+  accent2: "#3B82F6"   # Blue
+
 
 - name: Blockchain Currency Converter
   url: /apps/blockchain-currency-converter/
   icon: /assets/images/apps/blockchain-currency-converter/logo.png
   description: Convert between fiat currencies and cryptocurrencies.
   tags: [iOS, Finance, Cryptocurrency]
+  accent:  "#34D399"   # Emerald green
+  accent2: "#10B981"   # Deeper green
 
 - name: Pet Portrait AI
   url: /apps/pet-portrait-ai/
   icon: /assets/images/apps/pet-portrait-ai/logo.png
   description: Generate artistic portraits of pets using AI.
   tags: [iOS, Photography, Vision/ML]
+  accent:  "#F472B6"   # Rose pink
+  accent2: "#EC4899"   # Magenta

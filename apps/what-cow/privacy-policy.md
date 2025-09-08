@@ -25,6 +25,7 @@ What Cow respects your privacy. This page explains what data is (and isn’t) co
 
 **Information You Provide**
 - We do not collect any direct indicators about you personally - there is no sign up process or log in features.
+- Photos that are uploaded to the app are not stored on-device or on the cloud. They are sent via the OpenAI API which has its own privacy policy.
 
 **Automatically Collected Information**
 - Usage Information: We may collect information about your interaction with the app, such as the features you use and how often you use them. This also includes diagnostics and crash reports.
@@ -59,6 +60,7 @@ What Cow may make use of the following third-party services:
 - **Apple App Store** (for distribution, in-app purchases, and analytics)
 - **RevenueCat** (for payment systems)
 - **Google's Firebase** (for back-end & analytics)
+- **OpenAI's API** (for image interpretation)
 
 Each third-party service has its own privacy policy.
 

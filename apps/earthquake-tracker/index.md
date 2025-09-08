@@ -39,29 +39,29 @@ last_updated: 2025-09-07
 <section class="section" id="features">
     <h2 class="section-title">Key features</h2>
     <div class="grid-cards">
-        <article class="card">
+         <article class="card" style="background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%); border-left: 6px solid #0288d1;">
             <h3 class="card-title">Live earthquake map</h3>
             <p class="card-body">View recent earthquakes on an interactive map with magnitude, depth, and location details.</p>
         </article>
-        <article class="card">
+       <article class="card" style="background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); border-left: 6px solid #f57c00;">
             <h3 class="card-title">Real-time alerts</h3>
             <p class="card-body">Get instant notifications for significant seismic activity near your location or worldwide.</p>
         </article>
-        <article class="card">
+         <article class="card" style="background: linear-gradient(135deg, #f3e5f5 0%, #ce93d8 100%); border-left: 6px solid #8e24aa;">
             <h3 class="card-title">Detailed event info</h3>
             <p class="card-body">Access comprehensive data for each event, including time, coordinates, and affected regions.</p>
         </article>
-        <article class="card">
+       <article class="card" style="background: linear-gradient(135deg, #e8f5e9 0%, #a5d6a7 100%); border-left: 6px solid #388e3c;">
             <h3 class="card-title">Historical data</h3>
             <p class="card-body">Browse past earthquakes and analyze trends over time.</p>
         </article>
-        <article class="card">
+        <article class="card" style="background: linear-gradient(135deg, #fffde7 0%, #fff9c4 100%); border-left: 6px solid #fbc02d;">
             <h3 class="card-title">Customizable notifications</h3>
-            <p class="card-body">Set alert thresholds by magnitude and region to get only the updates you care about.</p>
+            <p class="card-body">Set alert thresholds by magnitude and region to get only the updates you care about. (coming soon)</p>
         </article>
-        <article class="card">
+        <article class="card" style="background: linear-gradient(135deg, #e0f2f1 0%, #80cbc4 100%); border-left: 6px solid #00897b;">
             <h3 class="card-title">Safety resources</h3>
-            <p class="card-body">Learn what to do before, during, and after an earthquake with built-in safety guides.</p>
+            <p class="card-body">Learn what to do before, during, and after an earthquake with built-in safety guides. (coming soon)</p>
         </article>
     </div>
 </section>
@@ -95,7 +95,7 @@ last_updated: 2025-09-07
     <h2 class="section-title">FAQ</h2>
     <details>
         <summary>Where does the earthquake data come from?</summary>
-        <p>Data is sourced from reputable global seismic networks and updated in real time.</p>
+        <p>The US Geological Survey (USGS) and updated in real time.</p>
     </details>
     <details>
         <summary>Can I customize which alerts I receive?</summary>

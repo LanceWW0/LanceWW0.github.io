@@ -39,29 +39,29 @@ last_updated: 2025-09-07
 <section class="section" id="features">
     <h2 class="section-title">Why you’ll love it</h2>
     <div class="grid-cards">
-        <article class="card">
+        <article class="card" style="background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%); border-left: 6px solid #0288d1;">
             <h3 class="card-title">AI-powered identification</h3>
-            <p class="card-body">Take a photo or upload one to get instant identification of rocks and minerals, with confidence.</p>
+            <p class="card-body">Snap or upload a photo for instant, confident identification of rocks and minerals—powered by advanced AI.</p>
         </article>
-        <article class="card">
+        <article class="card" style="background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); border-left: 6px solid #f57c00;">
             <h3 class="card-title">Detailed learning</h3>
-            <p class="card-body">Get concise, accessible info on each specimen: formation, composition, uses, and fun facts.</p>
+            <p class="card-body">Explore concise, accessible info on each specimen: formation, composition, uses, and fun facts.</p>
         </article>
-        <article class="card">
+        <article class="card" style="background: linear-gradient(135deg, #f3e5f5 0%, #ce93d8 100%); border-left: 6px solid #8e24aa;">
             <h3 class="card-title">Pencil Sketches</h3>
-            <p class="card-body">Get detailed pencil sketches in seconds with the option to label prominent features.</p>
+            <p class="card-body">Generate beautiful pencil sketches in seconds, with the option to label key features for clarity.</p>
         </article>
-        <article class="card">
+        <article class="card" style="background: linear-gradient(135deg, #e8f5e9 0%, #a5d6a7 100%); border-left: 6px solid #388e3c;">
             <h3 class="card-title">No knowledge required!</h3>
-            <p class="card-body">You don't need a degree to start learning about why rocks look the way they are. Just your phone!</p>
+            <p class="card-body">No geology degree needed—just your phone and curiosity to start exploring the world beneath your feet.</p>
         </article>
-        <article class="card">
+        <article class="card" style="background: linear-gradient(135deg, #fffde7 0%, #fff9c4 100%); border-left: 6px solid #fbc02d;">
             <h3 class="card-title">Formation Analysis</h3>
-            <p class="card-body">Discover the geological structures in your photo. Geology AI highlights bedding planes, faults, folds, unconformities, and more — with clear, expert-level explanations.</p>
+            <p class="card-body">Reveal geological structures in your photos—bedding planes, faults, folds, and more—with expert-level explanations.</p>
         </article>
-        <article class="card">
+        <article class="card" style="background: linear-gradient(135deg, #e0f2f1 0%, #80cbc4 100%); border-left: 6px solid #00897b;">
             <h3 class="card-title">Privacy-first</h3>
-            <p class="card-body">You control your data and photos. Clear privacy policy and easy-to-use controls.</p>
+            <p class="card-body">You control your data and photos. Enjoy a clear privacy policy and easy-to-use controls for peace of mind.</p>
         </article>
     </div>
 </section>

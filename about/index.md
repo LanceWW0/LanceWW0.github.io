@@ -11,7 +11,7 @@ permalink: /about/
   <div class="about-intro">
     <h2>Hello, I’m Laurence 👋</h2>
     <p style="font-size: 1.15em;">
-      I’m a (self taught) mobile app developer based in the UK, though am currently doing some travelling around Asia, Australia and New Zealand. I say 'mobile' though I really just mean iOS - given up with Android thanks to the endless rules and invisible hoops to jump through that kills creativity as a solo developer. I’ve been building apps in Flutter for several years, and more recently I’ve started exploring SwiftUI for iOS natively. This site is my home for apps I’ve released, experiments, and thoughts.
+      I’m a (self taught) mobile app developer based in the UK, though am currently doing some travelling around Asia, Australia and New Zealand. I’ve been building apps in Flutter for several years, and more recently I’ve started exploring SwiftUI for iOS natively. This site is my home for apps I’ve released, experiments, and thoughts.
     </p>
   </div>
 </section>
@@ -22,15 +22,15 @@ permalink: /about/
 
 <p style="font-size: 1.15em;">
   <img src="/assets/images/me_umbrella.jpeg" alt="Travel photo" class="float-right" width="280" />
-  I didn’t start out as an app developer. I originally trained in Geophysics with Geology, however found that I wanted to explore more of the coding aspects of this. That lead me to doing a Master's in Scientific comouting & data science. At the end of this (or as I was still finishing my dissertation yikes!) I got a job at BT in their data science & cyber processing arm of BT Security.
+  I didn’t start out as an app developer. I originally trained in Geophysics with Geology, however found that I wanted to explore more of the coding side. That lead me to doing a Master's in Scientific comouting & data science. At the end of this (or as I was still finishing my dissertation yikes!) I got a job at BT in their data science & cyber processing arm of BT Security.
 </p>
   
 <p style="font-size: 1.15em;">
-  I learned so many useful skills working their, though I also developed an itch to create things for myself In my free time, I began experimenting with Flutter, and over three years built and shipped a handful of apps to the App Store and Google Play.
+  I learned so many useful skills whilst working there, though I also developed a dangerous itch to start creating things for myself. So, in my free time, I began experimenting with Flutter and over three years built and shipped a handful of apps to the App Store and Google Play.
 </p>
 
 <p style="font-size: 1.15em;">
-  What began as a side project turned into something I genuinely love — solving problems with design and code, and seeing people all over the world use my apps. Essentially, I became addicted to the process and decided to go all-in on this for a while to see what would happen. It was a pretty scary experiment to put myself through — I went from taking home good money (£3000/month) to slightly less good (£300/month) and saying goodbye to my comfy routines, friends I'd made & part of the UK I'd grown to love (Gloucestershire) to pursue something entirely under my own steam.
+  What began as a side project turned into something I genuinely love — solving problems with design and code, and seeing people all over the world use my apps. Essentially, I became addicted to the process and decided to go all-in on this for a while to see what would happen. It was a pretty scary experiment to put myself through — I went from taking home good money (£3000/month) to slightly less good (£300/month) and saying goodbye to my comfy routines, friends I'd made & region of the UK I'd grown to love (Gloucestershire) to pursue something entirely under my own steam.
 </p>
 
 <p style="font-size: 1.15em;">
@@ -43,11 +43,11 @@ permalink: /about/
 
 <p style="font-size: 1.15em;">
   <img src="/assets/images/laptop_beach.png" alt="Workspace photo" class="float-left" width="280" />
-  Whilst I am away travelling, I'm focused on SwiftUI and the Apple ecosystem — learning how to design apps for iOS, iPadOS, and macOS all from one codebase. This, I think, is an important skill to have with many companies adopting SwiftUI for building native platform apps. Not to mention Apple putting out so many new innovations in the past years, and more on the way, I sometimes feel as though Flutter is beginning to lag behind. Not to mention that I am fully on the Apple wagon - iPhone, Macbook, so coding in their system is the natural progression and the coming technologies from such an innovative company excite me greatly.
+  While I am away travelling, I'm focused on SwiftUI and the Apple ecosystem — learning how to design apps for iOS, iPadOS, and macOS all from one codebase. This, I think, is an important skill to have with many companies adopting SwiftUI for building native platform apps. Not to mention Apple putting out so many new innovations in the past years (and more on the way!) I sometimes feel as though Flutter is beginning to lag behind. Not to mention that I am now fully on the Apple wagon - iPhone, Macbook - so coding in their system is the natural progression and the coming technologies from such an innovative company excite me greatly.
 </p>
 
 <p style="font-size: 1.15em;">
-  Alongside that, I’m continuing to improve my existing apps in Flutter, adding features and refining the experience based on user feedback. Coding while travelling can sometime be pretty hard - think dodgy connections, lack of deep focus, etc, so I'm brainstorming ways to increase user conversion and ASO strategies for those already on the App Store.
+  Alongside that, I’m continuing to improve my existing apps in Flutter, adding features and refining the experience based on user feedback. Coding while travelling can sometime be pretty hard - think dodgy connections, lack of deep focus, etc, so I'm mainly trying to implement ways to increase user conversion and ASO strategies for those already on the App Store.
 </p>
 
 <p style="font-size: 1.15em;">
@@ -74,7 +74,7 @@ permalink: /about/
 ## Get in Touch
 
 <p style="font-size: 1.15em;">
-  I’m always happy to chat — whether it’s about app ideas, indie dev life, or
+  I’m happy to chat — whether it’s about app ideas, indie dev life, or
   just to say hi!
 </p>
 

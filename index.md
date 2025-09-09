@@ -35,7 +35,7 @@ headshot: /assets/images/me_snow.jpeg
       <h2 class="section-title" style="margin-top: 0; font-size: 2.2rem; letter-spacing: -1px; color: #2d3748;">Latest app: <span style="color: #6366f1;">Earthquake Tracker & Monitor</span></h2>
       <p class="card-body" style="font-size: 1.18em; line-height: 1.7; margin-bottom: 1.2em;">
         <strong>Earthquake Tracker & Monitor</strong> is built to visualise real-time earthquake data from the USGS (US Geological Survey) so you can stay safe.<br/>
-        <span style="color: #6366f1;">Built with the latest Flutter features</span> for a seamless, modern experience visualising data.
+        <span style="color: #6366f1;">Integrated with the latest Flutter features</span> for a seamless, modern experience understanding the data.
       </p>
       <div class="card-actions" style="display: flex; gap: 1rem;">
         <a class="btn btn-primary" href="/apps/geology-ai/">Learn more</a>
@@ -45,38 +45,40 @@ headshot: /assets/images/me_snow.jpeg
 </section>
 
 <!-- FEATURED APPS -->
-<section class="section featured-apps-highlight" style="padding: 3.5rem 0; background: linear-gradient(90deg, #f1f5f9 0%, #e0e7ff 100%); border-radius: 18px; box-shadow: 0 4px 24px rgba(60,60,120,0.08); margin-bottom: 2.5rem;">
-  <div style="padding: 0 2.5rem; max-width: 1100px; margin: 0 auto;">
-    <h2 class="section-title" style="font-size: 2.2rem; letter-spacing: -1px; color: #2d3748; margin-bottom: 2.2rem;">Featured apps</h2>
-    <div style="display: flex; gap: 2.5rem; flex-wrap: wrap; justify-content: center;">
+<section class="section featured-apps-highlight">
+  <div class="featured-wrap">
+    <h2 class="section-title" style="margin-top: 0; font-size: 2.2rem; letter-spacing: -1px; color: #2d3748;">Featured Apps</h2>
+    <div class="featured-grid">
       <!-- Cloud Point Card -->
-      <div style="flex: 1 1 350px; min-width: 260px; background: #fff; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 2rem 1.5rem; display: flex; flex-direction: column; align-items: center;">
-        <img class="card-icon" src="/assets/images/apps/cloud-point/logo.png" alt="Cloud Point logo" width="80" height="80" style="border-radius: 12px; margin-bottom: 1rem;" />
-        <h3 class="card-title" style="font-size: 1.35rem; color: #4f46e5; margin-bottom: 0.7rem;">Cloud Point – Cloud Identifier</h3>
-        <p class="card-body" style="font-size: 1.08em; line-height: 1.6; text-align: center; margin-bottom: 1.2em;">
+      <div class="featured-card">
+        <img class="card-icon" src="/assets/images/apps/cloud-point/logo.png" alt="Cloud Point logo" width="80" height="80" />
+        <h3 class="card-title">Cloud Point – Cloud Identifier</h3>
+        <p class="card-body">
           A unique community of climate researchers battling extreme weather. No knowledge needed!
         </p>
-        <div class="card-actions" style="display: flex; gap: 0.7rem;">
+        <div class="card-actions">
           <a class="btn btn-sm btn-primary" href="/apps/cloud-point/">Learn more</a>
-          <a class="btn btn-sm" style="background: #e0e7ff; color: #3730a3;" href="https://apps.apple.com/gb/app/cloud-point-cloud-identifier/id6480587789" target="_blank" rel="noopener">App Store</a>
+          <a class="btn btn-sm btn-accent" href="https://apps.apple.com/gb/app/cloud-point-cloud-identifier/id6480587789" target="_blank" rel="noopener">App Store</a>
         </div>
       </div>
       <!-- Geology AI Card -->
-      <div style="flex: 1 1 350px; min-width: 260px; background: #fff; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 2rem 1.5rem; display: flex; flex-direction: column; align-items: center;">
-        <img class="card-icon" src="/assets/images/apps/geology-ai/logo.png" alt="Geology AI logo" width="80" height="80" style="border-radius: 12px; margin-bottom: 1rem;" />
-        <h3 class="card-title" style="font-size: 1.35rem; color: #4f46e5; margin-bottom: 0.7rem;">Geology AI</h3>
-        <p class="card-body" style="font-size: 1.08em; line-height: 1.6; text-align: center; margin-bottom: 1.2em;">
+      <div class="featured-card">
+        <img class="card-icon" src="/assets/images/apps/geology-ai/logo.png" alt="Geology AI logo" width="80" height="80" />
+        <h3 class="card-title">Geology AI</h3>
+        <p class="card-body">
           The powerful toolkit for field Geologists, aiding understanding, interpretation & sketches!
         </p>
-        <div class="card-actions" style="display: flex; gap: 0.7rem;">
+        <div class="card-actions">
           <a class="btn btn-sm btn-primary" href="/apps/geology-ai/">Learn more</a>
-          <a class="btn btn-sm" style="background: #e0e7ff; color: #3730a3;" href="https://apps.apple.com/my/app/geology-ai/id6745966254" target="_blank" rel="noopener">App Store</a>
+          <a class="btn btn-sm btn-accent" href="https://apps.apple.com/my/app/geology-ai/id6745966254" target="_blank" rel="noopener">App Store</a>
         </div>
       </div>
     </div>
-    <p class="section-cta" style="margin-top: 2.2rem; text-align: center;"><a href="/apps/">Browse all apps →</a></p>
+    <p class="section-cta" style="text-align: center;"><a href="/apps/">Browse all apps →</a></p>
   </div>
 </section>
+
+
 
 <!-- LATEST POSTS -->
 <section class="section">

@@ -120,7 +120,7 @@ last_updated: 2025-09-07
   <div class="meta-grid">
     <div>
       <h3>Support</h3>
-      <p>Questions or feedback? Email <a href="mailto:cloud.point88@gmail.com">cloud.point88@gmail.com</a>.</p>
+      <p>Questions or feedback? Email <a href="mailto:hello@laurence-wayne.com">hello@laurence-wayne.com</a>.</p>
     </div>
     <div>
       <h3>Version & updates</h3>

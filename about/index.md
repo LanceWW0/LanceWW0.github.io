@@ -82,7 +82,7 @@ permalink: /about/
   just to say hi!
 </p>
 
-- 📧 Email: [cloud.point88@gmail.com](mailto:cloud.point88@gmail.com)  
+- 📧 Email: [hello@laurence-wayne.com](mailto:hello@laurence-wayne.com)  
 - 🐙 GitHub: [github.com/LanceWW0](https://github.com/LanceWW0)  
 - 🐦 Twitter: [@solodevdude](https://twitter.com/solodevdude)  
 

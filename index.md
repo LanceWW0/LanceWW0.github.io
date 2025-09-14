@@ -121,7 +121,7 @@ headshot: /assets/images/me_snow.jpeg
       </p>
       <p style="margin-bottom: 0;">
         <span style="font-weight: 500;">Let’s connect:</span>
-        <a href="mailto:cloud.point88@gmail.com" style="margin-left: 0.5em;">cloud.point88@gmail.com</a>
+        <a href="mailto:hello@laurence-wayne.com" style="margin-left: 0.5em;">hello@laurence-wayne.com</a>
         &nbsp;·&nbsp;
         <a href="https://github.com/LanceWW0">GitHub</a>
         &nbsp;·&nbsp;

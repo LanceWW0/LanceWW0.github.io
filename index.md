@@ -29,17 +29,36 @@ headshot: /assets/images/me_snow.jpeg
 <section class="section latest-app-highlight" style="padding: 3.5rem 0; background: linear-gradient(90deg, #e0e7ff 0%, #f8fafc 100%); border-radius: 18px; box-shadow: 0 4px 24px rgba(60,60,120,0.08); margin-bottom: 2.5rem;">
   <div style="padding: 0 2.5rem; display: flex; align-items: center; justify-content: center; gap: 2.5rem; max-width: 1100px; margin: 0 auto; flex-wrap: wrap;">
     <div style="flex: 0 0 auto; display: flex; flex-direction: column; align-items: center;">
-      <img class="card-icon" src="/assets/images/apps/earthquake-tracker/logo.png" alt="Geology AI logo" width="100" height="100" style="border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.07);" />
+      <img class="card-icon" src="/assets/images/apps/currency-converter/logo.png" alt="Valuto logo" width="100" height="100" style="border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.07);" />
     </div>
     <div style="flex: 1 1 400px; min-width: 260px;">
-      <h2 class="section-title" style="margin-top: 0; font-size: 2.2rem; letter-spacing: -1px; color: #2d3748;">Latest app: <span style="color: #6366f1;">Earthquake Tracker & Monitor</span></h2>
+      <h2 class="section-title" style="margin-top: 0; font-size: 2.2rem; letter-spacing: -1px; color: #2d3748;">Latest app: <span style="color: #6366f1;">Currency Converter – Valuto</span></h2>
       <p class="card-body" style="font-size: 1.18em; line-height: 1.7; margin-bottom: 1.2em;">
-        <strong>Earthquake Tracker & Monitor</strong> is built to visualise real-time earthquake data from the USGS (US Geological Survey) so you can stay safe wherever you are in the world.<br/>
-        <span style="color: #6366f1;">Integrated with the latest Flutter features</span> for a seamless, modern experience understanding the data.
+        <strong>Valuto</strong> is a fast, minimal currency converter designed for travel and shopping. Instantly convert major currencies—even offline—with a clean interface and no ads or tracking. Valuto makes it easy to check exchange rates on the go, save your favourite currencies, and quickly switch between them. Whether you’re exploring a new country or shopping online, Valuto helps you stay on top of your spending with reliable, up-to-date rates and a distraction-free experience.    </p>
+      <div class="card-actions" style="display: flex; gap: 1rem;">
+        <a class="btn btn-primary" href="/apps/currency-converter/">Learn more</a>
+        <a class="btn btn-primary" style="background-color: #4f46e5; color: #fff; border: none; box-shadow: 0 2px 8px rgba(79,70,229,0.15);" href="https://apps.apple.com/app/valuto-currency-converter/id0000000000" target="_blank" rel="noopener">App Store</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAJOR UPDATE INCOMING -->
+<section class="section major-update-highlight" style="padding: 3.5rem 0; background: linear-gradient(90deg, #fde68a 0%, #f8fafc 100%); border-radius: 18px; box-shadow: 0 4px 24px rgba(120,80,20,0.08); margin-bottom: 2.5rem;">
+  <div style="padding: 0 2.5rem; display: flex; align-items: center; justify-content: center; gap: 2.5rem; max-width: 1100px; margin: 0 auto; flex-wrap: wrap;">
+    <div style="flex: 0 0 auto; display: flex; flex-direction: column; align-items: center;">
+      <img class="card-icon" src="/assets/images/apps/earthquake-tracker/logo.png" alt="Earthquake Tracker logo" width="100" height="100" style="border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.07);" />
+    </div>
+    <div style="flex: 1 1 400px; min-width: 260px;">
+      <h2 class="section-title" style="margin-top: 0; font-size: 2.2rem; letter-spacing: -1px; color: #b45309;">Major update incoming: <span style="color: #f59e42;">Earthquake Tracker & Monitor</span></h2>
+      <p class="card-body" style="font-size: 1.18em; line-height: 1.7; margin-bottom: 1.2em;">
+        <strong>Earthquake Tracker & Monitor</strong> is about to get even better! A major update is on the way, bringing new features and improvements to help you visualise real-time earthquake data from the USGS (US Geological Survey) and stay safe wherever you are.<br/>
+        <span style="color: #f59e42;">Built with the latest Flutter features</span> for a seamless, modern experience understanding the data.
       </p>
       <div class="card-actions" style="display: flex; gap: 1rem;">
         <a class="btn btn-primary" href="/apps/earthquake-tracker/">Learn more</a>
-        <a class="btn btn-primary" style="background-color: #4f46e5; color: #fff; border: none; box-shadow: 0 2px 8px rgba(79,70,229,0.15);" href="https://apps.apple.com/az/app/earthquake-tracker-monitor/id6748315703" target="_blank" rel="noopener">App Store</a>    </div>
+        <a class="btn btn-primary" style="background-color: #b45309; color: #fff; border: none; box-shadow: 0 2px 8px rgba(180,83,9,0.15);" href="https://apps.apple.com/az/app/earthquake-tracker-monitor/id6748315703" target="_blank" rel="noopener">App Store</a>
+      </div>
     </div>
   </div>
 </section>

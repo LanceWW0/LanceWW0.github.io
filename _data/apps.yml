@@ -42,7 +42,7 @@
   url: /apps/tickit/
   icon: /assets/images/apps/tickit/logo.png
   description: Create and manage smart grocery lists with AI assistance.
-  tags: [iOS, Utility, AI]
+  tags: [iOS, Utilities, AI]
   accent:  "#8B5CF6"   # Purple
   accent2: "#3B82F6"   # Blue
 
@@ -62,3 +62,11 @@
   tags: [iOS, Photography, Vision/ML]
   accent:  "#F472B6"   # Rose pink
   accent2: "#EC4899"   # Magenta
+
+- name: Currency Converter - Valuto
+  url: /apps/currency-converter/
+  icon: /assets/images/apps/currency-converter/logo.png
+  description: Instantly convert between multiple currencies even while offline.
+  tags: [iOS, Finance, Offline, Utilities, Travel]
+  accent:  "#FFD700"   # Gold
+  accent2: "#4169E1"   # Royal blue

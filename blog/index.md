@@ -2,6 +2,10 @@
 layout: post
 ---
 
+<p>
+  <a href="/">← Back to Home</a>
+</p>
+
 # Blog Posts
 
 Welcome! Explore all blog posts below.
@@ -19,9 +23,32 @@ Welcome! Explore all blog posts below.
 .blog-card:hover {
     /* Hover visuals are handled inline per card so colors come from post.colour */
 }
+
+/* Image at top of each card */
+.blog-card img {
+    width: 60%;
+    height: 60%;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 0.75rem;
+}
+
+/* Two columns on desktop, one column on smaller screens */
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+/* Collapse to one column on narrow viewports */
+@media (max-width: 700px) {
+    .posts-grid {
+        grid-template-columns: 1fr;
+    }
+}
 </style>
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+<div class="posts-grid">
 
 {% for post in site.data.blog_posts %}
 <a class="blog-card"
@@ -30,6 +57,7 @@ Welcome! Explore all blog posts below.
    onmouseover="this.style.background='{{ post.colour }}'; this.style.color='#fff'; this.querySelectorAll('.tag').forEach(t=>{t.style.background='#fff'; t.style.color='{{ post.colour }}';});"
    onmouseout="this.style.background='#fff'; this.style.color='{{ post.colour }}'; this.querySelectorAll('.tag').forEach(t=>{t.style.background='{{ post.colour }}22'; t.style.color='{{ post.colour }}';});"
    >
+    <img src="{{ post.image }}" alt="{{ post.name }} header" />
     <h2 style="margin-top: 0;">
         {{ post.name }}
     </h2>

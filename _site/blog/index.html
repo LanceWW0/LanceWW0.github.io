@@ -27,13 +27,17 @@
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/">Home</a><a class="page-link" href="/blog/why-i-finally-gave-up-with-android/">Why I Finally Gave Up With Android (and Why You Might Too)</a><a class="page-link" href="/blog/life-lessons-from-hole-digging/">Life Lessons From Digging A Hole (and How It’s Like Building an App)</a><a class="page-link" href="/blog/">Blog Posts</a><a class="page-link" href="/apps/geology-ai/">Geology AI</a><a class="page-link" href="/apps/tickit/">Tickit AI Grocery List Maker</a><a class="page-link" href="/apps/blockchain-currency-converter/">Blockchain Currency Converter</a><a class="page-link" href="/apps/pet-portrait-ai/">Pet Portrait AI</a><a class="page-link" href="/apps/currency-converter/">Currency Converter - Valuto</a><a class="page-link" href="/apps/what-cow/">What Cow - AI Cattle Identifier</a><a class="page-link" href="/apps/earthquake-tracker/">Earthquake Tracker &amp; Monitor</a><a class="page-link" href="/apps/cloud-point/">Cloud Point — Cloud Identifier</a><a class="page-link" href="/about/">About Me</a><a class="page-link" href="/apps/co2-shopper/">CO2 Shopper – Eco AI Scanner</a><a class="page-link" href="/apps/pet-portrait-ai/privacy-policy/">Pet Portrait AI – Privacy Policy</a><a class="page-link" href="/apps/cloud-point/privacy-policy/">Cloud Point – Privacy Policy</a><a class="page-link" href="/apps/geology-ai/privacy-policy/">Geology AI – Privacy Policy</a><a class="page-link" href="/apps/currency-converter/privacy-policy/">Currency Converter – Valuto Privacy Policy</a><a class="page-link" href="/apps/tickit/privacy-policy/">TickIt AI Grocery List – Privacy Policy</a><a class="page-link" href="/apps/earthquake-tracker/privacy-policy/">Earthquak Tracker &amp; Monitor – Privacy Policy</a><a class="page-link" href="/apps/blockchain-currency-converter/privacy-policy/">Blockchain Currency Converter – Privacy Policy</a><a class="page-link" href="/apps/what-cow/privacy-policy/">What Cow – Privacy Policy</a><a class="page-link" href="/apps/co2-shopper/privacy-policy/">CO2 Shopper – Privacy Policy</a></div>
+        <div class="trigger"><a class="page-link" href="/">Home</a><a class="page-link" href="/blog/escaping-the-app-trap/">Escaping the App Trap: Redefining Success in an Attention Economy</a><a class="page-link" href="/blog/why-i-finally-gave-up-with-android/">Why I Finally Gave Up With Android (and Why You Might Too)</a><a class="page-link" href="/blog/life-lessons-from-hole-digging/">Life Lessons From Digging A Hole (and How It’s Like Building an App)</a><a class="page-link" href="/apps/geology-ai/">Geology AI</a><a class="page-link" href="/apps/tickit/">Tickit AI Grocery List Maker</a><a class="page-link" href="/apps/blockchain-currency-converter/">Blockchain Currency Converter</a><a class="page-link" href="/apps/pet-portrait-ai/">Pet Portrait AI</a><a class="page-link" href="/apps/currency-converter/">Currency Converter - Valuto</a><a class="page-link" href="/apps/what-cow/">What Cow - AI Cattle Identifier</a><a class="page-link" href="/apps/earthquake-tracker/">Earthquake Tracker &amp; Monitor</a><a class="page-link" href="/apps/cloud-point/">Cloud Point — Cloud Identifier</a><a class="page-link" href="/about/">About Me</a><a class="page-link" href="/apps/co2-shopper/">CO2 Shopper – Eco AI Scanner</a><a class="page-link" href="/apps/pet-portrait-ai/privacy-policy/">Pet Portrait AI – Privacy Policy</a><a class="page-link" href="/apps/cloud-point/privacy-policy/">Cloud Point – Privacy Policy</a><a class="page-link" href="/apps/geology-ai/privacy-policy/">Geology AI – Privacy Policy</a><a class="page-link" href="/apps/currency-converter/privacy-policy/">Currency Converter – Valuto Privacy Policy</a><a class="page-link" href="/apps/tickit/privacy-policy/">TickIt AI Grocery List – Privacy Policy</a><a class="page-link" href="/apps/earthquake-tracker/privacy-policy/">Earthquak Tracker &amp; Monitor – Privacy Policy</a><a class="page-link" href="/apps/blockchain-currency-converter/privacy-policy/">Blockchain Currency Converter – Privacy Policy</a><a class="page-link" href="/apps/what-cow/privacy-policy/">What Cow – Privacy Policy</a><a class="page-link" href="/apps/co2-shopper/privacy-policy/">CO2 Shopper – Privacy Policy</a></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
         <article class="post-content">
-  <h1 id="blog-posts">Blog Posts</h1>
+  <p>
+  <a href="/">← Back to Home</a>
+</p>
+
+<h1 id="blog-posts">Blog Posts</h1>
 
 <p>Welcome! Explore all blog posts below.</p>
 
@@ -50,12 +54,36 @@
 .blog-card:hover {
     /* Hover visuals are handled inline per card so colors come from post.colour */
 }
+
+/* Image at top of each card */
+.blog-card img {
+    width: 60%;
+    height: 60%;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 0.75rem;
+}
+
+/* Two columns on desktop, one column on smaller screens */
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+/* Collapse to one column on narrow viewports */
+@media (max-width: 700px) {
+    .posts-grid {
+        grid-template-columns: 1fr;
+    }
+}
 </style>
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+<div class="posts-grid">
 
 
 <a class="blog-card" href="/blog/life-lessons-from-hole-digging/" style="border-color: #FF7A59; color: #FF7A59;" onmouseover="this.style.background='#FF7A59'; this.style.color='#fff'; this.querySelectorAll('.tag').forEach(t=&gt;{t.style.background='#fff'; t.style.color='#FF7A59';});" onmouseout="this.style.background='#fff'; this.style.color='#FF7A59'; this.querySelectorAll('.tag').forEach(t=&gt;{t.style.background='#FF7A5922'; t.style.color='#FF7A59';});">
+    <img src="/blog/life-lessons-from-hole-digging/header.png" alt="Life Lessons From Digging A Hole header" />
     <h2 style="margin-top: 0;">
         Life Lessons From Digging A Hole
     </h2>
@@ -71,6 +99,7 @@
 </a>
 
 <a class="blog-card" href="/blog/why-i-finally-gave-up-with-android/" style="border-color: #3DDC84; color: #3DDC84;" onmouseover="this.style.background='#3DDC84'; this.style.color='#fff'; this.querySelectorAll('.tag').forEach(t=&gt;{t.style.background='#fff'; t.style.color='#3DDC84';});" onmouseout="this.style.background='#fff'; this.style.color='#3DDC84'; this.querySelectorAll('.tag').forEach(t=&gt;{t.style.background='#3DDC8422'; t.style.color='#3DDC84';});">
+    <img src="/blog/why-i-finally-gave-up-with-android/header.png" alt="Why I Finally Gave Up With Android header" />
     <h2 style="margin-top: 0;">
         Why I Finally Gave Up With Android
     </h2>
@@ -85,6 +114,28 @@
             <span class="tag" style="background: #3DDC8422; color: #3DDC84; padding: 0.2em 0.6em; border-radius: 4px; margin-right: 0.3em;">Tech</span>
         
             <span class="tag" style="background: #3DDC8422; color: #3DDC84; padding: 0.2em 0.6em; border-radius: 4px; margin-right: 0.3em;">Personal</span>
+        
+    </p>
+</a>
+
+<a class="blog-card" href="/blog/escaping-the-app-trap/" style="border-color: #6E7B8A; color: #6E7B8A;" onmouseover="this.style.background='#6E7B8A'; this.style.color='#fff'; this.querySelectorAll('.tag').forEach(t=&gt;{t.style.background='#fff'; t.style.color='#6E7B8A';});" onmouseout="this.style.background='#fff'; this.style.color='#6E7B8A'; this.querySelectorAll('.tag').forEach(t=&gt;{t.style.background='#6E7B8A22'; t.style.color='#6E7B8A';});">
+    <img src="/blog/escaping-the-app-trap/header.png" alt="Escaping the App Trap - Redefining Success in an Attention Economy header" />
+    <h2 style="margin-top: 0;">
+        Escaping the App Trap - Redefining Success in an Attention Economy
+    </h2>
+    <p><strong>Date:</strong> 2025-11-02</p>
+    <p>
+        <strong>Tags:</strong>
+        
+            <span class="tag" style="background: #6E7B8A22; color: #6E7B8A; padding: 0.2em 0.6em; border-radius: 4px; margin-right: 0.3em;">Tech</span>
+        
+            <span class="tag" style="background: #6E7B8A22; color: #6E7B8A; padding: 0.2em 0.6em; border-radius: 4px; margin-right: 0.3em;">Software</span>
+        
+            <span class="tag" style="background: #6E7B8A22; color: #6E7B8A; padding: 0.2em 0.6em; border-radius: 4px; margin-right: 0.3em;">Burnout</span>
+        
+            <span class="tag" style="background: #6E7B8A22; color: #6E7B8A; padding: 0.2em 0.6em; border-radius: 4px; margin-right: 0.3em;">Developer Experience</span>
+        
+            <span class="tag" style="background: #6E7B8A22; color: #6E7B8A; padding: 0.2em 0.6em; border-radius: 4px; margin-right: 0.3em;">Productivity</span>
         
     </p>
 </a>

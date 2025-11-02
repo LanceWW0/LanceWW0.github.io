@@ -15,3 +15,12 @@
   colour: "#3DDC84" # Android green
   image: /blog/why-i-finally-gave-up-with-android/header.png
   image_desc: Illustration of a person turning away from an Android robot while packing a toolbox.
+
+- name: Escaping the App Trap - Redefining Success in an Attention Economy
+  subtitle: How I stopped chasing attention, rethought marketing, and found meaning in app development again.
+  url: /blog/escaping-the-app-trap/
+  tags: [Tech, Software, Burnout, Developer Experience, Productivity]
+  date: 2025-11-02
+  colour: "#6E7B8A" # Slate-steel (machine-themed)
+  image: /blog/escaping-the-app-trap/header.png
+  image_desc: Illustration of a developer feeding gears and code into a large, humming machine on a conveyor belt.

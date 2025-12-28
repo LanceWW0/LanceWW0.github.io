@@ -1,11 +1,11 @@
-- name: Life Lessons From Digging A Hole
-  subtitle: How digging a hole can be rather like app building.
-  url: /blog/life-lessons-from-hole-digging/
-  tags: [Life, Personal Growth]
-  date: 2025-10-07
-  colour: "#FF7A59" # Coral
-  image: /blog/life-lessons-from-hole-digging/header.png
-  image_desc: Cartoon of a hole being dug using a spade and finding riches in the dirt.
+# - name: Life Lessons From Digging A Hole
+#   subtitle: How digging a hole can be rather like app building.
+#   url: /blog/life-lessons-from-hole-digging/
+#   tags: [Life, Personal Growth]
+#   date: 2025-10-07
+#   colour: "#FF7A59" # Coral
+#   image: /blog/life-lessons-from-hole-digging/header.png
+#   image_desc: Cartoon of a hole being dug using a spade and finding riches in the dirt.
 
 - name: Why I Finally Gave Up With Android
   subtitle: The subtle frustrations and trade-offs that made me switch.

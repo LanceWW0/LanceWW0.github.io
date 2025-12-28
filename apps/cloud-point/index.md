@@ -19,7 +19,7 @@ last_updated: 2025-09-06
     <img class="app-icon" src="{{ page.app_icon }}" alt="Cloud Point app icon" width="88" height="88" />
     <h1 class="hero-title">Cloud Point</h1>
     <p class="hero-subtitle">
-      Instantly identify cloud types with AI and learn what they mean for the weather.
+      Identify cloud types with AI and learn what they mean for the weather.
     </p>
     <div class="hero-ctas">
       <a class="btn btn-primary" href="{{ page.app_store_url }}">Download on the App&nbsp;Store</a>
@@ -32,9 +32,18 @@ last_updated: 2025-09-06
 <!-- SHORT PITCH -->
 <section class="section lead">
   <p>
-    Cloud Point helps you capture the sky, identify cloud formations (from cumulus to cirrostratus and beyond),
-    and understand what those clouds can signal about upcoming weather. Perfect for curious minds, students,
-    photographers, hikers, and anyone who’s ever looked up and wondered what’s going on up there.
+    Capture the sky, let AI name your clouds, and learn what they signal about the weather and changing climate. Made for curious minds, students, photographers, hikers—anyone who looks up and wonders what’s happening above.
+  </p>
+</section>
+
+<!-- CLIMATE SCIENCE IMPACT -->
+<section class="section" style="background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%); border-radius: 16px; padding: 2.5rem; margin-bottom: 2.5rem;">
+  <h2 class="section-title" style="color: #1565c0; margin-top: 0;">How it impacts climate science</h2>
+  <p style="font-size: 1.1em; line-height: 1.7; margin-bottom: 1.5em;">
+    Every photo you upload contributes directly to a growing bank of ground-based cloud observations. These observations are invaluable for understanding atmospheric patterns and improving weather prediction models. With our community documenting cloud types from diverse locations, they're helping scientists build a richer, more comprehensive dataset with every image!
+  </p>
+  <p style="font-size: 1.1em; line-height: 1.7;">
+    The coordinates attached to each observation enable researchers to create a spatially and temporally rich database—mapping how clouds vary across different regions and tracking how patterns change over time. This ground-truth data complements satellite observations and helps refine our understanding of climate dynamics, weather systems, and the factors that influence local and global weather patterns.
   </p>
 </section>
 
@@ -44,15 +53,15 @@ last_updated: 2025-09-06
   <div class="grid-cards">
    <article class="card" style="background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%); border-left: 6px solid #0288d1;">
       <h3 class="card-title">AI cloud identification</h3>
-      <p class="card-body">Snap a photo or upload one from your library and get a best-guess cloud type with confidence.</p>
+      <p class="card-body">Snap a photo or upload one from your library and get a type prediction and interesting facts.</p>
     </article>
    <article class="card" style="background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); border-left: 6px solid #f57c00;">
-      <h3 class="card-title">Climate Science impact!</h3>
+      <h3 class="card-title">Climate Science impact</h3>
       <p class="card-body">Each photo you upload has a direct & tangible impact on the world of climate science!</p>
     </article>
    <article class="card" style="background: linear-gradient(135deg, #f3e5f5 0%, #ce93d8 100%); border-left: 6px solid #8e24aa;">
       <h3 class="card-title">Learn as you go</h3>
-      <p class="card-body">Concise explanations for each cloud type: typical conditions, formation, and weather implications.</p>
+      <p class="card-body">Concise explanations & facts for each cloud type: typical conditions, formation, and weather implications.</p>
     </article>
    <article class="card" style="background: linear-gradient(135deg, #e8f5e9 0%, #a5d6a7 100%); border-left: 6px solid #388e3c;">
       <h3 class="card-title">Your sky gallery</h3>
@@ -64,7 +73,7 @@ last_updated: 2025-09-06
     </article>
     <article class="card" style="background: linear-gradient(135deg, #e0f2f1 0%, #80cbc4 100%); border-left: 6px solid #00897b;">
       <h3 class="card-title">Privacy-respecting</h3>
-      <p class="card-body">Clear controls and a straightforward privacy policy. Your photos are yours and yours alone.</p>
+      <p class="card-body">Clear controls and a straightforward privacy policy. It's your decision to share your photos or not!</p>
     </article>
   </div>
 </section>
@@ -74,7 +83,7 @@ last_updated: 2025-09-06
   <h2 class="section-title">How it works</h2>
   <ol class="steps">
     <li><strong>Capture:</strong> Open Cloud Point and take a photo of the sky (or choose one from Photos).</li>
-    <li><strong>Identify:</strong> The app analyses features like texture, altitude cues, and structure to suggest a cloud type.</li>
+    <li><strong>Identify:</strong> The app analyses features like texture, altitude cues, and shape to suggest a cloud type.</li>
     <li><strong>Understand:</strong> Read a short explanation about that cloud and what it can indicate.</li>
     <li><strong>Save & share:</strong> Keep your favorite shots or share them with the community.</li>
   </ol>

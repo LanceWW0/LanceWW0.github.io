@@ -104,8 +104,8 @@ headshot: /assets/images/me_snow.jpeg
   <h2 class="section-title">Latest posts</h2>
   <div class="blog-tiles-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
     <!-- Blog Tile 1 -->
-    <a href="/blog/why-i-gave-up-on-android/" style="text-decoration: none;">
-      <div class="blog-tile" style="position: relative; height: 320px; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); cursor: pointer; transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); background-image: linear-gradient(135deg, rgba(66, 133, 244, 0.85), rgba(66, 133, 244, 0.7)), url('/blog/why-i-gave-up-on-android/header.png'); background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: flex-end; padding: 2rem; color: white; text-decoration: none;">
+    <a href="/blog/why-i-finally-gave-up-with-android/" style="text-decoration: none;">
+      <div class="blog-tile" style="position: relative; height: 320px; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); cursor: pointer; transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); background-image: linear-gradient(135deg, rgba(66, 133, 244, 0.85), rgba(66, 133, 244, 0.7)), url('/blog/why-i-finally-gave-up-with-android/header.png'); background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: flex-end; padding: 2rem; color: white; text-decoration: none;">
         <h3 style="margin: 0 0 0.75rem 0; font-size: 1.5rem; font-weight: 600; line-height: 1.3; letter-spacing: -0.5px; color: white;">Why I Finally Gave Up With Android</h3>
         <p style="margin: 0; font-size: 1rem; line-height: 1.5; opacity: 0.95; color: rgba(255,255,255,0.95);">What drove me away from Android development — and why Apple just makes more sense for indie developers.</p>
         <style>

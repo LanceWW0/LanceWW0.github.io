@@ -86,7 +86,7 @@ last_updated: 2025-09-06
     <li><strong>Identify:</strong> The app analyses features like texture, altitude cues, and shape to suggest a cloud type.</li>
     <li><strong>Understand:</strong> Read a short explanation about that cloud and what it can indicate.</li>
     <li><strong>Save & share:</strong> Keep your favorite shots or share them with the community.</li>
-  </ol>
+  </ol> 
 </section>
 
 <!-- SCREENSHOTS (placeholders you can replace) -->
@@ -108,11 +108,13 @@ last_updated: 2025-09-06
         Sorry, your browser doesn’t support embedded videos.
       </video>
     </div>
-    <img src="/assets/images/apps/cloud-point/1.png" alt="Cloud Point capture screen" />
-    <img src="/assets/images/apps/cloud-point/2.png" alt="Identification result view" />
-    <img src="/assets/images/apps/cloud-point/3.png" alt="Cloud type details" />
-    <img src="/assets/images/apps/cloud-point/4.png" alt="Gallery of cloud photos" />
-    <img src="/assets/images/apps/cloud-point/5.png" alt="extra photo" />
+    <img src="/assets/images/apps/cloud-point/1.png" alt="Cloud Point identify screen 1" />
+    <img src="/assets/images/apps/cloud-point/2.png" alt="Cloud Point identify screen 2" />
+    <img src="/assets/images/apps/cloud-point/3.png" alt="Global community gallery screen" />
+    <img src="/assets/images/apps/cloud-point/4.png" alt="Locations map screen" />
+    <img src="/assets/images/apps/cloud-point/5.png" alt="Learn cloud types screen" />
+    <img src="/assets/images/apps/cloud-point/6.png" alt="Rank up user profile screen" />
+    <img src="/assets/images/apps/cloud-point/7.png" alt="Compete on leaderboard screen" />
   </div>
   <p class="section-cta"><a class="btn btn-primary" href="{{ page.app_store_url }}">Get Cloud Point</a></p>
 </section>

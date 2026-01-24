@@ -83,8 +83,10 @@ last_updated: 2025-09-07
     <div class="grid-screens">
         <img src="/assets/images/apps/geology-ai/1.png" alt="Geology AI identification screen" />
         <img src="/assets/images/apps/geology-ai/2.png" alt="Identification result view" />
-        <img src="/assets/images/apps/geology-ai/3.png" alt="Rock/mineral details" />
-        <img src="/assets/images/apps/geology-ai/4.png" alt="Sketches Page" />
+        <img src="/assets/images/apps/geology-ai/3.png" alt="Sketch" />
+        <img src="/assets/images/apps/geology-ai/4.png" alt="Features Page" />
+        <img src="/assets/images/apps/geology-ai/5.png" alt="For everyone Page" />
+        <img src="/assets/images/apps/geology-ai/6.png" alt="CTA Page" />
     </div>
     <p class="section-cta"><a class="btn btn-primary" href="{{ page.app_store_url }}">Get Geology AI</a></p>
 </section>

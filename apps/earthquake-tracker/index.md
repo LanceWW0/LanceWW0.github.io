@@ -96,9 +96,12 @@ last_updated: 2025-09-07
         Sorry, your browser doesn’t support embedded videos.
       </video>
     </div>
-        <img src="/assets/images/apps/earthquake-tracker/1.png" alt="Live earthquake map" />
-        <img src="/assets/images/apps/earthquake-tracker/2.png" alt="Alerts custom view" />
-        <img src="/assets/images/apps/earthquake-tracker/3.png" alt="List view of all earthquakes" />
+        <img src="/assets/images/apps/earthquake-tracker/1.png" alt="Live earthquake feed" />
+        <img src="/assets/images/apps/earthquake-tracker/2.png" alt="List View of Earthquakes" />
+        <img src="/assets/images/apps/earthquake-tracker/3.png" alt="Real time alerts page" />
+        <img src="/assets/images/apps/earthquake-tracker/4.png" alt="Custom regions page" />
+        <img src="/assets/images/apps/earthquake-tracker/5.png" alt="Magnitude filter page" />
+        <img src="/assets/images/apps/earthquake-tracker/6.png" alt="Global tracking page" />
     </div>
     <p class="section-cta"><a class="btn btn-primary" href="{{ page.app_store_url }}">Get Earthquake Tracker</a></p>
 </section>

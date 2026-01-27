@@ -1,6 +1,9 @@
-<p>
-  <a href="/">← Back to Home</a>
-</p>
+<a href="/" class="back-link">← Back to Home</a>
+
+<header class="apps-header">
+  <h1 class="apps-header-title">My Apps</h1>
+  <p class="apps-header-subtitle">A collection of iOS apps designed to educate, inspire, and simplify your life</p>
+</header>
 
 <section class="apps-grid">
   {%- for app in site.data.apps -%}
@@ -24,6 +27,4 @@
   {%- endfor -%}
 </section>
 
--->
-
-<p class="apps-note">Looking for privacy policies? You’ll find each one on its app page.</p>
+<p class="apps-note">Looking for privacy policies? You'll find each one on its app page.</p>

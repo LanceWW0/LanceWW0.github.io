@@ -9,9 +9,7 @@ app_store_url: https://apps.apple.com/gb/app/cloud-point-cloud-identifier/id6480
 last_updated: 2025-09-06
 ---
 
-<p>
-  <a href="/apps/">← Back to All Apps</a>
-</p>
+<a href="/apps/" class="back-link">← Back to All Apps</a>
 
 <!-- HERO -->
 <section class="hero app-hero" style="background-image: linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.55)), url('{{ page.hero_background }}');">
@@ -32,69 +30,76 @@ last_updated: 2025-09-06
 <!-- SHORT PITCH -->
 <section class="section lead">
   <p>
-    Capture the sky, let AI name your clouds, and learn what they signal about the weather and changing climate. Made for curious minds, students, photographers, hikers—anyone who looks up and wonders what’s happening above.
+    Capture the sky, let AI name your clouds, and learn what they signal about the weather and changing climate. Made for curious minds, students, photographers, hikers—anyone who looks up and wonders what's happening above.
   </p>
 </section>
 
 <!-- CLIMATE SCIENCE IMPACT -->
-<section class="section" style="background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%); border-radius: 16px; padding: 2.5rem; margin-bottom: 2.5rem;">
-  <h2 class="section-title" style="color: #1565c0; margin-top: 0;">How it impacts climate science</h2>
-  <p style="font-size: 1.1em; line-height: 1.7; margin-bottom: 1.5em;">
-    Every photo you upload contributes directly to a growing bank of ground-based cloud observations. These observations are invaluable for understanding atmospheric patterns and improving weather prediction models. With our community documenting cloud types from diverse locations, they're helping scientists build a richer, more comprehensive dataset with every image!
-  </p>
-  <p style="font-size: 1.1em; line-height: 1.7;">
-    The coordinates attached to each observation enable researchers to create a spatially and temporally rich database—mapping how clouds vary across different regions and tracking how patterns change over time. This ground-truth data complements satellite observations and helps refine our understanding of climate dynamics, weather systems, and the factors that influence local and global weather patterns.
-  </p>
+<section class="app-section">
+  <div class="highlight-box">
+    <h2>🌍 How it impacts climate science</h2>
+    <p>
+      Every photo you upload contributes directly to a growing bank of ground-based cloud observations. These observations are invaluable for understanding atmospheric patterns and improving weather prediction models. With our community documenting cloud types from diverse locations, they're helping scientists build a richer, more comprehensive dataset with every image!
+    </p>
+    <p>
+      The coordinates attached to each observation enable researchers to create a spatially and temporally rich database—mapping how clouds vary across different regions and tracking how patterns change over time. This ground-truth data complements satellite observations and helps refine our understanding of climate dynamics, weather systems, and the factors that influence local and global weather patterns.
+    </p>
+  </div>
 </section>
 
 <!-- FEATURES -->
-<section class="section" id="features">
-  <h2 class="section-title">Why you’ll love it</h2>
-  <div class="grid-cards">
-   <article class="card" style="background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%); border-left: 6px solid #0288d1;">
-      <h3 class="card-title">AI cloud identification</h3>
-      <p class="card-body">Snap a photo or upload one from your library and get a type prediction and interesting facts.</p>
+<section class="app-section" id="features">
+  <h2 class="app-section-title">Why you'll love it</h2>
+  <div class="feature-grid">
+    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #0288d1, #03a9f4); --feature-bg: linear-gradient(135deg, #e0f7fa, #b2ebf2);">
+      <div class="feature-card-icon" style="background: linear-gradient(135deg, #e0f7fa, #b2ebf2);">🤖</div>
+      <h3>AI cloud identification</h3>
+      <p>Snap a photo or upload one from your library and get a type prediction and interesting facts.</p>
     </article>
-   <article class="card" style="background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); border-left: 6px solid #f57c00;">
-      <h3 class="card-title">Climate Science impact</h3>
-      <p class="card-body">Each photo you upload has a direct & tangible impact on the world of climate science!</p>
+    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #f57c00, #ff9800); --feature-bg: linear-gradient(135deg, #fff3e0, #ffe0b2);">
+      <div class="feature-card-icon" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2);">🔬</div>
+      <h3>Climate Science impact</h3>
+      <p>Each photo you upload has a direct & tangible impact on the world of climate science!</p>
     </article>
-   <article class="card" style="background: linear-gradient(135deg, #f3e5f5 0%, #ce93d8 100%); border-left: 6px solid #8e24aa;">
-      <h3 class="card-title">Learn as you go</h3>
-      <p class="card-body">Concise explanations & facts for each cloud type: typical conditions, formation, and weather implications.</p>
+    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #8e24aa, #ab47bc); --feature-bg: linear-gradient(135deg, #f3e5f5, #e1bee7);">
+      <div class="feature-card-icon" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7);">📚</div>
+      <h3>Learn as you go</h3>
+      <p>Concise explanations & facts for each cloud type: typical conditions, formation, and weather implications.</p>
     </article>
-   <article class="card" style="background: linear-gradient(135deg, #e8f5e9 0%, #a5d6a7 100%); border-left: 6px solid #388e3c;">
-      <h3 class="card-title">Your sky gallery</h3>
-      <p class="card-body">Build a personal log of cloud sightings and share your favorite captures.</p>
+    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #388e3c, #4caf50); --feature-bg: linear-gradient(135deg, #e8f5e9, #c8e6c9);">
+      <div class="feature-card-icon" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">🖼️</div>
+      <h3>Your sky gallery</h3>
+      <p>Build a personal log of cloud sightings and share your favorite captures.</p>
     </article>
-     <article class="card" style="background: linear-gradient(135deg, #fffde7 0%, #fff9c4 100%); border-left: 6px solid #fbc02d;">
-      <h3 class="card-title">Location-based</h3>
-      <p class="card-body">See where everyone else's photos have been taken.</p>
+    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #fbc02d, #ffeb3b); --feature-bg: linear-gradient(135deg, #fffde7, #fff9c4);">
+      <div class="feature-card-icon" style="background: linear-gradient(135deg, #fffde7, #fff9c4);">📍</div>
+      <h3>Location-based</h3>
+      <p>See where everyone else's photos have been taken on an interactive map.</p>
     </article>
-    <article class="card" style="background: linear-gradient(135deg, #e0f2f1 0%, #80cbc4 100%); border-left: 6px solid #00897b;">
-      <h3 class="card-title">Privacy-respecting</h3>
-      <p class="card-body">Clear controls and a straightforward privacy policy. It's your decision to share your photos or not!</p>
+    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #00897b, #26a69a); --feature-bg: linear-gradient(135deg, #e0f2f1, #b2dfdb);">
+      <div class="feature-card-icon" style="background: linear-gradient(135deg, #e0f2f1, #b2dfdb);">🔒</div>
+      <h3>Privacy-respecting</h3>
+      <p>Clear controls and a straightforward privacy policy. It's your decision to share your photos or not!</p>
     </article>
   </div>
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="section">
-  <h2 class="section-title">How it works</h2>
-  <ol class="steps">
+<section class="app-section">
+  <h2 class="app-section-title">How it works</h2>
+  <ol class="steps-list">
     <li><strong>Capture:</strong> Open Cloud Point and take a photo of the sky (or choose one from Photos).</li>
     <li><strong>Identify:</strong> The app analyses features like texture, altitude cues, and shape to suggest a cloud type.</li>
     <li><strong>Understand:</strong> Read a short explanation about that cloud and what it can indicate.</li>
     <li><strong>Save & share:</strong> Keep your favorite shots or share them with the community.</li>
-  </ol> 
+  </ol>
 </section>
 
-<!-- SCREENSHOTS (placeholders you can replace) -->
-<section class="section">
-  <h2 class="section-title">Screenshots</h2>
-  <div class="grid-screens">
-   <!-- VIDEO in the grid -->
-    <div class="video-wrap" style="max-width: 400px; margin: 0 auto;">
+<!-- SCREENSHOTS -->
+<section class="app-section">
+  <h2 class="app-section-title">Screenshots</h2>
+  <div class="screenshots-grid">
+    <div class="video-container">
       <video
         autoplay
         muted
@@ -102,10 +107,9 @@ last_updated: 2025-09-06
         loop
         controls
         preload="metadata"
-        poster="/assets/images/apps/cloud-point/poster.jpg"
-        style="width: 100%; height: auto;">
+        poster="/assets/images/apps/cloud-point/poster.jpg">
         <source src="/assets/images/apps/cloud-point/video.mp4" type="video/mp4">
-        Sorry, your browser doesn’t support embedded videos.
+        Sorry, your browser doesn't support embedded videos.
       </video>
     </div>
     <img src="/assets/images/apps/cloud-point/1.png" alt="Cloud Point identify screen 1" />
@@ -116,43 +120,45 @@ last_updated: 2025-09-06
     <img src="/assets/images/apps/cloud-point/6.png" alt="Rank up user profile screen" />
     <img src="/assets/images/apps/cloud-point/7.png" alt="Compete on leaderboard screen" />
   </div>
-  <p class="section-cta"><a class="btn btn-primary" href="{{ page.app_store_url }}">Get Cloud Point</a></p>
+  <p class="app-cta"><a class="btn btn-primary" href="{{ page.app_store_url }}">Get Cloud Point</a></p>
 </section>
 
 <!-- FAQ -->
-<section class="section">
-  <h2 class="section-title">FAQ</h2>
-  <details>
-    <summary>Does Cloud Point work offline?</summary>
-    <p>Unfortunately no, an internet connection is required to identify & view others' photos. However, don't let that stop you from taking pictures for later identification!</p>
-  </details>
-  <details>
-    <summary>If I upload an image, will everyone else see it?</summary>
-    <p>It is your choice! You can choose to share your capture with the world or keep it private.</p>
-  </details>
-  <details>
-    <summary>Which devices are supported?</summary>
-    <p>Cloud Point runs on iPhone and iPad running recent versions of iOS/iPadOS. Check the App Store listing for specifics.</p>
-  </details>
-  <details>
-    <summary>How do you handle my data?</summary>
-    <p>We keep things simple and transparent. Read the <a href="/apps/cloud-point/privacy-policy/">Privacy Policy</a> for details.</p>
-  </details>
-  <details>
-    <summary>Is it free?</summary>
-    <p>Everyone gets access to upload images to the platform, however this is capped for free users (running the servers costs money!). To support the app, you can subscribe monthly or yearly for unlimited uploads.</p>
-  </details>
+<section class="app-section">
+  <h2 class="app-section-title">FAQ</h2>
+  <div class="faq-list">
+    <details>
+      <summary>Does Cloud Point work offline?</summary>
+      <p>Unfortunately no, an internet connection is required to identify & view others' photos. However, don't let that stop you from taking pictures for later identification!</p>
+    </details>
+    <details>
+      <summary>If I upload an image, will everyone else see it?</summary>
+      <p>It is your choice! You can choose to share your capture with the world or keep it private.</p>
+    </details>
+    <details>
+      <summary>Which devices are supported?</summary>
+      <p>Cloud Point runs on iPhone and iPad running recent versions of iOS/iPadOS. Check the App Store listing for specifics.</p>
+    </details>
+    <details>
+      <summary>How do you handle my data?</summary>
+      <p>We keep things simple and transparent. Read the <a href="/apps/cloud-point/privacy-policy/">Privacy Policy</a> for details.</p>
+    </details>
+    <details>
+      <summary>Is it free?</summary>
+      <p>Everyone gets access to upload images to the platform, however this is capped for free users (running the servers costs money!). To support the app, you can subscribe monthly or yearly for unlimited uploads.</p>
+    </details>
+  </div>
 </section>
 
-<!-- META / SUPPORT -->
-<section class="section meta">
-  <div class="meta-grid">
-    <div>
-      <h3>Support</h3>
+<!-- SUPPORT -->
+<section class="app-section">
+  <div class="support-grid">
+    <div class="support-card">
+      <h3>📧 Support</h3>
       <p>Questions or feedback? Email <a href="mailto:cloud.point88@gmail.com">cloud.point88@gmail.com</a>.</p>
     </div>
-    <div>
-      <h3>Version & updates</h3>
+    <div class="support-card">
+      <h3>🔄 Version & updates</h3>
       <p>Last updated: <time datetime="{{ page.last_updated }}">{{ page.last_updated }}</time>. See the App Store for release notes.</p>
     </div>
   </div>

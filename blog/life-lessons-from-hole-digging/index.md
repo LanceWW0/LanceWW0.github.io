@@ -40,9 +40,7 @@ description: "What digging a hole as a kid taught me about app building, creativ
 }
 </script>
 
-<p>
-  <a href="/blog">← Back to Blog Posts</a>
-</p>
+<a href="/blog" class="back-link">← Back to Blog Posts</a>
 
 <div style="text-align:center;">
     <h1 style="font-size:3em;">Life Lessons From Digging A Hole</h1>

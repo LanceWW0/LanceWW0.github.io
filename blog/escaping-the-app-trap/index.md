@@ -40,9 +40,7 @@ description: "A reflection on the ethical tension between building great apps an
 }
 </script>
 
-<p>
-  <a href="/blog">← Back to Blog Posts</a>
-</p>
+<a href="/blog" class="back-link">← Back to Blog Posts</a>
 
 <div style="text-align:center;">
   <h1 style="font-size:3em;">Escaping the App Trap</h1>

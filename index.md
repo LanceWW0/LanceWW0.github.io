@@ -18,7 +18,8 @@ headshot: /assets/images/me_snow.jpeg
       Sharing insights from my solo development journey.
     </p>
     <div class="hero-ctas">
-      <a class="btn btn-primary" href="/apps/">See my apps</a>
+      <a class="btn btn-hero-primary" href="/apps/">See my apps</a>
+      <a class="btn btn-hero-hire" href="/hire/">✦ Hire Me</a>
       <a class="btn btn-ghost" href="/blog/">Read the blog</a>
       <a class="btn btn-ghost" href="/about/">About me</a>
     </div>

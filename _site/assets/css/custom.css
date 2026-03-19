@@ -448,7 +448,7 @@ section.apps-grid,
   will-change: transform;
 }
 
-/* Gradient overlay that intensifies on hover */
+/* Gradient overlay that intensifies on hover - kept subtle for readability */
 .app-card.fancy::before {
   content: "";
   position: absolute;
@@ -456,16 +456,16 @@ section.apps-grid,
   border-radius: inherit;
   background: linear-gradient(
     135deg,
-    color-mix(in oklab, var(--accent) 25%, transparent) 0%,
-    color-mix(in oklab, var(--accent2) 20%, transparent) 50%,
-    color-mix(in oklab, var(--accent) 15%, transparent) 100%
+    color-mix(in oklab, var(--accent) 12%, transparent) 0%,
+    color-mix(in oklab, var(--accent2) 10%, transparent) 50%,
+    color-mix(in oklab, var(--accent) 8%, transparent) 100%
   );
   opacity: 0;
   z-index: 0;
   transition: opacity .4s ease;
 }
 
-/* Animated glow blob */
+/* Animated glow blob - subtle version */
 .app-card.fancy::after {
   content: "";
   position: absolute;
@@ -475,12 +475,12 @@ section.apps-grid,
   height: 200%;
   background: radial-gradient(
     circle at 30% 30%,
-    color-mix(in oklab, var(--accent) 30%, transparent) 0%,
+    color-mix(in oklab, var(--accent) 15%, transparent) 0%,
     transparent 50%
   ),
   radial-gradient(
     circle at 70% 70%,
-    color-mix(in oklab, var(--accent2) 25%, transparent) 0%,
+    color-mix(in oklab, var(--accent2) 12%, transparent) 0%,
     transparent 50%
   );
   opacity: 0;
@@ -569,11 +569,12 @@ section.apps-grid,
   font-size: 19px; 
   font-weight: 700;
   line-height: 1.2;
-  transition: color .3s ease;
+  transition: color .3s ease, text-shadow .3s ease;
 }
 
 .app-card.fancy:hover .app-title {
-  color: color-mix(in oklab, var(--accent) 70%, #000);
+  color: #111;
+  text-shadow: 0 1px 2px rgba(255,255,255,.6);
 }
 
 .app-desc { 
@@ -581,6 +582,11 @@ section.apps-grid,
   color: #4a5568;
   font-size: 14px;
   line-height: 1.5;
+  transition: text-shadow .3s ease;
+}
+
+.app-card.fancy:hover .app-desc {
+  text-shadow: 0 1px 2px rgba(255,255,255,.5);
 }
 
 /* Colorful chips */
@@ -594,33 +600,25 @@ section.apps-grid,
 
 .app-card.fancy .chip {
   display: inline-block;
-  padding: 6px 14px;
-  font-size: 11px;
+  padding: 5px 10px;
+  font-size: 10px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: .5px;
-  border-radius: 999px;
-  background: linear-gradient(
-    135deg,
-    color-mix(in oklab, var(--accent) 25%, rgba(255,255,255,.9)),
-    color-mix(in oklab, var(--accent2) 20%, rgba(255,255,255,.9))
-  );
-  color: color-mix(in oklab, var(--accent) 85%, #000);
-  transition: all .3s ease;
-  border: 1px solid color-mix(in oklab, var(--accent) 35%, transparent);
-  box-shadow: 0 2px 6px color-mix(in oklab, var(--accent) 15%, transparent);
+  letter-spacing: .4px;
+  border-radius: 6px;
+  background: #fff;
+  color: #4b5563;
+  transition: transform .2s ease, box-shadow .2s ease;
+  border: none;
+  box-shadow: 0 1px 3px rgba(0,0,0,.1);
   flex-shrink: 0;
 }
 
 .app-card.fancy:hover .chip {
-  background: linear-gradient(
-    135deg,
-    color-mix(in oklab, var(--accent) 90%, #fff),
-    color-mix(in oklab, var(--accent2) 85%, #fff)
-  );
-  color: #fff;
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px color-mix(in oklab, var(--accent) 40%, transparent);
+  background: #fff;
+  color: #1f2937;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0,0,0,.15);
 }
 
 /* Shine sweep effect */

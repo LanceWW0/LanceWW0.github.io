@@ -73,7 +73,7 @@ headshot: /assets/images/me_snow.jpeg
   <div class="highlight-card twitter-bot">
     <div class="highlight-card-inner">
       <div class="icon-wrap">
-        <img src="/assets/images/apps/geology-ai/logo.png" alt="Geology Toolkit logo" width="120" height="120" />
+        <img src="/assets/images/apps/geology-toolkit/logo.png" alt="Geology Toolkit logo" width="120" height="120" />
       </div>
       <div class="content-wrap">
         <h2>Rock of the Day: <span>@GeologyToolkit</span></h2>
@@ -85,7 +85,7 @@ headshot: /assets/images/me_snow.jpeg
         </p>
         <div class="card-actions">
           <a class="btn btn-primary" href="https://x.com/GeologyToolkit" target="_blank" rel="noopener">Follow @GeologyToolkit</a>
-          <a class="btn btn-store" href="/apps/geology-ai/">View the app</a>
+          <a class="btn btn-store" href="/apps/geology-toolkit/">View the app</a>
         </div>
       </div>
     </div>
@@ -113,14 +113,14 @@ headshot: /assets/images/me_snow.jpeg
     </div>
     <!-- Geology AI Card -->
     <div class="featured-card" style="--card-accent: #f59e0b; --card-accent-end: #ef4444;">
-      <img class="card-icon" src="/assets/images/apps/geology-ai/logo.png" alt="Geology AI logo" width="80" height="80" />
+      <img class="card-icon" src="/assets/images/apps/geology-toolkit/logo.png" alt="Geology AI logo" width="80" height="80" />
       <h3 class="card-title">Geology Toolkit: AI Rock ID</h3>
       <p class="card-body">
         A powerful toolkit for field Geologists, aiding understanding, interpretation and sketches in the field!
       </p>
       <div class="card-actions">
-        <a class="btn btn-sm btn-primary" href="/apps/geology-ai/">Learn more</a>
-        <a class="btn btn-sm btn-accent" href="https://apps.apple.com/my/app/geology-ai/id6745966254" target="_blank" rel="noopener">App Store</a>
+        <a class="btn btn-sm btn-primary" href="/apps/geology-toolkit/">Learn more</a>
+        <a class="btn btn-sm btn-accent" href="https://apps.apple.com/my/app/geology-toolkit/id6745966254" target="_blank" rel="noopener">App Store</a>
       </div>
     </div>
   </div>

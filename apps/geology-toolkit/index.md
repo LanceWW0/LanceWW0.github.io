@@ -2,11 +2,11 @@
 layout: default
 title: Geology AI
 description: Instantly identify rocks and minerals, learn about their properties, understand how formations look they way they are and create high-quality pencil sketches.
-permalink: /apps/geology-ai/
-hero_background: /assets/images/apps/geology-ai/hero-bg.jpg
-app_icon: /assets/images/apps/geology-ai/logo.png
-app_store_url: https://apps.apple.com/az/app/geology-ai/id6745966254
-last_updated: 2025-09-07
+permalink: /apps/geology-toolkit/
+hero_background: /assets/images/apps/geology-toolkit/hero-bg.jpg
+app_icon: /assets/images/apps/geology-toolkit/logo.png
+app_store_url: https://apps.apple.com/az/app/geology-toolkit/id6745966254
+last_updated: 2026-03-30
 ---
 
 <a href="/apps/" class="back-link">← Back to All Apps</a>
@@ -22,8 +22,8 @@ last_updated: 2025-09-07
     <div class="hero-ctas">
       <a class="btn btn-primary" href="{{ page.app_store_url }}">Download on the App&nbsp;Store</a>
       <a class="btn btn-ghost" href="#features">See features</a>
-      <a class="btn btn-ghost" href="/apps/geology-ai/privacy-policy/">Privacy&nbsp;policy</a>
-      <a class="btn btn-ghost" href="/apps/geology-ai/terms/">Terms&nbsp;of&nbsp;use</a>
+      <a class="btn btn-ghost" href="/apps/geology-toolkit/privacy-policy/">Privacy&nbsp;policy</a>
+      <a class="btn btn-ghost" href="/apps/geology-toolkit/terms/">Terms&nbsp;of&nbsp;use</a>
     </div>
   </div>
 </section>
@@ -87,12 +87,12 @@ last_updated: 2025-09-07
 <section class="app-section">
   <h2 class="app-section-title">Screenshots</h2>
   <div class="screenshots-grid">
-    <img src="/assets/images/apps/geology-ai/1.png" alt="Geology AI identification screen" />
-    <img src="/assets/images/apps/geology-ai/2.png" alt="Identification result view" />
-    <img src="/assets/images/apps/geology-ai/3.png" alt="Sketch" />
-    <img src="/assets/images/apps/geology-ai/4.png" alt="Features Page" />
-    <img src="/assets/images/apps/geology-ai/5.png" alt="For everyone Page" />
-    <img src="/assets/images/apps/geology-ai/6.png" alt="CTA Page" />
+    <img src="/assets/images/apps/geology-toolkit/1.png" alt="Geology AI identification screen" />
+    <img src="/assets/images/apps/geology-toolkit/2.png" alt="Identification result view" />
+    <img src="/assets/images/apps/geology-toolkit/3.png" alt="Sketch" />
+    <img src="/assets/images/apps/geology-toolkit/4.png" alt="Features Page" />
+    <img src="/assets/images/apps/geology-toolkit/5.png" alt="For everyone Page" />
+    <img src="/assets/images/apps/geology-toolkit/6.png" alt="CTA Page" />
   </div>
   <p class="app-cta"><a class="btn btn-primary" href="{{ page.app_store_url }}">Get Geology AI</a></p>
 </section>
@@ -115,7 +115,7 @@ last_updated: 2025-09-07
     </details>
     <details>
       <summary>How is my data handled?</summary>
-      <p>Your privacy is a priority. Read the <a href="/apps/geology-ai/privacy-policy/">Privacy Policy</a> for full details.</p>
+      <p>Your privacy is a priority. Read the <a href="/apps/geology-toolkit/privacy-policy/">Privacy Policy</a> for full details.</p>
     </details>
     <details>
       <summary>Is Geology AI free?</summary>

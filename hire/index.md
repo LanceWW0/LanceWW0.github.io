@@ -126,7 +126,7 @@ permalink: /hire/
     <!-- Geology AI -->
     <div class="project-card" style="--card-accent: #f59e0b; --card-accent-end: #ef4444;">
       <div class="project-header">
-        <img src="/assets/images/apps/geology-ai/logo.png" alt="Geology AI" class="project-icon" />
+        <img src="/assets/images/apps/geology-toolkit/logo.png" alt="Geology AI" class="project-icon" />
         <div class="project-meta">
           <h3>Geology Toolkit</h3>
           <span class="project-tech">Flutter · iOS & Android</span>
@@ -138,7 +138,7 @@ permalink: /hire/
         <span class="project-stat">$700 MRR</span>
         <span class="project-stat">4.2★</span>
       </div>
-      <a href="/apps/geology-ai/" class="project-link">View project →</a>
+      <a href="/apps/geology-toolkit/" class="project-link">View project →</a>
     </div>
     <!-- What Cow -->
     <div class="project-card" style="--card-accent: #7BD3EA; --card-accent-end: #5D9CFF;">

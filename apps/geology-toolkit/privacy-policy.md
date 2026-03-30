@@ -1,12 +1,12 @@
 ---
 layout: default
 title: Geology AI – Privacy Policy
-app_icon: /assets/images/apps/geology-ai/logo.png
-permalink: /apps/geology-ai/privacy-policy/
+app_icon: /assets/images/apps/geology-toolkit/logo.png
+permalink: /apps/geology-toolkit/privacy-policy/
 last_updated: 2025-09-08
 ---
 
-<a href="/apps/geology-ai/" class="back-link">← Back to Geology AI</a>
+<a href="/apps/geology-toolkit/" class="back-link">← Back to Geology AI</a>
 
 <header class="privacy-header">
   <img class="app-icon" src="{{ page.app_icon }}" alt="Geology AI App Icon" />

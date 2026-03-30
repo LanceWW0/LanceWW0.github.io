@@ -1,12 +1,12 @@
 ---
 layout: default
 title: Geology AI – Terms of Use
-app_icon: /assets/images/apps/geology-ai/logo.png
-permalink: /apps/geology-ai/terms/
+app_icon: /assets/images/apps/geology-toolkit/logo.png
+permalink: /apps/geology-toolkit/terms/
 last_updated: 2026-03-30
 ---
 
-<a href="/apps/geology-ai/" class="back-link">← Back to Geology AI</a>
+<a href="/apps/geology-toolkit/" class="back-link">← Back to Geology AI</a>
 
 <header class="privacy-header">
   <img class="app-icon" src="{{ page.app_icon }}" alt="Geology AI App Icon" />
@@ -19,7 +19,7 @@ last_updated: 2026-03-30
 <section class="privacy-section">
   <h2><span class="section-icon">👋</span> Introduction</h2>
   <p>Welcome to Geology AI ("the App"), developed and operated by Laurence Wayne ("we", "us", "our"). By downloading, accessing, or using the App, you agree to be bound by these Terms of Use ("Terms"). If you do not agree to these Terms, please do not use the App.</p>
-  <p>These Terms should be read alongside our <a href="/apps/geology-ai/privacy-policy/">Privacy Policy</a>, which explains how we handle your data.</p>
+  <p>These Terms should be read alongside our <a href="/apps/geology-toolkit/privacy-policy/">Privacy Policy</a>, which explains how we handle your data.</p>
 </section>
 
 <section class="privacy-section">

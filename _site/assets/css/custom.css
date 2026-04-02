@@ -1419,6 +1419,19 @@ section.apps-grid,
   margin-top: 8px;
 }
 
+/* Embedded tweet inside bot card */
+.rw-tweet-embed {
+  margin: 20px 0 8px;
+  border-radius: 14px;
+  overflow: hidden;
+  max-width: 550px;
+  min-height: 300px;
+}
+.rw-tweet-embed .twitter-timeline-rendered,
+.rw-tweet-embed iframe {
+  border-radius: 14px !important;
+}
+
 /* RiverWatch card */
 .riverwatch-card {
   background: linear-gradient(135deg, #f8fafb 0%, #f5f7f8 50%, #f7f9fa 100%);

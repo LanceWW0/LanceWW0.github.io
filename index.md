@@ -68,6 +68,9 @@ headshot: /assets/images/me_snow.jpeg
         <p class="coming-soon">
           <em>Blog post coming soon on how it was made.</em>
         </p>
+        <div class="rw-tweet-embed">
+<blockquote class="twitter-tweet" data-dnt="true"><a href="https://x.com/GeologyToolkit/status/2038889201391800407">Loading tweet...</a></blockquote>
+        </div>
         <div class="card-actions">
           <a class="btn btn-primary" href="https://x.com/GeologyToolkit" target="_blank" rel="noopener">Follow @GeologyToolkit</a>
           <a class="btn btn-store" href="/apps/geology-toolkit/">View the app</a>
@@ -76,6 +79,7 @@ headshot: /assets/images/me_snow.jpeg
     </div>
   </div>
 </section>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <!-- FEATURED APPS -->
 <section class="featured-section">

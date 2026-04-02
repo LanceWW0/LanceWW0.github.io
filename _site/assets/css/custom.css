@@ -1419,6 +1419,68 @@ section.apps-grid,
   margin-top: 8px;
 }
 
+/* RiverWatch card */
+.riverwatch-card {
+  background: linear-gradient(135deg, #f8fafb 0%, #f5f7f8 50%, #f7f9fa 100%);
+  transition:
+    transform 0.3s cubic-bezier(.34,1.56,.64,1),
+    box-shadow 0.3s ease;
+  cursor: default;
+}
+.riverwatch-card::before {
+  background: linear-gradient(90deg, #2a8a8a, #3aadad);
+}
+.riverwatch-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow:
+    0 20px 50px rgba(42, 138, 138, 0.15),
+    0 8px 24px rgba(42, 138, 138, 0.08);
+}
+.riverwatch-card h2 span {
+  color: #2a8a8a;
+}
+.riverwatch-card .btn-primary {
+  background: #2a8a8a;
+  color: #fff;
+  border: none;
+}
+.riverwatch-card .btn-primary:hover {
+  box-shadow: 0 4px 16px rgba(42, 138, 138, 0.35);
+}
+.riverwatch-card .btn-store {
+  background: #1a202c;
+  color: #fff;
+  border: none;
+}
+.riverwatch-card .btn-store:hover {
+  background: #2d3748;
+}
+
+/* RiverWatch screenshot inside card */
+.rw-screenshot-wrap {
+  margin: 24px 0 8px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.riverwatch-card:hover .rw-screenshot-wrap {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(14, 165, 233, 0.18);
+}
+.rw-screenshot {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+  .riverwatch-stats {
+    justify-content: center;
+  }
+}
+
 /* Featured Apps Section */
 .featured-section {
   max-width: 1100px;

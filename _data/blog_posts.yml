@@ -24,3 +24,12 @@
   colour: "#6E7B8A" # Slate-steel (machine-themed)
   image: /blog/escaping-the-app-trap/header.png
   image_desc: Illustration of a developer feeding gears and code into a large, humming machine on a conveyor belt.
+
+- name: Someone Tried to Bankrupt My Cloud App
+  subtitle: How a rogue user sent my Google Cloud bill into the stratosphere — and what I learned about protecting a Firebase backend the hard way.
+  url: /blog/someone-tried-to-bankrupt-my-app/
+  tags: [Firebase, Security, Indie Dev, Cloud Point]
+  date: 2026-04-02
+  colour: "#E63946"
+  image: /blog/someone-tried-to-bankrupt-my-app/header.png
+  image_desc: Header image for the blog post about a rogue user trying to bankrupt a cloud app.

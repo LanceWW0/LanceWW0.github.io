@@ -19,7 +19,6 @@ headshot: /assets/images/me_snow.jpeg
     </p>
     <div class="hero-ctas">
       <a class="btn btn-hero-primary" href="/apps/">See my apps</a>
-      <a class="btn btn-hero-hire" href="/hire/">✦ Hire Me</a>
       <a class="btn btn-ghost" href="/blog/">Read the blog</a>
       <a class="btn btn-ghost" href="/about/">About me</a>
     </div>
@@ -138,6 +137,14 @@ headshot: /assets/images/me_snow.jpeg
     </a>
   </div>
   <p class="section-cta"><a href="/blog/">See all posts →</a></p>
+</section>
+
+<!-- HIRE ME -->
+<section class="section">
+<div class="hire-banner">
+<p>Looking for a developer for your next mobile app, web tool or data project? I'm available for freelance work.</p>
+<a class="btn btn-hire" href="/hire/">✦ Hire Me</a>
+</div>
 </section>
 
 <!-- MINI ABOUT -->

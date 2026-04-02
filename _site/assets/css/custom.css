@@ -1274,6 +1274,41 @@ section.apps-grid,
   }
 }
 
+/* Hire Me inline section */
+.hire-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 32px 24px;
+  background: linear-gradient(135deg, #fffbeb 0%, #fff7ed 100%);
+  border: 1px solid rgba(249, 115, 22, 0.15);
+  border-radius: 16px;
+}
+.hire-banner p {
+  color: #4b5563;
+  font-size: 1.05rem;
+  margin: 0 0 16px;
+  max-width: 600px;
+}
+.btn-hire {
+  display: inline-block;
+  padding: 12px 28px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #f59e0b, #f97316);
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(249, 115, 22, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-hire:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(249, 115, 22, 0.45);
+  color: #fff;
+}
+
 .hero .btn-ghost {
   backdrop-filter: blur(8px);
   background: rgba(255,255,255,0.12);

@@ -33,3 +33,12 @@
   colour: "#E63946"
   image: /blog/someone-tried-to-bankrupt-my-app/header.png
   image_desc: Header image for the blog post about a rogue user trying to bankrupt a cloud app.
+
+- name: "The Quest for England's River Health Data"
+  subtitle: "How I spent an Easter weekend downloading 25 years of water quality data one API call at a time — because the government deleted the download button."
+  url: /blog/the-quest-for-englands-river-health-data/
+  tags: [Open Data, Environment, Python, RiverWatch]
+  date: 2026-04-15
+  colour: "#2E86AB"
+  image: /blog/the-quest-for-englands-river-health-data/header.png
+  image_desc: Header image for the blog post about downloading England's river health data from the Environment Agency API.

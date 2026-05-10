@@ -42,3 +42,12 @@
   colour: "#2E86AB"
   image: /blog/the-quest-for-englands-river-health-data/header.png
   image_desc: Header image for the blog post about downloading England's river health data from the Environment Agency API.
+
+- name: "93 Million Tokens, One Very Bad Afternoon"
+  subtitle: "How a leaked API key burned through $91.60 of OpenAI credits while I was making tea."
+  url: /blog/93-million-tokens-one-very-bad-afternoon/
+  tags: [OpenAI, Security, Indie Dev, API]
+  date: 2026-05-10
+  colour: "#10A37F"
+  image: /blog/93-million-tokens-one-very-bad-afternoon/header.png
+  image_desc: Header image for the blog post about a leaked OpenAI API key burning through credits.

@@ -23,6 +23,7 @@ last_updated: 2025-09-06
       <a class="btn btn-primary" href="{{ page.app_store_url }}">Download on the App&nbsp;Store</a>
       <a class="btn btn-ghost" href="#features">See features</a>
       <a class="btn btn-ghost" href="/apps/cloud-point/privacy-policy/">Privacy&nbsp;policy</a>
+      <a class="btn btn-ghost" href="/apps/cloud-point/terms/">Terms&nbsp;of&nbsp;use</a>
     </div>
   </div>
 </section>

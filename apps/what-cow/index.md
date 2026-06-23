@@ -23,6 +23,7 @@ last_updated: 2025-09-07
       <a class="btn btn-primary" href="{{ page.app_store_url }}">Download on the App&nbsp;Store</a>
       <a class="btn btn-ghost" href="#features">See features</a>
       <a class="btn btn-ghost" href="/apps/what-cow/privacy-policy/">Privacy&nbsp;policy</a>
+      <a class="btn btn-ghost" href="/apps/what-cow/terms/">Terms&nbsp;of&nbsp;use</a>
     </div>
   </div>
 </section>
@@ -65,8 +66,8 @@ last_updated: 2025-09-07
     </article>
     <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #00897b, #26a69a); --feature-bg: linear-gradient(135deg, #e0f2f1, #b2dfdb);">
       <div class="feature-card-icon" style="background: linear-gradient(135deg, #e0f2f1, #b2dfdb);">🏔️</div>
-      <h3>Offline Adventures</h3>
-      <p>Upload images taken on your walks in the countryside to identify cows when you're back online.</p>
+      <h3>Capture anywhere</h3>
+      <p>Take photos on your walks in the countryside while offline, then identify the cows once you're back online.</p>
     </article>
   </div>
   <p style="text-align: center; color: #64748b; margin-top: 24px; font-size: 1.05rem;">
@@ -102,7 +103,7 @@ last_updated: 2025-09-07
   <div class="faq-list">
     <details>
       <summary>Does What Cow work offline?</summary>
-      <p>Yes, you can identify common breeds offline, but for best accuracy and rare breeds, an internet connection is recommended.</p>
+      <p>No—an internet connection is required to identify cows. You can still take photos while offline (for example, out on a countryside walk) and identify them later once you're back online.</p>
     </details>
     <details>
       <summary>Can I use photos from my library?</summary>

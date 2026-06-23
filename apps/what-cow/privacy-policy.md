@@ -27,7 +27,7 @@ last_updated: 2025-09-08
   <h3>Information You Provide</h3>
   <ul>
     <li>We do not collect any direct indicators about you personally—there is no sign-up process or login features.</li>
-    <li>Photos that are uploaded to the app are not stored on-device or in the cloud. They are sent via the OpenAI API (which has its own privacy policy).</li>
+    <li>Photos you capture or upload are stored locally on your device only—they are never stored in the cloud, and they are removed if you delete the app. To identify a cow, a photo is sent to the Google Gemini API for interpretation (which has its own privacy policy), but it is not retained on our servers.</li>
   </ul>
 
   <h3>Automatically Collected Information</h3>
@@ -79,7 +79,7 @@ last_updated: 2025-09-08
     </div>
     <div class="third-party-item">
       <span class="service-icon">🤖</span>
-      <span class="service-name">OpenAI API</span>
+      <span class="service-name">Google Gemini API</span>
       <span class="service-desc">Image interpretation</span>
     </div>
   </div>
@@ -95,8 +95,8 @@ last_updated: 2025-09-08
 </section>
 
 <section class="privacy-section">
-  <h2><span class="section-icon">👶</span> Children's Privacy</h2>
-  <p>What Cow is not directed at children under 13. We do not knowingly collect data from children.</p>
+  <h2><span class="section-icon">👨‍👩‍👧</span> Suitable for All Ages</h2>
+  <p>What Cow is suitable for users of all ages. There is no sign-up or login, and we do not collect personal information that identifies any individual, regardless of age.</p>
 </section>
 
 <section class="privacy-section">

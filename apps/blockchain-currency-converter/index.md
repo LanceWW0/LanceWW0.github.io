@@ -11,6 +11,15 @@ last_updated: 2025-09-08
 
 <a href="/apps/" class="back-link">← Back to All Apps</a>
 
+<!-- AVAILABILITY NOTICE -->
+<aside class="app-unavailable" role="note">
+  <span class="app-unavailable-icon" aria-hidden="true">⚠️</span>
+  <div>
+    <strong class="app-unavailable-title">Currently unavailable</strong>
+    <p>Blockchain Currency Converter can't be downloaded from the App Store at the moment. This page is kept here for reference.</p>
+  </div>
+</aside>
+
 <!-- HERO -->
 <section class="hero app-hero" style="background-image: linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.55)), url('{{ page.hero_background }}');">
   <div class="hero-inner">
@@ -20,7 +29,7 @@ last_updated: 2025-09-08
       Quickly calculate your Bitcoin trade profits. Enter buy and sell prices, and instantly see your gains or losses—perfect for traders and crypto enthusiasts.
     </p>
     <div class="hero-ctas">
-      <a class="btn btn-primary" href="{{ page.app_store_url }}">Download on the App&nbsp;Store</a>
+      <span class="btn btn-primary is-disabled" aria-disabled="true">Currently unavailable</span>
       <a class="btn btn-ghost" href="#features">See features</a>
       <a class="btn btn-ghost" href="/apps/blockchain-currency-converter/privacy-policy/">Privacy&nbsp;policy</a>
     </div>
@@ -90,7 +99,7 @@ last_updated: 2025-09-08
     <img src="/assets/images/apps/blockchain-currency-converter/2.png" alt="Currency selection view" />
     <img src="/assets/images/apps/blockchain-currency-converter/3.png" alt="Trade history" />
   </div>
-  <p class="app-cta"><a class="btn btn-primary" href="{{ page.app_store_url }}">Get Blockchain Currency Converter</a></p>
+  <p class="app-cta"><span class="btn btn-primary is-disabled" aria-disabled="true">Not available to download</span></p>
 </section>
 
 <!-- FAQ -->

@@ -11,6 +11,15 @@ last_updated: 2025-09-08
 
 <a href="/apps/" class="back-link">← Back to All Apps</a>
 
+<!-- AVAILABILITY NOTICE -->
+<aside class="app-unavailable" role="note">
+  <span class="app-unavailable-icon" aria-hidden="true">⚠️</span>
+  <div>
+    <strong class="app-unavailable-title">Currently unavailable</strong>
+    <p>Pet Portrait AI can't be downloaded from the App Store at the moment. This page is kept here for reference.</p>
+  </div>
+</aside>
+
 <!-- HERO -->
 <section class="hero app-hero" style="background-image: linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.55)), url('{{ page.hero_background }}');">
   <div class="hero-inner">
@@ -20,7 +29,7 @@ last_updated: 2025-09-08
       Transform your pet photos into beautiful, portrait-style paintings with the power of AI. Upload or snap a picture and save a unique artwork of your furry friend.
     </p>
     <div class="hero-ctas">
-      <a class="btn btn-primary" href="{{ page.app_store_url }}">Download on the App&nbsp;Store</a>
+      <span class="btn btn-primary is-disabled" aria-disabled="true">Currently unavailable</span>
       <a class="btn btn-ghost" href="#features">See features</a>
       <a class="btn btn-ghost" href="/apps/pet-portrait-ai/privacy-policy/">Privacy&nbsp;policy</a>
     </div>
@@ -90,7 +99,7 @@ last_updated: 2025-09-08
     <img src="/assets/images/apps/pet-portrait-ai/2.png" alt="Portrait style selection" />
     <img src="/assets/images/apps/pet-portrait-ai/3.png" alt="Generated pet portrait" />
   </div>
-  <p class="app-cta"><a class="btn btn-primary" href="{{ page.app_store_url }}">Get Pet Portrait AI</a></p>
+  <p class="app-cta"><span class="btn btn-primary is-disabled" aria-disabled="true">Not available to download</span></p>
 </section>
 
 <!-- FAQ -->

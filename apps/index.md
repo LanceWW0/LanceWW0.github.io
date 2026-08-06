@@ -5,8 +5,6 @@ description: A collection of iOS and Android apps by Laurence Wayne — AI ident
 permalink: /apps/
 ---
 
-<a href="/" class="back-link">← Back to Home</a>
-
 <header class="apps-header">
   <h1 class="apps-header-title">My Apps</h1>
   <p class="apps-header-subtitle">A collection of iOS apps designed to educate, inspire, and simplify your life</p>

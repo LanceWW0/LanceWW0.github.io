@@ -5,8 +5,6 @@ description: Writing on indie app development, security incidents, open data and
 permalink: /blog/
 ---
 
-<a href="/" class="back-link">← Back to Home</a>
-
 # Blog Posts
 
 Welcome! Explore all blog posts below.

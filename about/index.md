@@ -5,8 +5,6 @@ description: Who I am, what I build, and why I make apps — a bit of background
 permalink: /about/
 ---
 
-<a href="/" class="back-link">← Back to Home</a>
-
 <div class="about-page">
 
 <h1 class="about-page-title">About Me</h1>

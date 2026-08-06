@@ -5,8 +5,6 @@ description: Mobile app developer for hire. 3+ years experience, 9 apps shipped,
 permalink: /hire/
 ---
 
-<a href="/" class="back-link">← Back to Home</a>
-
 <!-- HERO -->
 <section class="hire-hero">
   <div class="hire-hero-inner">

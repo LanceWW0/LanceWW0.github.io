@@ -25,6 +25,7 @@
   --brand-contrast: #ffffff;
   --card: #f7f7f8;
   --radius: 14px;
+  --header-h: 56px;
 
   /* Fluid type scale. Every step mixes rem with vw so that text still
      responds to the reader's browser font-size setting — a pure px+vw
@@ -44,6 +45,8 @@
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
+  /* Keep anchor targets clear of the sticky header. */
+  scroll-padding-top: calc(var(--header-h) + 16px);
 }
 
 body {
@@ -63,6 +66,15 @@ h1, h2, h3, h4 { line-height: 1.2; }
 
 /* Long unbroken words (app names, URLs) must not push the page wider. */
 .app-title, .card-title, .blog-card h2 { overflow-wrap: anywhere; }
+
+/* Applied for one frame while the theme flips. Without it, the 60+
+   transitions in this file animate every colour in a slow wave. */
+html.theme-transitioning,
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+  transition: none !important;
+}
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -214,9 +226,167 @@ h1, h2, h3, h4 { line-height: 1.2; }
   border-radius: 12px;
 }
 
-.site-header {
-  display: none;
+/* ============================================================
+   SITE HEADER
+
+   Sticky rather than fixed: it stays in normal flow, so no page needs
+   padding-top compensation and the homepage hero simply starts below it.
+
+   Careful — `position: sticky` fails silently, with no error, if any
+   ancestor ever gets overflow: hidden/auto/scroll. The header is a direct
+   child of <body>, so it works; keep it that way.
+   ============================================================ */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 200;
+  background: #ffffff;
+  color: #1a202c;
+  padding: 12px 20px;
+  border-radius: 0 0 8px 0;
+  font-weight: 600;
+  text-decoration: none;
 }
+.skip-link:focus { left: 0; }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid rgba(0, 0, 0, .08);
+}
+/* The frosted backdrop lives on a pseudo-element, NOT on .site-header
+   itself. backdrop-filter (like transform and filter) makes an element a
+   containing block for position:fixed descendants — putting it on the
+   header would size the fixed mobile nav panel against the 56px header
+   instead of the viewport, collapsing it to a 48px sliver. */
+@supports (backdrop-filter: blur(1px)) {
+  .site-header { background: transparent; }
+  .site-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    backdrop-filter: saturate(180%) blur(12px);
+    -webkit-backdrop-filter: saturate(180%) blur(12px);
+  }
+}
+
+.site-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: var(--header-h);
+  padding-inline: max(20px, env(safe-area-inset-left));
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.site-brand {
+  margin-right: auto;
+  font-weight: 800;
+  font-size: var(--step-1);
+  letter-spacing: -0.02em;
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-list {
+  display: flex;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 14px;
+  border-radius: 10px;
+  color: #4a5568;
+  text-decoration: none;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.nav-link[aria-current="page"] {
+  color: #6366f1;
+  background: #f0f4ff;
+}
+
+.icon-btn {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 0;
+  border-radius: 10px;
+  color: #4a5568;
+  cursor: pointer;
+}
+.icon-btn[hidden] { display: none; }
+
+/* Show the icon for the theme you would switch TO. */
+html[data-theme="dark"] .icon-sun,
+html[data-theme="light"] .icon-moon { display: none; }
+
+/* Hamburger */
+.nav-toggle { display: none; }
+.nav-toggle-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 20px;
+}
+.nav-toggle-bar {
+  display: block;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform .25s ease, opacity .2s ease;
+}
+[data-nav-open] .nav-toggle-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+[data-nav-open] .nav-toggle-bar:nth-child(2) { opacity: 0; }
+[data-nav-open] .nav-toggle-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+html.is-locked, html.is-locked body { overflow: hidden; }
+
+@media (max-width: 767.98px) {
+  .nav-toggle { display: inline-flex; }
+
+  .site-nav {
+    position: fixed;
+    inset: var(--header-h) 0 0 0;
+    background: var(--bg);
+    transform: translateX(100%);
+    transition: transform .28s cubic-bezier(.2, .9, .3, 1);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 24px max(20px, env(safe-area-inset-left))
+             max(24px, env(safe-area-inset-bottom));
+  }
+  [data-nav-open] .site-nav { transform: none; }
+
+  .nav-list { flex-direction: column; gap: 6px; }
+  .nav-link {
+    min-height: 56px;
+    font-size: var(--step-2);
+    padding-inline: 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  :root { --header-h: 64px; }
+}
+
 .page-content {
   padding-top: 0px;
   padding-left: 20px;

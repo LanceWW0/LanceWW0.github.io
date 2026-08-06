@@ -140,99 +140,10 @@ img { max-width: 100%; height: auto; }
   padding-right: 20px;
 }
 
-.site-footer {
-  margin-top: 48px;
-  background: #0f1115;  /* dark footer */
-  color: #c9ced6;
-  font-size: 15px;
-}
-
-.footer-wrap {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 36px 20px;
-  display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr;  /* brand | nav | meta */
-  gap: 32px;
-}
-
-.footer-logo {
-  font-weight: 800;
-  font-size: 22px;
-  display: inline-block;
-  margin-bottom: 6px;
-  color: #fff;
-  text-decoration: none;
-}
-
-.footer-tagline {
-  margin: 0;
-  color: #99a1ab;
-  max-width: 28ch;
-}
-
-.footer-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.footer-nav a {
-  color: #c9ced6;
-  text-decoration: none;
-}
-.footer-nav a:hover { text-decoration: underline; }
-
-.footer-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  align-items: flex-start;
-}
-
-.footer-contact {
-  color: #c9ced6;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-social {
-  display: flex;
-  gap: 12px;
-}
-.footer-social a img {
-  width: 22px;
-  height: 22px;
-  filter: invert(85%) grayscale(100%); /* makes SVGs light in dark footer */
-  transition: opacity 0.2s ease;
-}
-.footer-social a:hover img {
-  opacity: 0.7;
-}
-
-.footer-copy {
-  margin-top: 8px;
-  font-size: 13px;
-  color: #99a1ab;
-}
-
-/* Responsive */
-@media (max-width: 760px) {
-  .footer-wrap {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-  .footer-nav { flex-direction: row; flex-wrap: wrap; justify-content: center; }
-  .footer-meta { align-items: center; }
-}
-
-/* Responsive */
-@media (max-width: 760px) {
-  .footer-wrap {
-    grid-template-columns: 1fr;
-  }
-  .footer-nav { flex-direction: row; flex-wrap: wrap; gap: 12px 16px; }
-}
+/* Footer styles live in the "Container + base" section further down this file.
+   An earlier duplicate implementation was removed: every rule in it was
+   restated later (later rule wins at equal specificity, and media queries add
+   none), except .footer-meta, which moved down with the rest. */
 
 /* App hero overrides */
 .app-hero .app-icon { border-radius: 22%; border: 3px solid rgba(255,255,255,.7); margin-bottom: 10px; }
@@ -370,50 +281,17 @@ img { max-width: 100%; height: auto; }
   .app-icon { margin: 0 auto; }
 }
 
-/* Force 3 cols on desktop, 2 on tablet, 1 on phones */
-section.apps-grid,
-.apps-grid {
-  display: grid;
-  gap: 20px;
-}
-
-/* Desktop / large screens */
-@media (min-width: 1025px) {
-  section.apps-grid,
-  .apps-grid {
-    grid-template-columns: repeat(3, 1fr) !important; /* last resort override */
-    max-width: 1200px;         /* optional: keep grid from stretching too wide */
-    margin: 0 auto;            /* center the grid */
-  }
-}
-
-/* Tablets / small laptops */
-@media (max-width: 1024px) and (min-width: 641px) {
-  section.apps-grid,
-  .apps-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Phones */
-@media (max-width: 640px) {
-  section.apps-grid,
-  .apps-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 /* ---------- Grid layout: 3/2/1 columns ---------- */
 .apps-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 20px;
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
-@media (max-width: 1024px) { .apps-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; } }
-@media (max-width: 640px)  { .apps-grid { grid-template-columns: 1fr; gap: 16px; } }
+@media (max-width: 1024px) { .apps-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px)  { .apps-grid { grid-template-columns: 1fr; } }
 
 /* ---------- Fancy card base with colorful gradients ---------- */
 .app-card.fancy {
@@ -847,6 +725,14 @@ section.apps-grid,
 }
 .footer-nav a { padding: 4px 0; }
 
+/* Meta column (brand | nav | meta) */
+.footer-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
 /* Contact */
 .footer-contact {
   list-style: none; padding: 0; margin: 0 0 8px;
@@ -893,6 +779,7 @@ section.apps-grid,
   }
   .footer-tagline { margin: 0 auto; }
   .footer-nav { align-items: center; }
+  .footer-meta { align-items: center; }
   .footer-social { justify-content: center; }
   .footer-contact, .footer-social a {
     justify-content: center;

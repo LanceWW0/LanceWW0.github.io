@@ -1,6 +1,7 @@
 ---
 layout: default
 title: About Me
+description: Who I am, what I build, and why I make apps — a bit of background on Laurence Wayne, indie mobile developer.
 permalink: /about/
 ---
 

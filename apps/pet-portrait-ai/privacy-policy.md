@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Pet Portrait AI – Privacy Policy
+description: Privacy policy for Pet Portrait AI — what data the app collects, how it is used, and how it is stored.
 app_icon: /assets/images/apps/pet-portrait-ai/logo.png
 permalink: /apps/pet-portrait-ai/privacy-policy/
 last_updated: 2025-09-08

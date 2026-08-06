@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Cloud Point – Terms of Use
+description: Terms of use for Cloud Point — the rules and conditions that apply when you use the app.
 app_icon: /assets/images/apps/cloud-point/logo.png
 permalink: /apps/cloud-point/terms/
 last_updated: 2026-05-20

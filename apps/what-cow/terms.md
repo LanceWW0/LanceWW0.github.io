@@ -1,6 +1,7 @@
 ---
 layout: default
 title: What Cow – Terms of Use
+description: Terms of use for What Cow — the rules and conditions that apply when you use the app.
 app_icon: /assets/images/apps/what-cow/logo.png
 permalink: /apps/what-cow/terms/
 last_updated: 2026-06-23

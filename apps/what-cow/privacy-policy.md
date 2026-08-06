@@ -1,6 +1,7 @@
 ---
 layout: default
 title: What Cow – Privacy Policy
+description: Privacy policy for What Cow — what data the app collects, how it is used, and how it is stored.
 app_icon: /assets/images/apps/what-cow/logo.png
 permalink: /apps/what-cow/privacy-policy/
 last_updated: 2025-09-08

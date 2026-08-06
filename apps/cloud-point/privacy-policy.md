@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Cloud Point – Privacy Policy
+description: Privacy policy for Cloud Point — what data the app collects, how it is used, and how it is stored.
 app_icon: /assets/images/apps/cloud-point/logo.png
 permalink: /apps/cloud-point/privacy-policy/
 last_updated: 2025-09-08

@@ -1,5 +1,8 @@
 ---
 layout: post
+title: Blog
+description: Writing on indie app development, security incidents, open data and the business of shipping software solo.
+permalink: /blog/
 ---
 
 <a href="/" class="back-link">← Back to Home</a>

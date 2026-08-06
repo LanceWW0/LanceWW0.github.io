@@ -1,8 +1,53 @@
 title: Laurence Wayne
+tagline: Indie iOS &amp; Android App Developer
 description: A personal website and blog where I share my creative ideas, projects, and thoughts on technology, development, and more.
+url: "https://laurence-wayne.com"
+baseurl: ""
+lang: en-GB
+timezone: Europe/London
+
 theme: minima
+
 author:
-  name: Laurence
+  name: Laurence Wayne
+  twitter: solodevdude
 email: hello@laurence-wayne.com
 github_username: LanceWW0
 twitter_username: solodevdude
+
+twitter:
+  username: solodevdude
+  card: summary_large_image
+
+social:
+  name: Laurence Wayne
+  links:
+    - https://github.com/LanceWW0
+    - https://twitter.com/solodevdude
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-feed
+
+# Pages listed in the site header. Without this, minima links every page.
+header_pages:
+  - apps/index.md
+  - blog/index.md
+  - about/index.md
+  - hire/index.md
+
+defaults:
+  - scope:
+      path: "blog"
+    values:
+      image: /assets/images/me_snow.jpeg
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - index.md.backup
+  - .bundle/
+  - vendor/
+  - node_modules/

@@ -2,43 +2,16 @@
 layout: post
 title: "Someone Tried to Bankrupt My Cloud App With Broken Images and Bad Intentions"
 subtitle: "How a rogue user called TheBug0502 sent my Google Cloud bill into the stratosphere — and what I learned about protecting a Firebase backend the hard way."
-url: /blog/someone-tried-to-bankrupt-my-app/
 tags: [Firebase, Security, Indie Dev, Cloud Point]
 date: 2026-04-02
 colour: "#E63946"
 header_image: /blog/someone-tried-to-bankrupt-my-app/header.png
+image: /blog/someone-tried-to-bankrupt-my-app/header.png
 image_desc: "Header image for the blog post about a rogue user trying to bankrupt a cloud app."
 description: "How a rogue user called TheBug0502 sent my Google Cloud bill into the stratosphere — and what I learned about protecting a Firebase backend the hard way."
+seo:
+  type: BlogPosting
 ---
-
-<!-- SEO Meta Tags -->
-<meta name="description" content="How a rogue user called TheBug0502 sent my Google Cloud bill into the stratosphere — and what I learned about protecting a Firebase backend the hard way.">
-<meta property="og:title" content="Someone Tried to Bankrupt My Cloud App With Broken Images and Bad Intentions">
-<meta property="og:description" content="How a rogue user called TheBug0502 sent my Google Cloud bill into the stratosphere — and what I learned about protecting a Firebase backend the hard way.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://LanceWW0.github.io/blog/someone-tried-to-bankrupt-my-app/">
-<meta property="og:image" content="https://LanceWW0.github.io/blog/someone-tried-to-bankrupt-my-app/header.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Someone Tried to Bankrupt My Cloud App With Broken Images and Bad Intentions">
-<meta name="twitter:description" content="How a rogue user called TheBug0502 sent my Google Cloud bill into the stratosphere — and what I learned about protecting a Firebase backend the hard way.">
-<meta name="twitter:image" content="https://LanceWW0.github.io/blog/someone-tried-to-bankrupt-my-app/header.png">
-
-<!-- Structured Data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Someone Tried to Bankrupt My Cloud App With Broken Images and Bad Intentions",
-  "image": "https://LanceWW0.github.io/blog/someone-tried-to-bankrupt-my-app/header.png",
-  "author": {
-    "@type": "Person",
-    "name": "Laurence Wayne"
-  },
-  "datePublished": "2025-11-10",
-  "description": "How a rogue user called TheBug0502 sent my Google Cloud bill into the stratosphere — and what I learned about protecting a Firebase backend the hard way.",
-  "url": "https://LanceWW0.github.io/blog/someone-tried-to-bankrupt-my-app/"
-}
-</script>
 
 <a href="/blog" class="back-link">&larr; Back to Blog Posts</a>
 

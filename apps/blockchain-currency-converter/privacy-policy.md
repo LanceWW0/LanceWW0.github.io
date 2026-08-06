@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Blockchain Currency Converter – Privacy Policy
+description: Privacy policy for Blockchain Currency Converter — what data the app collects, how it is used, and how it is stored.
 app_icon: /assets/images/apps/blockchain-currency-converter/logo.png
 permalink: /apps/blockchain-currency-converter/privacy-policy/
 last_updated: 2025-09-08

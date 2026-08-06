@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Home
-description: Apps, experiments, and notes by Waz.
+description: I build mobile apps, web tools and data projects — and write about the messy bits. Nine apps shipped across iOS and Android.
 permalink: /
+image: /assets/images/me_snow.jpeg
 # Edit these paths:
 hero_background: /assets/images/background.jpeg
 headshot: /assets/images/me_snow.jpeg

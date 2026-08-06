@@ -2,43 +2,16 @@
 layout: post
 title: "93 Million Tokens, One Very Bad Afternoon"
 subtitle: "How a leaked API key burned through $91.60 of OpenAI credits in about 10 minutes."
-url: /blog/93-million-tokens-one-very-bad-afternoon/
 tags: [OpenAI, Security, Indie Dev, API]
 date: 2026-05-10
 colour: "#10A37F"
 header_image: /blog/93-million-tokens-one-very-bad-afternoon/header.png
+image: /blog/93-million-tokens-one-very-bad-afternoon/header.png
 image_desc: "Header image for the blog post about a leaked OpenAI API key burning through credits."
 description: "How a leaked API key burned through $91.60 of OpenAI credits in a single afternoon — and what I changed about my secrets hygiene afterwards."
+seo:
+  type: BlogPosting
 ---
-
-<!-- SEO Meta Tags -->
-<meta name="description" content="How a leaked API key burned through $91.60 of OpenAI credits in a single afternoon — and what I changed about my secrets hygiene afterwards.">
-<meta property="og:title" content="93 Million Tokens, One Very Bad Afternoon">
-<meta property="og:description" content="How a leaked API key burned through $91.60 of OpenAI credits in a single afternoon — and what I changed about my secrets hygiene afterwards.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://LanceWW0.github.io/blog/93-million-tokens-one-very-bad-afternoon/">
-<meta property="og:image" content="https://LanceWW0.github.io/blog/93-million-tokens-one-very-bad-afternoon/header.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="93 Million Tokens, One Very Bad Afternoon">
-<meta name="twitter:description" content="How a leaked API key burned through $91.60 of OpenAI credits in a single afternoon — and what I changed about my secrets hygiene afterwards.">
-<meta name="twitter:image" content="https://LanceWW0.github.io/blog/93-million-tokens-one-very-bad-afternoon/header.png">
-
-<!-- Structured Data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "93 Million Tokens, One Very Bad Afternoon",
-  "image": "https://LanceWW0.github.io/blog/93-million-tokens-one-very-bad-afternoon/header.png",
-  "author": {
-    "@type": "Person",
-    "name": "Laurence Wayne"
-  },
-  "datePublished": "2026-05-10",
-  "description": "How a leaked API key burned through $91.60 of OpenAI credits in a single afternoon — and what I changed about my secrets hygiene afterwards.",
-  "url": "https://LanceWW0.github.io/blog/93-million-tokens-one-very-bad-afternoon/"
-}
-</script>
 
 <a href="/blog" class="back-link">&larr; Back to Blog Posts</a>
 

@@ -2,43 +2,16 @@
 layout: post
 title: "The Quest for England's River Health Data: A Developer's Odyssey"
 subtitle: "How I spent an Easter weekend downloading 25 years of water quality data one API call at a time — because the government deleted the download button."
-url: /blog/the-quest-for-englands-river-heath-data/
 tags: [Open Data, Environment, Python, RiverWatch]
 date: 2026-04-15
 colour: "#2E86AB"
-header_image: /blog/the-quest-for-englands-river-heath-data/header.png
+header_image: /blog/the-quest-for-englands-river-health-data/header.png
+image: /blog/the-quest-for-englands-river-health-data/header.png
 image_desc: "Header image for the blog post about downloading England's river health data from the Environment Agency API."
 description: "How I spent an Easter weekend downloading 25 years of water quality data one API call at a time — because the government deleted the download button."
+seo:
+  type: BlogPosting
 ---
-
-<!-- SEO Meta Tags -->
-<meta name="description" content="How I spent an Easter weekend downloading 25 years of water quality data one API call at a time — because the government deleted the download button.">
-<meta property="og:title" content="The Quest for England's River Health Data: A Developer's Odyssey">
-<meta property="og:description" content="How I spent an Easter weekend downloading 25 years of water quality data one API call at a time — because the government deleted the download button.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://LanceWW0.github.io/blog/the-quest-for-englands-river-heath-data/">
-<meta property="og:image" content="https://LanceWW0.github.io/blog/the-quest-for-englands-river-heath-data/header.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="The Quest for England's River Health Data: A Developer's Odyssey">
-<meta name="twitter:description" content="How I spent an Easter weekend downloading 25 years of water quality data one API call at a time — because the government deleted the download button.">
-<meta name="twitter:image" content="https://LanceWW0.github.io/blog/the-quest-for-englands-river-heath-data/header.png">
-
-<!-- Structured Data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "The Quest for England's River Health Data: A Developer's Odyssey",
-  "image": "https://LanceWW0.github.io/blog/the-quest-for-englands-river-heath-data/header.png",
-  "author": {
-    "@type": "Person",
-    "name": "Laurence Wayne"
-  },
-  "datePublished": "2026-04-15",
-  "description": "How I spent an Easter weekend downloading 25 years of water quality data one API call at a time — because the government deleted the download button.",
-  "url": "https://LanceWW0.github.io/blog/the-quest-for-englands-river-heath-data/"
-}
-</script>
 
 <a href="/blog" class="back-link">&larr; Back to Blog Posts</a>
 

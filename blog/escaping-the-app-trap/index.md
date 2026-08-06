@@ -2,43 +2,16 @@
 layout: post
 title: "Escaping the App Trap: Redefining Success in an Attention Economy"
 subtitle: "How I stopped chasing attention, rethought marketing, and found meaning in app development again."
-url: /blog/escaping-the-app-trap/
 tags: [App Building, Ethics, Creativity, Personal Growth]
 date: 2025-10-27
 colour: "#3C91E6"   # Calming Blue
 header_image: /blog/escaping-the-app-trap/header.png
+image: /blog/escaping-the-app-trap/header.png
 image_desc: "Illustration of a person coding under a spotlight while a sea of notifications and likes swirl around them."
 description: "A reflection on the ethical tension between building great apps and feeding the attention economy — and how redefining success metrics can bring peace back to the craft."
+seo:
+  type: BlogPosting
 ---
-
-<!-- SEO Meta Tags -->
-<meta name="description" content="A reflection on the ethical tension between building great apps and feeding the attention economy — and how redefining success metrics can bring peace back to the craft.">
-<meta property="og:title" content="Escaping the App Trap: Redefining Success in an Attention Economy">
-<meta property="og:description" content="A reflection on the ethical tension between building great apps and feeding the attention economy — and how redefining success metrics can bring peace back to the craft.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://LanceWW0.github.io/blog/escaping-the-app-trap/">
-<meta property="og:image" content="https://LanceWW0.github.io/blog/escaping-the-app-trap/header.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Escaping the App Trap: Redefining Success in an Attention Economy">
-<meta name="twitter:description" content="A reflection on the ethical tension between building great apps and feeding the attention economy — and how redefining success metrics can bring peace back to the craft.">
-<meta name="twitter:image" content="https://LanceWW0.github.io/blog/escaping-the-app-trap/header.png">
-
-<!-- Structured Data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Escaping the App Trap: Redefining Success in an Attention Economy",
-  "image": "https://LanceWW0.github.io/blog/escaping-the-app-trap/header.png",
-  "author": {
-    "@type": "Person",
-    "name": "Your Name"
-  },
-  "datePublished": "2025-10-27",
-  "description": "A reflection on the ethical tension between building great apps and feeding the attention economy — and how redefining success metrics can bring peace back to the craft.",
-  "url": "https://LanceWW0.github.io/blog/escaping-the-app-trap/"
-}
-</script>
 
 <a href="/blog" class="back-link">← Back to Blog Posts</a>
 

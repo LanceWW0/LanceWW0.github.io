@@ -1,6 +1,7 @@
 ---
 layout: default
 title: CO2 Shopper – Privacy Policy
+description: Privacy policy for CO2 Shopper — what data the app collects, how it is used, and how it is stored.
 app_icon: /assets/images/apps/co2-shopper/logo.png
 permalink: /apps/co2-shopper/privacy-policy/
 last_updated: 2025-09-08

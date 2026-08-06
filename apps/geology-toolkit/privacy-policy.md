@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Geology AI – Privacy Policy
+description: Privacy policy for Geology AI — what data the app collects, how it is used, and how it is stored.
 app_icon: /assets/images/apps/geology-toolkit/logo.png
 permalink: /apps/geology-toolkit/privacy-policy/
 last_updated: 2025-09-08

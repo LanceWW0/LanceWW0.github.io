@@ -1,3 +1,10 @@
+---
+layout: default
+title: Apps
+description: A collection of iOS and Android apps by Laurence Wayne — AI identification tools, currency converters, earthquake tracking and more.
+permalink: /apps/
+---
+
 <a href="/" class="back-link">← Back to Home</a>
 
 <header class="apps-header">

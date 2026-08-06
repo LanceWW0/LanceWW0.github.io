@@ -2,43 +2,16 @@
 layout: post
 title: "Why I Finally Gave Up With Android (and Why You Might Too)"
 subtitle: "What drove me away from Android development — and why Apple just makes more sense for indie developers."
-url: /blog/why-i-gave-up-on-android/
 tags: [Android, App Development, Flutter, iOS, Indie Dev]
 date: 2025-10-24
 colour: "#4285F4"   # Google Blue
-header_image: /blog/why-i-gave-up-on-android/header.png
+header_image: /blog/why-i-finally-gave-up-with-android/header.png
+image: /blog/why-i-finally-gave-up-with-android/header.png
 image_desc: "Illustration of a broken Android logo fading into an Apple logo."
 description: "After years of app development, I finally walked away from Android — here’s why. From impossible testing requirements to user spending gaps, this is the reality every indie dev should know."
+seo:
+  type: BlogPosting
 ---
-
-<!-- SEO Meta Tags -->
-<meta name="description" content="After years of app development, I finally walked away from Android — here’s why. From impossible testing requirements to user spending gaps, this is the reality every indie dev should know.">
-<meta property="og:title" content="Why I Finally Gave Up on Android (and Why You Might Too)">
-<meta property="og:description" content="After years of app development, I finally walked away from Android — here’s why. From impossible testing requirements to user spending gaps, this is the reality every indie dev should know.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://yourusername.github.io/blog/why-i-gave-up-on-android/">
-<meta property="og:image" content="https://yourusername.github.io/blog/why-i-gave-up-on-android/header.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Why I Finally Gave Up on Android (and Why You Might Too)">
-<meta name="twitter:description" content="After years of app development, I finally walked away from Android — here’s why. From impossible testing requirements to user spending gaps, this is the reality every indie dev should know.">
-<meta name="twitter:image" content="https://yourusername.github.io/blog/why-i-gave-up-on-android/header.png">
-
-<!-- Structured Data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Why I Finally Gave Up with Android (and Why You Might Too)",
-  "image": "https://yourusername.github.io/blog/why-i-gave-up-on-android/header.png",
-  "author": {
-    "@type": "Person",
-    "name": "Your Name"
-  },
-  "datePublished": "2025-10-24",
-  "description": "After years of app development, I finally walked away from Android — here’s why. From impossible testing requirements to user spending gaps, this is the reality every indie dev should know.",
-  "url": "https://yourusername.github.io/blog/why-i-gave-up-on-android/"
-}
-</script>
 
 <a href="/blog" class="back-link">← Back to Blog Posts</a>
 

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Earthquake Tracker & Monitor – Privacy Policy
+description: Privacy policy for Earthquake Tracker & Monitor — what data the app collects, how it is used, and how it is stored.
 app_icon: /assets/images/apps/earthquake-tracker/logo.png
 permalink: /apps/earthquake-tracker/privacy-policy/
 last_updated: 2025-09-08

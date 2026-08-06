@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Geology AI – Terms of Use
+description: Terms of use for Geology AI — the rules and conditions that apply when you use the app.
 app_icon: /assets/images/apps/geology-toolkit/logo.png
 permalink: /apps/geology-toolkit/terms/
 last_updated: 2026-03-30

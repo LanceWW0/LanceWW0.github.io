@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Currency Converter – Valuto Privacy Policy
+description: Privacy policy for Currency Converter — what data the app collects, how it is used, and how it is stored.
 app_icon: /assets/images/apps/currency-converter/logo.png
 permalink: /apps/currency-converter/privacy-policy/
 last_updated: 2025-10-01

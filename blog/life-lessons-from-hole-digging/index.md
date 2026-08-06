@@ -2,43 +2,16 @@
 layout: post
 title: "Life Lessons From Digging A Hole (and How It’s Like Building an App)"
 subtitle: "How digging a hole can be rather like app building."
-url: /blog/life-lessons-from-hole-digging/
 tags: [Life, Personal Growth, App Building]
 date: 2025-10-07
 colour: "#FF7A59"   # Coral
 header_image: /blog/life-lessons-from-hole-digging/header.png
+image: /blog/life-lessons-from-hole-digging/header.png
 image_desc: "Cartoon of a hole being dug using a spade and finding riches in the dirt."
 description: "What digging a hole as a kid taught me about app building, creativity, and persistence — sometimes you have to dig outwards to go deeper."
+seo:
+  type: BlogPosting
 ---
-
-<!-- SEO Meta Tags -->
-<meta name="description" content="What digging a hole as a kid taught me about app building, creativity, and persistence — sometimes you have to dig outwards to go deeper.">
-<meta property="og:title" content="Life Lessons From Digging A Hole (and How It’s Like Building an App)">
-<meta property="og:description" content="What digging a hole as a kid taught me about app building, creativity, and persistence — sometimes you have to dig outwards to go deeper.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://LanceWW0.github.io/blog/life-lessons-from-hole-digging/">
-<meta property="og:image" content="https://LanceWW0.github.io/blog/life-lessons-from-hole-digging/header.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Life Lessons From Digging A Hole (and How It’s Like Building an App)">
-<meta name="twitter:description" content="What digging a hole as a kid taught me about app building, creativity, and persistence — sometimes you have to dig outwards to go deeper.">
-<meta name="twitter:image" content="https://LanceWW0.github.io/blog/life-lessons-from-hole-digging/header.png">
-
-<!-- Structured Data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Life Lessons From Digging A Hole (and How It’s Like Building an App)",
-  "image": "https://LanceWW0.github.io/blog/life-lessons-from-hole-digging/header.png",
-  "author": {
-    "@type": "Person",
-    "name": "Your Name"
-  },
-  "datePublished": "2025-10-07",
-  "description": "What digging a hole as a kid taught me about app building, creativity, and persistence — sometimes you have to dig outwards to go deeper.",
-  "url": "https://LanceWW0.github.io/blog/life-lessons-from-hole-digging/"
-}
-</script>
 
 <a href="/blog" class="back-link">← Back to Blog Posts</a>
 

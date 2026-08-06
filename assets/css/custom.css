@@ -1,4 +1,22 @@
-/* Base */
+/* ============================================================
+   BREAKPOINTS
+
+   Three widths, used everywhere:  480 · 768 · 1024
+
+   Written desktop-first, so a max-width query uses the .98 form:
+       @media (max-width: 767.98px)   mobile and below
+       @media (min-width: 768px)      tablet and up
+
+   Never pair `max-width: 768px` with `min-width: 768px` — both match at
+   exactly 768 CSS px, and that one-pixel overlap is what previously
+   forced an !important onto .apps-grid.
+
+   These are a convention, not a mechanism: custom properties cannot be
+   used in a media query condition and there is no build step here, so
+   the numbers have to be typed out. Keep them on this scale.
+   ============================================================ */
+
+/* ---------- Base ---------- */
 :root {
   --bg: #ffffff;
   --text: #111111;
@@ -7,10 +25,75 @@
   --brand-contrast: #ffffff;
   --card: #f7f7f8;
   --radius: 14px;
+
+  /* Fluid type scale. Every step mixes rem with vw so that text still
+     responds to the reader's browser font-size setting — a pure px+vw
+     clamp cannot be resized at all (WCAG 1.4.4). */
+  --step--2: clamp(0.69rem, 0.67rem + 0.10vw, 0.75rem);   /* 11 → 12  chips */
+  --step--1: clamp(0.83rem, 0.81rem + 0.13vw, 0.90rem);   /* 13 → 14  meta */
+  --step-0:  clamp(1.00rem, 0.96rem + 0.21vw, 1.125rem);  /* 16 → 18  body */
+  --step-1:  clamp(1.20rem, 1.13rem + 0.36vw, 1.40rem);
+  --step-2:  clamp(1.44rem, 1.31rem + 0.63vw, 1.75rem);
+  --step-3:  clamp(1.73rem, 1.51rem + 1.06vw, 2.25rem);
+  --step-4:  clamp(2.07rem, 1.71rem + 1.76vw, 3.00rem);
+  --step-5:  clamp(2.49rem, 1.90rem + 2.90vw, 4.00rem);   /* hero, post title */
 }
 
-html { scroll-behavior: smooth; }
-img { max-width: 100%; height: auto; }
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: var(--step-0);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-wrap: break-word;
+}
+
+img, video, svg, iframe { max-width: 100%; height: auto; }
+h1, h2, h3, h4 { line-height: 1.2; }
+:focus-visible { outline: 2px solid #6366f1; outline-offset: 2px; border-radius: 4px; }
+
+/* Long unbroken words (app names, URLs) must not push the page wider. */
+.app-title, .card-title, .blog-card h2 { overflow-wrap: anywhere; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Tap targets ----------
+   44px minimum on anything that is a control in its own right. Links that
+   sit inline inside a sentence are deliberately excluded — WCAG 2.5.8
+   exempts them, and stretching them would break the line box. */
+.btn,
+.btn-sm,
+.back-link,
+.footer-nav a,
+.footer-contact a,
+.footer-social a,
+.section-cta a,
+.project-link,
+.about-card .connect-links a,
+.support-card a,
+.contact-link,
+.footer-brand .footer-title a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
 
 /* Hero */
 .hero {
@@ -275,10 +358,18 @@ img { max-width: 100%; height: auto; }
   color: #3a3f45;
 }
 
-/* Small screens: icon on top */
-@media (max-width: 420px) {
-  .app-card-link { grid-template-columns: 1fr; text-align: center; }
-  .app-icon { margin: 0 auto; }
+/* Small screens: shrink the icon rather than stacking it, which keeps the
+   card list scannable. Selector must match the specificity of
+   `.app-card.fancy .app-card-link` further down or it never applies —
+   that is why the previous `.app-card-link` version here did nothing. */
+@media (max-width: 479.98px) {
+  .app-card.fancy .app-card-link {
+    grid-template-columns: 64px 1fr;
+    gap: 12px;
+    padding: 16px;
+  }
+  .app-card.fancy .app-icon { width: 64px; height: 64px; }
+  .app-meta { min-width: 0; }
 }
 
 /* ---------- Grid layout: 3/2/1 columns ---------- */
@@ -290,8 +381,8 @@ img { max-width: 100%; height: auto; }
   margin: 0 auto;
   padding: 20px;
 }
-@media (max-width: 1024px) { .apps-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 640px)  { .apps-grid { grid-template-columns: 1fr; } }
+@media (max-width: 1023.98px) { .apps-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 767.98px)  { .apps-grid { grid-template-columns: 1fr; } }
 
 /* ---------- Fancy card base with colorful gradients ---------- */
 .app-card.fancy {
@@ -560,22 +651,11 @@ img { max-width: 100%; height: auto; }
   border-radius: 16px;
 }
 
-/* Respect reduced motion */
+/* Reduced motion is handled globally in the Base section at the top of
+   this file, which also covers the four infinite gradient animations
+   this block used to miss. */
 @media (prefers-reduced-motion: reduce) {
-  .app-card.fancy,
-  .app-card.fancy::before,
-  .app-card.fancy::after,
-  .app-card.fancy .app-icon,
-  .app-card.fancy .app-card-link::after,
-  .app-card.fancy .app-card-link::before,
-  .app-meta,
-  .chip {
-    transition: none !important;
-    animation: none !important;
-  }
-  .app-card.fancy:hover {
-    transform: translateY(-4px);
-  }
+  .app-card.fancy:hover { transform: translateY(-4px); }
 }
 /* Featured Apps Section */
 .featured-apps-highlight {
@@ -599,10 +679,14 @@ img { max-width: 100%; height: auto; }
   justify-content: center;
 }
 
-/* Featured Card Base */
+/* Featured Card Base.
+   NOTE: this block composes with the second .featured-card block further
+   down — it is not a duplicate. This one supplies the flex layout,
+   centring and hover-invert; the later one supplies padding and the
+   accent bar. Do not delete either. */
 .featured-card {
   flex: 1 1 350px;
-  min-width: 260px;
+  min-width: 0;   /* was 260px, which forced page scroll at 320px */
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.07);
@@ -772,7 +856,7 @@ img { max-width: 100%; height: auto; }
 }
 
 /* --- Mobile responsiveness --- */
-@media (max-width: 760px) {
+@media (max-width: 767.98px) {
   .footer-wrap {
     grid-template-columns: 1fr;      /* stack columns */
     text-align: center;
@@ -788,7 +872,7 @@ img { max-width: 100%; height: auto; }
 }
 
 /* Improve tap targets on very small screens */
-@media (max-width: 420px) {
+@media (max-width: 479.98px) {
   .footer-nav a,
   .footer-social a,
   .contact-link {
@@ -1039,7 +1123,7 @@ img { max-width: 100%; height: auto; }
 }
 
 /* About page responsive */
-@media (max-width: 768px) {
+@media (max-width: 767.98px) {
   .about-hero {
     flex-direction: column;
     text-align: center;
@@ -1079,7 +1163,9 @@ img { max-width: 100%; height: auto; }
 /* Hero enhancements */
 .hero {
   position: relative;
-  padding: 120px 20px 100px;
+  /* Fluid rather than a breakpoint: at 120px fixed this hero filled an
+     entire phone screen before any content was visible. */
+  padding: clamp(56px, 14vw, 120px) 20px clamp(48px, 12vw, 100px);
   margin: 0 auto 40px;
   border-radius: 0 0 32px 32px;
 }
@@ -1247,7 +1333,10 @@ img { max-width: 100%; height: auto; }
 }
 .highlight-card .content-wrap {
   flex: 1 1 400px;
-  min-width: 280px;
+  /* min-width:0 — a flex item defaults to min-width:auto, and any floor
+     above the available width gets clipped rather than scrolled because
+     .highlight-card sets overflow:hidden. */
+  min-width: 0;
 }
 .highlight-card h2 {
   margin: 0 0 16px;
@@ -1410,7 +1499,7 @@ img { max-width: 100%; height: auto; }
   border-radius: 12px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767.98px) {
   .riverwatch-stats {
     justify-content: center;
   }
@@ -1621,7 +1710,7 @@ img { max-width: 100%; height: auto; }
 }
 
 /* Homepage Responsive */
-@media (max-width: 768px) {
+@media (max-width: 767.98px) {
   .highlight-card-inner {
     padding: 32px 24px;
     gap: 24px;
@@ -2041,12 +2130,15 @@ img { max-width: 100%; height: auto; }
 }
 
 /* App detail responsive */
-@media (max-width: 768px) {
+@media (max-width: 767.98px) {
   .app-hero {
     padding: 80px 20px 60px;
   }
   .feature-grid {
     grid-template-columns: 1fr;
+  }
+  .feature-card {
+    padding: 20px;
   }
   .highlight-box {
     padding: 28px 24px;
@@ -2060,10 +2152,27 @@ img { max-width: 100%; height: auto; }
     height: 36px;
     font-size: 1rem;
   }
+
+  /* Screenshots become a snap carousel. A two-column grid rendered these
+     1290px-wide phone captures at ~141px, which is unreadable. */
   .screenshots-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: min(72vw, 300px);
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 20px;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    padding-inline: 20px;
+    margin-inline: -20px;   /* bleed to the screen edge */
+    scrollbar-width: none;
   }
+  .screenshots-grid::-webkit-scrollbar { display: none; }
+  .screenshots-grid > * { scroll-snap-align: center; }
+  .video-container { max-width: none; }
+
   .support-grid {
     grid-template-columns: 1fr;
   }
@@ -2290,7 +2399,7 @@ img { max-width: 100%; height: auto; }
 }
 
 /* Privacy policy responsive */
-@media (max-width: 768px) {
+@media (max-width: 767.98px) {
   .privacy-header {
     padding: 50px 16px 32px;
   }
@@ -2805,7 +2914,7 @@ img { max-width: 100%; height: auto; }
 }
 
 /* Hire Page Responsive */
-@media (max-width: 768px) {
+@media (max-width: 767.98px) {
   .hire-hero {
     padding: 60px 20px 50px;
   }
@@ -2910,10 +3019,66 @@ img { max-width: 100%; height: auto; }
   border-color: rgba(0, 0, 0, 0.08);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 767.98px) {
   .app-unavailable {
     margin-left: 12px;
     margin-right: 12px;
     padding: 16px 18px;
+  }
+}
+
+
+/* ============================================================
+   TOUCH DEVICES — neutralise hover lifts
+
+   On a touch screen :hover latches on tap and stays until you tap
+   somewhere else, so every one of these transforms leaves the element
+   stuck in its lifted/enlarged state. Overriding here (same selector,
+   later in the file, so it wins) is far less invasive than wrapping
+   forty rules individually.
+   ============================================================ */
+@media (hover: none), (pointer: coarse) {
+  .btn:hover,
+  .app-card:hover,
+  .app-card.fancy:hover .app-icon,
+  .app-card.fancy:hover .app-meta,
+  .app-card.fancy:hover .chip,
+  .app-card.fancy:hover,
+  .featured-card:hover .card-icon,
+  .back-link:hover,
+  .about-hero:hover .about-headshot,
+  .float-right:hover,
+  .float-left:hover,
+  .contact-link:hover,
+  .btn-hero-primary:hover,
+  .btn-hero-hire:hover,
+  .btn-hire:hover,
+  .highlight-card:hover .icon-wrap img,
+  .highlight-card .btn:hover,
+  .riverwatch-card:hover,
+  .riverwatch-card:hover .rw-screenshot-wrap,
+  .featured-card:hover,
+  .blog-tile:hover,
+  .about-card:hover .about-headshot,
+  .app-hero:hover .app-icon,
+  .app-hero .btn-primary:hover,
+  .feature-card:hover,
+  .steps-list li:hover,
+  .screenshots-grid img:hover,
+  .screenshots-grid video:hover,
+  .support-card:hover,
+  .app-cta .btn-primary:hover,
+  .privacy-header .app-icon:hover,
+  .privacy-section:hover,
+  .third-party-item:hover,
+  .contact-card .contact-email:hover,
+  .hire-hero:hover .hire-headshot,
+  .skill-category:hover,
+  .project-card:hover,
+  .project-card:hover .project-icon,
+  .timeline-item:hover .timeline-marker,
+  .btn-hire:hover::before,
+  .btn-hire:hover .btn-hire-icon {
+    transform: none;
   }
 }

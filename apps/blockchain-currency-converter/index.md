@@ -94,7 +94,7 @@ last_updated: 2025-09-08
 <!-- SCREENSHOTS -->
 <section class="app-section">
   <h2 class="app-section-title">Screenshots</h2>
-  <div class="screenshots-grid">
+  <div class="screenshots-grid" role="region" tabindex="0" aria-label="App screenshots">
     <img src="/assets/images/apps/blockchain-currency-converter/1.png" alt="Profit calculation screen" />
     <img src="/assets/images/apps/blockchain-currency-converter/2.png" alt="Currency selection view" />
     <img src="/assets/images/apps/blockchain-currency-converter/3.png" alt="Trade history" />

@@ -87,7 +87,7 @@ last_updated: 2026-03-30
 <!-- SCREENSHOTS -->
 <section class="app-section">
   <h2 class="app-section-title">Screenshots</h2>
-  <div class="screenshots-grid">
+  <div class="screenshots-grid" role="region" tabindex="0" aria-label="App screenshots">
     <img src="/assets/images/apps/geology-toolkit/1.png" alt="Geology AI identification screen" />
     <img src="/assets/images/apps/geology-toolkit/2.png" alt="Identification result view" />
     <img src="/assets/images/apps/geology-toolkit/3.png" alt="Sketch" />

@@ -94,7 +94,7 @@ last_updated: 2025-09-08
 <!-- SCREENSHOTS -->
 <section class="app-section">
   <h2 class="app-section-title">Screenshots</h2>
-  <div class="screenshots-grid">
+  <div class="screenshots-grid" role="region" tabindex="0" aria-label="App screenshots">
     <img src="/assets/images/apps/pet-portrait-ai/1.png" alt="Pet Portrait AI home screen" />
     <img src="/assets/images/apps/pet-portrait-ai/2.png" alt="Portrait style selection" />
     <img src="/assets/images/apps/pet-portrait-ai/3.png" alt="Generated pet portrait" />

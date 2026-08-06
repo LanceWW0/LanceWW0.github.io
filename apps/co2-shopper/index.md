@@ -85,7 +85,7 @@ last_updated: 2025-09-08
 <!-- SCREENSHOTS -->
 <section class="app-section">
   <h2 class="app-section-title">Screenshots</h2>
-  <div class="screenshots-grid">
+  <div class="screenshots-grid" role="region" tabindex="0" aria-label="App screenshots">
     <img src="/assets/images/apps/co2-shopper/1.png" alt="CO2 Shopper scan screen" />
     <img src="/assets/images/apps/co2-shopper/2.png" alt="Powerful AI" />
     <img src="/assets/images/apps/co2-shopper/3.png" alt="Unlimited Goes" />

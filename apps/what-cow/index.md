@@ -89,7 +89,7 @@ last_updated: 2025-09-07
 <!-- SCREENSHOTS -->
 <section class="app-section">
   <h2 class="app-section-title">Screenshots</h2>
-  <div class="screenshots-grid">
+  <div class="screenshots-grid" role="region" tabindex="0" aria-label="App screenshots">
     <img src="/assets/images/apps/what-cow/1.png" alt="What Cow identification screen" />
     <img src="/assets/images/apps/what-cow/2.png" alt="Unlimited Images screen" />
     <img src="/assets/images/apps/what-cow/3.png" alt="Unique facts screen" />

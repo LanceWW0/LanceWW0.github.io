@@ -85,7 +85,7 @@ last_updated: 2025-09-08
 <!-- SCREENSHOTS -->
 <section class="app-section">
   <h2 class="app-section-title">Screenshots</h2>
-  <div class="screenshots-grid">
+  <div class="screenshots-grid" role="region" tabindex="0" aria-label="App screenshots">
     <img src="/assets/images/apps/tickit/1.png" alt="Tickit AI list creation screen" />
     <img src="/assets/images/apps/tickit/2.png" alt="Smart suggestions view" />
     <img src="/assets/images/apps/tickit/3.png" alt="Organized grocery list" />

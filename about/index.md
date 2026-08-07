@@ -5,14 +5,12 @@ description: Who I am, what I build, and why I make apps — a bit of background
 permalink: /about/
 ---
 
-<a href="/" class="back-link">← Back to Home</a>
-
 <div class="about-page">
 
 <h1 class="about-page-title">About Me</h1>
 
 <section class="about-hero">
-  <img src="/assets/images/me_snow.jpeg" alt="Photo of me" class="about-headshot" />
+  <img src="/assets/images/me_snow.jpeg" alt="Photo of me" class="about-headshot" loading="eager" fetchpriority="high" width="580" height="580">
   <div class="about-intro">
     <h2>Hello, I'm Laurence 👋</h2>
     <p>
@@ -27,7 +25,7 @@ permalink: /about/
 <h2>My Story</h2>
 
 <p>
-  <img src="/assets/images/me_umbrella.jpeg" alt="Travel photo" class="float-right" width="280" />
+  <img src="/assets/images/me_umbrella.jpeg" alt="Travel photo" class="float-right" width="280" loading="lazy" decoding="async">
     My path here was anything but straight. I trained in Geophysics with Geology, but pivoted into an MSc in Scientific Computing and Data Science at Durham. Before I'd even finished my dissertation, I'd landed a job at BT in their data science and cyber processing arm.
 </p>
   
@@ -50,7 +48,7 @@ permalink: /about/
 <h2>What I'm Working On</h2>
 
 <p>
-  <img src="/assets/images/laptop_beach.png" alt="Workspace photo" class="float-left" width="280" />
+  <img src="/assets/images/laptop_beach.jpg" alt="Workspace photo" class="float-left" width="280" loading="lazy" decoding="async">
   These days I'm building primarily in SwiftUI — designing across iOS, watchOS, tvOS and macOS from a single codebase. I find Apple's ecosystem genuinely exciting right now and SwiftUI in particular has matured into something I think every iOS developer should know.
 </p>
 
@@ -72,7 +70,7 @@ permalink: /about/
 <h2>Outside of Work</h2>
 
 <p>
-  <img src="/assets/images/me_kayak.jpeg" alt="Hobby photo" class="float-right" width="280" />
+  <img src="/assets/images/me_kayak.jpeg" alt="Hobby photo" class="float-right" width="280" loading="lazy" decoding="async">
     When I'm not coding, you'll almost always find me outdoors, making the most of nature. I love hiking through forests and mountains, wild camping under the stars and exploring new trails wherever I travel. Outdoor climbing and kayaking are two of my favourite ways to challenge myself and experience the world from a different perspective. Whether it's paddling across a quiet lake in Scotland, scrambling up a rock face in Snowdonia, or simply enjoying some weird health drink (green juice anyone?) at a local café after a long walk in the Cotswolds, I find that time spent in nature helps me recharge and stay inspired. The freedom of creating digital products is amazing, but I believe balance is just as important. This means I try to spend as much time as possible outside, embracing new adventures and soaking up the beauty of the natural world.
 </p>
 

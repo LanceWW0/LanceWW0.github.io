@@ -1,15 +1,44 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
 {%- seo -%}
 {%- feed_meta -%}
 
+<!-- Resolve the theme before first paint. Must stay inline and synchronous
+     here, above the stylesheet: deferring it produces a flash of the wrong
+     theme. The try/catch is load-bearing — localStorage.getItem throws a
+     SecurityError in Safari when "Block All Cookies" is on, and an uncaught
+     throw would leave data-theme unset. -->
+<script>
+(function () {
+  var d = document.documentElement, pref = null;
+  try { pref = localStorage.getItem('theme-pref'); } catch (e) {}
+  var dark = pref ? pref === 'dark'
+                  : window.matchMedia('(prefers-color-scheme: dark)').matches;
+  d.setAttribute('data-theme', dark ? 'dark' : 'light');
+  // Set imperatively too: the stylesheet has not loaded yet, and the UA
+  // needs color-scheme before first paint to pick the right canvas colour.
+  d.style.colorScheme = dark ? 'dark' : 'light';
+  var m = document.createElement('meta');
+  m.name = 'theme-color';
+  m.content = dark ? '#0f1115' : '#ffffff';
+  d.querySelector('head').appendChild(m);
+})();
+</script>
+
+<link rel="icon" href="/assets/logos/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/logos/icon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/logos/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="/assets/logos/favicon-16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="/assets/logos/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/custom.css">
-<style> html{font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;} </style>
+<script src="/assets/js/site.js" defer></script>
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JYYHS7586W"></script>

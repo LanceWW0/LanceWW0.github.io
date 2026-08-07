@@ -14,7 +14,7 @@ last_updated: 2025-10-01
 <!-- HERO -->
 <section class="hero app-hero" style="background-image: linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.55)), url('{{ page.hero_background }}');">
   <div class="hero-inner">
-    <img class="app-icon" src="{{ page.app_icon }}" alt="Valuto app icon" width="88" height="88" />
+    <img class="app-icon" src="{{ page.app_icon }}" alt="Valuto app icon" width="88" height="88" loading="eager" fetchpriority="high">
     <h1 class="hero-title">Currency Converter - Valuto</h1>
     <p class="hero-subtitle">
       Instantly convert currencies with a clean, modern interface. Valuto supports all major currencies, works offline, and keeps your data private—no ads, no tracking, no clutter.
@@ -38,28 +38,28 @@ last_updated: 2025-10-01
 <section class="app-section" id="features">
   <h2 class="app-section-title">Why choose Valuto?</h2>
   <div class="feature-grid">
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #0288d1, #03a9f4); --feature-bg: linear-gradient(135deg, #e0f7fa, #b2ebf2);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #e0f7fa, #b2ebf2);">⚡</div>
+    <article class="feature-card fc--cyan">
+      <div class="feature-card-icon">⚡</div>
       <h3>Instant conversions</h3>
       <p>Type and get results immediately—no waiting, no fuss.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #f57c00, #ff9800); --feature-bg: linear-gradient(135deg, #fff3e0, #ffe0b2);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2);">🌍</div>
+    <article class="feature-card fc--amber">
+      <div class="feature-card-icon">🌍</div>
       <h3>Major currencies supported</h3>
       <p>Convert between USD, EUR, JPY, GBP, and many more.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #388e3c, #4caf50); --feature-bg: linear-gradient(135deg, #e8f5e9, #c8e6c9);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">📴</div>
+    <article class="feature-card fc--green">
+      <div class="feature-card-icon">📴</div>
       <h3>Works offline (pro)</h3>
       <p>No internet required—perfect for travel and remote locations.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #8e24aa, #ab47bc); --feature-bg: linear-gradient(135deg, #f3e5f5, #e1bee7);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7);">✨</div>
+    <article class="feature-card fc--violet">
+      <div class="feature-card-icon">✨</div>
       <h3>Clean, modern design</h3>
       <p>No ads, no clutter—just what you need for quick conversions.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #00897b, #26a69a); --feature-bg: linear-gradient(135deg, #e0f2f1, #b2dfdb);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #e0f2f1, #b2dfdb);">🔒</div>
+    <article class="feature-card fc--teal">
+      <div class="feature-card-icon">🔒</div>
       <h3>Lightweight & private</h3>
       <p>No sign-ups, no tracking—your data stays on your device.</p>
     </article>
@@ -80,23 +80,21 @@ last_updated: 2025-10-01
 <!-- SCREENSHOTS -->
 <section class="app-section">
   <h2 class="app-section-title">Screenshots</h2>
-  <div class="screenshots-grid">
+  <div class="screenshots-grid" role="region" tabindex="0" aria-label="App screenshots">
     <div class="video-container">
       <video
-        autoplay
         muted
         playsinline
-        loop
         controls
-        preload="metadata"
+        preload="none"
         poster="/assets/images/apps/currency-converter/poster.jpg">
         <source src="/assets/images/apps/currency-converter/video.mp4" type="video/mp4">
         Sorry, your browser doesn't support embedded videos.
       </video>
     </div>
-    <img src="/assets/images/apps/currency-converter/1.png" alt="Valuto main conversion screen" />
-    <img src="/assets/images/apps/currency-converter/2.png" alt="Currency selection view" />
-    <img src="/assets/images/apps/currency-converter/3.png" alt="Offline mode" />
+    <img src="/assets/images/apps/currency-converter/1.png" alt="Valuto main conversion screen" loading="lazy" decoding="async" width="369" height="800">
+    <img src="/assets/images/apps/currency-converter/2.png" alt="Currency selection view" loading="lazy" decoding="async" width="369" height="800">
+    <img src="/assets/images/apps/currency-converter/3.png" alt="Offline mode" loading="lazy" decoding="async" width="369" height="800">
   </div>
   <p class="app-cta"><a class="btn btn-primary" href="{{ page.app_store_url }}">Get Valuto</a></p>
 </section>

@@ -10,7 +10,7 @@ last_updated: 2025-10-01
 <a href="/apps/currency-converter/" class="back-link">← Back to Valuto</a>
 
 <header class="privacy-header">
-  <img class="app-icon" src="{{ page.app_icon }}" alt="Valuto App Icon" />
+  <img class="app-icon" src="{{ page.app_icon }}" alt="Valuto App Icon" loading="lazy" decoding="async">
   <h1>Privacy Policy</h1>
   <p class="last-updated">Last updated: <time datetime="{{ page.last_updated }}">October 2025</time></p>
 </header>

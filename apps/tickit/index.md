@@ -14,7 +14,7 @@ last_updated: 2025-09-08
 <!-- HERO -->
 <section class="hero app-hero" style="background-image: linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.55)), url('{{ page.hero_background }}');">
   <div class="hero-inner">
-    <img class="app-icon" src="{{ page.app_icon }}" alt="Tickit AI app icon" width="88" height="88" />
+    <img class="app-icon" src="{{ page.app_icon }}" alt="Tickit AI app icon" width="88" height="88" loading="eager" fetchpriority="high">
     <h1 class="hero-title">TickIt: AI Grocery List Maker</h1>
     <p class="hero-subtitle">
       Make grocery shopping easy. Easily create & store lists for each major supermarket and sort them based on the typical layout of each.
@@ -38,33 +38,33 @@ last_updated: 2025-09-08
 <section class="app-section" id="features">
   <h2 class="app-section-title">Why you'll love it</h2>
   <div class="feature-grid">
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #0288d1, #03a9f4); --feature-bg: linear-gradient(135deg, #e0f7fa, #b2ebf2);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #e0f7fa, #b2ebf2);">🤖</div>
+    <article class="feature-card fc--cyan">
+      <div class="feature-card-icon">🤖</div>
       <h3>AI-powered sorting</h3>
       <p>Sort items in your list based on the layout of the respective supermarket.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #f57c00, #ff9800); --feature-bg: linear-gradient(135deg, #fff3e0, #ffe0b2);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2);">✏️</div>
+    <article class="feature-card fc--amber">
+      <div class="feature-card-icon">✏️</div>
       <h3>Easy list creation</h3>
       <p>Add items by typing or bulk upload for fast and flexible list building.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #8e24aa, #ab47bc); --feature-bg: linear-gradient(135deg, #f3e5f5, #e1bee7);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7);">✅</div>
+    <article class="feature-card fc--violet">
+      <div class="feature-card-icon">✅</div>
       <h3>Tick items off</h3>
       <p>Tick off items as you move around the shop so you have confidence nothing is left behind.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #388e3c, #4caf50); --feature-bg: linear-gradient(135deg, #e8f5e9, #c8e6c9);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">👨‍👩‍👧‍👦</div>
+    <article class="feature-card fc--green">
+      <div class="feature-card-icon">👨‍👩‍👧‍👦</div>
       <h3>Share & collaborate</h3>
       <p>Share lists with family or roommates so you're all on the same page!</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #fbc02d, #ffeb3b); --feature-bg: linear-gradient(135deg, #fffde7, #fff9c4);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #fffde7, #fff9c4);">🏪</div>
+    <article class="feature-card fc--yellow">
+      <div class="feature-card-icon">🏪</div>
       <h3>All major supermarkets</h3>
       <p>Support for all the biggest supermarkets globally.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #00897b, #26a69a); --feature-bg: linear-gradient(135deg, #e0f2f1, #b2dfdb);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #e0f2f1, #b2dfdb);">🔒</div>
+    <article class="feature-card fc--teal">
+      <div class="feature-card-icon">🔒</div>
       <h3>Privacy-first</h3>
       <p>Your lists and data stay private. Simple controls and a clear privacy policy for peace of mind.</p>
     </article>
@@ -85,10 +85,10 @@ last_updated: 2025-09-08
 <!-- SCREENSHOTS -->
 <section class="app-section">
   <h2 class="app-section-title">Screenshots</h2>
-  <div class="screenshots-grid">
-    <img src="/assets/images/apps/tickit/1.png" alt="Tickit AI list creation screen" />
-    <img src="/assets/images/apps/tickit/2.png" alt="Smart suggestions view" />
-    <img src="/assets/images/apps/tickit/3.png" alt="Organized grocery list" />
+  <div class="screenshots-grid" role="region" tabindex="0" aria-label="App screenshots">
+    <img src="/assets/images/apps/tickit/1.png" alt="Tickit AI list creation screen" loading="lazy" decoding="async" width="368" height="800">
+    <img src="/assets/images/apps/tickit/2.png" alt="Smart suggestions view" loading="lazy" decoding="async" width="368" height="800">
+    <img src="/assets/images/apps/tickit/3.png" alt="Organized grocery list" loading="lazy" decoding="async" width="368" height="800">
   </div>
   <p class="app-cta"><a class="btn btn-primary" href="{{ page.app_store_url }}">Get Tickit AI</a></p>
 </section>

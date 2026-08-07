@@ -1,7 +1,32 @@
 ---
 layout: default
 ---
+<article class="post"{% if page.colour %} style="--post-accent: {{ page.colour }};"{% endif %}>
 
-<article class="post-content">
-  {{ content }}
+  <a href="/blog/" class="back-link">← Back to Blog Posts</a>
+
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    {% if page.subtitle %}<p class="post-subtitle">{{ page.subtitle }}</p>{% endif %}
+    {% if page.date %}
+    <p class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+    </p>
+    {% endif %}
+    {% if page.tags %}
+    <ul class="post-tags">
+      {% for tag in page.tags %}<li class="tag">{{ tag }}</li>{% endfor %}
+    </ul>
+    {% endif %}
+    {% if page.header_image %}
+    <img class="post-header-image" src="{{ page.header_image }}"
+         alt="{{ page.image_desc | default: page.title | escape }}"
+         loading="eager" fetchpriority="high" width="1200" height="675">
+    {% endif %}
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
 </article>

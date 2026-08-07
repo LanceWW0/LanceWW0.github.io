@@ -14,7 +14,7 @@ last_updated: 2025-09-07
 <!-- HERO -->
 <section class="hero app-hero" style="background-image: linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.55)), url('{{ page.hero_background }}');">
   <div class="hero-inner">
-    <img class="app-icon" src="{{ page.app_icon }}" alt="Earthquake Tracker app icon" width="88" height="88" />
+    <img class="app-icon" src="{{ page.app_icon }}" alt="Earthquake Tracker app icon" width="88" height="88" loading="eager" fetchpriority="high">
     <h1 class="hero-title">Earthquake Tracker & Monitor</h1>
     <p class="hero-subtitle">
       Stay informed about seismic activity worldwide. Get real-time earthquake alerts, detailed maps, and safety tips.
@@ -38,33 +38,33 @@ last_updated: 2025-09-07
 <section class="app-section" id="features">
   <h2 class="app-section-title">Key features</h2>
   <div class="feature-grid">
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #0288d1, #03a9f4); --feature-bg: linear-gradient(135deg, #e0f7fa, #b2ebf2);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #e0f7fa, #b2ebf2);">🗺️</div>
+    <article class="feature-card fc--cyan">
+      <div class="feature-card-icon">🗺️</div>
       <h3>Live earthquake map</h3>
       <p>View recent earthquakes on an interactive map with magnitude, depth, and location details.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #f57c00, #ff9800); --feature-bg: linear-gradient(135deg, #fff3e0, #ffe0b2);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2);">🔔</div>
+    <article class="feature-card fc--amber">
+      <div class="feature-card-icon">🔔</div>
       <h3>Real-time alerts</h3>
       <p>Get instant notifications for significant seismic activity near your location or worldwide.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #8e24aa, #ab47bc); --feature-bg: linear-gradient(135deg, #f3e5f5, #e1bee7);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7);">📊</div>
+    <article class="feature-card fc--violet">
+      <div class="feature-card-icon">📊</div>
       <h3>Detailed event info</h3>
       <p>Access comprehensive data for each event, including time, coordinates, and affected regions.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #388e3c, #4caf50); --feature-bg: linear-gradient(135deg, #e8f5e9, #c8e6c9);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">📈</div>
+    <article class="feature-card fc--green">
+      <div class="feature-card-icon">📈</div>
       <h3>Historical data</h3>
       <p>Browse past earthquakes and analyze trends over time.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #fbc02d, #ffeb3b); --feature-bg: linear-gradient(135deg, #fffde7, #fff9c4);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #fffde7, #fff9c4);">⚙️</div>
+    <article class="feature-card fc--yellow">
+      <div class="feature-card-icon">⚙️</div>
       <h3>Customizable notifications</h3>
       <p>Set alert thresholds by magnitude and region to get only the updates you care about. (coming soon)</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #00897b, #26a69a); --feature-bg: linear-gradient(135deg, #e0f2f1, #b2dfdb);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #e0f2f1, #b2dfdb);">🛡️</div>
+    <article class="feature-card fc--teal">
+      <div class="feature-card-icon">🛡️</div>
       <h3>Safety resources</h3>
       <p>Learn what to do before, during, and after an earthquake with built-in safety guides. (coming soon)</p>
     </article>
@@ -85,26 +85,24 @@ last_updated: 2025-09-07
 <!-- SCREENSHOTS -->
 <section class="app-section">
   <h2 class="app-section-title">Screenshots</h2>
-  <div class="screenshots-grid">
+  <div class="screenshots-grid" role="region" tabindex="0" aria-label="App screenshots">
     <div class="video-container">
       <video
-        autoplay
         muted
         playsinline
-        loop
         controls
-        preload="metadata"
+        preload="none"
         poster="/assets/images/apps/earthquake-tracker/poster.jpg">
         <source src="/assets/images/apps/earthquake-tracker/video.mp4" type="video/mp4">
         Sorry, your browser doesn't support embedded videos.
       </video>
     </div>
-    <img src="/assets/images/apps/earthquake-tracker/1.png" alt="Live earthquake feed" />
-    <img src="/assets/images/apps/earthquake-tracker/2.png" alt="List View of Earthquakes" />
-    <img src="/assets/images/apps/earthquake-tracker/3.png" alt="Real time alerts page" />
-    <img src="/assets/images/apps/earthquake-tracker/4.png" alt="Custom regions page" />
-    <img src="/assets/images/apps/earthquake-tracker/5.png" alt="Magnitude filter page" />
-    <img src="/assets/images/apps/earthquake-tracker/6.png" alt="Global tracking page" />
+    <img src="/assets/images/apps/earthquake-tracker/1.png" alt="Live earthquake feed" loading="lazy" decoding="async" width="369" height="800">
+    <img src="/assets/images/apps/earthquake-tracker/2.png" alt="List View of Earthquakes" loading="lazy" decoding="async" width="369" height="800">
+    <img src="/assets/images/apps/earthquake-tracker/3.png" alt="Real time alerts page" loading="lazy" decoding="async" width="369" height="800">
+    <img src="/assets/images/apps/earthquake-tracker/4.png" alt="Custom regions page" loading="lazy" decoding="async" width="369" height="800">
+    <img src="/assets/images/apps/earthquake-tracker/5.png" alt="Magnitude filter page" loading="lazy" decoding="async" width="369" height="800">
+    <img src="/assets/images/apps/earthquake-tracker/6.png" alt="Global tracking page" loading="lazy" decoding="async" width="369" height="800">
   </div>
   <p class="app-cta"><a class="btn btn-primary" href="{{ page.app_store_url }}">Get Earthquake Tracker</a></p>
 </section>

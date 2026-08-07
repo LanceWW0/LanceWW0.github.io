@@ -5,12 +5,10 @@ description: Mobile app developer for hire. 3+ years experience, 9 apps shipped,
 permalink: /hire/
 ---
 
-<a href="/" class="back-link">← Back to Home</a>
-
 <!-- HERO -->
 <section class="hire-hero">
   <div class="hire-hero-inner">
-    <img class="hire-headshot" src="/assets/images/me_snow.jpeg" alt="Laurence" width="140" height="140" />
+    <img class="hire-headshot" src="/assets/images/me_snow.jpeg" alt="Laurence" width="140" height="140" loading="eager" fetchpriority="high">
     <h1 class="hire-title">Mobile App Developer for Hire</h1>
     <p class="hire-tagline">
       I build beautiful, performant mobile apps that users love.<br/>
@@ -109,7 +107,7 @@ permalink: /hire/
     <!-- Cloud Point -->
     <div class="project-card" style="--card-accent: #3b82f6; --card-accent-end: #06b6d4;">
       <div class="project-header">
-        <img src="/assets/images/apps/cloud-point/logo.png" alt="Cloud Point" class="project-icon" />
+        <img src="/assets/images/apps/cloud-point/logo.png" alt="Cloud Point" class="project-icon" loading="eager" fetchpriority="high" width="256" height="256">
         <div class="project-meta">
           <h3>Cloud Point</h3>
           <span class="project-tech">Flutter · iOS & Android</span>
@@ -126,7 +124,7 @@ permalink: /hire/
     <!-- Geology AI -->
     <div class="project-card" style="--card-accent: #f59e0b; --card-accent-end: #ef4444;">
       <div class="project-header">
-        <img src="/assets/images/apps/geology-toolkit/logo.png" alt="Geology AI" class="project-icon" />
+        <img src="/assets/images/apps/geology-toolkit/logo.png" alt="Geology AI" class="project-icon" loading="eager" fetchpriority="high" width="256" height="256">
         <div class="project-meta">
           <h3>Geology Toolkit</h3>
           <span class="project-tech">Flutter · iOS & Android</span>
@@ -143,7 +141,7 @@ permalink: /hire/
     <!-- What Cow -->
     <div class="project-card" style="--card-accent: #7BD3EA; --card-accent-end: #5D9CFF;">
       <div class="project-header">
-        <img src="/assets/images/apps/what-cow/logo.png" alt="What Cow" class="project-icon" />
+        <img src="/assets/images/apps/what-cow/logo.png" alt="What Cow" class="project-icon" loading="eager" fetchpriority="high" width="256" height="256">
         <div class="project-meta">
           <h3>What Cow</h3>
           <span class="project-tech">SwiftUI · iOS</span>
@@ -160,7 +158,7 @@ permalink: /hire/
     <!-- Earthquake Tracker -->
     <div class="project-card" style="--card-accent: #FFCA1A; --card-accent-end: #B91C1C;">
       <div class="project-header">
-        <img src="/assets/images/apps/earthquake-tracker/logo.png" alt="Earthquake Tracker" class="project-icon" />
+        <img src="/assets/images/apps/earthquake-tracker/logo.png" alt="Earthquake Tracker" class="project-icon" loading="eager" fetchpriority="high" width="256" height="256">
         <div class="project-meta">
           <h3>Earthquake Tracker</h3>
           <span class="project-tech">SwiftUI · iOS</span>

@@ -5,8 +5,6 @@ description: A collection of iOS and Android apps by Laurence Wayne — AI ident
 permalink: /apps/
 ---
 
-<a href="/" class="back-link">← Back to Home</a>
-
 <header class="apps-header">
   <h1 class="apps-header-title">My Apps</h1>
   <p class="apps-header-subtitle">A collection of iOS apps designed to educate, inspire, and simplify your life</p>
@@ -21,7 +19,7 @@ permalink: /apps/
         --accent2: {{ app.accent2 | default: '#A29BFE' }};
       ">
       <a class="app-card-link" href="{{ app.url | relative_url }}">
-        <img class="app-icon" src="{{ app.icon | relative_url }}" alt="{{ app.name }} app icon" width="88" height="88" />
+        <img class="app-icon" src="{{ app.icon | relative_url }}" alt="{{ app.name }} app icon" width="88" height="88" loading="lazy" decoding="async">
         <div class="app-meta">
           <h2 class="app-title">{{ app.name }}</h2>
           <p class="app-desc">{{ app.description }}</p>

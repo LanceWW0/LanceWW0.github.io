@@ -10,7 +10,7 @@ last_updated: 2026-03-30
 <a href="/apps/geology-toolkit/" class="back-link">← Back to Geology AI</a>
 
 <header class="privacy-header">
-  <img class="app-icon" src="{{ page.app_icon }}" alt="Geology AI App Icon" />
+  <img class="app-icon" src="{{ page.app_icon }}" alt="Geology AI App Icon" loading="lazy" decoding="async">
   <h1>Terms of Use</h1>
   <p class="last-updated">Last updated: <time datetime="{{ page.last_updated }}">March 2026</time></p>
 </header>

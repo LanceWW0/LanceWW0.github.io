@@ -3389,3 +3389,251 @@ html.is-locked, html.is-locked body { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .store-modal-backdrop, .store-modal-card { animation: none; }
 }
+
+/* ============================================================
+   BLOG INDEX CARDS
+   Moved out of a <style> block in blog/index.md so they can be
+   themed and share the site's breakpoint scale. The per-post accent
+   arrives as --post-colour, set from each post's own front matter.
+   ============================================================ */
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+@media (max-width: 767.98px) {
+  .posts-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.blog-card {
+  display: block;
+  border: none;
+  border-left: 4px solid var(--post-colour, #6366f1);
+  border-radius: 16px;
+  padding: 0;
+  background: #fff;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  text-decoration: none;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.blog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+.blog-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+}
+.blog-card-content {
+  padding: 1.25rem 1.5rem 1.5rem;
+  color: #333;
+}
+.blog-card h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.3rem;
+  line-height: 1.3;
+  color: var(--post-colour, #1a202c);
+}
+.blog-card p {
+  margin: 0.4rem 0;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+.blog-card .tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.25em 0.7em;
+  border-radius: 20px;
+  margin-right: 0.3em;
+  /* color-mix rather than the old `{{ colour }}18` hex-alpha suffix, so the
+     chip stays legible when the surface flips in dark mode. */
+  background: color-mix(in oklab, var(--post-colour, #6366f1) 14%, var(--mix-base, #fff));
+  color: color-mix(in oklab, var(--post-colour, #6366f1) 80%, var(--mix-contrast, #000));
+}
+
+/* ============================================================
+   BLOG POST
+
+   Posts used to carry ~370 inline style attributes each specifying
+   font-size, colour and alignment, which no stylesheet or media query
+   could reach. All of it now lives here. --post-accent comes from each
+   post's own `colour:` front matter via _layouts/post.html.
+   ============================================================ */
+.post { max-width: 1100px; margin: 0 auto; }
+
+.post-header {
+  max-width: 760px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+.post-title {
+  font-size: var(--step-5);
+  line-height: 1.1;
+  margin: 16px 0 12px;
+  color: #1a202c;
+}
+.post-subtitle {
+  font-size: var(--step-1);
+  font-weight: 400;
+  color: #64748b;
+  margin: 0 0 12px;
+  line-height: 1.4;
+}
+.post-meta {
+  color: #64748b;
+  font-size: var(--step--1);
+  margin: 0 0 16px;
+}
+.post-tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  padding: 0;
+  margin: 0 0 28px;
+}
+.post-tags .tag {
+  font-size: var(--step--2);
+  font-weight: 600;
+  padding: 0.3em 0.8em;
+  border-radius: 20px;
+  background: color-mix(in oklab, var(--post-accent, #6366f1) 14%, var(--mix-base, #fff));
+  color: color-mix(in oklab, var(--post-accent, #6366f1) 80%, var(--mix-contrast, #000));
+}
+.post-header-image {
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, .12);
+}
+
+/* Body copy. 68ch is the readable measure; the header above stays wider
+   and centred. */
+.post-content {
+  max-width: 68ch;
+  margin: 0 auto;
+  font-size: var(--step-0);
+  line-height: 1.75;
+  color: #374151;
+}
+.post-content > * + * { margin-block-start: 1.25em; }
+
+.post-content h2 {
+  font-size: var(--step-3);
+  margin-block-start: 2em;
+  margin-block-end: .5em;
+  color: #1a202c;
+  line-height: 1.25;
+}
+.post-content h3 {
+  font-size: var(--step-2);
+  margin-block-start: 1.6em;
+  margin-block-end: .4em;
+  color: #1a202c;
+  line-height: 1.3;
+}
+.post-content h4 {
+  font-size: var(--step-1);
+  margin-block-start: 1.4em;
+  color: #1a202c;
+}
+.post-content a { color: #6366f1; }
+
+.post-content blockquote {
+  border-inline-start: 4px solid var(--post-accent, #6366f1);
+  padding-inline-start: 1.2em;
+  margin-inline: 0;
+  font-size: var(--step-1);
+  font-weight: 600;
+  color: var(--post-accent, #6366f1);
+}
+
+.post-content ul, .post-content ol { padding-inline-start: 1.4em; }
+.post-content li + li { margin-block-start: .4em; }
+
+.post-content figure { margin: 2em 0; }
+.post-content figcaption {
+  font-size: var(--step--1);
+  color: #64748b;
+  text-align: center;
+  margin-top: .6em;
+}
+.post-content img,
+.post-content video { border-radius: 20px; display: block; margin-inline: auto; }
+
+.post-content pre {
+  background: #f7f7f8;
+  color: #1a202c;
+  padding: 1em 1.2em;
+  border-radius: 12px;
+  overflow-x: auto;
+  font-size: .95em;
+  line-height: 1.5;
+  text-align: left;
+}
+.post-content code { font-size: .95em; }
+.post-content :not(pre) > code {
+  background: #f7f7f8;
+  padding: .15em .4em;
+  border-radius: 5px;
+}
+
+/* Wide tables scroll inside their own box rather than widening the page. */
+.table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 2em 0;
+}
+.data-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: var(--step--1);
+}
+.data-table th,
+.data-table td {
+  padding: 10px 16px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+.data-table th {
+  border-bottom: 2px solid #4a5568;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.post-footer {
+  max-width: 68ch;
+  margin: 3em auto 0;
+  text-align: center;
+  color: #64748b;
+  font-size: var(--step--1);
+}
+
+/* The blog index heading block */
+.blog-index > h1 { font-size: var(--step-4); margin-bottom: .2em; }
+.blog-index > p { color: #64748b; }
+
+/* Post extras: pull-quote asides, embeds, rules */
+.post-content .post-aside {
+  font-style: italic;
+  color: #64748b;
+}
+.post-content .post-embed {
+  max-width: 400px;
+  margin: 24px auto;
+}
+.post-content hr {
+  border: 0;
+  border-top: 1px solid #e2e8f0;
+  margin-block: 2.5em;
+}

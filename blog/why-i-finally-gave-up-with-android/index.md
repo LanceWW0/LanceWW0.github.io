@@ -5,8 +5,8 @@ subtitle: "What drove me away from Android development — and why Apple just ma
 tags: [Android, App Development, Flutter, iOS, Indie Dev]
 date: 2025-10-24
 colour: "#4285F4"   # Google Blue
-header_image: /blog/why-i-finally-gave-up-with-android/header.png
-image: /blog/why-i-finally-gave-up-with-android/header.png
+header_image: /blog/why-i-finally-gave-up-with-android/header.jpg
+image: /blog/why-i-finally-gave-up-with-android/header.jpg
 image_desc: "Illustration of a broken Android logo fading into an Apple logo."
 description: "After years of app development, I finally walked away from Android — here’s why. From impossible testing requirements to user spending gaps, this is the reality every indie dev should know."
 seo:
@@ -71,7 +71,7 @@ seo:
   Even seasoned developers like <a href="https://www.youtube.com/results?search_query=Adam+Lyttle" target="_blank" rel="noopener noreferrer">Adam Lyttle</a> have found that Android users are far more likely to sit through an ad than to pay to remove it. So, if you’re a solo indie dev looking to actually earn something, Apple’s ecosystem is the smarter bet.    </p>
   <figure>
   <a href="https://explodingtopics.com/blog/iphone-android-users" target="_blank" rel="noopener noreferrer">
-  <img src="https://cdn.buttercms.com/output=f:webp/3Do7T6oYQmOJEL0i2Del" alt="iPhone vs Android users — Exploding Topics">
+  <img src="https://cdn.buttercms.com/output=f:webp/3Do7T6oYQmOJEL0i2Del" alt="iPhone vs Android users — Exploding Topics" loading="lazy" decoding="async">
   </a>
   <figcaption>
   Image credit: <a href="https://explodingtopics.com/blog/iphone-android-users" target="_blank" rel="noopener noreferrer">Exploding Topics — "iPhone vs Android Users"</a>

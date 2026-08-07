@@ -5,8 +5,8 @@ subtitle: "How a rogue user called TheBug0502 sent my Google Cloud bill into the
 tags: [Firebase, Security, Indie Dev, Cloud Point]
 date: 2026-04-02
 colour: "#E63946"
-header_image: /blog/someone-tried-to-bankrupt-my-app/header.png
-image: /blog/someone-tried-to-bankrupt-my-app/header.png
+header_image: /blog/someone-tried-to-bankrupt-my-app/header.jpg
+image: /blog/someone-tried-to-bankrupt-my-app/header.jpg
 image_desc: "Header image for the blog post about a rogue user trying to bankrupt a cloud app."
 description: "How a rogue user called TheBug0502 sent my Google Cloud bill into the stratosphere — and what I learned about protecting a Firebase backend the hard way."
 seo:
@@ -32,7 +32,7 @@ seo:
   I'd noticed my Firebase billing had climbed. Not a gentle drift upward like a cumulus on a summer afternoon — more like a cumulonimbus anvil shooting straight to the tropopause. Something was very wrong.
   </p>
   <figure>
-  <img src="/blog/someone-tried-to-bankrupt-my-app/cost_trend.png" alt="Google Cloud cost trend chart from March 2025 to March 2026 showing costs spiking dramatically in February and March, blowing past the £10 budget threshold.">
+  <img src="/blog/someone-tried-to-bankrupt-my-app/cost_trend.png" alt="Google Cloud cost trend chart from March 2025 to March 2026 showing costs spiking dramatically in February and March, blowing past the £10 budget threshold." loading="lazy" decoding="async" width="1200" height="1033">
   <figcaption>The Google Cloud cost trend that ruined my Monday. Spot when TheBug08 arrived.</figcaption>
   </figure>
   <p>
@@ -53,7 +53,7 @@ seo:
   TheBug0502 had been busy. Incredibly busy. They had uploaded an extraordinary number of images to my app. We're talking volumes of content that would put an entire meteorological society to shame.
   </p>
   <figure>
-  <video autoplay loop muted playsinline>
+  <video controls muted playsinline preload="none" poster="/blog/someone-tried-to-bankrupt-my-app/poster.jpg">
   <source src="/blog/someone-tried-to-bankrupt-my-app/many_images.MP4" type="video/mp4">
   </video>
   <figcaption>Scrolling through TheBug0502's uploads. It just keeps going.</figcaption>
@@ -62,7 +62,7 @@ seo:
   But here's the bizarre part — none of the images were actually displaying. If you navigated to the Firebase Storage URLs, you'd get a permissions error. The images were ghosts. Phantom uploads. Digital vapour clogging up my storage bucket and bleeding my wallet dry.
   </p>
   <figure>
-  <img src="/blog/someone-tried-to-bankrupt-my-app/example_bug_post.PNG" alt="A TheBug0502 post in Cloud Point showing no image — just the cloud type voting interface with zero hearts.">
+  <img src="/blog/someone-tried-to-bankrupt-my-app/example_bug_post.PNG" alt="A TheBug0502 post in Cloud Point showing no image — just the cloud type voting interface with zero hearts." loading="lazy" decoding="async" width="553" height="1200">
   <figcaption>One of TheBug0502's phantom posts — no image, zero hearts, just wasted storage writes.</figcaption>
   </figure>
   <p>
@@ -75,7 +75,7 @@ seo:
   Whether the subscription was legitimate or spoofed was another question entirely — one I'd need to investigate.
   </p>
   <figure>
-  <img src="/blog/someone-tried-to-bankrupt-my-app/bug_destroyed_leaderboard.PNG" alt="Cloud Point All Time leaderboard showing TheBug0502 in first place with 2920 points, well ahead of everyone else.">
+  <img src="/blog/someone-tried-to-bankrupt-my-app/bug_destroyed_leaderboard.PNG" alt="Cloud Point All Time leaderboard showing TheBug0502 in first place with 2920 points, well ahead of everyone else." loading="lazy" decoding="async" width="553" height="1200">
   <figcaption>TheBug0502 casually sitting at #1 on the All Time leaderboard. Not suspicious at all.</figcaption>
   </figure>
 

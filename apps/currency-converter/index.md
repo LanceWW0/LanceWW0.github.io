@@ -14,7 +14,7 @@ last_updated: 2025-10-01
 <!-- HERO -->
 <section class="hero app-hero" style="background-image: linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.55)), url('{{ page.hero_background }}');">
   <div class="hero-inner">
-    <img class="app-icon" src="{{ page.app_icon }}" alt="Valuto app icon" width="88" height="88" />
+    <img class="app-icon" src="{{ page.app_icon }}" alt="Valuto app icon" width="88" height="88" loading="eager" fetchpriority="high">
     <h1 class="hero-title">Currency Converter - Valuto</h1>
     <p class="hero-subtitle">
       Instantly convert currencies with a clean, modern interface. Valuto supports all major currencies, works offline, and keeps your data private—no ads, no tracking, no clutter.
@@ -83,20 +83,18 @@ last_updated: 2025-10-01
   <div class="screenshots-grid" role="region" tabindex="0" aria-label="App screenshots">
     <div class="video-container">
       <video
-        autoplay
         muted
         playsinline
-        loop
         controls
-        preload="metadata"
+        preload="none"
         poster="/assets/images/apps/currency-converter/poster.jpg">
         <source src="/assets/images/apps/currency-converter/video.mp4" type="video/mp4">
         Sorry, your browser doesn't support embedded videos.
       </video>
     </div>
-    <img src="/assets/images/apps/currency-converter/1.png" alt="Valuto main conversion screen" />
-    <img src="/assets/images/apps/currency-converter/2.png" alt="Currency selection view" />
-    <img src="/assets/images/apps/currency-converter/3.png" alt="Offline mode" />
+    <img src="/assets/images/apps/currency-converter/1.png" alt="Valuto main conversion screen" loading="lazy" decoding="async" width="369" height="800">
+    <img src="/assets/images/apps/currency-converter/2.png" alt="Currency selection view" loading="lazy" decoding="async" width="369" height="800">
+    <img src="/assets/images/apps/currency-converter/3.png" alt="Offline mode" loading="lazy" decoding="async" width="369" height="800">
   </div>
   <p class="app-cta"><a class="btn btn-primary" href="{{ page.app_store_url }}">Get Valuto</a></p>
 </section>

@@ -14,7 +14,7 @@ last_updated: 2025-09-08
 <!-- HERO -->
 <section class="hero app-hero" style="background-image: linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.55)), url('{{ page.hero_background }}');">
   <div class="hero-inner">
-    <img class="app-icon" src="{{ page.app_icon }}" alt="Tickit AI app icon" width="88" height="88" />
+    <img class="app-icon" src="{{ page.app_icon }}" alt="Tickit AI app icon" width="88" height="88" loading="eager" fetchpriority="high">
     <h1 class="hero-title">TickIt: AI Grocery List Maker</h1>
     <p class="hero-subtitle">
       Make grocery shopping easy. Easily create & store lists for each major supermarket and sort them based on the typical layout of each.
@@ -86,9 +86,9 @@ last_updated: 2025-09-08
 <section class="app-section">
   <h2 class="app-section-title">Screenshots</h2>
   <div class="screenshots-grid" role="region" tabindex="0" aria-label="App screenshots">
-    <img src="/assets/images/apps/tickit/1.png" alt="Tickit AI list creation screen" />
-    <img src="/assets/images/apps/tickit/2.png" alt="Smart suggestions view" />
-    <img src="/assets/images/apps/tickit/3.png" alt="Organized grocery list" />
+    <img src="/assets/images/apps/tickit/1.png" alt="Tickit AI list creation screen" loading="lazy" decoding="async" width="368" height="800">
+    <img src="/assets/images/apps/tickit/2.png" alt="Smart suggestions view" loading="lazy" decoding="async" width="368" height="800">
+    <img src="/assets/images/apps/tickit/3.png" alt="Organized grocery list" loading="lazy" decoding="async" width="368" height="800">
   </div>
   <p class="app-cta"><a class="btn btn-primary" href="{{ page.app_store_url }}">Get Tickit AI</a></p>
 </section>

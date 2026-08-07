@@ -14,7 +14,7 @@ last_updated: 2025-09-07
 <!-- HERO -->
 <section class="hero app-hero" style="background-image: linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.55)), url('{{ page.hero_background }}');">
   <div class="hero-inner">
-    <img class="app-icon" src="{{ page.app_icon }}" alt="What Cow app icon" width="88" height="88" />
+    <img class="app-icon" src="{{ page.app_icon }}" alt="What Cow app icon" width="88" height="88" loading="eager" fetchpriority="high">
     <h1 class="hero-title">What Cow</h1>
     <p class="hero-subtitle">
       Instantly identify cattle breeds with AI—just snap a photo and discover over 1,000 breeds worldwide.
@@ -90,9 +90,9 @@ last_updated: 2025-09-07
 <section class="app-section">
   <h2 class="app-section-title">Screenshots</h2>
   <div class="screenshots-grid" role="region" tabindex="0" aria-label="App screenshots">
-    <img src="/assets/images/apps/what-cow/1.png" alt="What Cow identification screen" />
-    <img src="/assets/images/apps/what-cow/2.png" alt="Unlimited Images screen" />
-    <img src="/assets/images/apps/what-cow/3.png" alt="Unique facts screen" />
+    <img src="/assets/images/apps/what-cow/1.png" alt="What Cow identification screen" loading="lazy" decoding="async" width="369" height="800">
+    <img src="/assets/images/apps/what-cow/2.png" alt="Unlimited Images screen" loading="lazy" decoding="async" width="369" height="800">
+    <img src="/assets/images/apps/what-cow/3.png" alt="Unique facts screen" loading="lazy" decoding="async" width="369" height="800">
   </div>
   <p class="app-cta"><a class="btn btn-primary" href="{{ page.app_store_url }}">Get What Cow</a></p>
 </section>

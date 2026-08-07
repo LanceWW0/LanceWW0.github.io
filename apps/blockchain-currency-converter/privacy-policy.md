@@ -10,7 +10,7 @@ last_updated: 2025-09-08
 <a href="/apps/blockchain-currency-converter/" class="back-link">← Back to Blockchain Currency Converter</a>
 
 <header class="privacy-header">
-  <img class="app-icon" src="{{ page.app_icon }}" alt="Blockchain Currency Converter App Icon" />
+  <img class="app-icon" src="{{ page.app_icon }}" alt="Blockchain Currency Converter App Icon" loading="lazy" decoding="async">
   <h1>Privacy Policy</h1>
   <p class="last-updated">Last updated: <time datetime="{{ page.last_updated }}">September 2025</time></p>
 </header>

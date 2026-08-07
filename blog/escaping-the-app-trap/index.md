@@ -5,8 +5,8 @@ subtitle: "How I stopped chasing attention, rethought marketing, and found meani
 tags: [App Building, Ethics, Creativity, Personal Growth]
 date: 2025-10-27
 colour: "#3C91E6"   # Calming Blue
-header_image: /blog/escaping-the-app-trap/header.png
-image: /blog/escaping-the-app-trap/header.png
+header_image: /blog/escaping-the-app-trap/header.jpg
+image: /blog/escaping-the-app-trap/header.jpg
 image_desc: "Illustration of a person coding under a spotlight while a sea of notifications and likes swirl around them."
 description: "A reflection on the ethical tension between building great apps and feeding the attention economy — and how redefining success metrics can bring peace back to the craft."
 seo:

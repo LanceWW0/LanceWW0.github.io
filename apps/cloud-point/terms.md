@@ -10,7 +10,7 @@ last_updated: 2026-05-20
 <a href="/apps/cloud-point/" class="back-link">← Back to Cloud Point</a>
 
 <header class="privacy-header">
-  <img class="app-icon" src="{{ page.app_icon }}" alt="Cloud Point App Icon" />
+  <img class="app-icon" src="{{ page.app_icon }}" alt="Cloud Point App Icon" loading="lazy" decoding="async">
   <h1>Terms of Use</h1>
   <p class="last-updated">Last updated: <time datetime="{{ page.last_updated }}">May 2026</time></p>
 </header>

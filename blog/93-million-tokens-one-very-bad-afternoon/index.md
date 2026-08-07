@@ -5,8 +5,8 @@ subtitle: "How a leaked API key burned through $91.60 of OpenAI credits in about
 tags: [OpenAI, Security, Indie Dev, API]
 date: 2026-05-10
 colour: "#10A37F"
-header_image: /blog/93-million-tokens-one-very-bad-afternoon/header.png
-image: /blog/93-million-tokens-one-very-bad-afternoon/header.png
+header_image: /blog/93-million-tokens-one-very-bad-afternoon/header.jpg
+image: /blog/93-million-tokens-one-very-bad-afternoon/header.jpg
 image_desc: "Header image for the blog post about a leaked OpenAI API key burning through credits."
 description: "How a leaked API key burned through $91.60 of OpenAI credits in a single afternoon — and what I changed about my secrets hygiene afterwards."
 seo:
@@ -33,7 +33,7 @@ seo:
   </p>
   <!-- TODO: add screenshot of OpenAI Home dashboard showing 93,212,827 tokens, $91.60 spend
   <figure>
-  <img src="/blog/93-million-tokens-one-very-bad-afternoon/dashboard.png" alt="OpenAI usage dashboard showing 93,212,827 tokens used and $91.60 in spend.">
+  <img src="/blog/93-million-tokens-one-very-bad-afternoon/dashboard.png" alt="OpenAI usage dashboard showing 93,212,827 tokens used and $91.60 in spend." loading="lazy" decoding="async">
   <figcaption>93,212,827 tokens. In one afternoon. From an account that normally moves a few cents a day.</figcaption>
   </figure>
   -->
@@ -61,7 +61,7 @@ seo:
   </p>
   <!-- TODO: add screenshot of usage page showing the spike on May 7 vs the flat line of normal days
   <figure>
-  <img src="/blog/93-million-tokens-one-very-bad-afternoon/usage_spike.png" alt="OpenAI usage chart showing one enormous spike on May 7 against a flat baseline.">
+  <img src="/blog/93-million-tokens-one-very-bad-afternoon/usage_spike.png" alt="OpenAI usage chart showing one enormous spike on May 7 against a flat baseline." loading="lazy" decoding="async">
   <figcaption>The May 7 spike, against weeks of nothing.</figcaption>
   </figure>
   -->
@@ -91,7 +91,7 @@ seo:
   </p>
   <!-- TODO: add screenshot of empty API keys page
   <figure>
-  <img src="/blog/93-million-tokens-one-very-bad-afternoon/empty_keys.png" alt="OpenAI API keys page showing no active keys.">
+  <img src="/blog/93-million-tokens-one-very-bad-afternoon/empty_keys.png" alt="OpenAI API keys page showing no active keys." loading="lazy" decoding="async">
   <figcaption>A reassuringly empty keys list.</figcaption>
   </figure>
   -->

@@ -15,7 +15,7 @@ last_updated: 2025-09-06
 <!-- HERO -->
 <section class="hero app-hero" style="background-image: linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.55)), url('{{ page.hero_background }}');">
   <div class="hero-inner">
-    <img class="app-icon" src="{{ page.app_icon }}" alt="Cloud Point app icon" width="88" height="88" />
+    <img class="app-icon" src="{{ page.app_icon }}" alt="Cloud Point app icon" width="88" height="88" loading="eager" fetchpriority="high">
     <h1 class="hero-title">Cloud Point</h1>
     <p class="hero-subtitle">
       Identify cloud types with AI and learn what they mean for the weather.
@@ -103,24 +103,22 @@ last_updated: 2025-09-06
   <div class="screenshots-grid" role="region" tabindex="0" aria-label="App screenshots">
     <div class="video-container">
       <video
-        autoplay
         muted
         playsinline
-        loop
         controls
-        preload="metadata"
+        preload="none"
         poster="/assets/images/apps/cloud-point/poster.jpg">
         <source src="/assets/images/apps/cloud-point/video.mp4" type="video/mp4">
         Sorry, your browser doesn't support embedded videos.
       </video>
     </div>
-    <img src="/assets/images/apps/cloud-point/1.png" alt="Cloud Point identify screen 1" />
-    <img src="/assets/images/apps/cloud-point/2.png" alt="Cloud Point identify screen 2" />
-    <img src="/assets/images/apps/cloud-point/3.png" alt="Global community gallery screen" />
-    <img src="/assets/images/apps/cloud-point/4.png" alt="Locations map screen" />
-    <img src="/assets/images/apps/cloud-point/5.png" alt="Learn cloud types screen" />
-    <img src="/assets/images/apps/cloud-point/6.png" alt="Rank up user profile screen" />
-    <img src="/assets/images/apps/cloud-point/7.png" alt="Compete on leaderboard screen" />
+    <img src="/assets/images/apps/cloud-point/1.png" alt="Cloud Point identify screen 1" loading="lazy" decoding="async" width="369" height="800">
+    <img src="/assets/images/apps/cloud-point/2.png" alt="Cloud Point identify screen 2" loading="lazy" decoding="async" width="369" height="800">
+    <img src="/assets/images/apps/cloud-point/3.png" alt="Global community gallery screen" loading="lazy" decoding="async" width="369" height="800">
+    <img src="/assets/images/apps/cloud-point/4.png" alt="Locations map screen" loading="lazy" decoding="async" width="369" height="800">
+    <img src="/assets/images/apps/cloud-point/5.png" alt="Learn cloud types screen" loading="lazy" decoding="async" width="369" height="800">
+    <img src="/assets/images/apps/cloud-point/6.png" alt="Rank up user profile screen" loading="lazy" decoding="async" width="369" height="800">
+    <img src="/assets/images/apps/cloud-point/7.png" alt="Compete on leaderboard screen" loading="lazy" decoding="async" width="369" height="800">
   </div>
   <p class="app-cta"><button type="button" class="btn btn-primary" data-store-trigger aria-haspopup="dialog" aria-controls="store-modal">Get Cloud Point</button></p>
 </section>

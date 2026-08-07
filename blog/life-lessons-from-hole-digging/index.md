@@ -5,8 +5,8 @@ subtitle: "How digging a hole can be rather like app building."
 tags: [Life, Personal Growth, App Building]
 date: 2025-10-07
 colour: "#FF7A59"   # Coral
-header_image: /blog/life-lessons-from-hole-digging/header.png
-image: /blog/life-lessons-from-hole-digging/header.png
+header_image: /blog/life-lessons-from-hole-digging/header.jpg
+image: /blog/life-lessons-from-hole-digging/header.jpg
 image_desc: "Cartoon of a hole being dug using a spade and finding riches in the dirt."
 description: "What digging a hole as a kid taught me about app building, creativity, and persistence — sometimes you have to dig outwards to go deeper."
 seo:

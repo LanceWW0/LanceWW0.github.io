@@ -23,7 +23,7 @@ last_updated: 2025-09-08
 <!-- HERO -->
 <section class="hero app-hero" style="background-image: linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.55)), url('{{ page.hero_background }}');">
   <div class="hero-inner">
-    <img class="app-icon" src="{{ page.app_icon }}" alt="Blockchain Currency Converter app icon" width="88" height="88" />
+    <img class="app-icon" src="{{ page.app_icon }}" alt="Blockchain Currency Converter app icon" width="88" height="88" loading="eager" fetchpriority="high">
     <h1 class="hero-title">Blockchain Currency Converter</h1>
     <p class="hero-subtitle">
       Quickly calculate your Bitcoin trade profits. Enter buy and sell prices, and instantly see your gains or losses—perfect for traders and crypto enthusiasts.
@@ -95,9 +95,9 @@ last_updated: 2025-09-08
 <section class="app-section">
   <h2 class="app-section-title">Screenshots</h2>
   <div class="screenshots-grid" role="region" tabindex="0" aria-label="App screenshots">
-    <img src="/assets/images/apps/blockchain-currency-converter/1.png" alt="Profit calculation screen" />
-    <img src="/assets/images/apps/blockchain-currency-converter/2.png" alt="Currency selection view" />
-    <img src="/assets/images/apps/blockchain-currency-converter/3.png" alt="Trade history" />
+    <img src="/assets/images/apps/blockchain-currency-converter/1.png" alt="Profit calculation screen" loading="lazy" decoding="async" width="368" height="800">
+    <img src="/assets/images/apps/blockchain-currency-converter/2.png" alt="Currency selection view" loading="lazy" decoding="async" width="368" height="800">
+    <img src="/assets/images/apps/blockchain-currency-converter/3.png" alt="Trade history" loading="lazy" decoding="async" width="368" height="800">
   </div>
   <p class="app-cta"><span class="btn btn-primary is-disabled" aria-disabled="true">Not available to download</span></p>
 </section>

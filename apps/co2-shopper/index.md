@@ -14,7 +14,7 @@ last_updated: 2025-09-08
 <!-- HERO -->
 <section class="hero app-hero" style="background-image: linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.55)), url('{{ page.hero_background }}');">
   <div class="hero-inner">
-    <img class="app-icon" src="{{ page.app_icon }}" alt="CO2 Shopper app icon" width="88" height="88" />
+    <img class="app-icon" src="{{ page.app_icon }}" alt="CO2 Shopper app icon" width="88" height="88" loading="eager" fetchpriority="high">
     <h1 class="hero-title">CO2 Shopper</h1>
     <p class="hero-subtitle">
       Scan your grocery receipts and instantly see the carbon footprint of your shopping with AI.
@@ -86,9 +86,9 @@ last_updated: 2025-09-08
 <section class="app-section">
   <h2 class="app-section-title">Screenshots</h2>
   <div class="screenshots-grid" role="region" tabindex="0" aria-label="App screenshots">
-    <img src="/assets/images/apps/co2-shopper/1.png" alt="CO2 Shopper scan screen" />
-    <img src="/assets/images/apps/co2-shopper/2.png" alt="Powerful AI" />
-    <img src="/assets/images/apps/co2-shopper/3.png" alt="Unlimited Goes" />
+    <img src="/assets/images/apps/co2-shopper/1.png" alt="CO2 Shopper scan screen" loading="lazy" decoding="async" width="369" height="800">
+    <img src="/assets/images/apps/co2-shopper/2.png" alt="Powerful AI" loading="lazy" decoding="async" width="369" height="800">
+    <img src="/assets/images/apps/co2-shopper/3.png" alt="Unlimited Goes" loading="lazy" decoding="async" width="369" height="800">
   </div>
   <p class="app-cta"><a class="btn btn-primary" href="{{ page.app_store_url }}">Get CO2 Shopper</a></p>
 </section>

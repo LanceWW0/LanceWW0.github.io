@@ -23,7 +23,7 @@ last_updated: 2025-09-08
 <!-- HERO -->
 <section class="hero app-hero" style="background-image: linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.55)), url('{{ page.hero_background }}');">
   <div class="hero-inner">
-    <img class="app-icon" src="{{ page.app_icon }}" alt="Pet Portrait AI app icon" width="88" height="88" />
+    <img class="app-icon" src="{{ page.app_icon }}" alt="Pet Portrait AI app icon" width="88" height="88" loading="eager" fetchpriority="high">
     <h1 class="hero-title">Pet Portrait AI</h1>
     <p class="hero-subtitle">
       Transform your pet photos into beautiful, portrait-style paintings with the power of AI. Upload or snap a picture and save a unique artwork of your furry friend.
@@ -95,9 +95,9 @@ last_updated: 2025-09-08
 <section class="app-section">
   <h2 class="app-section-title">Screenshots</h2>
   <div class="screenshots-grid" role="region" tabindex="0" aria-label="App screenshots">
-    <img src="/assets/images/apps/pet-portrait-ai/1.png" alt="Pet Portrait AI home screen" />
-    <img src="/assets/images/apps/pet-portrait-ai/2.png" alt="Portrait style selection" />
-    <img src="/assets/images/apps/pet-portrait-ai/3.png" alt="Generated pet portrait" />
+    <img src="/assets/images/apps/pet-portrait-ai/1.png" alt="Pet Portrait AI home screen" loading="lazy" decoding="async" width="368" height="800">
+    <img src="/assets/images/apps/pet-portrait-ai/2.png" alt="Portrait style selection" loading="lazy" decoding="async" width="368" height="800">
+    <img src="/assets/images/apps/pet-portrait-ai/3.png" alt="Generated pet portrait" loading="lazy" decoding="async" width="368" height="800">
   </div>
   <p class="app-cta"><span class="btn btn-primary is-disabled" aria-disabled="true">Not available to download</span></p>
 </section>

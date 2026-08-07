@@ -10,7 +10,7 @@ last_updated: 2026-06-23
 <a href="/apps/what-cow/" class="back-link">← Back to What Cow</a>
 
 <header class="privacy-header">
-  <img class="app-icon" src="{{ page.app_icon }}" alt="What Cow App Icon" />
+  <img class="app-icon" src="{{ page.app_icon }}" alt="What Cow App Icon" loading="lazy" decoding="async">
   <h1>Terms of Use</h1>
   <p class="last-updated">Last updated: <time datetime="{{ page.last_updated }}">June 2026</time></p>
 </header>

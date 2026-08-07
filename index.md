@@ -11,7 +11,7 @@ headshot: /assets/images/me_snow.jpeg
 <!-- HERO -->
 <section class="hero" style="background-image: linear-gradient(to bottom, rgba(0,0,0,.4), rgba(0,0,0,.6)), url('{{ page.hero_background }}');">
   <div class="hero-inner">
-    <img class="headshot" src="{{ page.headshot }}" alt="Laurence headshot" width="180" height="180" />
+    <img class="headshot" src="{{ page.headshot }}" alt="Laurence headshot" width="180" height="180" loading="eager" fetchpriority="high">
     <h1 class="hero-title">Hi, I'm Laurence.</h1>
     <p>
       I build things: mobile apps, web tools & data projects.<br/>
@@ -30,7 +30,7 @@ headshot: /assets/images/me_snow.jpeg
   <div class="highlight-card riverwatch-card">
     <div class="highlight-card-inner">
       <div class="icon-wrap">
-        <img src="/assets/images/projects/river-watch/logo.png" alt="RiverWatch logo" width="120" height="120" />
+        <img src="/assets/images/projects/river-watch/logo.png" alt="RiverWatch logo" width="120" height="120" loading="eager" fetchpriority="high">
       </div>
       <div class="content-wrap">
         <h2>Latest project: <span class="rw-name">River Watch</span></h2>
@@ -41,7 +41,7 @@ headshot: /assets/images/me_snow.jpeg
           The goal is transparency: making it easy for anyone to see what's happening to their local waterways, identify what's causing degradation, and hold polluters to account.
         </p>
         <div class="rw-screenshot-wrap">
-          <img class="rw-screenshot" src="/assets/images/projects/river-watch/screenshot.png" alt="RiverWatch screenshot showing river health data" />
+          <img class="rw-screenshot" src="/assets/images/projects/river-watch/screenshot.jpg" alt="RiverWatch screenshot showing river health data" loading="lazy" decoding="async" width="1400" height="786">
         </div>
         <div class="card-actions">
           <a class="btn btn-primary" href="https://www.riverwatch.earth" target="_blank" rel="noopener">Visit RiverWatch</a>
@@ -57,7 +57,7 @@ headshot: /assets/images/me_snow.jpeg
   <div class="highlight-card twitter-bot">
     <div class="highlight-card-inner">
       <div class="icon-wrap">
-        <img src="/assets/images/apps/geology-toolkit/logo.png" alt="Geology Toolkit logo" width="120" height="120" />
+        <img src="/assets/images/apps/geology-toolkit/logo.png" alt="Geology Toolkit logo" width="120" height="120" loading="eager" fetchpriority="high">
       </div>
       <div class="content-wrap">
         <h2>Rock of the Day: <span>@GeologyToolkit</span></h2>
@@ -89,7 +89,7 @@ headshot: /assets/images/me_snow.jpeg
   <div class="featured-grid">
     <!-- Cloud Point Card -->
     <div class="featured-card" style="--card-accent: #3b82f6; --card-accent-end: #06b6d4;">
-      <img class="card-icon" src="/assets/images/apps/cloud-point/logo.png" alt="Cloud Point logo" width="80" height="80" />
+      <img class="card-icon" src="/assets/images/apps/cloud-point/logo.png" alt="Cloud Point logo" width="80" height="80" loading="eager" fetchpriority="high">
       <h3 class="card-title">Cloud Point – Cloud Identifier</h3>
       <p class="card-body">
         A unique community created by and for cloud-spotters. No prior knowledge needed—just look up and explore!
@@ -101,7 +101,7 @@ headshot: /assets/images/me_snow.jpeg
     </div>
     <!-- Geology AI Card -->
     <div class="featured-card" style="--card-accent: #f59e0b; --card-accent-end: #ef4444;">
-      <img class="card-icon" src="/assets/images/apps/geology-toolkit/logo.png" alt="Geology AI logo" width="80" height="80" />
+      <img class="card-icon" src="/assets/images/apps/geology-toolkit/logo.png" alt="Geology AI logo" width="80" height="80" loading="eager" fetchpriority="high">
       <h3 class="card-title">Geology Toolkit: AI Rock ID</h3>
       <p class="card-body">
         A powerful toolkit for field Geologists, aiding understanding, interpretation and sketches in the field!
@@ -123,14 +123,14 @@ headshot: /assets/images/me_snow.jpeg
   <div class="blog-tiles-grid">
     <!-- Blog Tile 1 -->
     <a href="/blog/why-i-finally-gave-up-with-android/" style="text-decoration: none;">
-      <div class="blog-tile" style="background-image: linear-gradient(135deg, rgba(66, 133, 244, 0.9), rgba(99, 102, 241, 0.85)), url('/blog/why-i-finally-gave-up-with-android/header.png'); background-size: cover; background-position: center;">
+      <div class="blog-tile" style="background-image: linear-gradient(135deg, rgba(66, 133, 244, 0.9), rgba(99, 102, 241, 0.85)), url('/blog/why-i-finally-gave-up-with-android/header.jpg'); background-size: cover; background-position: center;">
         <h3>Why I Finally Gave Up With Android</h3>
         <p>What drove me away from Android development — and why Apple just makes more sense for indie developers.</p>
       </div>
     </a>
     <!-- Blog Tile 2 -->
     <a href="/blog/escaping-the-app-trap/" style="text-decoration: none;">
-      <div class="blog-tile" style="background-image: linear-gradient(135deg, rgba(139, 92, 246, 0.9), rgba(236, 72, 153, 0.85)), url('/blog/escaping-the-app-trap/header.png'); background-size: cover; background-position: center;">
+      <div class="blog-tile" style="background-image: linear-gradient(135deg, rgba(139, 92, 246, 0.9), rgba(236, 72, 153, 0.85)), url('/blog/escaping-the-app-trap/header.jpg'); background-size: cover; background-position: center;">
         <h3>Escaping the App Trap</h3>
         <p>How I stopped chasing attention, rethought marketing, and found meaning in app development again.</p>
       </div>
@@ -152,7 +152,7 @@ headshot: /assets/images/me_snow.jpeg
   <div class="highlight-card about-card">
     <div class="highlight-card-inner">
       <div class="icon-wrap">
-        <img class="about-headshot" src="assets/images/me_turkey.jpeg" alt="Laurence in Turkey" width="200" />
+        <img class="about-headshot" src="assets/images/me_turkey.jpeg" alt="Laurence in Turkey" width="200" loading="eager" fetchpriority="high">
       </div>
       <div class="content-wrap">
         <h2>About Me</h2>

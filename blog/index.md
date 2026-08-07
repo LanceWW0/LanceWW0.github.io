@@ -18,7 +18,7 @@ permalink: /blog/
      {% if post.colour %}style="--post-colour: {{ post.colour }};"{% endif %}>
     {% if post.header_image %}
     <img src="{{ post.header_image }}" alt="{{ post.image_desc | default: post.title | escape }}"
-         loading="lazy" decoding="async" width="1200" height="750" />
+         loading="lazy" decoding="async" width="1200" height="750">
     {% endif %}
     <div class="blog-card-content">
       <h2>{{ post.title }}</h2>

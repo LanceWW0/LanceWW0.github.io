@@ -5,8 +5,8 @@ subtitle: "How I spent an Easter weekend downloading 25 years of water quality d
 tags: [Open Data, Environment, Python, RiverWatch]
 date: 2026-04-15
 colour: "#2E86AB"
-header_image: /blog/the-quest-for-englands-river-health-data/header.png
-image: /blog/the-quest-for-englands-river-health-data/header.png
+header_image: /blog/the-quest-for-englands-river-health-data/header.jpg
+image: /blog/the-quest-for-englands-river-health-data/header.jpg
 image_desc: "Header image for the blog post about downloading England's river health data from the Environment Agency API."
 description: "How I spent an Easter weekend downloading 25 years of water quality data one API call at a time — because the government deleted the download button."
 seo:

@@ -10,7 +10,7 @@ last_updated: 2025-09-08
 <a href="/apps/pet-portrait-ai/" class="back-link">← Back to Pet Portrait AI</a>
 
 <header class="privacy-header">
-  <img class="app-icon" src="{{ page.app_icon }}" alt="Pet Portrait AI App Icon" />
+  <img class="app-icon" src="{{ page.app_icon }}" alt="Pet Portrait AI App Icon" loading="lazy" decoding="async">
   <h1>Privacy Policy</h1>
   <p class="last-updated">Last updated: <time datetime="{{ page.last_updated }}">September 2025</time></p>
 </header>

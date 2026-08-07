@@ -14,7 +14,7 @@ last_updated: 2025-09-07
 <!-- HERO -->
 <section class="hero app-hero" style="background-image: linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.55)), url('{{ page.hero_background }}');">
   <div class="hero-inner">
-    <img class="app-icon" src="{{ page.app_icon }}" alt="Earthquake Tracker app icon" width="88" height="88" />
+    <img class="app-icon" src="{{ page.app_icon }}" alt="Earthquake Tracker app icon" width="88" height="88" loading="eager" fetchpriority="high">
     <h1 class="hero-title">Earthquake Tracker & Monitor</h1>
     <p class="hero-subtitle">
       Stay informed about seismic activity worldwide. Get real-time earthquake alerts, detailed maps, and safety tips.
@@ -88,23 +88,21 @@ last_updated: 2025-09-07
   <div class="screenshots-grid" role="region" tabindex="0" aria-label="App screenshots">
     <div class="video-container">
       <video
-        autoplay
         muted
         playsinline
-        loop
         controls
-        preload="metadata"
+        preload="none"
         poster="/assets/images/apps/earthquake-tracker/poster.jpg">
         <source src="/assets/images/apps/earthquake-tracker/video.mp4" type="video/mp4">
         Sorry, your browser doesn't support embedded videos.
       </video>
     </div>
-    <img src="/assets/images/apps/earthquake-tracker/1.png" alt="Live earthquake feed" />
-    <img src="/assets/images/apps/earthquake-tracker/2.png" alt="List View of Earthquakes" />
-    <img src="/assets/images/apps/earthquake-tracker/3.png" alt="Real time alerts page" />
-    <img src="/assets/images/apps/earthquake-tracker/4.png" alt="Custom regions page" />
-    <img src="/assets/images/apps/earthquake-tracker/5.png" alt="Magnitude filter page" />
-    <img src="/assets/images/apps/earthquake-tracker/6.png" alt="Global tracking page" />
+    <img src="/assets/images/apps/earthquake-tracker/1.png" alt="Live earthquake feed" loading="lazy" decoding="async" width="369" height="800">
+    <img src="/assets/images/apps/earthquake-tracker/2.png" alt="List View of Earthquakes" loading="lazy" decoding="async" width="369" height="800">
+    <img src="/assets/images/apps/earthquake-tracker/3.png" alt="Real time alerts page" loading="lazy" decoding="async" width="369" height="800">
+    <img src="/assets/images/apps/earthquake-tracker/4.png" alt="Custom regions page" loading="lazy" decoding="async" width="369" height="800">
+    <img src="/assets/images/apps/earthquake-tracker/5.png" alt="Magnitude filter page" loading="lazy" decoding="async" width="369" height="800">
+    <img src="/assets/images/apps/earthquake-tracker/6.png" alt="Global tracking page" loading="lazy" decoding="async" width="369" height="800">
   </div>
   <p class="app-cta"><a class="btn btn-primary" href="{{ page.app_store_url }}">Get Earthquake Tracker</a></p>
 </section>

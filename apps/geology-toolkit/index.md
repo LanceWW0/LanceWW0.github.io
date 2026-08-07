@@ -15,7 +15,7 @@ last_updated: 2026-03-30
 <!-- HERO -->
 <section class="hero app-hero" style="background-image: linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.55)), url('{{ page.hero_background }}');">
   <div class="hero-inner">
-    <img class="app-icon" src="{{ page.app_icon }}" alt="Geology AI app icon" width="88" height="88" />
+    <img class="app-icon" src="{{ page.app_icon }}" alt="Geology AI app icon" width="88" height="88" loading="eager" fetchpriority="high">
     <h1 class="hero-title">Geology AI</h1>
     <p class="hero-subtitle">
       Instantly identify rocks and minerals, learn about their properties, understand how formations look they way they are and create high-quality pencil sketches.
@@ -88,12 +88,12 @@ last_updated: 2026-03-30
 <section class="app-section">
   <h2 class="app-section-title">Screenshots</h2>
   <div class="screenshots-grid" role="region" tabindex="0" aria-label="App screenshots">
-    <img src="/assets/images/apps/geology-toolkit/1.png" alt="Geology AI identification screen" />
-    <img src="/assets/images/apps/geology-toolkit/2.png" alt="Identification result view" />
-    <img src="/assets/images/apps/geology-toolkit/3.png" alt="Sketch" />
-    <img src="/assets/images/apps/geology-toolkit/4.png" alt="Features Page" />
-    <img src="/assets/images/apps/geology-toolkit/5.png" alt="For everyone Page" />
-    <img src="/assets/images/apps/geology-toolkit/6.png" alt="CTA Page" />
+    <img src="/assets/images/apps/geology-toolkit/1.png" alt="Geology AI identification screen" loading="lazy" decoding="async" width="369" height="800">
+    <img src="/assets/images/apps/geology-toolkit/2.png" alt="Identification result view" loading="lazy" decoding="async" width="369" height="800">
+    <img src="/assets/images/apps/geology-toolkit/3.png" alt="Sketch" loading="lazy" decoding="async" width="369" height="800">
+    <img src="/assets/images/apps/geology-toolkit/4.png" alt="Features Page" loading="lazy" decoding="async" width="369" height="800">
+    <img src="/assets/images/apps/geology-toolkit/5.png" alt="For everyone Page" loading="lazy" decoding="async" width="369" height="800">
+    <img src="/assets/images/apps/geology-toolkit/6.png" alt="CTA Page" loading="lazy" decoding="async" width="369" height="800">
   </div>
   <p class="app-cta"><button type="button" class="btn btn-primary" data-store-trigger aria-haspopup="dialog" aria-controls="store-modal">Get Geology AI</button></p>
 </section>

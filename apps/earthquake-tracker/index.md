@@ -38,33 +38,33 @@ last_updated: 2025-09-07
 <section class="app-section" id="features">
   <h2 class="app-section-title">Key features</h2>
   <div class="feature-grid">
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #0288d1, #03a9f4); --feature-bg: linear-gradient(135deg, #e0f7fa, #b2ebf2);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #e0f7fa, #b2ebf2);">🗺️</div>
+    <article class="feature-card fc--cyan">
+      <div class="feature-card-icon">🗺️</div>
       <h3>Live earthquake map</h3>
       <p>View recent earthquakes on an interactive map with magnitude, depth, and location details.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #f57c00, #ff9800); --feature-bg: linear-gradient(135deg, #fff3e0, #ffe0b2);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2);">🔔</div>
+    <article class="feature-card fc--amber">
+      <div class="feature-card-icon">🔔</div>
       <h3>Real-time alerts</h3>
       <p>Get instant notifications for significant seismic activity near your location or worldwide.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #8e24aa, #ab47bc); --feature-bg: linear-gradient(135deg, #f3e5f5, #e1bee7);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7);">📊</div>
+    <article class="feature-card fc--violet">
+      <div class="feature-card-icon">📊</div>
       <h3>Detailed event info</h3>
       <p>Access comprehensive data for each event, including time, coordinates, and affected regions.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #388e3c, #4caf50); --feature-bg: linear-gradient(135deg, #e8f5e9, #c8e6c9);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">📈</div>
+    <article class="feature-card fc--green">
+      <div class="feature-card-icon">📈</div>
       <h3>Historical data</h3>
       <p>Browse past earthquakes and analyze trends over time.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #fbc02d, #ffeb3b); --feature-bg: linear-gradient(135deg, #fffde7, #fff9c4);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #fffde7, #fff9c4);">⚙️</div>
+    <article class="feature-card fc--yellow">
+      <div class="feature-card-icon">⚙️</div>
       <h3>Customizable notifications</h3>
       <p>Set alert thresholds by magnitude and region to get only the updates you care about. (coming soon)</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #00897b, #26a69a); --feature-bg: linear-gradient(135deg, #e0f2f1, #b2dfdb);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #e0f2f1, #b2dfdb);">🛡️</div>
+    <article class="feature-card fc--teal">
+      <div class="feature-card-icon">🛡️</div>
       <h3>Safety resources</h3>
       <p>Learn what to do before, during, and after an earthquake with built-in safety guides. (coming soon)</p>
     </article>

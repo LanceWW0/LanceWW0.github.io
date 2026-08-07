@@ -38,33 +38,33 @@ last_updated: 2025-09-08
 <section class="app-section" id="features">
   <h2 class="app-section-title">Why you'll love it</h2>
   <div class="feature-grid">
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #0288d1, #03a9f4); --feature-bg: linear-gradient(135deg, #e0f7fa, #b2ebf2);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #e0f7fa, #b2ebf2);">🤖</div>
+    <article class="feature-card fc--cyan">
+      <div class="feature-card-icon">🤖</div>
       <h3>AI-powered sorting</h3>
       <p>Sort items in your list based on the layout of the respective supermarket.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #f57c00, #ff9800); --feature-bg: linear-gradient(135deg, #fff3e0, #ffe0b2);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2);">✏️</div>
+    <article class="feature-card fc--amber">
+      <div class="feature-card-icon">✏️</div>
       <h3>Easy list creation</h3>
       <p>Add items by typing or bulk upload for fast and flexible list building.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #8e24aa, #ab47bc); --feature-bg: linear-gradient(135deg, #f3e5f5, #e1bee7);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7);">✅</div>
+    <article class="feature-card fc--violet">
+      <div class="feature-card-icon">✅</div>
       <h3>Tick items off</h3>
       <p>Tick off items as you move around the shop so you have confidence nothing is left behind.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #388e3c, #4caf50); --feature-bg: linear-gradient(135deg, #e8f5e9, #c8e6c9);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">👨‍👩‍👧‍👦</div>
+    <article class="feature-card fc--green">
+      <div class="feature-card-icon">👨‍👩‍👧‍👦</div>
       <h3>Share & collaborate</h3>
       <p>Share lists with family or roommates so you're all on the same page!</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #fbc02d, #ffeb3b); --feature-bg: linear-gradient(135deg, #fffde7, #fff9c4);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #fffde7, #fff9c4);">🏪</div>
+    <article class="feature-card fc--yellow">
+      <div class="feature-card-icon">🏪</div>
       <h3>All major supermarkets</h3>
       <p>Support for all the biggest supermarkets globally.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #00897b, #26a69a); --feature-bg: linear-gradient(135deg, #e0f2f1, #b2dfdb);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #e0f2f1, #b2dfdb);">🔒</div>
+    <article class="feature-card fc--teal">
+      <div class="feature-card-icon">🔒</div>
       <h3>Privacy-first</h3>
       <p>Your lists and data stay private. Simple controls and a clear privacy policy for peace of mind.</p>
     </article>

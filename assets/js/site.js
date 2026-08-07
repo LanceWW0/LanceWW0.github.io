@@ -68,6 +68,57 @@
   }
 
   /* ---------------------------------------------------------------
+     Store picker modal (app pages published on both stores)
+     --------------------------------------------------------------- */
+  var modal = document.getElementById('store-modal');
+
+  if (modal) {
+    var lastTrigger = null;
+
+    var openModal = function (trigger) {
+      lastTrigger = trigger || null;
+      modal.hidden = false;
+      root.classList.add('is-locked');
+      var first = modal.querySelector('.store-choice');
+      if (first) first.focus();
+    };
+
+    var closeModal = function () {
+      modal.hidden = true;
+      root.classList.remove('is-locked');
+      if (lastTrigger && typeof lastTrigger.focus === 'function') lastTrigger.focus();
+    };
+
+    document.querySelectorAll('[data-store-trigger]').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        openModal(btn);
+      });
+    });
+
+    modal.querySelectorAll('[data-store-close]').forEach(function (el) {
+      el.addEventListener('click', closeModal);
+    });
+
+    modal.addEventListener('keydown', function (e) {
+      if (e.key !== 'Tab') return;
+      // Keep Tab inside the dialog while it is open.
+      var items = modal.querySelectorAll('a[href], button:not([disabled])');
+      if (!items.length) return;
+      var first = items[0], last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault(); last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault(); first.focus();
+      }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !modal.hidden) closeModal();
+    });
+  }
+
+  /* ---------------------------------------------------------------
      Theme toggle
 
      The inline script in <head> has already resolved data-theme, so this

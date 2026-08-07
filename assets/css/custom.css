@@ -2027,6 +2027,19 @@ html.is-locked, html.is-locked body { overflow: hidden; }
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 24px;
 }
+/* Feature-card colour variants.
+   These eight pairs were previously repeated as inline style attributes on
+   all 53 cards across the nine app pages — 106 attributes carrying eight
+   distinct values. Dark variants live with the theme tokens. */
+.fc--cyan   { --feature-accent: linear-gradient(180deg, #0288d1, #03a9f4); --feature-bg: linear-gradient(135deg, #e0f7fa, #b2ebf2); }
+.fc--amber  { --feature-accent: linear-gradient(180deg, #f57c00, #ff9800); --feature-bg: linear-gradient(135deg, #fff3e0, #ffe0b2); }
+.fc--violet { --feature-accent: linear-gradient(180deg, #8e24aa, #ab47bc); --feature-bg: linear-gradient(135deg, #f3e5f5, #e1bee7); }
+.fc--green  { --feature-accent: linear-gradient(180deg, #388e3c, #4caf50); --feature-bg: linear-gradient(135deg, #e8f5e9, #c8e6c9); }
+.fc--yellow { --feature-accent: linear-gradient(180deg, #fbc02d, #ffeb3b); --feature-bg: linear-gradient(135deg, #fffde7, #fff9c4); }
+.fc--teal   { --feature-accent: linear-gradient(180deg, #00897b, #26a69a); --feature-bg: linear-gradient(135deg, #e0f2f1, #b2dfdb); }
+.fc--red    { --feature-accent: linear-gradient(180deg, #e57373, #ef5350); --feature-bg: linear-gradient(135deg, #ffe0e0, #ffcdd2); }
+.fc--pink   { --feature-accent: linear-gradient(180deg, #ad1457, #d81b60); --feature-bg: linear-gradient(135deg, #fce4ec, #f8bbd9); }
+
 .feature-card {
   background: #fff;
   border-radius: 20px;
@@ -3251,4 +3264,128 @@ html.is-locked, html.is-locked body { overflow: hidden; }
   .btn-hire:hover .btn-hire-icon {
     transform: none;
   }
+}
+
+
+/* ============================================================
+   STORE PICKER MODAL
+   Was duplicated byte-for-byte as a <style> block in both
+   apps/cloud-point/index.md and apps/geology-toolkit/index.md.
+   Markup is now _includes/store-modal.html; behaviour is in site.js.
+   ============================================================ */
+.store-modal[hidden] { display: none; }
+.store-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.store-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 18, 32, .55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  animation: storeFadeIn .2s ease-out;
+}
+.store-modal-card {
+  position: relative;
+  background: #fff;
+  color: #0d1b2a;
+  border-radius: 18px;
+  padding: 28px 24px 24px;
+  max-width: 440px;
+  width: 100%;
+  box-shadow: 0 24px 60px rgba(0,0,0,.28);
+  animation: storePopIn .28s cubic-bezier(.2, .9, .3, 1.15);
+}
+.store-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: transparent;
+  border: 0;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  color: #6b7a8c;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+.store-modal-close:hover { background: rgba(0,0,0,.05); color: #0d1b2a; }
+.store-modal-title {
+  margin: 0 0 6px;
+  font-size: 22px;
+  text-align: center;
+}
+.store-modal-subtitle {
+  margin: 0 0 18px;
+  text-align: center;
+  color: #5b6b7d;
+  font-size: 14px;
+}
+.store-choices {
+  display: grid;
+  gap: 12px;
+}
+.store-choice {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border: 1px solid rgba(0,0,0,.09);
+  border-radius: 14px;
+  text-decoration: none;
+  color: inherit;
+  background: #f7f9fc;
+  transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+}
+.store-choice:hover {
+  transform: translateY(-2px);
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(0,0,0,.10);
+}
+.store-choice-icon {
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.store-choice-icon--apple {
+  background: #0d1b2a;
+  color: #fff;
+}
+.store-choice-icon--play {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.06);
+}
+.store-choice-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+.store-choice-eyebrow {
+  font-size: 12px;
+  color: #5b6b7d;
+}
+.store-choice-name {
+  font-size: 18px;
+  font-weight: 700;
+}
+@keyframes storeFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes storePopIn {
+  from { opacity: 0; transform: translateY(10px) scale(.96); }
+  to   { opacity: 1; transform: translateY(0)    scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .store-modal-backdrop, .store-modal-card { animation: none; }
 }

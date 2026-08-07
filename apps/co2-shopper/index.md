@@ -38,33 +38,33 @@ last_updated: 2025-09-08
 <section class="app-section" id="features">
   <h2 class="app-section-title">Why you'll love it</h2>
   <div class="feature-grid">
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #0288d1, #03a9f4); --feature-bg: linear-gradient(135deg, #e0f7fa, #b2ebf2);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #e0f7fa, #b2ebf2);">📸</div>
+    <article class="feature-card fc--cyan">
+      <div class="feature-card-icon">📸</div>
       <h3>AI-powered receipt scanning</h3>
       <p>Snap a photo of your grocery receipt and let AI extract and analyze your purchases in seconds.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #f57c00, #ff9800); --feature-bg: linear-gradient(135deg, #fff3e0, #ffe0b2);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2);">🌱</div>
+    <article class="feature-card fc--amber">
+      <div class="feature-card-icon">🌱</div>
       <h3>Carbon footprint insights</h3>
       <p>See the estimated CO2 emissions for each product and your total shop, with clear, easy-to-understand visuals.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #8e24aa, #ab47bc); --feature-bg: linear-gradient(135deg, #f3e5f5, #e1bee7);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7);">💡</div>
+    <article class="feature-card fc--violet">
+      <div class="feature-card-icon">💡</div>
       <h3>Personalized eco tips</h3>
       <p>Get suggestions for lower-impact swaps and learn how your choices affect the environment. (coming soon)</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #388e3c, #4caf50); --feature-bg: linear-gradient(135deg, #e8f5e9, #c8e6c9);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">📊</div>
+    <article class="feature-card fc--green">
+      <div class="feature-card-icon">📊</div>
       <h3>Track your progress</h3>
       <p>Monitor your carbon savings over time and set goals for more sustainable shopping.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #fbc02d, #ffeb3b); --feature-bg: linear-gradient(135deg, #fffde7, #fff9c4);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #fffde7, #fff9c4);">👥</div>
+    <article class="feature-card fc--yellow">
+      <div class="feature-card-icon">👥</div>
       <h3>Community comparisons</h3>
       <p>See how your footprint stacks up against other users and get inspired by collective climate action.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #00897b, #26a69a); --feature-bg: linear-gradient(135deg, #e0f2f1, #b2dfdb);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #e0f2f1, #b2dfdb);">🔒</div>
+    <article class="feature-card fc--teal">
+      <div class="feature-card-icon">🔒</div>
       <h3>Privacy-first</h3>
       <p>Your data stays private. You control what you share, and your receipts are never sold or used for ads.</p>
     </article>

@@ -38,28 +38,28 @@ last_updated: 2025-10-01
 <section class="app-section" id="features">
   <h2 class="app-section-title">Why choose Valuto?</h2>
   <div class="feature-grid">
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #0288d1, #03a9f4); --feature-bg: linear-gradient(135deg, #e0f7fa, #b2ebf2);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #e0f7fa, #b2ebf2);">⚡</div>
+    <article class="feature-card fc--cyan">
+      <div class="feature-card-icon">⚡</div>
       <h3>Instant conversions</h3>
       <p>Type and get results immediately—no waiting, no fuss.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #f57c00, #ff9800); --feature-bg: linear-gradient(135deg, #fff3e0, #ffe0b2);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2);">🌍</div>
+    <article class="feature-card fc--amber">
+      <div class="feature-card-icon">🌍</div>
       <h3>Major currencies supported</h3>
       <p>Convert between USD, EUR, JPY, GBP, and many more.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #388e3c, #4caf50); --feature-bg: linear-gradient(135deg, #e8f5e9, #c8e6c9);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">📴</div>
+    <article class="feature-card fc--green">
+      <div class="feature-card-icon">📴</div>
       <h3>Works offline (pro)</h3>
       <p>No internet required—perfect for travel and remote locations.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #8e24aa, #ab47bc); --feature-bg: linear-gradient(135deg, #f3e5f5, #e1bee7);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7);">✨</div>
+    <article class="feature-card fc--violet">
+      <div class="feature-card-icon">✨</div>
       <h3>Clean, modern design</h3>
       <p>No ads, no clutter—just what you need for quick conversions.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #00897b, #26a69a); --feature-bg: linear-gradient(135deg, #e0f2f1, #b2dfdb);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #e0f2f1, #b2dfdb);">🔒</div>
+    <article class="feature-card fc--teal">
+      <div class="feature-card-icon">🔒</div>
       <h3>Lightweight & private</h3>
       <p>No sign-ups, no tracking—your data stays on your device.</p>
     </article>

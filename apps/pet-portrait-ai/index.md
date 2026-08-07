@@ -47,33 +47,33 @@ last_updated: 2025-09-08
 <section class="app-section" id="features">
   <h2 class="app-section-title">Why you'll love it</h2>
   <div class="feature-grid">
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #e57373, #ef5350); --feature-bg: linear-gradient(135deg, #ffe0e0, #ffcdd2);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #ffe0e0, #ffcdd2);">🎨</div>
+    <article class="feature-card fc--red">
+      <div class="feature-card-icon">🎨</div>
       <h3>AI-powered portraits</h3>
       <p>Upload or snap a photo of your pet and instantly get a portrait-style painting, crafted by advanced AI.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #8e24aa, #ab47bc); --feature-bg: linear-gradient(135deg, #f3e5f5, #e1bee7);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7);">✨</div>
+    <article class="feature-card fc--violet">
+      <div class="feature-card-icon">✨</div>
       <h3>Unique results</h3>
       <p>Get a totally unique result each time you create a portrait - never the same image created twice!</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #fbc02d, #ffeb3b); --feature-bg: linear-gradient(135deg, #fffde7, #fff9c4);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #fffde7, #fff9c4);">📱</div>
+    <article class="feature-card fc--yellow">
+      <div class="feature-card-icon">📱</div>
       <h3>Easy to use</h3>
       <p>No art skills required—just your phone and a photo of your pet to get started.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #00897b, #26a69a); --feature-bg: linear-gradient(135deg, #e0f2f1, #b2dfdb);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #e0f2f1, #b2dfdb);">📥</div>
+    <article class="feature-card fc--teal">
+      <div class="feature-card-icon">📥</div>
       <h3>High-quality downloads</h3>
       <p>Save your pet's portrait in high resolution, perfect for printing or sharing online.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #ad1457, #d81b60); --feature-bg: linear-gradient(135deg, #fce4ec, #f8bbd9);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #fce4ec, #f8bbd9);">💝</div>
+    <article class="feature-card fc--pink">
+      <div class="feature-card-icon">💝</div>
       <h3>Share with friends</h3>
       <p>Easily share your pet's artwork with friends and family, or post it on social media.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #0288d1, #03a9f4); --feature-bg: linear-gradient(135deg, #e0f7fa, #b2ebf2);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #e0f7fa, #b2ebf2);">🔒</div>
+    <article class="feature-card fc--cyan">
+      <div class="feature-card-icon">🔒</div>
       <h3>Privacy-first</h3>
       <p>You control your photos and data. Enjoy a clear privacy policy and easy-to-use controls for peace of mind.</p>
     </article>

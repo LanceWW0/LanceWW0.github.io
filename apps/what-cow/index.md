@@ -39,33 +39,33 @@ last_updated: 2025-09-07
 <section class="app-section" id="features">
   <h2 class="app-section-title">Why you'll love it</h2>
   <div class="feature-grid">
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #0288d1, #03a9f4); --feature-bg: linear-gradient(135deg, #e0f7fa, #b2ebf2);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #e0f7fa, #b2ebf2);">🤖</div>
+    <article class="feature-card fc--cyan">
+      <div class="feature-card-icon">🤖</div>
       <h3>AI cow breed identification</h3>
       <p>Just snap a photo and let the app do the rest—instantly identify cattle breeds with AI.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #f57c00, #ff9800); --feature-bg: linear-gradient(135deg, #fff3e0, #ffe0b2);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2);">📖</div>
+    <article class="feature-card fc--amber">
+      <div class="feature-card-icon">📖</div>
       <h3>Cattle breed guide</h3>
       <p>Learn about dozens of dairy and beef breeds, including key traits and fun facts.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #8e24aa, #ab47bc); --feature-bg: linear-gradient(135deg, #f3e5f5, #e1bee7);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7);">♾️</div>
+    <article class="feature-card fc--violet">
+      <div class="feature-card-icon">♾️</div>
       <h3>Unlimited Facts</h3>
       <p>Get a novel response for each image you upload - with new information & facts.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #388e3c, #4caf50); --feature-bg: linear-gradient(135deg, #e8f5e9, #c8e6c9);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">🎓</div>
+    <article class="feature-card fc--green">
+      <div class="feature-card-icon">🎓</div>
       <h3>Educational tool</h3>
       <p>Great for agriculture students, kids, and curious minds eager to learn about cattle.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #fbc02d, #ffeb3b); --feature-bg: linear-gradient(135deg, #fffde7, #fff9c4);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #fffde7, #fff9c4);">⚡</div>
+    <article class="feature-card fc--yellow">
+      <div class="feature-card-icon">⚡</div>
       <h3>Simple and fast</h3>
       <p>Designed for real-world farm use—get quick, reliable results every time.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #00897b, #26a69a); --feature-bg: linear-gradient(135deg, #e0f2f1, #b2dfdb);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #e0f2f1, #b2dfdb);">🏔️</div>
+    <article class="feature-card fc--teal">
+      <div class="feature-card-icon">🏔️</div>
       <h3>Capture anywhere</h3>
       <p>Take photos on your walks in the countryside while offline, then identify the cows once you're back online.</p>
     </article>

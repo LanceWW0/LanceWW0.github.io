@@ -47,33 +47,33 @@ last_updated: 2025-09-08
 <section class="app-section" id="features">
   <h2 class="app-section-title">Why you'll love it</h2>
   <div class="feature-grid">
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #0288d1, #03a9f4); --feature-bg: linear-gradient(135deg, #e0f7fa, #b2ebf2);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #e0f7fa, #b2ebf2);">💰</div>
+    <article class="feature-card fc--cyan">
+      <div class="feature-card-icon">💰</div>
       <h3>Instant profit calculation</h3>
       <p>Enter your buy and sell prices to see your profit or loss in real time.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #f57c00, #ff9800); --feature-bg: linear-gradient(135deg, #fff3e0, #ffe0b2);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2);">🌍</div>
+    <article class="feature-card fc--amber">
+      <div class="feature-card-icon">🌍</div>
       <h3>Supports multiple currencies</h3>
       <p>Convert between Bitcoin and major fiat currencies for accurate results.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #8e24aa, #ab47bc); --feature-bg: linear-gradient(135deg, #f3e5f5, #e1bee7);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7);">✨</div>
+    <article class="feature-card fc--violet">
+      <div class="feature-card-icon">✨</div>
       <h3>Simple & intuitive</h3>
       <p>Clean interface makes it easy to enter values and view results—no clutter, just what you need.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #388e3c, #4caf50); --feature-bg: linear-gradient(135deg, #e8f5e9, #c8e6c9);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">🚀</div>
+    <article class="feature-card fc--green">
+      <div class="feature-card-icon">🚀</div>
       <h3>No account required</h3>
       <p>Use the app instantly—no sign-up or personal data needed.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #fbc02d, #ffeb3b); --feature-bg: linear-gradient(135deg, #fffde7, #fff9c4);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #fffde7, #fff9c4);">📈</div>
+    <article class="feature-card fc--yellow">
+      <div class="feature-card-icon">📈</div>
       <h3>Track multiple trades</h3>
       <p>Easily calculate profits for different trades and keep a record of your results.</p>
     </article>
-    <article class="feature-card" style="--feature-accent: linear-gradient(180deg, #00897b, #26a69a); --feature-bg: linear-gradient(135deg, #e0f2f1, #b2dfdb);">
-      <div class="feature-card-icon" style="background: linear-gradient(135deg, #e0f2f1, #b2dfdb);">🔒</div>
+    <article class="feature-card fc--teal">
+      <div class="feature-card-icon">🔒</div>
       <h3>Privacy-first</h3>
       <p>Your data stays on your device. No tracking or unnecessary permissions.</p>
     </article>

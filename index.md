@@ -27,15 +27,15 @@ headshot: /assets/images/me_snow.jpeg
 
 <!-- RIVERWATCH -->
 <section class="section">
-  <div class="highlight-card riverwatch-card" style="border-top: 4px solid #2a8a8a;">
+  <div class="highlight-card riverwatch-card">
     <div class="highlight-card-inner">
       <div class="icon-wrap">
         <img src="/assets/images/projects/river-watch/logo.png" alt="RiverWatch logo" width="120" height="120" />
       </div>
       <div class="content-wrap">
-        <h2>Latest project: <span style="color: #2a8a8a;">River Watch</span></h2>
+        <h2>Latest project: <span class="rw-name">River Watch</span></h2>
         <p>
-          <strong style="color: #2a8a8a;">River Watch</strong> is an open-source project I'm building to visualise and track the health of England's rivers. It uses open government data—primarily from the Environment Agency—to surface trends, pollution events, and ecological indicators for every river.
+          <strong class="rw-name">River Watch</strong> is an open-source project I'm building to visualise and track the health of England's rivers. It uses open government data—primarily from the Environment Agency—to surface trends, pollution events, and ecological indicators for every river.
         </p>
         <p>
           The goal is transparency: making it easy for anyone to see what's happening to their local waterways, identify what's causing degradation, and hold polluters to account.
@@ -44,7 +44,7 @@ headshot: /assets/images/me_snow.jpeg
           <img class="rw-screenshot" src="/assets/images/projects/river-watch/screenshot.png" alt="RiverWatch screenshot showing river health data" />
         </div>
         <div class="card-actions">
-          <a class="btn btn-primary" style="background-color: #2a8a8a;" href="https://www.riverwatch.earth" target="_blank" rel="noopener">Visit RiverWatch</a>
+          <a class="btn btn-primary" href="https://www.riverwatch.earth" target="_blank" rel="noopener">Visit RiverWatch</a>
           <a class="btn btn-store" href="https://github.com/LanceWW0/River-Watch" target="_blank" rel="noopener">View on GitHub</a>
         </div>
       </div>
@@ -163,7 +163,7 @@ headshot: /assets/images/me_snow.jpeg
         These days I build consumer apps in SwiftUI and Flutter, contribute to open source projects focused on the environment,  take on freelance projects and occasionally write about what I've learned. I care about clean code, real user value, and shipping things that actually work.
         </p>
         <div class="connect-links">
-        <span style="font-weight: 600; color: #374151;">Let's connect:</span>
+        <span class="connect-label">Let's connect:</span>
         <a href="mailto:hello@laurence-wayne.com">hello@laurence-wayne.com</a>
         <a href="https://github.com/LanceWW0">GitHub</a>
         <a href="https://twitter.com/solodevdude">Twitter</a>

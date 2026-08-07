@@ -639,9 +639,9 @@ html.is-locked, html.is-locked body { overflow: hidden; }
   /* Full colorful gradient background */
   background: linear-gradient(
     160deg,
-    color-mix(in oklab, var(--accent) 35%, #fff) 0%,
-    color-mix(in oklab, var(--accent2) 25%, #fff) 50%,
-    color-mix(in oklab, var(--accent) 30%, #fff) 100%
+    color-mix(in oklab, var(--accent) 35%, var(--mix-base, #fff)) 0%,
+    color-mix(in oklab, var(--accent2) 25%, var(--mix-base, #fff)) 50%,
+    color-mix(in oklab, var(--accent) 30%, var(--mix-base, #fff)) 100%
   );
   
   /* Gradient border */
@@ -2874,8 +2874,8 @@ html.is-locked, html.is-locked body { overflow: hidden; }
 .project-card {
   background: linear-gradient(
     160deg,
-    color-mix(in oklab, var(--card-accent, #6366f1) 15%, #fff) 0%,
-    color-mix(in oklab, var(--card-accent-end, #8b5cf6) 10%, #fff) 100%
+    color-mix(in oklab, var(--card-accent, #6366f1) 15%, var(--mix-base, #fff)) 0%,
+    color-mix(in oklab, var(--card-accent-end, #8b5cf6) 10%, var(--mix-base, #fff)) 100%
   );
   border-radius: 20px;
   padding: 28px;
@@ -3709,3 +3709,262 @@ html.is-locked, html.is-locked body { overflow: hidden; }
   border-top: 1px solid var(--divider);
   margin-block: 2.5em;
 }
+
+/* ============================================================
+   DARK THEME
+
+   The inline script in <head> resolves the OS setting and any stored
+   preference into an explicit data-theme on <html>, so this block is the
+   single source of dark values and CSS never has to reason about
+   prefers-color-scheme.
+
+   Note the inverse islands invert their RELATIONSHIP, not just their
+   values: the footer and about-page contact block are a dark slab on a
+   light page, so here they become slightly lighter than the canvas. They
+   will read flatter than in light mode. That is correct, not a bug —
+   there is no "darker than the page" available when the page is already
+   dark.
+   ============================================================ */
+html[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg:             #0f1115;
+  --surface-1:      #171a21;
+  --surface-2:      #1e222b;
+  --surface-3:      #1b2030;
+  --surface-sunken: #13161c;
+  --surface-raised: #1e222b;
+
+  --inverse-bg:     #171a21;
+  --inverse-bg-2:   #1c212b;
+  --inverse-bg-3:   #262c39;
+  --inverse-text:   #c3c9d4;
+  --inverse-muted:  #8b93a1;
+  --inverse-title:  #f2f4f8;
+
+  --text:           #e7eaf0;
+  --text-2:         #c3c9d4;
+  --text-3:         #a7aeba;
+  --muted:          #8b93a1;
+  --text-on-accent: #ffffff;
+  --link:           #a5b4fc;   /* #6366f1 fails contrast on #0f1115 */
+
+  --border:         rgba(255, 255, 255, .10);
+  --border-subtle:  rgba(255, 255, 255, .06);
+  --border-strong:  rgba(255, 255, 255, .22);
+  --divider:        #2a2f3a;
+
+  /* .btn-primary inverts to a light pill: a #111 button is invisible here */
+  --brand:          #e7eaf0;
+  --brand-contrast: #111111;
+  --accent:         #818cf8;
+  --accent-2:       #a78bfa;
+  --accent-deep:    #6366f1;
+  --accent-wash:    #262b45;
+
+  --mix-base:      #12141a;
+  --mix-contrast:  #ffffff;
+
+  --shadow-xs:    0 1px 3px rgba(0, 0, 0, .45);
+  --shadow-sm:    0 2px 12px rgba(0, 0, 0, .50);
+  --shadow-md:    0 4px 20px rgba(0, 0, 0, .55);
+  --shadow-lg:    0 8px 32px rgba(0, 0, 0, .60);
+  --shadow-hover: 0 12px 28px rgba(0, 0, 0, .70);
+  --hairline:     inset 0 1px 0 rgba(255, 255, 255, .06);
+
+  --focus: #a5b4fc;
+}
+
+/* No-JS fallback. Only the tokens that matter for legibility, scoped to a
+   selector that can only match when the head script did not run. Keep in
+   sync with the block above. */
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) {
+    color-scheme: dark;
+    --bg: #0f1115;   --surface-1: #171a21;  --surface-2: #1e222b;
+    --surface-3: #1b2030; --surface-sunken: #13161c; --surface-raised: #1e222b;
+    --text: #e7eaf0; --text-2: #c3c9d4;     --text-3: #a7aeba;
+    --muted: #8b93a1; --link: #a5b4fc;
+    --border: rgba(255,255,255,.10); --divider: #2a2f3a;
+    --mix-base: #12141a; --mix-contrast: #ffffff;
+  }
+}
+
+/* ---- Literals that survived tokenizing, corrected per theme ---- */
+html[data-theme="dark"] {
+  --dark-only: 1;   /* marker for debugging */
+}
+
+html[data-theme="dark"] .section.lead p,
+html[data-theme="dark"] .blog-card-content { color: var(--text-2); }
+
+html[data-theme="dark"] .chip { background: var(--surface-2); color: var(--text-2); }
+
+html[data-theme="dark"] .featured-apps-highlight {
+  background: linear-gradient(90deg, var(--surface-sunken) 0%, var(--accent-wash) 100%);
+}
+
+html[data-theme="dark"] .contact-section {
+  background: linear-gradient(135deg, var(--inverse-bg-2) 0%, var(--inverse-bg-3) 100%);
+}
+
+html[data-theme="dark"] .privacy-section code,
+html[data-theme="dark"] .third-party-item:hover,
+html[data-theme="dark"] .store-choice { background: var(--surface-2); }
+
+html[data-theme="dark"] .timeline-date { background: var(--accent-wash); color: var(--link); }
+
+html[data-theme="dark"] .app-cta .btn.is-disabled {
+  background: var(--surface-2);
+  color: var(--muted);
+}
+
+html[data-theme="dark"] .store-modal-card { background: var(--surface-raised); color: var(--text); }
+html[data-theme="dark"] .store-modal-close:hover { background: rgba(255,255,255,.08); color: var(--text); }
+html[data-theme="dark"] .store-choice:hover { background: var(--surface-3); }
+html[data-theme="dark"] .store-choice-icon--play { background: var(--surface-1); }
+
+html[data-theme="dark"] .riverwatch-card .btn-store { background: var(--surface-2); color: var(--text); }
+html[data-theme="dark"] .riverwatch-card .btn-store:hover { background: var(--surface-3); }
+
+html[data-theme="dark"] .skip-link { background: var(--surface-raised); color: var(--text); }
+
+/* Feature-card washes. The light values are hand-picked Material pairs; the
+   dark ones are derived from the same hue so the six stay distinguishable
+   without glowing against a dark card. */
+html[data-theme="dark"] .fc--cyan   { --feature-bg: linear-gradient(135deg, #0b2b33, #123c46); }
+html[data-theme="dark"] .fc--amber  { --feature-bg: linear-gradient(135deg, #33240d, #4a3312); }
+html[data-theme="dark"] .fc--violet { --feature-bg: linear-gradient(135deg, #2a1633, #3b1f47); }
+html[data-theme="dark"] .fc--green  { --feature-bg: linear-gradient(135deg, #102a14, #17401d); }
+html[data-theme="dark"] .fc--yellow { --feature-bg: linear-gradient(135deg, #332f0d, #464114); }
+html[data-theme="dark"] .fc--teal   { --feature-bg: linear-gradient(135deg, #0b2e2a, #10423c); }
+html[data-theme="dark"] .fc--red    { --feature-bg: linear-gradient(135deg, #341717, #4a2020); }
+html[data-theme="dark"] .fc--pink   { --feature-bg: linear-gradient(135deg, #331323, #481b31); }
+
+/* ---- Light pastel washes get dark counterparts ----
+   These are the card and section surfaces whose gradients were picked for
+   a white page. Each keeps its hue identity but sits just above the
+   canvas rather than far above it. */
+html[data-theme="dark"] .about-hero,
+html[data-theme="dark"] .highlight-box,
+html[data-theme="dark"] .about-card {
+  background: linear-gradient(135deg, #1a1e2b 0%, #171a21 50%, #191d28 100%);
+}
+html[data-theme="dark"] .riverwatch-card {
+  background: linear-gradient(135deg, #161b1c 0%, #14191a 50%, #151a1b 100%);
+}
+html[data-theme="dark"] .twitter-bot {
+  background: linear-gradient(135deg, #10202e 0%, #131e29 50%, #0f1e2c 100%);
+}
+html[data-theme="dark"] .twitter-bot h2 { color: #7dd3fc; }
+html[data-theme="dark"] .hire-banner {
+  background: linear-gradient(135deg, #241d0e 0%, #241a10 100%);
+  border-color: rgba(249, 115, 22, .28);
+}
+html[data-theme="dark"] .hire-banner p { color: var(--text-2); }
+html[data-theme="dark"] .stats-bar {
+  background: linear-gradient(180deg, var(--surface-sunken) 0%, var(--surface-1) 100%);
+}
+html[data-theme="dark"] .project-stat { background: rgba(255, 255, 255, .06); }
+html[data-theme="dark"] .privacy-header {
+  background: linear-gradient(135deg, var(--surface-sunken) 0%, var(--surface-2) 100%);
+}
+html[data-theme="dark"] .privacy-highlight {
+  background: linear-gradient(135deg, #0f2417 0%, #12301d 100%);
+}
+html[data-theme="dark"] .privacy-warning {
+  background: linear-gradient(135deg, #262110 0%, #302915 100%);
+}
+html[data-theme="dark"] .contact-card {
+  background: linear-gradient(135deg, #201b33 0%, #272040 100%);
+}
+html[data-theme="dark"] .featured-apps-highlight,
+html[data-theme="dark"] .section.lead {
+  color: var(--text-2);
+}
+
+/* Borders expressed as rgba(0,0,0,…) vanish on a dark surface. */
+html[data-theme="dark"] .featured-card,
+html[data-theme="dark"] .feature-card,
+html[data-theme="dark"] .steps-list li,
+html[data-theme="dark"] .btn {
+  border-color: var(--border-subtle);
+}
+
+/* ============================================================
+   CONTRAST CORRECTIONS
+
+   Measured with a luminance-ratio sweep over every text node on both
+   themes. Each rule below fixes something that fell short of WCAG AA
+   (4.5:1 for body text, 3:1 for large text).
+   ============================================================ */
+
+/* #6366f1 on white is 4.47:1 — just under AA, and it is the colour of
+   every inline link, the back-link and the "→" section links. The deeper
+   indigo gives ~6.4:1 and is visually near-identical. */
+:root { --link: #4f46e5; }
+
+/* Nav links were 4.06:1 against the header. */
+.nav-link { color: var(--text-2); }
+
+/* Card chips: the app-card rule is more specific than the theme block,
+   so the dark override has to match its specificity. */
+html[data-theme="dark"] .app-card.fancy .chip {
+  background: var(--surface-2);
+  color: var(--text-2);
+}
+html[data-theme="dark"] .app-card.fancy:hover .chip {
+  background: var(--surface-3);
+  color: var(--text);
+}
+
+/* Store picker: both of these were #5b6b7d, fine on white, 2.9:1 on the
+   dark card. */
+html[data-theme="dark"] .store-modal-subtitle,
+html[data-theme="dark"] .store-choice-eyebrow { color: var(--text-3); }
+
+/* Timeline date pill was 3.99:1. */
+.timeline-date { color: var(--accent-deep); }
+html[data-theme="dark"] .timeline-date { color: var(--link); }
+
+/* Blog card titles and tag chips take their colour from the post's own
+   accent, some of which are pale (coral, yellow). Mixing toward the text
+   colour keeps the hue but lifts it over the threshold. */
+.blog-card h2 {
+  color: color-mix(in oklab, var(--post-colour, var(--accent)) 62%, var(--text));
+}
+.blog-card .tag,
+.post-tags .tag {
+  color: color-mix(in oklab, var(--post-colour, var(--post-accent, var(--accent))) 55%, var(--mix-contrast, #000));
+}
+
+.section-note {
+  text-align: center;
+  color: var(--muted);
+  margin-top: 24px;
+  font-size: 1.05rem;
+}
+
+/* .apps-note kept a literal #6b7280 that no token matched exactly. */
+.apps-note { color: var(--muted); }
+
+/* Brand buttons: white text on these two brand colours measured 4.12:1 and
+   3.0:1. Darkened just enough to clear AA while keeping the hue. */
+.riverwatch-card .btn-primary { background: #217070; }
+.riverwatch-card .btn-primary:hover { background: #1b5c5c; }
+.twitter-bot .btn-primary { background: #0c7abf; }
+.twitter-bot .btn-primary:hover { background: #0a67a1; }
+
+/* RiverWatch card brand accent — was four hardcoded #2a8a8a inline styles
+   on index.md, one of which (a background-color on the button) beat every
+   stylesheet rule and blocked the contrast fix below. */
+.riverwatch-card { --rw-accent: #217070; border-top: 4px solid var(--rw-accent); }
+html[data-theme="dark"] .riverwatch-card { --rw-accent: #4fbdbd; }
+.rw-name { color: var(--rw-accent); }
+.riverwatch-card .btn-primary { background: var(--rw-accent); }
+html[data-theme="dark"] .riverwatch-card .btn-primary { background: #1b5c5c; color: #ffffff; }
+.connect-label { font-weight: 600; color: var(--text-2); }
+
+/* Disabled controls are exempt from WCAG 1.4.3, but this one still has to
+   be readable — it was 3.9:1. */
+.app-cta .btn.is-disabled { color: #565f6d; }

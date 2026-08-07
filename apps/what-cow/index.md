@@ -70,7 +70,7 @@ last_updated: 2025-09-07
       <p>Take photos on your walks in the countryside while offline, then identify the cows once you're back online.</p>
     </article>
   </div>
-  <p style="text-align: center; color: #64748b; margin-top: 24px; font-size: 1.05rem;">
+  <p class="section-note">
     Whether you're a livestock professional, hobby farmer, or just love cows, What Cow makes breed recognition easy, fast, and informative.
   </p>
 </section>

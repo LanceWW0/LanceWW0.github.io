@@ -628,15 +628,9 @@ html.is-locked, html.is-locked body { overflow: hidden; }
    card list scannable. Selector must match the specificity of
    `.app-card.fancy .app-card-link` further down or it never applies —
    that is why the previous `.app-card-link` version here did nothing. */
-@media (max-width: 479.98px) {
-  .app-card.fancy .app-card-link {
-    grid-template-columns: 64px 1fr;
-    gap: 12px;
-    padding: 16px;
-  }
-  .app-card.fancy .app-icon { width: 64px; height: 64px; }
-  .app-meta { min-width: 0; }
-}
+/* The phone layout for these cards lives at the END of the .app-card.fancy
+   section below — it has to come after the base rules, because a media
+   query adds no specificity and would otherwise lose to them. */
 
 /* ---------- Grid layout: 3/2/1 columns ---------- */
 .apps-grid {
@@ -923,6 +917,35 @@ html.is-locked, html.is-locked body { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .app-card.fancy:hover { transform: translateY(-4px); }
 }
+
+/* ---------- App cards on phones ----------
+   Stack the icon above the text. Side by side the text column was only
+   ~200px, which wrapped every title onto two lines and pushed the tag
+   chips into four rows, making the cards very tall. Full width fits most
+   titles on one line and two or three chips per row.
+
+   This block MUST stay after the .app-card.fancy rules above: media
+   queries contribute no specificity, so an earlier copy of it silently
+   loses to the base `grid-template-columns: 88px 1fr`. */
+@media (max-width: 479.98px) {
+  .app-card.fancy .app-card-link {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 16px 18px;
+    align-content: start;
+  }
+  /* Giving the icon its own row costs vertical space, so the surrounding
+     spacing is tightened to pay for it and then some. */
+  .app-card.fancy .app-icon { width: 56px; height: 56px; }
+  .app-meta { min-width: 0; }
+  .app-card.fancy .app-title { margin-bottom: 4px; }
+  .app-card.fancy .app-actions { margin-top: 10px; gap: 6px; }
+
+  /* The hover nudge slides the text sideways under a now-stacked icon,
+     which just reads as misalignment. */
+  .app-card.fancy:hover .app-meta { transform: none; }
+}
+
 /* Featured Apps Section */
 .featured-apps-highlight {
   padding: 3.5rem 0;

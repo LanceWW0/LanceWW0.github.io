@@ -361,6 +361,7 @@ html.theme-transitioning *::after {
   margin-right: auto;
   display: inline-flex;
   align-items: center;
+  gap: 10px;
   min-height: 44px;
   font-weight: 800;
   font-size: var(--step-1);
@@ -368,6 +369,26 @@ html.theme-transitioning *::after {
   color: var(--text);
   text-decoration: none;
   white-space: nowrap;
+}
+
+.site-logo {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: block;
+}
+
+/* The logo is a dark navy tile, near-invisible as a shape against the dark
+   header. A faint ring keeps its silhouette without lightening the mark. */
+html[data-theme="dark"] .site-logo {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .14);
+}
+
+/* Logo + wordmark + both buttons need 341px of header. Below that the
+   wordmark drops and the logo carries the identity on its own. */
+@media (max-width: 349.98px) {
+  .site-brand-name { display: none; }
 }
 
 .nav-list {

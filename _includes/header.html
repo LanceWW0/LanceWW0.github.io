@@ -2,7 +2,11 @@
 
 <header class="site-header">
   <div class="site-header-inner">
-    <a class="site-brand" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
+    <a class="site-brand" href="{{ '/' | relative_url }}">
+      <img class="site-logo" src="{{ '/assets/logos/icon.svg' | relative_url }}" alt=""
+           width="32" height="32" loading="eager" fetchpriority="high">
+      <span class="site-brand-name">{{ site.title | escape }}</span>
+    </a>
 
     <nav class="site-nav" id="site-nav" aria-label="Primary">
       <ul class="nav-list">

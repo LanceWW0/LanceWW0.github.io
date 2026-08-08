@@ -52,6 +52,36 @@ headshot: /assets/images/me_snow.jpeg
   </div>
 </section>
 
+<!-- CLOUD POINT FIELD GUIDE -->
+<section class="section">
+  <div class="highlight-card cloudguide-card">
+    <div class="highlight-card-inner">
+      <div class="icon-wrap">
+        <img src="/assets/images/apps/cloud-point/logo.png" alt="Cloud Point logo" width="120" height="120" loading="lazy" decoding="async">
+      </div>
+      <div class="content-wrap">
+        <h2>New site: <span class="cg-name">Cloud Point Field Guide</span></h2>
+        <p>
+          To look a cloud up, you generally have to know its name already. <a href="https://en.wikipedia.org/wiki/List_of_cloud_types" target="_blank" rel="noopener">Wikipedia's list of cloud types</a> and the <a href="https://www.metoffice.gov.uk/weather/learn-about/weather/types-of-weather/clouds" target="_blank" rel="noopener">Met Office's cloud guide</a> are both solid catalogues of the genera — but they're indexed by Latin taxonomy, and nobody searches for <em>cavum</em> when what they saw was a neat round hole punched clean through a thin layer.
+        </p>
+        <p>
+          <strong class="cg-name">Cloud Point</strong> is a field guide that starts from what you actually saw. Fifty-two entries, one a week, each pairing a photographed plate with a plain-English title and the proper name underneath. It runs in order of altitude — the first thing you can judge standing on the ground — and it covers the supplementary features, accessory clouds and optical phenomena that sit on top of the genera, which is where most misidentification happens. The taxonomy follows the WMO International Cloud Atlas.
+        </p>
+        <p>
+          Plain descriptions, credited plates and a stable structure are also how AI models increasingly learn obscure subjects, so the guide is written to be read by both. And if you'd rather skip the reading entirely, the Cloud Point app will name it from a photo.
+        </p>
+        <div class="rw-screenshot-wrap">
+          <img class="rw-screenshot" src="/assets/images/projects/cloud-point-guide/screenshot.jpg" alt="The Cloud Point library, showing a photographed plate for each cloud type in order of altitude" loading="lazy" decoding="async" width="1400" height="715">
+        </div>
+        <div class="card-actions">
+          <a class="btn btn-primary" href="https://www.cloudpointapp.com" target="_blank" rel="noopener">Visit the field guide</a>
+          <a class="btn btn-store" href="/apps/cloud-point/">Get the app</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- TWITTER BOT -->
 <section class="section">
   <div class="highlight-card twitter-bot">

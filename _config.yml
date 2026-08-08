@@ -35,7 +35,8 @@ header_pages:
   - apps/index.md
   - blog/index.md
   - about/index.md
-  - hire/index.md
+  # Hidden while not taking on new work — see the note in index.md.
+  # - hire/index.md
 
 defaults:
   - scope:

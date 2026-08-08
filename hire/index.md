@@ -3,6 +3,9 @@ layout: default
 title: Hire Me
 description: Mobile app developer for hire. 3+ years experience, 9 apps shipped, 7,000+ downloads.
 permalink: /hire/
+# Hidden while not taking on new work. The page is kept intact — flip this back
+# to true (and undo the three edits noted in index.md) to bring it back.
+published: false
 ---
 
 <!-- HERO -->

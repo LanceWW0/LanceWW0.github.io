@@ -169,13 +169,21 @@ headshot: /assets/images/me_snow.jpeg
   <p class="section-cta"><a href="/blog/">See all posts →</a></p>
 </section>
 
-<!-- HIRE ME -->
+{% comment %}
+  HIRE ME — hidden while not taking on new work. Liquid comments are stripped
+  at build time, so none of this reaches the served HTML.
+
+  To restore: uncomment the block below, uncomment the footer link in
+  _includes/footer.html, uncomment `hire/index.md` under header_pages in
+  _config.yml, and set `published: true` in hire/index.md.
+
 <section class="section">
 <div class="hire-banner">
 <p>Looking for a developer for your next mobile app, web tool or data project? I'm available for freelance work.</p>
 <a class="btn btn-hire" href="/hire/">✦ Hire Me</a>
 </div>
 </section>
+{% endcomment %}
 
 <!-- MINI ABOUT -->
 <section class="section">

@@ -4,3 +4,13 @@ _site/
 .jekyll-metadata
 .bundle/
 vendor/
+
+# Health dashboard tooling (scripts/health). Raw Garmin data must never land
+# in the repo: the probe saves nothing raw unless pointed outside it.
+.env
+.env.*
+.garmin-probe/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/

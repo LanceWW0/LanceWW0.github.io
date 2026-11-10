@@ -15,7 +15,7 @@ import yaml
 REPO_ROOT = Path(__file__).resolve().parents[2]
 CONFIG_PATH = REPO_ROOT / "_config.yml"
 
-METRICS = ("sleep", "hrv", "rhr", "body_battery", "activities")
+METRICS = ("sleep", "hrv", "rhr", "body_battery", "movement", "activities")
 MIN_DELAY_HOURS = 24
 DEFAULT_SINCE = date(2023, 1, 1)
 

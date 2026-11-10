@@ -5,11 +5,15 @@ failed): its fields come out as null rather than zeros, so the build can
 carry previous values over instead of publishing a fake dip.
 
 What gets published, and nothing finer:
-- days:     the last 90 days of sleep, HRV, resting HR and Body Battery
+- days:     the last 90 days of sleep, HRV, resting HR, Body Battery,
+            steps and floors climbed
 - calendar: 365 activity levels (0 = rest … 4 = hardest quartile)
-- weeks:    the last 26 complete Monday–Sunday weeks of training
-- months:   every complete month: training plus monthly averages
-- summary:  30-day averages, the 30-day sleep-stage split, totals
+- weeks:    the last 26 complete Monday–Sunday weeks of training and
+            intensity minutes
+- months:   every complete month: training, time in each heart-rate zone,
+            and monthly averages
+- summary:  30-day averages, the 30-day sleep-stage split, totals, running
+            bests (time and date only) and the weekly intensity goal
 """
 from __future__ import annotations
 
@@ -18,7 +22,7 @@ from dataclasses import dataclass
 from datetime import date, timedelta
 
 from .categories import GROUPS
-from .normalise import Activity, DayValues
+from .normalise import BEST_KEYS, Activity, DayValues
 
 SCHEMA_VERSION = 1
 DAYS_SHOWN = 90
@@ -37,6 +41,7 @@ _DAY_FIELDS = {
     "hrv": ("hrv", "hrv_lo", "hrv_hi"),
     "rhr": ("rhr",),
     "body_battery": ("bb",),
+    "movement": ("steps", "floors"),
 }
 
 Series = dict[str, dict[date, int] | None]
@@ -48,6 +53,7 @@ class Inputs:
     hrv: DayValues | None = None
     rhr: DayValues | None = None
     body_battery: DayValues | None = None
+    movement: DayValues | None = None
     activities: list[Activity] | None = None
 
 
@@ -63,10 +69,12 @@ def build_payload(inputs: Inputs, through: date, sources: dict[str, str]) -> dic
             "d30": _d30(series, acts, through),
             "stages30": _stages30(inputs.sleep, through),
             "totals": _totals(acts, through),
+            "bests": _bests(acts, through),
+            "im_goal": _im_goal(inputs.movement),
         },
         "days": _days(series, through),
         "calendar": _calendar(acts, through),
-        "weeks": _weeks(acts, through),
+        "weeks": _weeks(acts, inputs.movement, through),
         "months": _months(series, acts, through, _first_day(inputs)),
     }
 
@@ -89,6 +97,8 @@ def _days(series: Series, through: date) -> list[dict]:
             "rhr7": _rolling(series, "rhr", day),
             "bb": _on(series, "bb", day),
             "bb7": _rolling(series, "bb", day),
+            "steps": _on(series, "steps", day),
+            "floors": _on(series, "floors", day),
         })
     return rows
 
@@ -104,6 +114,8 @@ def _d30(series: Series, acts: list[Activity] | None, through: date) -> dict:
         "hrv": _avg(_between(series, "hrv", start, through), WINDOW_MIN),
         "rhr": _avg(_between(series, "rhr", start, through), WINDOW_MIN),
         "bb": _avg(_between(series, "bb", start, through), WINDOW_MIN),
+        "steps": _avg(_between(series, "steps", start, through), WINDOW_MIN),
+        "floors": _avg(_between(series, "floors", start, through), WINDOW_MIN),
         "workouts": None if in_window is None else len(in_window),
         "hours": None if in_window is None else _hours(in_window),
     }
@@ -161,19 +173,61 @@ def _calendar(acts: list[Activity] | None, through: date) -> dict | None:
     return {"start": start.isoformat(), "levels": levels}
 
 
-def _weeks(acts: list[Activity] | None, through: date) -> list[dict]:
+def _bests(acts: list[Activity] | None, through: date) -> dict | None:
+    """Fastest split per distance: last 12 months and all time, date only."""
+    if acts is None:
+        return None
+    year_start = through - timedelta(days=CALENDAR_DAYS - 1)
+
+    def fastest(pool: list[Activity]) -> dict:
+        out: dict = {}
+        for key in BEST_KEYS:
+            times = [(seconds, a.day) for a in pool for k, seconds in a.bests if k == key]
+            if times:
+                seconds, day = min(times)
+                out[key] = {"s": round(seconds), "d": day.isoformat()}
+            else:
+                out[key] = None
+        return out
+
+    return {"y1": fastest([a for a in acts if a.day >= year_start]), "all": fastest(acts)}
+
+
+def _im_goal(movement: DayValues | None) -> int | None:
+    """Garmin's weekly intensity-minutes goal, as of the latest day that has one."""
+    if not movement:
+        return None
+    for day in sorted(movement, reverse=True):
+        if movement[day].get("im_goal") is not None:
+            return movement[day]["im_goal"]
+    return None
+
+
+def _intensity(movement: DayValues | None, start: date, end: date) -> int | None:
+    """Garmin-style intensity minutes for a span: vigorous minutes count double."""
+    if movement is None:
+        return None
+    rows = [row for day, row in movement.items() if start <= day <= end]
+    if not rows:
+        return None
+    return sum((row.get("im_mod") or 0) + 2 * (row.get("im_vig") or 0) for row in rows)
+
+
+def _weeks(acts: list[Activity] | None, movement: DayValues | None, through: date) -> list[dict]:
     last_sunday = through - timedelta(days=(through.weekday() + 1) % 7)
     last_monday = last_sunday - timedelta(days=6)
     rows = []
     for back in range(WEEKS_SHOWN - 1, -1, -1):
         monday = last_monday - timedelta(weeks=back)
-        fields = _activity_fields(acts, monday, monday + timedelta(days=6))
+        sunday = monday + timedelta(days=6)
+        fields = _activity_fields(acts, monday, sunday)
         rows.append({
             "w": monday.isoformat(),
             "workouts": fields["workouts"],
             "hours": fields["hours"],
             "run_km": fields["run_km"],
             "pace_s": fields["pace_s"],
+            "im": _intensity(movement, monday, sunday),
         })
     return rows
 
@@ -200,6 +254,9 @@ def _months(series: Series, acts: list[Activity] | None, through: date, first: d
             "hrv": _avg(_between(series, "hrv", start, end), MONTH_MIN),
             "rhr": _avg(_between(series, "rhr", start, end), MONTH_MIN),
             "bb": _avg(_between(series, "bb", start, end), MONTH_MIN),
+            "steps": _avg(_between(series, "steps", start, end), MONTH_MIN),
+            "floors": _avg(_between(series, "floors", start, end), MONTH_MIN),
+            **_zone_minutes(acts, start, end),
         })
         year, month = _next_month(year, month)
     return rows
@@ -216,6 +273,7 @@ def _clip(inputs: Inputs, through: date) -> Inputs:
         hrv=days(inputs.hrv),
         rhr=days(inputs.rhr),
         body_battery=days(inputs.body_battery),
+        movement=days(inputs.movement),
         activities=None if inputs.activities is None else [a for a in inputs.activities if a.day <= through],
     )
 
@@ -279,6 +337,19 @@ def _activity_fields(acts: list[Activity] | None, start: date, end: date) -> dic
         "run_km": _km(runs),
         "pace_s": _pace(runs),
     }
+
+
+def _zone_minutes(acts: list[Activity] | None, start: date, end: date) -> dict:
+    """Workout minutes spent in each heart-rate zone (hrz1 easy … hrz5 max)."""
+    keys = [f"hrz{z}" for z in range(1, 6)]
+    if acts is None:
+        return dict.fromkeys(keys)
+    totals = [0.0] * 5
+    for activity in acts:
+        if start <= activity.day <= end and activity.zones:
+            for z, seconds in enumerate(activity.zones):
+                totals[z] += seconds
+    return {key: round(total / 60) for key, total in zip(keys, totals)}
 
 
 def _activity_totals(acts: list[Activity]) -> dict:

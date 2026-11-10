@@ -55,7 +55,9 @@ def test_private_build_writes_an_encrypted_valid_payload(tmp_path):
     assert envelope is not None
     validate(payload, max_through=THROUGH)
     assert payload["through"] == "2026-11-08"
-    assert payload["sources"] == dict.fromkeys(("sleep", "hrv", "rhr", "body_battery", "activities"), "2026-11-08")
+    assert payload["sources"] == dict.fromkeys(("sleep", "hrv", "rhr", "body_battery", "movement", "activities"), "2026-11-08")
+    assert payload["days"][-1]["steps"] == 8080 and payload["summary"]["im_goal"] == 150
+    assert payload["summary"]["bests"]["all"]["1k"]["s"] == 290  # runs are every 5th fake activity
     assert payload["days"][-1]["sleep_min"] == 450
     assert payload["summary"]["d30"]["workouts"] == 15
     # only the four build endpoints were called, and dailies only once for two metrics
@@ -123,6 +125,18 @@ def test_failed_metric_keeps_previous_values_and_asks_for_attention(tmp_path):
     assert after["summary"]["d30"]["hrv"] == before["summary"]["d30"]["hrv"]
 
 
+def test_failed_dailies_keep_previous_steps_and_intensity(tmp_path):
+    go(tmp_path)
+    before, _ = read(tmp_path)
+    code, _, _ = go(tmp_path, session=FakeGarmin(FIRST, fail={"daily-summaries"}), now=NOW + timedelta(days=1))
+    after, _ = read(tmp_path)
+    assert code == build.EXIT_ATTENTION
+    old = {row["d"]: row["steps"] for row in before["days"]}
+    assert all(row["steps"] == old.get(row["d"]) for row in after["days"])
+    assert after["summary"]["d30"]["steps"] == before["summary"]["d30"]["steps"]
+    assert after["sources"]["movement"] == "2026-11-08"
+
+
 def test_failed_activities_keep_calendar_and_totals(tmp_path):
     go(tmp_path)
     before, _ = read(tmp_path)
@@ -131,6 +145,7 @@ def test_failed_activities_keep_calendar_and_totals(tmp_path):
     assert code == build.EXIT_ATTENTION
     assert after["calendar"] == before["calendar"]
     assert after["summary"]["totals"] == before["summary"]["totals"]
+    assert after["summary"]["bests"] == before["summary"]["bests"]
     assert after["weeks"][-1]["workouts"] == before["weeks"][-1]["workouts"]
 
 
@@ -139,7 +154,8 @@ def test_failure_on_the_first_ever_run_publishes_nulls(tmp_path):
     payload, _ = read(tmp_path)
     assert code == build.EXIT_ATTENTION
     assert payload["days"][-1]["rhr"] is None and payload["days"][-1]["bb"] is None
-    assert "rhr" not in payload["sources"] and "body_battery" not in payload["sources"]
+    assert payload["days"][-1]["steps"] is None
+    assert not {"rhr", "body_battery", "movement"} & set(payload["sources"])
 
 
 def test_sudden_drop_in_data_is_treated_as_a_failure(tmp_path):

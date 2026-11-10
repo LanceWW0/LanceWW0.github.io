@@ -257,6 +257,8 @@
       tile('recovery', 'HRV', d.hrv == null ? null : nf.format(d.hrv), ' ms', 'Overnight average', 'hrv'),
       tile('recovery', 'Resting HR', d.rhr == null ? null : nf.format(d.rhr), ' bpm', 'Average', 'rhr'),
       tile('recovery', 'Body Battery', d.bb == null ? null : nf.format(d.bb), '', 'Average daily peak', 'bb'),
+      tile('activity', 'Steps', d.steps == null ? null : nf.format(d.steps), '', 'Average per day', 'steps'),
+      tile('activity', 'Floors climbed', d.floors == null ? null : nf.format(d.floors), '', 'Average per day', 'floors'),
       tile('training', 'Workouts', d.workouts == null ? null : nf.format(d.workouts), '', d.hours == null ? null : `${nf1.format(d.hours)} hours`, 'calendar'),
     );
 
@@ -479,6 +481,7 @@
     for (const s of spec.series) {
       values.push(...(s.values || []));
       if (s.lo) values.push(...s.lo, ...s.hi);
+      if (s.parts) values.push(...s.parts[0].values.map((_, i) => s.parts.reduce((t, part) => t + (part.values[i] || 0), 0)));
     }
     if (spec.reference) values.push(spec.reference.value);
     const y = scaleY(values, spec.y);
@@ -521,6 +524,27 @@
         const top = yPos(v);
         bars.push(svg('path', { d: roundedTop(xPos(i) - w / 2, top, w, base - top, 4), class: 'viz-bar' }, marks));
       });
+    }
+    // Stacked columns: parts drawn bottom-up with a 2px surface gap between
+    // them; only the top part gets the rounded data end.
+    const stack = spec.series.find((s) => s.kind === 'stack');
+    if (stack) {
+      const w = Math.max(1, Math.min(24, band * 0.68));
+      for (let i = 0; i < n; i++) {
+        const group = svg('g', { class: 'viz-stack' }, marks);
+        const parts = stack.parts.map((part) => ({ v: part.values[i] || 0, cls: part.cls })).filter((part) => part.v > 0);
+        let acc = 0;
+        parts.forEach((part, k) => {
+          const bottom = yPos(acc) - (k ? 1 : 0);
+          acc += part.v;
+          const top = yPos(acc) + (k < parts.length - 1 ? 1 : 0);
+          if (bottom - top <= 0.5) return;
+          const x = xPos(i) - w / 2;
+          if (k === parts.length - 1) svg('path', { d: roundedTop(x, top, w, bottom - top, 4), class: part.cls }, group);
+          else svg('rect', { x, y: top, width: w, height: bottom - top, class: part.cls }, group);
+        });
+        bars.push(parts.length ? group : null);
+      }
     }
     for (const s of spec.series.filter((x) => x.kind === 'band')) {
       for (const [a, b] of runs(n, (i) => s.lo[i] != null && s.hi[i] != null)) {
@@ -738,6 +762,48 @@
     dataTable(figure, 'Sleep stages', ['Stage', 'Share of the night'], parts.map(([key, name]) => [name, `${stages[key]}%`]).reverse());
   }
 
+  /* Personal bests: the numbers are the point, so this is a table, not a chart. */
+  function duration(seconds) {
+    const h = Math.floor(seconds / 3600);
+    const m = Math.floor((seconds % 3600) / 60);
+    const s = String(Math.round(seconds % 60)).padStart(2, '0');
+    return h ? `${h}:${String(m).padStart(2, '0')}:${s}` : `${m}:${s}`;
+  }
+
+  function bestsCard(figure, bests) {
+    const distances = [['1k', '1 km'], ['mile', '1 mile'], ['5k', '5 km'], ['10k', '10 km']];
+    const table = el('table', 'health-bests');
+    table.append(el('caption', 'health-sr', 'Personal bests by distance'));
+    const head = el('tr');
+    for (const label of ['Distance', 'Last 12 months', 'All time']) {
+      const th = el('th', null, label);
+      th.scope = 'col';
+      head.append(th);
+    }
+    const thead = el('thead');
+    thead.append(head);
+    const tbody = el('tbody');
+    for (const [key, name] of distances) {
+      const row = el('tr');
+      const th = el('th', null, name);
+      th.scope = 'row';
+      row.append(th);
+      for (const period of ['y1', 'all']) {
+        const best = bests[period] && bests[period][key];
+        const td = el('td');
+        if (best) {
+          td.append(el('strong', 'health-best-time', duration(best.s)), el('span', 'health-best-date', dayFull(best.d)));
+        } else {
+          td.append(el('span', 'health-best-none', '–'));
+        }
+        row.append(td);
+      }
+      tbody.append(row);
+    }
+    table.append(thead, tbody);
+    figure.append(table);
+  }
+
   /* Ranked horizontal bars, largest first, one hue. */
   function rankedChart(figure, rows, unit) {
     const max = rows.length ? rows[0][1] : 0;
@@ -867,6 +933,73 @@
     recovery('rhr', 'Resting heart rate', 'Last 90 days, in beats per minute', 'rhr', 'bpm');
     recovery('bb', 'Body Battery', 'Daily peak, last 90 days, out of 100', 'bb', '');
 
+    // Activity -------------------------------------------------------
+    const compact = (v) => (v >= 1000 ? `${nf1.format(v / 1000)}k` : nf.format(v));
+    const lastDays = days.slice(-30);
+    fig = card('steps', 'Steps', 'Per day, last 30 days');
+    if (!hasData(lastDays.map((d) => d.steps))) empty(fig);
+    else {
+      seriesChart(fig, {
+        title: 'Steps per day, last 30 days', type: 'columns', labels: dayLabels(lastDays),
+        series: [{ kind: 'bar', values: lastDays.map((d) => d.steps) }],
+        y: { zero: true, format: compact },
+        reference: d30.steps == null ? null : { value: d30.steps, label: ['average', nf.format(d30.steps)] },
+        rightLabel: true,
+        tooltip: (i) => ({ head: dayLong(lastDays[i].d), rows: [
+          { value: num(lastDays[i].steps), label: 'steps', key: 'bar' },
+          { value: num(lastDays[i].floors), label: 'floors climbed' }] }),
+        summary: `Steps each day for the last 30 days. 30-day average ${num(d30.steps)}.`,
+        table: { head: ['Date', 'Steps', 'Floors climbed'], rows: lastDays.map((d) => [dayLong(d.d), num(d.steps), num(d.floors)]) },
+      });
+    }
+
+    fig = card('floors', 'Floors climbed', 'Per day, last 30 days');
+    if (!hasData(lastDays.map((d) => d.floors))) empty(fig);
+    else {
+      seriesChart(fig, {
+        title: 'Floors climbed per day, last 30 days', type: 'columns', labels: dayLabels(lastDays),
+        series: [{ kind: 'bar', values: lastDays.map((d) => d.floors) }],
+        y: { zero: true, integer: true, format: (v) => nf.format(v) },
+        reference: d30.floors == null ? null : { value: d30.floors, label: ['average', nf.format(d30.floors)] },
+        rightLabel: true,
+        tooltip: (i) => ({ head: dayLong(lastDays[i].d), rows: [{ value: num(lastDays[i].floors), label: 'floors climbed', key: 'bar' }] }),
+        summary: `Floors climbed each day for the last 30 days. 30-day average ${num(d30.floors)}.`,
+        table: { head: ['Date', 'Floors climbed'], rows: lastDays.map((d) => [dayLong(d.d), num(d.floors)]) },
+      });
+    }
+
+    const goal = data.summary.im_goal;
+    fig = card('intensity', 'Intensity minutes', 'Per week, last 26 complete weeks. Vigorous minutes count double, as on Garmin');
+    if (!hasData(weeks.map((w) => w.im))) empty(fig);
+    else {
+      seriesChart(fig, {
+        title: 'Intensity minutes per week', type: 'columns', labels: weekLabels,
+        series: [{ kind: 'bar', values: weeks.map((w) => w.im) }],
+        y: { zero: true, integer: true, format: (v) => nf.format(v) },
+        reference: goal == null ? null : { value: goal, label: ['goal', nf.format(goal)] },
+        rightLabel: true,
+        tooltip: (i) => ({ head: weekLabel(weeks[i].w), rows: [{ value: num(weeks[i].im, 'min'), label: 'intensity', key: 'bar' }] }),
+        summary: `Intensity minutes in each of the last 26 complete weeks${goal == null ? '' : `, against a weekly goal of ${nf.format(goal)}`}.`,
+        table: { head: ['Week of', 'Intensity minutes'], rows: weeks.map((w) => [dayShort(w.w), num(w.im)]) },
+      });
+    }
+
+    fig = card('steps-months', 'Average steps by month', since);
+    if (!hasData(months.map((r) => r.steps))) empty(fig);
+    else {
+      seriesChart(fig, {
+        title: 'Average steps per day, by month', type: 'lines', labels: monthLabels, labelGap: 48,
+        series: [{ kind: 'line', values: months.map((r) => r.steps) }],
+        y: { format: compact },
+        rightLabel: true, endLabel: (v) => compact(v),
+        tooltip: (i) => ({ head: monthLong(months[i].m), rows: [
+          { value: num(months[i].steps), label: 'steps a day', key: 'line' },
+          { value: num(months[i].floors), label: 'floors a day' }] }),
+        summary: `Average steps per day in each month, ${since.toLowerCase()}.`,
+        table: { head: ['Month', 'Steps a day', 'Floors a day'], rows: months.map((r) => [monthLong(r.m), num(r.steps), num(r.floors)]) },
+      });
+    }
+
     // Training -------------------------------------------------------
     fig = card('calendar', 'Training calendar', 'Last 12 months, shaded by training load');
     if (!data.calendar) empty(fig, 'Not available right now.');
@@ -915,7 +1048,31 @@
       });
     }
 
+    const zoneMonths = months.slice(-12);
+    const zoneKeys = [1, 2, 3, 4, 5];
+    fig = card('hr-zones', 'Heart-rate zones',
+      zoneMonths.length ? `Workout time per month, ${monthLong(zoneMonths[0].m)} to ${monthLong(zoneMonths[zoneMonths.length - 1].m)}. Zone 1 is easiest, zone 5 hardest` : '');
+    if (!zoneMonths.some((r) => zoneKeys.some((z) => r[`hrz${z}`]))) empty(fig);
+    else {
+      seriesChart(fig, {
+        title: 'Workout time in each heart-rate zone, by month', type: 'columns', labels: zoneMonths.map((r) => ({ short: monthShort(r.m) })),
+        labelGap: 40,
+        series: [{ kind: 'stack', parts: zoneKeys.map((z) => ({ values: zoneMonths.map((r) => (r[`hrz${z}`] == null ? null : r[`hrz${z}`] / 60)), cls: `viz-zone--${z}` })) }],
+        legend: zoneKeys.map((z) => ({ key: 'swatch', cls: `viz-zone-bg--${z}`, label: `Zone ${z}` })),
+        y: { zero: true, format: (v) => `${nf.format(v)}h` },
+        tooltip: (i) => ({ head: monthLong(zoneMonths[i].m), rows: zoneKeys.slice().reverse().map((z) => ({
+          value: hm(zoneMonths[i][`hrz${z}`]), label: `zone ${z}`, key: 'swatch', cls: `viz-zone-bg--${z}` })) }),
+        summary: 'Workout time spent in each heart-rate zone, per month, for the last 12 complete months.',
+        table: { head: ['Month', 'Zone 1', 'Zone 2', 'Zone 3', 'Zone 4', 'Zone 5'],
+          rows: zoneMonths.map((r) => [monthLong(r.m), ...zoneKeys.map((z) => hm(r[`hrz${z}`]))]) },
+      });
+    }
+
     // Running --------------------------------------------------------
+    fig = card('bests', 'Personal bests', 'Fastest splits within runs, from Garmin');
+    if (!data.summary.bests) empty(fig, 'Not available right now.');
+    else bestsCard(fig, data.summary.bests);
+
     fig = card('run-weekly-km', 'Running distance', 'Per week, last 26 complete weeks, in km');
     if (!hasData(weeks.map((w) => w.run_km))) empty(fig);
     else {

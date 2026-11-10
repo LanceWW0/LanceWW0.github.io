@@ -53,6 +53,12 @@ POISONS = {
     "too many decimals": lambda p: p["weeks"][-1].update(hours=2.6667),
     "unknown metric in sources": lambda p: p["sources"].update(steps="2026-11-08"),
     "wrong schema version": lambda p: p.update(schema=2),
+    "time of day on a best": lambda p: p["summary"]["bests"]["all"]["1k"].update(d="2025-07-24T07:12:33"),
+    "best faster than the world record": lambda p: p["summary"]["bests"]["all"]["1k"].update(s=95),
+    "extra key on a best": lambda p: p["summary"]["bests"]["all"]["1k"].update(place="Hyde Park"),
+    "best after the cutoff": lambda p: p["summary"]["bests"]["y1"]["mile"].update(d="2026-11-09"),
+    "steps out of range": lambda p: p["days"][-1].update(steps=1_762_590_000),
+    "epoch in intensity minutes": lambda p: p["weeks"][-1].update(im=1_762_590_000_000),
 }
 
 

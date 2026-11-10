@@ -61,6 +61,11 @@ def raw_daily(day: date) -> dict:
         "uuid": "abc-123-uuid",
         "userProfilePk": 987654321,
         "heartRate": {"restingValue": 47 + day.day % 3, "maxValue": 171, "minValue": 44},
+        "movement": {
+            "steps": {"value": 8000 + day.day * 10, "goal": 9000, "distanceInMeters": 6400.5},
+            "floorsAscended": {"value": 12, "goal": 10, "distanceInMeters": 36.6},
+        },
+        "intensityMinutes": {"moderate": 20, "vigorous": 10, "goal": 150},
         "bodyBattery": {
             "maxValue": 80 + day.day % 10,
             "minValue": 20,
@@ -96,6 +101,15 @@ def raw_activity(day: date, index: int, type_key: str = "running", km: float = 8
         "movingDuration": km * 320,
         "elapsedDuration": km * 340,
         "activityTrainingLoad": 40 + index % 7 * 15,
+        "hrTimeInZone_1": 300.0,
+        "hrTimeInZone_2": 1200.0,
+        "hrTimeInZone_3": 900.0,
+        "hrTimeInZone_4": 180.0,
+        "hrTimeInZone_5": 60.0,
+        "fastestSplit_1000": 290.0 - index % 5,
+        "fastestSplit_1609": 470.0,
+        "fastestSplit_5000": 1500.0,
+        "minElevation": 4321.98,
     }
 
 

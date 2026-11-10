@@ -81,7 +81,7 @@ def test_only_complete_weeks_labelled_by_monday():
 def test_week_spanning_new_year_is_labelled_by_its_december_monday():
     through = date(2027, 1, 3)  # Sunday
     p = payload(through, activities=[run(date(2026, 12, 29)), run(date(2027, 1, 2))])
-    assert p["weeks"][-1] == {"w": "2026-12-28", "workouts": 2, "hours": 1.8, "run_km": 20.0, "pace_s": 300}
+    assert p["weeks"][-1] == {"w": "2026-12-28", "workouts": 2, "hours": 1.8, "run_km": 20.0, "pace_s": 300, "im": None}
 
 
 def test_pace_needs_three_km_and_ignores_glitches():
@@ -158,6 +158,56 @@ def test_totals_split_last_year_and_all_time():
     totals = payload(activities=acts)["summary"]["totals"]
     assert totals["y1"]["workouts"] == 1 and totals["y1"]["run_km"] == 10.0
     assert totals["all"]["workouts"] == 2 and totals["all"]["run_km"] == 15.0
+
+
+def moved(steps=8000, floors=10, mod=20, vig=10, goal=150):
+    return {"steps": steps, "floors": floors, "im_mod": mod, "im_vig": vig, "im_goal": goal}
+
+
+def test_steps_and_floors_per_day_and_30_day_average():
+    p = payload(movement={d: moved(steps=8000 + i * 100, floors=i) for i, d in enumerate(days_back(15))})
+    assert p["days"][-1]["steps"] == 8000 and p["days"][-1]["floors"] == 0
+    assert p["summary"]["d30"]["steps"] == 8700
+    assert p["summary"]["d30"]["floors"] == 7
+    assert payload(movement={d: moved() for d in days_back(14)})["summary"]["d30"]["steps"] is None
+
+
+def test_weekly_intensity_minutes_count_vigorous_double():
+    week = [date(2026, 11, 2) + timedelta(days=i) for i in range(7)]  # Mon 2 – Sun 8 Nov
+    p = payload(movement={d: moved(mod=20, vig=10) for d in week})
+    assert p["weeks"][-1]["im"] == 7 * (20 + 2 * 10)
+    assert p["weeks"][-2]["im"] is None  # no data that week
+    assert p["summary"]["im_goal"] == 150
+
+
+def test_latest_intensity_goal_wins():
+    p = payload(movement={THROUGH - timedelta(days=1): moved(goal=150), THROUGH: moved(goal=300)})
+    assert p["summary"]["im_goal"] == 300
+
+
+def test_monthly_heart_rate_zone_minutes():
+    october = date(2026, 10, 10)
+    acts = [Activity(october, "run", 10, 3600, 3500, 50, zones=(600, 1200, 1200, 480, 120)),
+            Activity(october, "walk", 4, 3600, 3500, 10, zones=None)]
+    month = payload(activities=acts)["months"][-1]
+    assert (month["hrz1"], month["hrz2"], month["hrz3"], month["hrz4"], month["hrz5"]) == (10, 20, 20, 8, 2)
+
+
+def test_running_bests_for_last_year_and_all_time_with_dates():
+    old = Activity(THROUGH - timedelta(days=500), "run", 10, 3000, 3000, 50, bests=(("1k", 250), ("5k", 1400)))
+    new = Activity(THROUGH - timedelta(days=20), "run", 10, 3000, 3000, 50, bests=(("1k", 270),))
+    bests = payload(activities=[old, new])["summary"]["bests"]
+    assert bests["all"]["1k"] == {"s": 250, "d": (THROUGH - timedelta(days=500)).isoformat()}
+    assert bests["y1"]["1k"] == {"s": 270, "d": (THROUGH - timedelta(days=20)).isoformat()}
+    assert bests["y1"]["5k"] is None and bests["all"]["5k"]["s"] == 1400
+    assert bests["all"]["10k"] is None
+
+
+def test_unknown_movement_is_null():
+    p = payload(activities=[])
+    assert p["days"][-1]["steps"] is None and p["weeks"][-1]["im"] is None
+    assert p["summary"]["im_goal"] is None and p["summary"]["d30"]["steps"] is None
+    assert payload(activities=None)["summary"]["bests"] is None
 
 
 @pytest.mark.parametrize("through", [date(2026, 3, 29), date(2026, 3, 30), date(2026, 10, 25)])

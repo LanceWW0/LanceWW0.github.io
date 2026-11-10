@@ -4091,8 +4091,10 @@ html[data-theme="dark"] .riverwatch-card .btn-primary { background: #1b5c5c; col
    HEALTH DASHBOARD (/health)
 
    Each part of the page has its own colour: sleep is indigo, recovery
-   green, training cyan, running orange. A section sets --viz-accent to its
-   colour, and every chart, legend key and tile dot inside picks it up.
+   green, training cyan, running orange. Activity (steps, floors, intensity)
+   shares training's cyan: every fifth colour tried was too close to green or
+   cyan for colour-blind readers in dark mode. A section sets --viz-accent to
+   its colour, and every chart, legend key and tile dot inside picks it up.
 
    All of these were checked with the dataviz palette validator against
    the card surface in each theme (#ffffff light, #171a21 dark):
@@ -4100,10 +4102,11 @@ html[data-theme="dark"] .riverwatch-card .btn-primary { background: #1b5c5c; col
      modes. Orange and green sit close for red-green colour blindness, but
      they are never side by side, and every tile, heading and chart is
      labelled.
-   - The training calendar (--viz-cal-1..4) and the sleep stages
-     (--stage-*) pass the ordinal checks: one hue, monotone lightness,
-     visible steps, and the lightest step clears 2:1. In dark mode the
-     calendar runs the other way round: more training is lighter.
+   - The training calendar (--viz-cal-1..4), the heart-rate zones
+     (--zone-1..5) and the sleep stages (--stage-*) pass the ordinal checks:
+     one hue, monotone lightness, visible steps, and the lightest step
+     clears 2:1. In dark mode the calendar and zones run the other way
+     round: more effort is lighter.
    - The dark sleep indigo is #7c80f5 rather than the site's #818cf8,
      which sits just outside the dark-mode lightness band.
    Charts read these through CSS, so the theme toggle needs no redraw.
@@ -4132,6 +4135,11 @@ html[data-theme="dark"] .riverwatch-card .btn-primary { background: #1b5c5c; col
   --stage-light: #6366f1;  --stage-light-ink: #ffffff;
   --stage-rem:   #9ca3f7;  --stage-rem-ink:   #0b0b0b;
   --stage-awake: #d5dae2;  --stage-awake-ink: #0b0b0b;
+  --zone-1: #0ab4d0;
+  --zone-2: #0896b6;
+  --zone-3: #0b7896;
+  --zone-4: #0d5c76;
+  --zone-5: #0b3f52;
   --health-error: #b42318;
 }
 html[data-theme="dark"] {
@@ -4156,6 +4164,11 @@ html[data-theme="dark"] {
   --stage-light: #818cf8;  --stage-light-ink: #0b0b0b;
   --stage-rem:   #c7d2fe;  --stage-rem-ink:   #0b0b0b;
   --stage-awake: #4b5563;  --stage-awake-ink: #ffffff;
+  --zone-1: #0e7490;
+  --zone-2: #0891b2;
+  --zone-3: #06b6d4;
+  --zone-4: #67e8f9;
+  --zone-5: #cffafe;
   --health-error: #fca5a5;
 }
 
@@ -4164,6 +4177,8 @@ html[data-theme="dark"] {
 .health-tile--sleep    { --viz-accent: var(--hue-sleep);    --viz-accent-wash: var(--hue-sleep-wash); }
 .health-section--recovery,
 .health-tile--recovery { --viz-accent: var(--hue-recovery); --viz-accent-wash: var(--hue-recovery-wash); }
+.health-section--activity,
+.health-tile--activity,
 .health-section--training,
 .health-tile--training { --viz-accent: var(--hue-training); --viz-accent-wash: var(--hue-training-wash); }
 .health-section--running,
@@ -4255,6 +4270,7 @@ html[data-theme="dark"] {
 }
 .health-section--sleep .health-section-title::before,
 .health-section--recovery .health-section-title::before,
+.health-section--activity .health-section-title::before,
 .health-section--training .health-section-title::before,
 .health-section--running .health-section-title::before {
   content: '';
@@ -4268,15 +4284,14 @@ html[data-theme="dark"] {
 }
 .health-tiles {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px;
 }
-@media (min-width: 1024px) {
-  .health-tiles { grid-template-columns: repeat(6, minmax(0, 1fr)); }
-  .health-tiles--three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.health-tiles--three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 767.98px) {
+  .health-tiles:not(.health-tiles--three) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 479.98px) {
-  .health-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .health-tiles--three { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   /* three tiles on a narrow phone: two, then the last one full width */
   .health-tiles--three .health-tile:last-child:nth-child(odd) { grid-column: 1 / -1; }
@@ -4311,6 +4326,7 @@ html[data-theme="dark"] {
 .health-tile-label { margin: 0; font-size: var(--step--1); font-weight: 600; color: var(--text-3); }
 .health-tile--sleep .health-tile-label::before,
 .health-tile--recovery .health-tile-label::before,
+.health-tile--activity .health-tile-label::before,
 .health-tile--training .health-tile-label::before,
 .health-tile--running .health-tile-label::before {
   content: '';
@@ -4396,6 +4412,12 @@ html[data-theme="dark"] {
 .viz-cal--2 { fill: var(--viz-cal-2); }
 .viz-cal--3 { fill: var(--viz-cal-3); }
 .viz-cal--4 { fill: var(--viz-cal-4); }
+.viz-zone--1 { fill: var(--zone-1); }
+.viz-zone--2 { fill: var(--zone-2); }
+.viz-zone--3 { fill: var(--zone-3); }
+.viz-zone--4 { fill: var(--zone-4); }
+.viz-zone--5 { fill: var(--zone-5); }
+.viz-stack.is-active { opacity: .7; }
 .viz-cal-bg--0 { background: var(--viz-cal-0); box-shadow: inset 0 0 0 1px var(--border); }
 .viz-cal-bg--1 { background: var(--viz-cal-1); }
 .viz-cal-bg--2 { background: var(--viz-cal-2); }
@@ -4429,6 +4451,11 @@ html[data-theme="dark"] {
 .health-key--swatch.viz-stage--light { background: var(--stage-light); }
 .health-key--swatch.viz-stage--rem   { background: var(--stage-rem); }
 .health-key--swatch.viz-stage--awake { background: var(--stage-awake); }
+.health-key--swatch.viz-zone-bg--1 { background: var(--zone-1); }
+.health-key--swatch.viz-zone-bg--2 { background: var(--zone-2); }
+.health-key--swatch.viz-zone-bg--3 { background: var(--zone-3); }
+.health-key--swatch.viz-zone-bg--4 { background: var(--zone-4); }
+.health-key--swatch.viz-zone-bg--5 { background: var(--zone-5); }
 .health-key--swatch[class*="viz-cal-bg--"] { width: 10px; height: 10px; }
 .health-scale {
   display: flex;
@@ -4527,3 +4554,31 @@ html[data-theme="dark"] {
   color: var(--text-3);
 }
 .health-table tbody th { font-weight: 500; color: var(--text-2); }
+
+/* ---------- Personal bests (a table: the numbers are the point) ---------- */
+.health-bests {
+  width: 100%;
+  margin: 14px 0 8px;
+  border-collapse: collapse;
+  font-size: var(--step--1);
+}
+.health-bests th,
+.health-bests td {
+  padding: 10px 8px 10px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  text-align: left;
+  vertical-align: top;
+}
+.health-bests tbody tr:last-child > * { border-bottom: 0; }
+.health-bests thead th { padding-top: 0; font-size: var(--step--2); font-weight: 600; color: var(--muted); }
+.health-bests tbody th { font-weight: 600; color: var(--text-2); }
+.health-best-time {
+  display: block;
+  font-size: var(--step-1);
+  font-weight: 800;
+  letter-spacing: -.01em;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+}
+.health-best-date { display: block; font-size: var(--step--2); color: var(--muted); }
+.health-best-none { color: var(--muted); }

@@ -89,7 +89,36 @@ def test_activity_keeps_date_group_and_numbers_only():
     (activity,) = normalise.activities([raw_activity(DAY, 3)])
     assert asdict(activity) == {
         "day": DAY, "group": "run", "km": 8.0, "seconds": 2640.0, "moving_seconds": 2560.0, "load": 85,
+        "zones": (300.0, 1200.0, 900.0, 180.0, 60.0),
+        "bests": (("1k", 287.0), ("mile", 470.0), ("5k", 1500.0)),
     }
+
+
+def test_movement_keeps_steps_floors_and_intensity_minutes():
+    assert normalise.movement_days([raw_daily(DAY)]) == {
+        DAY: {"steps": 8080, "floors": 12, "im_mod": 20, "im_vig": 10, "im_goal": 150}
+    }
+
+
+def test_day_without_steps_means_watch_not_worn():
+    raw = raw_daily(DAY)
+    raw["movement"]["steps"]["value"] = 0
+    assert normalise.movement_days([raw]) == {}
+
+
+def test_best_splits_only_for_runs_and_glitches_dropped():
+    walk = raw_activity(DAY, 0, type_key="walking")
+    assert normalise.activities([walk])[0].bests == ()
+    glitch = raw_activity(DAY, 0)
+    glitch["fastestSplit_1000"] = 95.0  # faster than the world record: a GPS glitch
+    assert "1k" not in dict(normalise.activities([glitch])[0].bests)
+
+
+def test_activity_without_zone_data_has_no_zones():
+    raw = raw_activity(DAY, 0)
+    for z in range(1, 6):
+        del raw[f"hrTimeInZone_{z}"]
+    assert normalise.activities([raw])[0].zones is None
 
 
 def test_no_poison_survives_normalising():
@@ -98,6 +127,7 @@ def test_no_poison_survives_normalising():
         normalise.hrv_days([raw_hrv(DAY)]),
         normalise.rhr_days([raw_daily(DAY)]),
         normalise.body_battery_days([raw_daily(DAY)]),
+        normalise.movement_days([raw_daily(DAY)]),
         [asdict(a) for a in normalise.activities([raw_activity(DAY, i) for i in range(5)])],
     ]
     text = repr(outputs)

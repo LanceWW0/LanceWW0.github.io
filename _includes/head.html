@@ -5,6 +5,9 @@
 
 {%- seo -%}
 {%- feed_meta -%}
+{%- if page.noindex %}
+<meta name="robots" content="noindex, nofollow">
+{%- endif %}
 
 <!-- Resolve the theme before first paint. Must stay inline and synchronous
      here, above the stylesheet: deferring it produces a flash of the wrong

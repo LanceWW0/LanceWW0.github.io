@@ -1,0 +1,53 @@
+name: Health data
+
+# Builds the data for laurence-wayne.com/health from the Garmin Personal API.
+# For now (step 3 of the plan) this only runs a smoke test: a token exchange
+# plus one call, proving Garmin accepts requests from GitHub's servers. The
+# daily schedule and the build/commit steps are added once the data shape is
+# confirmed.
+#
+# Logs on this public repo are public, so every step prints status codes and
+# counts only, never data.
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: What to run
+        type: choice
+        options: [smoke]
+        default: smoke
+
+permissions:
+  contents: read
+
+concurrency:
+  group: health-data
+  cancel-in-progress: false
+
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: scripts/health/requirements.txt
+
+      - name: Install dependencies (hash-checked)
+        run: python -m pip install --require-hashes -r scripts/health/requirements.txt
+
+      - name: Unit tests (offline)
+        run: python -m pytest scripts/health
+
+      - name: Smoke test against Garmin (status only)
+        if: inputs.mode == 'smoke'
+        env:
+          GARMIN_PERSONAL_API_KEY: ${{ secrets.GARMIN_PERSONAL_API_KEY }}
+        run: python -m scripts.health.probe --smoke

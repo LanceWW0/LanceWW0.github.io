@@ -1,0 +1,6 @@
+# Direct dependencies of the /health data job. Regenerate the pinned,
+# hash-checked requirements.txt from this file with:
+#   .venv/bin/uv pip compile scripts/health/requirements.in --universal \
+#     --python-version 3.12 --generate-hashes -o scripts/health/requirements.txt
+requests
+pytest

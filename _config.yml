@@ -52,3 +52,5 @@ exclude:
   - .bundle/
   - vendor/
   - node_modules/
+  # Python data job for /health — must never be published as static files.
+  - scripts/

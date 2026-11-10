@@ -53,14 +53,47 @@ and token scopes. `.garmin-probe/` is gitignored.
 Raw responses are only saved if you ask, and only outside the repo:
 `--save-raw /tmp/garmin-raw` (delete it afterwards).
 
-## Step 3: CI smoke test
+## The daily workflow (`.github/workflows/health.yml`)
+
+The workflow runs every day at 13:23 UTC, and on demand from **Actions → Health data → Run workflow**. Each run:
+
+1. runs the offline tests;
+2. rebuilds `_data/health.json` from Garmin;
+3. commits it as "Update health data", only if it changed;
+4. asks GitHub Pages to rebuild, then waits for that build to succeed.
+
+Pushes made by the workflow don't trigger a Pages build by themselves, which is why step 4 asks for one. The `smoke` mode only checks that Garmin accepts the key, and prints status only.
+
+**Repo settings it needs:**
+
+| Name | Type | What |
+|---|---|---|
+| `GARMIN_PERSONAL_API_KEY` | secret | The Personal API key. |
+| `HEALTH_PAGE_PASSPHRASE` | secret | The page passphrase: 5+ random words. Anyone you give it to can read every version in git history. |
+| `GARMIN_KEY_EXPIRES` | variable | The key's expiry date, `YYYY-MM-DD`. Runs fail from 7 days before. |
 
 ```bash
 gh secret set GARMIN_PERSONAL_API_KEY < ~/.config/garmin/connect-personal-api-key
 ```
+```bash
+gh secret set HEALTH_PAGE_PASSPHRASE
+```
+```bash
+gh variable set GARMIN_KEY_EXPIRES --body 2027-11-10
+```
 
-Then run the **Health data** workflow (Actions tab → Run workflow, mode
-`smoke`). It exchanges the key and makes one call, printing status only.
+**When GitHub emails you about a failed run:**
+
+- **"something needs attention":** the data was still updated, but either a metric failed (its previous values were kept, and the page shows when it was last updated) or the key is about to expire. The *Build the data* step's log says which.
+- **The build step failed:** nothing was written, and the page keeps the previous data. A "token: HTTP 401" means the key expired or was revoked.
+
+**Rotating the key:** create a new key in Garmin Connect, save it to the key file, run the first `gh secret set` above again, update `GARMIN_KEY_EXPIRES`, then delete the old key.
+
+**Changing the passphrase:** set the secret again. The next run can't decrypt the old file, so it rebuilds everything from Garmin under the new passphrase.
+
+**Pulling locally:** the bot commits to `main` most days, so pull before you push. `git config pull.rebase true` makes that painless.
+
+Pull requests that touch `scripts/health/` also run the tests (`.github/workflows/health-tests.yml`, no secrets).
 
 ## The daily build
 

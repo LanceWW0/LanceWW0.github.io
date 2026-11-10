@@ -4,3 +4,5 @@
 #     --python-version 3.12 --generate-hashes -o scripts/health/requirements.txt
 requests
 pytest
+cryptography
+pyyaml

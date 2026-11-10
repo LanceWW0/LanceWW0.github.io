@@ -20,7 +20,7 @@ import random
 import re
 import stat
 import time
-from collections.abc import Callable, Iterator, Mapping
+from collections.abc import Callable, Iterable, Iterator, Mapping
 from datetime import date, datetime
 from email.utils import parsedate_to_datetime
 from pathlib import Path
@@ -141,9 +141,16 @@ class GarminClient:
         sleep: Callable[[float], None] = time.sleep,
         clock: Callable[[], float] = time.monotonic,
         jitter: Callable[[], float] = random.random,
+        allowed: Iterable[str] | None = None,
     ):
         if not api_key:
             raise GarminConfigError("empty API key")
+        if allowed is not None:
+            allowed = frozenset(allowed)
+            unknown = allowed - ENDPOINTS.keys()
+            if unknown:
+                raise ValueError(f"unknown endpoint labels: {sorted(unknown)}")
+        self._allowed = allowed
         self._api_key = api_key
         self._session = session if session is not None else requests.Session()
         self._base_url = base_url.rstrip("/")
@@ -186,6 +193,8 @@ class GarminClient:
     def get(self, path: str, params: Mapping[str, Any] | None = None) -> Any:
         """GET an allowlisted endpoint. Returns parsed JSON, or None for no data."""
         label = endpoint_label(path)
+        if self._allowed is not None and label not in self._allowed:
+            raise ValueError(f"{label} is not allowed for this client")
         if self._token is None:
             self.authenticate()
         reauthenticated = False

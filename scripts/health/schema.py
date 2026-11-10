@@ -19,6 +19,7 @@ from typing import Any
 
 from .categories import GROUPS
 from .config import METRICS
+from .normalise import BEST_SPLITS
 
 SCHEMA_VERSION = 1
 MAX_BYTES = 100_000
@@ -34,21 +35,33 @@ _SCORE: Spec = (0, 100, 0)
 _HRV: Spec = (1, 300, 0)
 _RHR: Spec = (20, 150, 0)
 _BB: Spec = (0, 100, 0)
+_STEPS: Spec = (0, 200_000, 0)
+_FLOORS: Spec = (0, 2_000, 0)
+_ZONE_MINUTES: Spec = (0, 44_640, 0)  # a whole month
 
 DAY: dict[str, Spec] = {
     "sleep_min": _SLEEP_MIN, "sleep_score": _SCORE,
     "hrv": _HRV, "hrv7": _HRV, "hrv_lo": _HRV, "hrv_hi": _HRV,
     "rhr": _RHR, "rhr7": _RHR, "bb": _BB, "bb7": _BB,
+    "steps": _STEPS, "floors": _FLOORS,
 }
-WEEK: dict[str, Spec] = {"workouts": (0, 100, 0), "hours": (0, 168, 1), "run_km": (0, 2000, 1), "pace_s": (120, 1200, 0)}
+WEEK: dict[str, Spec] = {
+    "workouts": (0, 100, 0), "hours": (0, 168, 1), "run_km": (0, 2000, 1), "pace_s": (120, 1200, 0),
+    "im": (0, 10_080, 0),
+}
 MONTH: dict[str, Spec] = {
     "workouts": (0, 500, 0), "hours": (0, 744, 1), "run_km": (0, 10_000, 1),
     "sleep_min": _SLEEP_MIN, "sleep_score": _SCORE, "hrv": _HRV, "rhr": _RHR, "bb": _BB,
+    "steps": _STEPS, "floors": _FLOORS,
+    "hrz1": _ZONE_MINUTES, "hrz2": _ZONE_MINUTES, "hrz3": _ZONE_MINUTES, "hrz4": _ZONE_MINUTES, "hrz5": _ZONE_MINUTES,
 }
 D30: dict[str, Spec] = {
     "nights": (0, 30, 0), "sleep_min": _SLEEP_MIN, "sleep_score": _SCORE, "hrv": _HRV, "rhr": _RHR, "bb": _BB,
+    "steps": _STEPS, "floors": _FLOORS,
     "workouts": (0, 500, 0), "hours": (0, 720, 1),
 }
+BEST: dict[str, Spec] = {key: (fastest, slowest, 0) for key, _, fastest, slowest in BEST_SPLITS}
+IM_GOAL: Spec = (1, 10_080, 0)
 TOTAL: dict[str, Spec] = {"workouts": (0, 100_000, 0), "hours": (0, 100_000, 1), "run_km": (0, 1_000_000, 1)}
 STAGE: Spec = (0, 100, 0)
 TYPE_COUNT: Spec = (1, 500, 0)
@@ -82,7 +95,7 @@ def validate(payload: Any, *, max_through: date) -> None:
         _date(value, f"sources.{metric}", latest=through)
 
     summary = payload["summary"]
-    _keys(summary, "summary", {"d30", "stages30", "totals"})
+    _keys(summary, "summary", {"d30", "stages30", "totals", "bests", "im_goal"})
     _fields(summary["d30"], "summary.d30", D30)
     if summary["stages30"] is not None:
         _fields(summary["stages30"], "summary.stages30", dict.fromkeys(("deep", "light", "rem", "awake"), STAGE), nullable=False)
@@ -90,6 +103,8 @@ def validate(payload: Any, *, max_through: date) -> None:
         _keys(summary["totals"], "summary.totals", {"y1", "all"})
         for period in ("y1", "all"):
             _fields(summary["totals"][period], f"summary.totals.{period}", TOTAL, nullable=False)
+    _bests(summary["bests"], through)
+    _number(summary["im_goal"], "summary.im_goal", IM_GOAL)
 
     _days(payload["days"], through)
     _calendar(payload["calendar"], through)
@@ -101,6 +116,23 @@ def validate(payload: Any, *, max_through: date) -> None:
 
 
 # -- sections -----------------------------------------------------------------
+
+def _bests(bests: Any, through: date) -> None:
+    """Running bests: per period and distance, a time in seconds and a date."""
+    if bests is None:
+        return
+    _keys(bests, "summary.bests", {"y1", "all"})
+    for period in ("y1", "all"):
+        path = f"summary.bests.{period}"
+        _keys(bests[period], path, set(BEST))
+        for key, spec in BEST.items():
+            best = bests[period][key]
+            if best is None:
+                continue
+            _keys(best, f"{path}.{key}", {"s", "d"})
+            _number(best["s"], f"{path}.{key}.s", spec, nullable=False)
+            _date(best["d"], f"{path}.{key}.d", latest=through)
+
 
 def _days(rows: Any, through: date) -> None:
     _list(rows, "days", 1, MAX_DAYS)

@@ -170,6 +170,11 @@ From the probe run on 10 Nov 2026 (14-day sample, plus 13 months of activities).
 | Activity type | `activities` | `activityType.typeKey` | Seen: running, walking, hiking, cycling, multi_sport, road_biking. |
 | Distance / time | `activities` | `distance` (m), `movingDuration` (s; fall back to `duration`) | |
 | Intensity | `activities` | `activityTrainingLoad` | For the training-calendar levels. |
+| Steps | `daily-summaries` | `data[].movement.steps.value` | A day with 0 steps counts as not worn. |
+| Floors climbed | `daily-summaries` | `data[].movement.floorsAscended.value` | |
+| Intensity minutes | `daily-summaries` | `data[].intensityMinutes.moderate`, `.vigorous`, `.goal` | Weekly total counts vigorous double, as Garmin does. |
+| Heart-rate zones | `activities` | `hrTimeInZone_1` … `hrTimeInZone_5` (s) | Summed per month. |
+| Running bests | `activities` | `fastestSplit_1000`, `_1609`, `_5000`, `_10000` (s) | Runs only. Anything faster than the world record is dropped as a GPS glitch. Published with the date only. |
 | Activity date | `activities` | date part of `startTimeLocal` | The time is thrown away immediately. |
 
 **Never read.** The probe found all of these, and they stay out of the build:

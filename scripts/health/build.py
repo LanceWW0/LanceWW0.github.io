@@ -51,12 +51,15 @@ OWNED: dict[str, dict[str, tuple[str, ...]]] = {
     "hrv": {"days": ("hrv", "hrv7", "hrv_lo", "hrv_hi"), "months": ("hrv",), "d30": ("hrv",)},
     "rhr": {"days": ("rhr", "rhr7"), "months": ("rhr",), "d30": ("rhr",)},
     "body_battery": {"days": ("bb", "bb7"), "months": ("bb",), "d30": ("bb",)},
+    "movement": {"days": ("steps", "floors"), "months": ("steps", "floors"), "weeks": ("im",),
+                 "d30": ("steps", "floors"), "summary": ("im_goal",)},
     "activities": {"weeks": ("workouts", "hours", "run_km", "pace_s"),
-                   "months": ("workouts", "hours", "types", "run_km"),
-                   "d30": ("workouts", "hours"), "summary": ("totals",), "top": ("calendar",)},
+                   "months": ("workouts", "hours", "types", "run_km", "hrz1", "hrz2", "hrz3", "hrz4", "hrz5"),
+                   "d30": ("workouts", "hours"), "summary": ("totals", "bests"), "top": ("calendar",)},
 }
 ROW_KEYS = {"days": "d", "weeks": "w", "months": "m"}
-DROP_FIELD = {"sleep": "sleep_min", "hrv": "hrv", "rhr": "rhr", "body_battery": "bb", "activities": "workouts"}
+DROP_FIELD = {"sleep": "sleep_min", "hrv": "hrv", "rhr": "rhr", "body_battery": "bb", "movement": "steps",
+              "activities": "workouts"}
 
 Log = Callable[[str], None]
 
@@ -126,6 +129,7 @@ def collect(client, config: HealthConfig, through: date, log: Log) -> tuple[dict
         "hrv": lambda: normalise.hrv_days(fetch_hrv(client, start, through)),
         "rhr": lambda: normalise.rhr_days(dailies()),
         "body_battery": lambda: normalise.body_battery_days(dailies()),
+        "movement": lambda: normalise.movement_days(dailies()),
         "activities": lambda: normalise.activities(fetch_activities(client, start, through)),
     }
     values: dict[str, Any] = {}
@@ -258,7 +262,10 @@ def summarise(payload: dict, log: Log) -> None:
 
     days, months = payload["days"], payload["months"]
     log(f"days: {len(days)} · sleep {present(days, 'sleep_min')} · HRV {present(days, 'hrv')} · "
-        f"resting HR {present(days, 'rhr')} · Body Battery {present(days, 'bb')}")
+        f"resting HR {present(days, 'rhr')} · Body Battery {present(days, 'bb')} · steps {present(days, 'steps')}")
+    bests = payload["summary"]["bests"]
+    if bests:
+        log(f"running bests: {sum(v is not None for v in bests['all'].values())} of {len(bests['all'])} distances")
     log(f"weeks: {len(payload['weeks'])} · months: {len(months)}"
         + (f" ({months[0]['m']} to {months[-1]['m']})" if months else ""))
     calendar = payload["calendar"]

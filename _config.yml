@@ -30,6 +30,14 @@ plugins:
   - jekyll-seo-tag
   - jekyll-feed
 
+# /health dashboard. Read by Jekyll and by the daily data job
+# (scripts/health). Anything other than `public` is treated as private.
+health:
+  visibility: private        # private = encrypted data + passphrase; public = open
+  delay_hours: 24            # a day is published once it's this long over everywhere (min 24)
+  since: 2023-01-01          # earliest date to fetch from Garmin
+  metrics: [sleep, hrv, rhr, body_battery, activities]
+
 # Pages listed in the site header. Without this, minima links every page.
 header_pages:
   - apps/index.md

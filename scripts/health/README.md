@@ -62,6 +62,36 @@ gh secret set GARMIN_PERSONAL_API_KEY < ~/.config/garmin/connect-personal-api-ke
 Then run the **Health data** workflow (Actions tab → Run workflow, mode
 `smoke`). It exchanges the key and makes one call, printing status only.
 
+## The daily build
+
+```bash
+.venv/bin/python -m scripts.health.build --dry-run
+```
+
+**What it does.** It rebuilds all history from Garmin, about 75 calls (roughly a minute at one request per second). Then it:
+
+1. normalises each response, reading only the allowlisted fields (`normalise.py`)
+2. aggregates the result into the published payload (`aggregate.py`)
+3. checks it against a strict schema (`schema.py`): known keys, plausible number ranges, no text, nothing after the cutoff
+4. writes `_data/health.json`
+
+**Private vs public.** While `health.visibility` in `_config.yml` isn't `public`, the file is encrypted with `HEALTH_PAGE_PASSPHRASE` (`crypto.py`). The build refuses to write if that variable is missing.
+
+**Failures.** If one metric fails, or returns far less data than last time, its previous values are kept and the run exits with code 2. Exit codes: 0 ok · 1 nothing written · 2 written, but needs attention.
+
+**Options.**
+
+- `--dry-run` fetches and checks everything but writes nothing. It prints counts only.
+- `--out PATH` writes somewhere else, e.g. `.garmin-probe/health.json` (gitignored).
+
+## Demo data
+
+```bash
+.venv/bin/python -m scripts.health.make_demo
+```
+
+This writes synthetic, seeded data to `assets/health/demo.json` and `demo.enc.json`; the passphrase for the encrypted one is `demo`. The page work uses these, so no real data is needed. A test fails if the committed files drift from the generator.
+
 ## Tests
 
 ```bash

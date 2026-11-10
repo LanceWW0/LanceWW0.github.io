@@ -19,6 +19,12 @@
             </li>
           {%- endif -%}
         {%- endfor -%}
+        {%- if site.health.visibility == 'public' -%}
+          <li>
+            <a class="nav-link" href="{{ '/health/' | relative_url }}"
+               {% if page.url == '/health/' %}aria-current="page"{% endif %}>Health</a>
+          </li>
+        {%- endif -%}
       </ul>
     </nav>
 

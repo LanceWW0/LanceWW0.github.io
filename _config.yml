@@ -51,6 +51,13 @@ defaults:
       path: "blog"
     values:
       image: /assets/images/me_snow.jpeg
+  # Keeps /health out of search engines while it's private.
+  # Delete this entry when switching health.visibility to public.
+  - scope:
+      path: "health"
+    values:
+      sitemap: false
+      noindex: true
 
 exclude:
   - Gemfile

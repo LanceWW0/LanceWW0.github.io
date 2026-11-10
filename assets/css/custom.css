@@ -4086,3 +4086,366 @@ html[data-theme="dark"] .riverwatch-card .btn-primary { background: #1b5c5c; col
 /* Disabled controls are exempt from WCAG 1.4.3, but this one still has to
    be readable — it was 3.9:1. */
 .app-cta .btn.is-disabled { color: #565f6d; }
+
+/* ============================================================
+   HEALTH DASHBOARD (/health)
+
+   Chart colours were checked with the dataviz palette validator against
+   the card surface in each theme (#ffffff light, #171a21 dark):
+   - --viz-cat-1..4 (sleep stages) pass every categorical check in both
+     modes. In light mode aqua and yellow sit under 3:1, so the stage bar
+     always has visible labels, a legend and a data table.
+   - --viz-cal-1..4 (training calendar) pass the ordinal checks: one hue,
+     monotone lightness, visible steps, and the lightest step clears 2:1.
+     Dark mode runs the other way round: more training is lighter.
+   - The dark accent is #7c80f5 rather than the site's #818cf8, which sits
+     just outside the dark-mode lightness band.
+   Charts read these through CSS, so the theme toggle needs no redraw.
+   ============================================================ */
+:root {
+  --viz-accent:      #6366f1;
+  --viz-accent-wash: rgba(99, 102, 241, .12);
+  --viz-context:     #a3acbd;
+  --viz-grid:        #edf0f4;
+  --viz-axis:        #cbd2dc;
+  --viz-cal-0: #eef0f4;
+  --viz-cal-1: #9ca3f7;
+  --viz-cal-2: #7479f2;
+  --viz-cal-3: #4f46e5;
+  --viz-cal-4: #3730a3;
+  --viz-cat-1: #6366f1;
+  --viz-cat-2: #eb6834;
+  --viz-cat-3: #1baf7a;
+  --viz-cat-4: #eda100;
+  --viz-on-cat:   #ffffff;
+  --viz-on-cat-4: #0b0b0b;   /* yellow takes dark text */
+  --health-error: #b42318;
+}
+html[data-theme="dark"] {
+  --viz-accent:      #7c80f5;
+  --viz-accent-wash: rgba(124, 128, 245, .16);
+  --viz-context:     #566073;
+  --viz-grid:        #232834;
+  --viz-axis:        #353c4a;
+  --viz-cal-0: #20242e;
+  --viz-cal-1: #4447c9;
+  --viz-cal-2: #6366f1;
+  --viz-cal-3: #9ca3f7;
+  --viz-cal-4: #d4d8fd;
+  --viz-cat-1: #7c80f5;
+  --viz-cat-2: #d95926;
+  --viz-cat-3: #199e70;
+  --viz-cat-4: #c98500;
+  --viz-on-cat-4: #ffffff;
+  --health-error: #fca5a5;
+}
+
+.health-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-bottom: 48px;
+}
+.health-header { margin: 24px 0 32px; }
+.health-title { margin-bottom: 28px; }
+.health-intro {
+  max-width: 62ch;
+  margin: 0;
+  color: var(--text-2);
+}
+.health-meta {
+  margin: 10px 0 0;
+  font-size: var(--step--1);
+  color: var(--muted);
+}
+.health-meta-note { color: var(--text-2); font-weight: 600; }
+.health-forget {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--link);
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+  min-height: 24px;
+}
+.health-status { color: var(--text-2); }
+.health-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- Unlock form ---------- */
+.health-lock {
+  max-width: 460px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-1);
+  box-shadow: var(--shadow-sm);
+}
+.health-lock-title { margin: 0 0 6px; font-size: var(--step-1); }
+.health-lock-text { margin: 0 0 16px; font-size: var(--step--1); color: var(--text-2); }
+.health-lock-label { display: block; margin-bottom: 6px; font-size: var(--step--1); font-weight: 600; }
+.health-lock-row { display: flex; gap: 8px; }
+.health-lock-input {
+  flex: 1;
+  min-width: 0;
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+}
+.health-lock-button { margin: 0; min-height: 44px; cursor: pointer; }
+.health-lock-button:disabled { opacity: .7; cursor: progress; }
+.health-lock-remember {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  margin-top: 4px;
+  font-size: var(--step--1);
+  color: var(--text-2);
+}
+.health-lock-error { margin: 4px 0 0; font-size: var(--step--1); font-weight: 600; color: var(--health-error); }
+
+/* ---------- Layout ---------- */
+.health-section { margin: 0 0 48px; }
+.health-section-title {
+  margin: 0 0 16px;
+  font-size: var(--step-2);
+  font-weight: 800;
+  letter-spacing: -.02em;
+  color: var(--text);
+}
+.health-tiles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+@media (min-width: 1024px) {
+  .health-tiles { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .health-tiles--three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 479.98px) {
+  .health-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .health-tiles--three { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+}
+.health-tile {
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-1);
+  box-shadow: var(--shadow-xs);
+}
+.health-tiles--three .health-tile { padding: 12px 14px; }
+.health-tile-label { margin: 0; font-size: var(--step--1); font-weight: 600; color: var(--text-3); }
+.health-tile-value {
+  margin: 4px 0 0;
+  font-size: var(--step-3);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+.health-tile-unit { margin-left: 2px; font-size: var(--step-0); font-weight: 600; color: var(--text-3); }
+.health-tile-note { margin: 6px 0 0; font-size: var(--step--2); line-height: 1.4; color: var(--muted); }
+.health-alltime { margin: 12px 0 16px; font-size: var(--step--1); color: var(--text-2); }
+
+.health-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.health-card--wide { grid-column: 1 / -1; }
+@media (max-width: 767.98px) {
+  .health-grid { grid-template-columns: minmax(0, 1fr); }
+}
+.health-card {
+  min-width: 0;
+  margin: 0;
+  padding: 18px 18px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-1);
+  box-shadow: var(--shadow-xs);
+}
+@media (max-width: 479.98px) {
+  .health-card { padding: 16px 14px 6px; }
+}
+.health-card-title { margin: 0; font-size: var(--step-0); font-weight: 700; color: var(--text); }
+.health-card-sub { margin: 2px 0 0; font-size: var(--step--1); line-height: 1.4; color: var(--muted); }
+.health-empty { margin: 20px 0 16px; font-size: var(--step--1); color: var(--muted); }
+.health-footnote { margin: 0; font-size: var(--step--1); color: var(--muted); }
+
+/* ---------- Chart marks ---------- */
+.health-plot { position: relative; margin-top: 12px; }
+.health-svg { display: block; max-width: none; overflow: visible; touch-action: pan-y; }
+.health-svg:focus { outline: none; }
+.health-svg:focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; border-radius: 6px; }
+.viz-gridline { stroke: var(--viz-grid); stroke-width: 1; }
+.viz-baseline { stroke: var(--viz-axis); stroke-width: 1; }
+.viz-tick { fill: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+.viz-label { fill: var(--text-3); font-size: 11px; }
+.viz-label--strong { fill: var(--text); font-size: 12px; font-weight: 700; }
+.viz-bar { fill: var(--viz-accent); }
+.viz-bar.is-active { opacity: .7; }
+.viz-line,
+.viz-context { fill: none; stroke-linejoin: round; stroke-linecap: round; }
+.viz-line { stroke: var(--viz-accent); stroke-width: 2; }
+.viz-context { stroke: var(--viz-context); stroke-width: 1.5; }
+.viz-dot--line { fill: var(--viz-accent); }
+.viz-dot--context { fill: var(--viz-context); }
+.viz-band { fill: var(--viz-accent-wash); }
+.viz-reference { stroke: var(--muted); stroke-width: 1; }
+.viz-crosshair { stroke: var(--viz-axis); stroke-width: 1; }
+.viz-end,
+.viz-focus { stroke: var(--surface-1); stroke-width: 2; }
+.viz-end,
+.viz-focus--line { fill: var(--viz-accent); }
+.viz-focus--context { fill: var(--viz-context); }
+.viz-hit { fill: transparent; cursor: crosshair; }
+.viz-cal.is-active { stroke: var(--text); stroke-width: 1.5; }
+.viz-cal--0 { fill: var(--viz-cal-0); }
+.viz-cal--1 { fill: var(--viz-cal-1); }
+.viz-cal--2 { fill: var(--viz-cal-2); }
+.viz-cal--3 { fill: var(--viz-cal-3); }
+.viz-cal--4 { fill: var(--viz-cal-4); }
+.viz-cal-bg--0 { background: var(--viz-cal-0); box-shadow: inset 0 0 0 1px var(--border); }
+.viz-cal-bg--1 { background: var(--viz-cal-1); }
+.viz-cal-bg--2 { background: var(--viz-cal-2); }
+.viz-cal-bg--3 { background: var(--viz-cal-3); }
+.viz-cal-bg--4 { background: var(--viz-cal-4); }
+.viz-cat-1 { background: var(--viz-cat-1); color: var(--viz-on-cat); }
+.viz-cat-2 { background: var(--viz-cat-2); color: var(--viz-on-cat); }
+.viz-cat-3 { background: var(--viz-cat-3); color: var(--viz-on-cat); }
+.viz-cat-4 { background: var(--viz-cat-4); color: var(--viz-on-cat-4); }
+
+/* ---------- Legends, keys, scale ---------- */
+.health-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--step--2);
+  color: var(--text-2);
+}
+.health-legend-item { display: inline-flex; align-items: center; gap: 6px; }
+.health-key { display: inline-block; flex: none; }
+.health-key--line,
+.health-key--context { width: 14px; height: 2px; border-radius: 1px; background: var(--viz-accent); }
+.health-key--context { background: var(--viz-context); }
+.health-key--band { width: 12px; height: 10px; border-radius: 2px; background: var(--viz-accent-wash); }
+.health-key--bar,
+.health-key--swatch { width: 10px; height: 10px; border-radius: 2px; background: var(--viz-accent); }
+.health-key--swatch.viz-cat-1 { background: var(--viz-cat-1); }
+.health-key--swatch.viz-cat-2 { background: var(--viz-cat-2); }
+.health-key--swatch.viz-cat-3 { background: var(--viz-cat-3); }
+.health-key--swatch.viz-cat-4 { background: var(--viz-cat-4); }
+.health-key--swatch[class*="viz-cal-bg--"] { width: 10px; height: 10px; }
+.health-scale {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin-top: 10px;
+  font-size: var(--step--2);
+  color: var(--muted);
+}
+.health-scale > span:first-child { margin-right: 4px; }
+.health-scale > span:last-child { margin-left: 4px; }
+.health-scale-swatch { width: 10px; height: 10px; border-radius: 2px; }
+
+/* ---------- Tooltip ---------- */
+.health-tip {
+  position: absolute;
+  z-index: 2;
+  min-width: 120px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface-raised);
+  box-shadow: var(--shadow-md);
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--text-3);
+  pointer-events: none;
+}
+.health-tip-head { margin: 0 0 4px; font-weight: 600; color: var(--text-2); }
+.health-tip-row { display: flex; align-items: center; gap: 6px; margin: 0; white-space: nowrap; }
+.health-tip-row strong { color: var(--text); font-variant-numeric: tabular-nums; }
+
+/* ---------- Segmented bar (sleep stages) ---------- */
+.health-segbar { display: flex; gap: 2px; height: 28px; margin-top: 18px; }
+.health-seg {
+  flex: 1 1 0;
+  min-width: 2px;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.health-seg-label[hidden] { display: none; }
+
+/* ---------- Ranked bars (by sport) ---------- */
+.health-ranks { display: grid; gap: 10px; margin: 16px 0 4px; padding: 0; list-style: none; }
+.health-rank {
+  display: grid;
+  grid-template-columns: 7.5em minmax(0, 1fr) 3em;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--step--1);
+}
+.health-rank-name { color: var(--text-2); }
+.health-rank-bar {
+  display: block;
+  height: 10px;
+  min-width: 2px;
+  border-radius: 0 4px 4px 0;
+  background: var(--viz-accent);
+}
+.health-rank-value { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--text); }
+
+/* ---------- Data tables ---------- */
+.health-table { margin-top: 6px; font-size: var(--step--1); }
+.health-table summary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 600;
+  color: var(--link);
+  cursor: pointer;
+}
+.health-table-wrap {
+  max-height: 320px;
+  margin-bottom: 10px;
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+.health-table table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.health-table th,
+.health-table td {
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--border-subtle);
+  text-align: left;
+  white-space: nowrap;
+}
+.health-table thead th {
+  position: sticky;
+  top: 0;
+  background: var(--surface-2);
+  font-weight: 600;
+  color: var(--text-3);
+}
+.health-table tbody th { font-weight: 500; color: var(--text-2); }

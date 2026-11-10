@@ -92,6 +92,28 @@ Then run the **Health data** workflow (Actions tab → Run workflow, mode
 
 This writes synthetic, seeded data to `assets/health/demo.json` and `demo.enc.json`; the passphrase for the encrypted one is `demo`. The page work uses these, so no real data is needed. A test fails if the committed files drift from the generator.
 
+## The page
+
+`health/index.html` inlines `_data/health.json` at build time. `assets/js/health.js` then:
+
+1. decrypts it if it's encrypted, using Web Crypto with the passphrase typed in the browser;
+2. draws the tiles and charts as inline SVG, coloured by the `--viz-*` tokens in `custom.css`.
+
+**Unlocking.** "Remember on this device" stores a non-extractable key in IndexedDB; the passphrase itself is never stored.
+
+**Development.** Use `/health/?demo` for plain demo data, or `/health/?demo=enc` for the encrypted demo (passphrase `demo`).
+
+**Charts.** Every chart has a "Show data" table, and arrow keys move through its points. The chart colours were checked with the dataviz palette validator; see the comment at the top of the HEALTH section in `custom.css`.
+
+**Live site.** Decryption only works over https, so **Enforce HTTPS** must be on in the repo's Pages settings.
+
+## Going public
+
+1. In `_config.yml`, set `health.visibility: public`, and delete the `defaults` entry for `path: "health"`. That entry is what adds `noindex` and keeps the page out of the sitemap.
+2. Run the workflow once. It rewrites `_data/health.json` as plain JSON, and the Health link appears in the header and footer.
+
+Going back to private later doesn't hide what was published: the plain files stay in git history.
+
 ## Tests
 
 ```bash

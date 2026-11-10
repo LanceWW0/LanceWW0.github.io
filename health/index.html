@@ -1,0 +1,96 @@
+---
+layout: default
+title: Health
+description: Sleep, recovery and training stats from my Garmin watch, updated daily.
+permalink: /health/
+---
+<div class="health-page" id="health"
+     data-demo="{{ '/assets/health/demo.json' | relative_url }}"
+     data-demo-enc="{{ '/assets/health/demo.enc.json' | relative_url }}">
+
+  <header class="health-header">
+    <h1 class="about-page-title health-title">Health</h1>
+    <p class="health-intro">
+      Sleep, recovery and training from my Garmin watch. It updates every day and
+      runs at least a day behind. Everything here is a daily, weekly or monthly
+      total.
+    </p>
+    <p class="health-meta" id="health-meta" hidden></p>
+  </header>
+
+  <p class="health-status" id="health-status" role="status">Loading…</p>
+  <noscript><p class="health-status">This page needs JavaScript to draw its charts.</p></noscript>
+
+  <!-- No `name` on the input and method="post": the passphrase can never end
+       up in a URL (or in analytics), even if the script fails to load. -->
+  <form class="health-lock" id="health-lock" method="post" hidden>
+    <h2 class="health-lock-title">This page is private for now</h2>
+    <p class="health-lock-text">Enter the passphrase to see it. The data is decrypted in your browser.</p>
+    <label class="health-lock-label" for="health-passphrase">Passphrase</label>
+    <div class="health-lock-row">
+      <input class="health-lock-input" id="health-passphrase" type="password"
+             autocomplete="current-password" autocapitalize="off" spellcheck="false" required>
+      <button class="btn btn-primary health-lock-button" id="health-unlock" type="submit">Unlock</button>
+    </div>
+    <label class="health-lock-remember">
+      <input id="health-remember" type="checkbox"> Remember on this device
+    </label>
+    <p class="health-lock-error" id="health-lock-error" role="alert" hidden></p>
+  </form>
+
+  <div class="health-content" id="health-content" hidden>
+
+    <section class="health-section" aria-labelledby="health-overview-title">
+      <h2 class="health-section-title" id="health-overview-title">Last 30 days</h2>
+      <div class="health-tiles" id="health-tiles"></div>
+    </section>
+
+    <section class="health-section" aria-labelledby="health-sleep-title">
+      <h2 class="health-section-title" id="health-sleep-title">Sleep</h2>
+      <div class="health-grid">
+        <figure class="health-card" data-chart="sleep-hours"></figure>
+        <figure class="health-card" data-chart="sleep-score"></figure>
+        <figure class="health-card" data-chart="sleep-stages"></figure>
+        <figure class="health-card" data-chart="sleep-months"></figure>
+      </div>
+    </section>
+
+    <section class="health-section" aria-labelledby="health-recovery-title">
+      <h2 class="health-section-title" id="health-recovery-title">Recovery</h2>
+      <div class="health-grid">
+        <figure class="health-card health-card--wide" data-chart="hrv"></figure>
+        <figure class="health-card" data-chart="rhr"></figure>
+        <figure class="health-card" data-chart="bb"></figure>
+      </div>
+    </section>
+
+    <section class="health-section" aria-labelledby="health-training-title">
+      <h2 class="health-section-title" id="health-training-title">Training</h2>
+      <div class="health-tiles health-tiles--three" id="health-training-tiles"></div>
+      <p class="health-alltime" id="health-alltime"></p>
+      <div class="health-grid">
+        <figure class="health-card health-card--wide" data-chart="calendar"></figure>
+        <figure class="health-card" data-chart="weekly-workouts"></figure>
+        <figure class="health-card" data-chart="sports"></figure>
+        <figure class="health-card health-card--wide" data-chart="monthly-workouts"></figure>
+      </div>
+    </section>
+
+    <section class="health-section" aria-labelledby="health-running-title">
+      <h2 class="health-section-title" id="health-running-title">Running</h2>
+      <div class="health-grid">
+        <figure class="health-card" data-chart="run-weekly-km"></figure>
+        <figure class="health-card" data-chart="run-pace"></figure>
+        <figure class="health-card health-card--wide" data-chart="run-monthly-km"></figure>
+      </div>
+    </section>
+
+    <p class="health-footnote">
+      Data from Garmin. Sleep, HRV and Body Battery are dated by the morning I wake up.
+      Weeks run Monday to Sunday, and only finished weeks and months are shown.
+    </p>
+  </div>
+</div>
+
+<script type="application/json" id="health-data">{{ site.data.health | jsonify }}</script>
+<script src="{{ '/assets/js/health.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>

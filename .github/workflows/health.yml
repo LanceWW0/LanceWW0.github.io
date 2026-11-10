@@ -104,20 +104,29 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           SHA: ${{ steps.commit.outputs.sha }}
         run: |
-          # Pushes made with the workflow token don't start a Pages build by
-          # themselves, so request one, then wait for it to finish.
-          gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/builds" --silent
-          for i in $(seq 1 40); do
+          # The push usually starts a Pages build by itself, but not always.
+          # Wait for builds of this commit; request one only if none appears.
+          # A build GitHub cancels in favour of a newer one reports as
+          # "errored", so only fail once nothing for this commit is still
+          # queued or building, and none of its builds succeeded.
+          requested=no
+          for i in $(seq 1 48); do
             sleep 15
-            latest=$(gh api "repos/${GITHUB_REPOSITORY}/pages/builds/latest" --jq '[.status, .commit] | join(" ")' || true)
-            state=${latest%% *}
-            commit=${latest#* }
-            echo "Pages build: ${state:-unknown} (${commit:0:7})"
-            if [ "$commit" = "$SHA" ] && [ "$state" = "built" ]; then exit 0; fi
-            if [ "$commit" = "$SHA" ] && [ "$state" = "errored" ]; then
-              echo "::error::The GitHub Pages build failed."
-              exit 1
+            states=$(gh api "repos/${GITHUB_REPOSITORY}/pages/builds?per_page=10" \
+              --jq '[.[] | select(.commit == env.SHA) | .status] | unique | join(" ")' || true)
+            echo "Pages builds for ${SHA:0:7}: ${states:-none yet}"
+            case " $states " in *" built "*) exit 0 ;; esac
+            if [ -z "$states" ]; then
+              if [ "$requested" = no ] && [ "$i" -ge 3 ]; then
+                gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/builds" --silent && requested=yes
+                echo "No build started by itself; requested one."
+              fi
+              continue
             fi
+            case " $states " in
+              *" queued "*|*" building "*) ;;
+              *) echo "::error::The GitHub Pages build failed."; exit 1 ;;
+            esac
           done
           echo "::error::Timed out waiting for the GitHub Pages build."
           exit 1

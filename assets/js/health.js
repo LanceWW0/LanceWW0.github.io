@@ -203,6 +203,10 @@
     renderMeta(data, options || {});
     renderTiles(data);
     renderCharts(data);
+    // A link like /health/#health-hrv can't scroll on load: the charts only
+    // exist once the data is in (or unlocked), so jump there now.
+    const target = location.hash && document.getElementById(location.hash.slice(1));
+    if (target && root.contains(target)) target.scrollIntoView();
   }
 
   function renderMeta(data, options) {
@@ -230,8 +234,10 @@
     meta.hidden = false;
   }
 
-  function tile(label, value, unit, note) {
-    const node = el('div', 'health-tile');
+  /* A tile with a `target` is a link that jumps to that chart's card. */
+  function tile(label, value, unit, note, target) {
+    const node = el(target ? 'a' : 'div', target ? 'health-tile health-tile--link' : 'health-tile');
+    if (target) node.href = `#health-${target}`;
     node.append(el('p', 'health-tile-label', label));
     const v = el('p', 'health-tile-value', value == null ? '–' : value);
     if (value != null && unit) v.append(el('span', 'health-tile-unit', unit));
@@ -245,12 +251,12 @@
     const tiles = $('health-tiles');
     tiles.textContent = '';
     tiles.append(
-      tile('Sleep', d.sleep_min == null ? null : hm(d.sleep_min), '', d.nights == null ? null : `Average of ${plural(d.nights, 'night')}`),
-      tile('Sleep score', d.sleep_score == null ? null : nf.format(d.sleep_score), '', 'Average, out of 100'),
-      tile('HRV', d.hrv == null ? null : nf.format(d.hrv), ' ms', 'Overnight average'),
-      tile('Resting HR', d.rhr == null ? null : nf.format(d.rhr), ' bpm', 'Average'),
-      tile('Body Battery', d.bb == null ? null : nf.format(d.bb), '', 'Average daily peak'),
-      tile('Workouts', d.workouts == null ? null : nf.format(d.workouts), '', d.hours == null ? null : `${nf1.format(d.hours)} hours`),
+      tile('Sleep', d.sleep_min == null ? null : hm(d.sleep_min), '', d.nights == null ? null : `Average of ${plural(d.nights, 'night')}`, 'sleep-hours'),
+      tile('Sleep score', d.sleep_score == null ? null : nf.format(d.sleep_score), '', 'Average, out of 100', 'sleep-score'),
+      tile('HRV', d.hrv == null ? null : nf.format(d.hrv), ' ms', 'Overnight average', 'hrv'),
+      tile('Resting HR', d.rhr == null ? null : nf.format(d.rhr), ' bpm', 'Average', 'rhr'),
+      tile('Body Battery', d.bb == null ? null : nf.format(d.bb), '', 'Average daily peak', 'bb'),
+      tile('Workouts', d.workouts == null ? null : nf.format(d.workouts), '', d.hours == null ? null : `${nf1.format(d.hours)} hours`, 'calendar'),
     );
 
     const totals = data.summary.totals;
@@ -279,6 +285,7 @@
 
   function card(name, title, subtitle) {
     const figure = root.querySelector(`[data-chart="${name}"]`);
+    figure.id = `health-${name}`; // the 30-day tiles link here
     figure.textContent = '';
     const head = el('figcaption', 'health-card-head');
     head.append(el('h3', 'health-card-title', title));

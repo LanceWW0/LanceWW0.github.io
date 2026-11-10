@@ -234,9 +234,10 @@
     meta.hidden = false;
   }
 
-  /* A tile with a `target` is a link that jumps to that chart's card. */
-  function tile(label, value, unit, note, target) {
-    const node = el(target ? 'a' : 'div', target ? 'health-tile health-tile--link' : 'health-tile');
+  /* `part` (sleep, recovery, training, running) gives the tile its section's
+     colour dot. A tile with a `target` is a link that jumps to that chart. */
+  function tile(part, label, value, unit, note, target) {
+    const node = el(target ? 'a' : 'div', `health-tile health-tile--${part}${target ? ' health-tile--link' : ''}`);
     if (target) node.href = `#health-${target}`;
     node.append(el('p', 'health-tile-label', label));
     const v = el('p', 'health-tile-value', value == null ? '–' : value);
@@ -251,12 +252,12 @@
     const tiles = $('health-tiles');
     tiles.textContent = '';
     tiles.append(
-      tile('Sleep', d.sleep_min == null ? null : hm(d.sleep_min), '', d.nights == null ? null : `Average of ${plural(d.nights, 'night')}`, 'sleep-hours'),
-      tile('Sleep score', d.sleep_score == null ? null : nf.format(d.sleep_score), '', 'Average, out of 100', 'sleep-score'),
-      tile('HRV', d.hrv == null ? null : nf.format(d.hrv), ' ms', 'Overnight average', 'hrv'),
-      tile('Resting HR', d.rhr == null ? null : nf.format(d.rhr), ' bpm', 'Average', 'rhr'),
-      tile('Body Battery', d.bb == null ? null : nf.format(d.bb), '', 'Average daily peak', 'bb'),
-      tile('Workouts', d.workouts == null ? null : nf.format(d.workouts), '', d.hours == null ? null : `${nf1.format(d.hours)} hours`, 'calendar'),
+      tile('sleep', 'Sleep', d.sleep_min == null ? null : hm(d.sleep_min), '', d.nights == null ? null : `Average of ${plural(d.nights, 'night')}`, 'sleep-hours'),
+      tile('sleep', 'Sleep score', d.sleep_score == null ? null : nf.format(d.sleep_score), '', 'Average, out of 100', 'sleep-score'),
+      tile('recovery', 'HRV', d.hrv == null ? null : nf.format(d.hrv), ' ms', 'Overnight average', 'hrv'),
+      tile('recovery', 'Resting HR', d.rhr == null ? null : nf.format(d.rhr), ' bpm', 'Average', 'rhr'),
+      tile('recovery', 'Body Battery', d.bb == null ? null : nf.format(d.bb), '', 'Average daily peak', 'bb'),
+      tile('training', 'Workouts', d.workouts == null ? null : nf.format(d.workouts), '', d.hours == null ? null : `${nf1.format(d.hours)} hours`, 'calendar'),
     );
 
     const totals = data.summary.totals;
@@ -265,13 +266,13 @@
     const allTime = $('health-alltime');
     allTime.textContent = '';
     if (!totals) {
-      training.append(tile('Workouts', null, '', 'Not available right now'));
+      training.append(tile('training', 'Workouts', null, '', 'Not available right now'));
       return;
     }
     training.append(
-      tile('Workouts', nf.format(totals.y1.workouts), '', 'Last 12 months'),
-      tile('Time training', nf.format(totals.y1.hours), ' h', 'Last 12 months'),
-      tile('Running', nf.format(totals.y1.run_km), ' km', 'Last 12 months'),
+      tile('training', 'Workouts', nf.format(totals.y1.workouts), '', 'Last 12 months'),
+      tile('training', 'Time training', nf.format(totals.y1.hours), ' h', 'Last 12 months'),
+      tile('running', 'Running', nf.format(totals.y1.run_km), ' km', 'Last 12 months'),
     );
     const since = data.months.length ? ` since ${monthLong(data.months[0].m)}` : '';
     allTime.textContent = `All time${since}: ${plural(totals.all.workouts, 'workout')} · ` +
@@ -708,7 +709,9 @@
     keyboard(chart, cells.length, () => current, show, hide, { ArrowUp: -1, ArrowDown: 1, ArrowLeft: -7, ArrowRight: 7 });
   }
 
-  /* One whole split into parts: a tall segmented bar with a legend. */
+  /* One whole split into parts: a tall segmented bar with a legend. The
+     stages are ordered by depth, so they take shades of the sleep colour
+     (deep is darkest) with grey for awake. */
   function stagesChart(figure, stages) {
     const parts = [['deep', 'Deep'], ['light', 'Light'], ['rem', 'REM'], ['awake', 'Awake']];
     const bar = el('div', 'health-segbar');
@@ -717,14 +720,14 @@
     const segments = [];
     parts.forEach(([key, name], i) => {
       if (!stages[key]) return;
-      const segment = el('div', `health-seg viz-cat-${i + 1}`);
+      const segment = el('div', `health-seg viz-stage--${key}`);
       segment.style.flexGrow = String(stages[key]);
       segment.title = `${name}: ${stages[key]}%`;
       segment.append(el('span', 'health-seg-label', `${stages[key]}%`));
       bar.append(segment);
       segments.push(segment);
     });
-    figure.append(bar, legend(parts.map(([, name], i) => ({ key: 'swatch', cls: `viz-cat-${i + 1}`, label: name }))));
+    figure.append(bar, legend(parts.map(([key, name]) => ({ key: 'swatch', cls: `viz-stage--${key}`, label: name }))));
     onWidth(bar, () => {
       for (const segment of segments) {
         const label = segment.firstChild;

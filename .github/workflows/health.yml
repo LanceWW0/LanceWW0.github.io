@@ -1,25 +1,29 @@
 name: Health data
 
-# Builds the data for laurence-wayne.com/health from the Garmin Personal API.
-# For now (step 3 of the plan) this only runs a smoke test: a token exchange
-# plus one call, proving Garmin accepts requests from GitHub's servers. The
-# daily schedule and the build/commit steps are added once the data shape is
-# confirmed.
+# Rebuilds the data behind laurence-wayne.com/health from the Garmin
+# Personal API once a day, and commits it to _data/health.json.
 #
-# Logs on this public repo are public, so every step prints status codes and
-# counts only, never data.
+#   Secrets:  GARMIN_PERSONAL_API_KEY, HEALTH_PAGE_PASSPHRASE
+#   Variable: GARMIN_KEY_EXPIRES (YYYY-MM-DD; warns from 7 days before)
+#
+# Logs on this public repo are public, so every step prints status codes
+# and counts only, never data. See scripts/health/README.md.
 
 on:
+  schedule:
+    # 13:23 UTC: after the watch has synced, and off the busy top of the hour.
+    - cron: "23 13 * * *"
   workflow_dispatch:
     inputs:
       mode:
         description: What to run
         type: choice
-        options: [smoke]
-        default: smoke
+        options: [daily, smoke]
+        default: daily
 
 permissions:
-  contents: read
+  contents: write  # commit _data/health.json
+  pages: write     # request the Pages build and check it finished
 
 concurrency:
   group: health-data
@@ -28,11 +32,12 @@ concurrency:
 jobs:
   health:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+          fetch-depth: 50  # enough history to rebase if main moved meanwhile
 
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
@@ -51,3 +56,74 @@ jobs:
         env:
           GARMIN_PERSONAL_API_KEY: ${{ secrets.GARMIN_PERSONAL_API_KEY }}
         run: python -m scripts.health.probe --smoke
+
+      - name: Build the data
+        id: build
+        if: inputs.mode != 'smoke'
+        env:
+          GARMIN_PERSONAL_API_KEY: ${{ secrets.GARMIN_PERSONAL_API_KEY }}
+          HEALTH_PAGE_PASSPHRASE: ${{ secrets.HEALTH_PAGE_PASSPHRASE }}
+          GARMIN_KEY_EXPIRES: ${{ vars.GARMIN_KEY_EXPIRES }}
+        run: |
+          # Exit codes: 0 ok · 1 nothing written · 2 written, but needs attention.
+          set +e
+          python -m scripts.health.build
+          code=$?
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          [ "$code" -ne 1 ]
+
+      - name: Commit and push if the data changed
+        id: commit
+        if: inputs.mode != 'smoke' && github.ref == 'refs/heads/main'
+        env:
+          TOKEN: ${{ github.token }}
+        run: |
+          if [ -z "$(git status --porcelain -- _data/health.json)" ]; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add _data/health.json
+          git commit --quiet -m "Update health data"
+          remote="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          for attempt in 1 2 3; do
+            if git push --quiet "$remote" HEAD:main; then
+              echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+              echo "Pushed the updated data."
+              exit 0
+            fi
+            echo "Push rejected (attempt $attempt); rebasing onto the latest main."
+            git pull --quiet --rebase "$remote" main
+          done
+          exit 1
+
+      - name: Rebuild the site and check it deployed
+        if: steps.commit.outputs.sha
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SHA: ${{ steps.commit.outputs.sha }}
+        run: |
+          # Pushes made with the workflow token don't start a Pages build by
+          # themselves, so request one, then wait for it to finish.
+          gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/builds" --silent
+          for i in $(seq 1 40); do
+            sleep 15
+            latest=$(gh api "repos/${GITHUB_REPOSITORY}/pages/builds/latest" --jq '[.status, .commit] | join(" ")' || true)
+            state=${latest%% *}
+            commit=${latest#* }
+            echo "Pages build: ${state:-unknown} (${commit:0:7})"
+            if [ "$commit" = "$SHA" ] && [ "$state" = "built" ]; then exit 0; fi
+            if [ "$commit" = "$SHA" ] && [ "$state" = "errored" ]; then
+              echo "::error::The GitHub Pages build failed."
+              exit 1
+            fi
+          done
+          echo "::error::Timed out waiting for the GitHub Pages build."
+          exit 1
+
+      - name: Flag anything that needs attention
+        if: steps.build.outputs.code == '2'
+        run: |
+          echo "::error::The data was updated, but something needs attention: a metric failed (its previous values were kept) or the Garmin API key expires soon. See the 'Build the data' step."
+          exit 1

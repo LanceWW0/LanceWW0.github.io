@@ -1,0 +1,115 @@
+<!doctype html>
+<!-- Template for assets/health/share.png, the /health link preview.
+     share_image.mjs fills in the data and screenshots it at 1200x630.
+     The sparklines have no dates or values, so the card doesn't go stale. -->
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --text: #1a202c; --muted: #64748b; --border: rgba(0, 0, 0, .08);
+    --sleep: #6366f1; --recovery: #16a34a; --training: #0891b2; --running: #ea580c;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    display: grid; grid-template-columns: 1fr 560px; gap: 48px; align-items: center;
+    padding: 64px; background: #f8fafc; color: var(--text);
+    font-family: Inter, system-ui, sans-serif;
+  }
+  .site { font-size: 22px; font-weight: 600; color: var(--muted); }
+  h1 {
+    position: relative; display: inline-block; margin: 18px 0 44px;
+    font-size: 112px; font-weight: 800; letter-spacing: -3px; line-height: 1;
+  }
+  h1::after {
+    content: ''; position: absolute; left: 0; bottom: -18px; width: 110px; height: 8px;
+    border-radius: 4px; background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  }
+  .credit { font-size: 22px; font-weight: 600; color: #334155; }
+  .credit span { font-weight: 400; color: var(--muted); }
+  .lede { margin-top: 22px; font-size: 30px; line-height: 1.35; color: #334155; max-width: 15em; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .card {
+    padding: 18px 20px 14px; border: 1px solid var(--border); border-radius: 14px;
+    background: #fff; box-shadow: 0 1px 2px rgba(15, 23, 42, .04);
+  }
+  .label { display: flex; align-items: center; gap: 10px; font-size: 21px; font-weight: 600; }
+  .label::before { content: ''; width: 12px; height: 12px; border-radius: 50%; background: var(--c); }
+  svg { display: block; width: 100%; height: 150px; margin-top: 12px; overflow: visible; }
+</style>
+</head>
+<body>
+  <div>
+    <p class="site">laurence-wayne.com</p>
+    <h1>Health</h1>
+    <!-- Garmin's API brand guidelines ask for a "Garmin [device model]"
+         credit next to the data, as on the page itself. -->
+    <p class="credit"><span>Data from</span> Garmin Instinct 2, then Garmin fēnix 9 Pro</p>
+    <p class="lede">Sleep, recovery and training, updated daily.</p>
+  </div>
+  <div class="grid">
+    <div class="card" style="--c: var(--sleep)"><p class="label">Sleep</p><svg id="sleep"></svg></div>
+    <div class="card" style="--c: var(--recovery)"><p class="label">Recovery</p><svg id="hrv"></svg></div>
+    <div class="card" style="--c: var(--training)"><p class="label">Training</p><svg id="training"></svg></div>
+    <div class="card" style="--c: var(--running)"><p class="label">Running</p><svg id="running"></svg></div>
+  </div>
+<script type="application/json" id="data">__HEALTH_DATA__</script>
+<script>
+  const data = JSON.parse(document.getElementById('data').textContent);
+  const NS = 'http://www.w3.org/2000/svg';
+  const W = 216, H = 150;
+
+  function add(svg, tag, attrs) {
+    const node = document.createElementNS(NS, tag);
+    for (const [k, v] of Object.entries(attrs)) node.setAttribute(k, v);
+    svg.append(node);
+    return node;
+  }
+  function frame(id) {
+    const svg = document.getElementById(id);
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    add(svg, 'line', { x1: 0, x2: W, y1: H - 0.5, y2: H - 0.5, stroke: '#e2e8f0', 'stroke-width': 1 });
+    return svg;
+  }
+  // Columns from a zero baseline, with a 2px gap between them.
+  function columns(id, values, colour) {
+    const svg = frame(id);
+    const max = Math.max(...values.filter((v) => v != null), 1);
+    const step = W / values.length;
+    values.forEach((v, i) => {
+      if (v == null || v <= 0) return;
+      const h = Math.max(2, (v / max) * (H - 6));
+      add(svg, 'rect', { x: i * step + 1, y: H - h, width: Math.max(1, step - 2), height: h, rx: 2, fill: colour });
+    });
+  }
+  // A line over an optional band, scaled to the values' own range.
+  function line(id, values, band, colour) {
+    const svg = frame(id);
+    const all = values.concat(band ? band.lo.concat(band.hi) : []).filter((v) => v != null);
+    const lo = Math.min(...all), hi = Math.max(...all);
+    const y = (v) => 8 + (1 - (v - lo) / (hi - lo || 1)) * (H - 16);
+    const x = (i) => (W * i) / (values.length - 1);
+    if (band) {
+      const idx = band.lo.map((v, i) => i).filter((i) => band.lo[i] != null && band.hi[i] != null);
+      const top = idx.map((i) => `${x(i)},${y(band.hi[i])}`);
+      const bottom = idx.reverse().map((i) => `${x(i)},${y(band.lo[i])}`);
+      add(svg, 'path', { d: `M${top.join('L')}L${bottom.join('L')}Z`, fill: colour, opacity: 0.14 });
+    }
+    let d = '';
+    values.forEach((v, i) => { if (v != null) d += `${d ? 'L' : 'M'}${x(i)},${y(v)}`; });
+    add(svg, 'path', { d, fill: 'none', stroke: colour, 'stroke-width': 3, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' });
+  }
+
+  const css = getComputedStyle(document.documentElement);
+  const hue = (name) => css.getPropertyValue(`--${name}`).trim();
+  const days = data.days;
+  columns('sleep', days.slice(-30).map((d) => d.sleep_min), hue('sleep'));
+  line('hrv', days.map((d) => d.hrv7), { lo: days.map((d) => d.hrv_lo), hi: days.map((d) => d.hrv_hi) }, hue('recovery'));
+  columns('training', data.weeks.map((w) => w.hours), hue('training'));
+  columns('running', data.weeks.map((w) => w.run_km), hue('running'));
+  document.body.dataset.ready = '1';
+</script>
+</body>
+</html>

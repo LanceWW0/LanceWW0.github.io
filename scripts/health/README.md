@@ -140,6 +140,12 @@ This writes synthetic, seeded data to `assets/health/demo.json` and `demo.enc.js
 
 **Live site.** Decryption only works over https, so **Enforce HTTPS** must be on in the repo's Pages settings.
 
+**Link preview.** `assets/health/share.png` is the image LinkedIn, X and others show for the /health link. It's drawn from `scripts/health/share_card.html` and has no dates or values, so it doesn't go stale. Only re-run it when the design changes; it needs Google Chrome:
+
+```bash
+node scripts/health/share_image.mjs
+```
+
 ## Going public
 
 1. In `_config.yml`, set `health.visibility: public`, and delete the `defaults` entry for `path: "health"`. That entry is what adds `noindex` and keeps the page out of the sitemap.

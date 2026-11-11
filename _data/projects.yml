@@ -1,0 +1,42 @@
+# Projects shown on the home page, in this order.
+# media: "screenshot" fills the top of the card; "logo" centres an icon.
+# The first link is the card's main destination.
+
+- name: River Watch
+  label: Open source
+  accent: "#217070"
+  description: Tracks the health of England's rivers using open Environment Agency data, so anyone can see what is happening to their local waterways.
+  media: screenshot
+  image: /assets/images/projects/river-watch/screenshot.jpg
+  image_alt: River Watch map of river health monitoring sites, with trend charts for one site
+  links:
+    - label: Visit River Watch
+      url: https://www.riverwatch.earth
+    - label: GitHub
+      url: https://github.com/LanceWW0/River-Watch
+
+- name: Cloud Point Field Guide
+  label: Website
+  accent: "#3d5a80"
+  description: A field guide to clouds that starts from what you actually saw. Fifty-two photographed entries in plain English, ordered by altitude.
+  media: screenshot
+  image: /assets/images/projects/cloud-point-guide/screenshot.jpg
+  image_alt: The Cloud Point library, showing a photographed plate for each cloud type
+  links:
+    - label: Visit the field guide
+      url: https://www.cloudpointapp.com
+    - label: Get the app
+      url: /apps/cloud-point/
+
+- name: Rock of the Day
+  label: Twitter bot
+  accent: "#0c7abf"
+  description: Posts a mystery rock photo every day, challenges followers to identify it, then reveals the answer. A fun way to learn geology.
+  media: logo
+  image: /assets/images/apps/geology-toolkit/logo.png
+  image_alt: Geology Toolkit app icon
+  links:
+    - label: Follow @GeologyToolkit
+      url: https://x.com/GeologyToolkit
+    - label: View the app
+      url: /apps/geology-toolkit/

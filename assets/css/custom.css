@@ -4190,7 +4190,20 @@ html[data-theme="dark"] {
   padding-bottom: 48px;
 }
 .health-header { margin: 24px 0 32px; }
-.health-title { margin-bottom: 28px; }
+.health-title { margin-bottom: 22px; }
+/* The Garmin device credit sits directly under the title, as Garmin's API
+   brand guidelines ask. Plain text in text colours: no logo. */
+.health-source {
+  margin: 0 0 14px;
+  font-size: var(--step--1);
+  font-weight: 600;
+  color: var(--text-2);
+}
+.health-source-label {
+  margin-right: 4px;
+  font-weight: 500;
+  color: var(--muted);
+}
 .health-intro {
   max-width: 62ch;
   margin: 0;

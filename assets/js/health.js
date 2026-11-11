@@ -212,7 +212,7 @@
   function renderMeta(data, options) {
     const meta = $('health-meta');
     meta.textContent = '';
-    meta.append(`Data through ${dayFull(data.through)} · from Garmin`);
+    meta.append(`Data through ${dayFull(data.through)}`);
 
     const now = new Date();
     const today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());

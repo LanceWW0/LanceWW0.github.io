@@ -88,12 +88,13 @@ last_updated: 2026-03-30
 <section class="app-section">
   <h2 class="app-section-title">Screenshots</h2>
   <div class="screenshots-grid" role="region" tabindex="0" aria-label="App screenshots">
-    <img src="/assets/images/apps/geology-toolkit/1.png" alt="Geology AI identification screen" loading="lazy" decoding="async" width="369" height="800">
-    <img src="/assets/images/apps/geology-toolkit/2.png" alt="Identification result view" loading="lazy" decoding="async" width="369" height="800">
-    <img src="/assets/images/apps/geology-toolkit/3.png" alt="Sketch" loading="lazy" decoding="async" width="369" height="800">
-    <img src="/assets/images/apps/geology-toolkit/4.png" alt="Features Page" loading="lazy" decoding="async" width="369" height="800">
-    <img src="/assets/images/apps/geology-toolkit/5.png" alt="For everyone Page" loading="lazy" decoding="async" width="369" height="800">
-    <img src="/assets/images/apps/geology-toolkit/6.png" alt="CTA Page" loading="lazy" decoding="async" width="369" height="800">
+    <img src="/assets/images/apps/geology-toolkit/1.png" alt="Identify any rock from a photo: an identification result for Gneiss" loading="lazy" decoding="async" width="552" height="1200">
+    <img src="/assets/images/apps/geology-toolkit/2.png" alt="More than a name: the formation story and minerals of a rock" loading="lazy" decoding="async" width="552" height="1200">
+    <img src="/assets/images/apps/geology-toolkit/3.png" alt="A hand-drawn sketch for every rock: a labelled sketch of Gneiss" loading="lazy" decoding="async" width="552" height="1200">
+    <img src="/assets/images/apps/geology-toolkit/4.png" alt="Every find in one field guide: a log of identified rocks" loading="lazy" decoding="async" width="552" height="1200">
+    <img src="/assets/images/apps/geology-toolkit/5.png" alt="Understand landscapes, not just specimens: a formation analysis of folded strata" loading="lazy" decoding="async" width="552" height="1200">
+    <img src="/assets/images/apps/geology-toolkit/6.png" alt="Rock of the day: a daily entry on Diabase" loading="lazy" decoding="async" width="552" height="1200">
+    <img src="/assets/images/apps/geology-toolkit/7.png" alt="For the curious: rockhounds, students, walkers and professionals" loading="lazy" decoding="async" width="552" height="1200">
   </div>
   <p class="app-cta"><button type="button" class="btn btn-primary" data-store-trigger aria-haspopup="dialog" aria-controls="store-modal">Get Geology AI</button></p>
 </section>

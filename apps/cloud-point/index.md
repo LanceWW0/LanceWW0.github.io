@@ -112,13 +112,14 @@ last_updated: 2025-09-06
         Sorry, your browser doesn't support embedded videos.
       </video>
     </div>
-    <img src="/assets/images/apps/cloud-point/1.png" alt="Cloud Point identify screen 1" loading="lazy" decoding="async" width="369" height="800">
-    <img src="/assets/images/apps/cloud-point/2.png" alt="Cloud Point identify screen 2" loading="lazy" decoding="async" width="369" height="800">
-    <img src="/assets/images/apps/cloud-point/3.png" alt="Global community gallery screen" loading="lazy" decoding="async" width="369" height="800">
-    <img src="/assets/images/apps/cloud-point/4.png" alt="Locations map screen" loading="lazy" decoding="async" width="369" height="800">
-    <img src="/assets/images/apps/cloud-point/5.png" alt="Learn cloud types screen" loading="lazy" decoding="async" width="369" height="800">
-    <img src="/assets/images/apps/cloud-point/6.png" alt="Rank up user profile screen" loading="lazy" decoding="async" width="369" height="800">
-    <img src="/assets/images/apps/cloud-point/7.png" alt="Compete on leaderboard screen" loading="lazy" decoding="async" width="369" height="800">
+    <img src="/assets/images/apps/cloud-point/1.png" alt="Identify clouds in a snap: a photo with the cloud types the AI detected" loading="lazy" decoding="async" width="552" height="1200">
+    <img src="/assets/images/apps/cloud-point/2.png" alt="Hunt down rare skies: a rare find screen for a Mammatus cloud" loading="lazy" decoding="async" width="552" height="1200">
+    <img src="/assets/images/apps/cloud-point/3.png" alt="Collect all 52 clouds: the cloud collection grid" loading="lazy" decoding="async" width="552" height="1200">
+    <img src="/assets/images/apps/cloud-point/4.png" alt="Ascend the atmosphere: rank and expedition progress" loading="lazy" decoding="async" width="552" height="1200">
+    <img src="/assets/images/apps/cloud-point/5.png" alt="Cloud Match, a quick daily quiz" loading="lazy" decoding="async" width="552" height="1200">
+    <img src="/assets/images/apps/cloud-point/6.png" alt="A new cloud every week: the Cloud of the Week page" loading="lazy" decoding="async" width="552" height="1200">
+    <img src="/assets/images/apps/cloud-point/7.png" alt="Share skies with spotters worldwide: a map of sightings" loading="lazy" decoding="async" width="552" height="1200">
+    <img src="/assets/images/apps/cloud-point/8.png" alt="Your pocket cloud atlas: a page explaining the Lenticular cloud" loading="lazy" decoding="async" width="552" height="1200">
   </div>
   <p class="app-cta"><button type="button" class="btn btn-primary" data-store-trigger aria-haspopup="dialog" aria-controls="store-modal">Get Cloud Point</button></p>
 </section>

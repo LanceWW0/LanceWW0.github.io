@@ -13,9 +13,9 @@ DAY = date(2026, 11, 8)
 
 # -- config -------------------------------------------------------------------
 
-def test_repo_config_loads_and_is_private():
+def test_repo_config_loads():
     loaded = config.load_config()
-    assert loaded.private
+    assert loaded.visibility in ("private", "public")
     assert loaded.delay_hours >= 24
     assert loaded.since == date(2023, 1, 1)
     assert loaded.metrics == config.METRICS

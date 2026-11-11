@@ -10,10 +10,18 @@ permalink: /health/
 
   <header class="health-header">
     <h1 class="about-page-title health-title">Health</h1>
+    <!-- Garmin's API brand guidelines ask for a "Garmin [device model]" credit
+         directly beneath the title, above the fold. One header credit covers
+         every chart on the page. -->
+    <p class="health-source">
+      <span class="health-source-label">Data from</span>
+      Garmin Instinct 2, then Garmin fēnix 9 Pro from October 2026
+    </p>
     <p class="health-intro">
-      Sleep, recovery and training from my Garmin watch. It updates every day and
-      runs at least a day behind. Everything here is a daily, weekly or monthly
-      total.
+      Sleep, recovery and training from my watch, pulled once a day through the
+      <a href="https://developer.garmin.com/gc-developer-program/personal/personal-api">Garmin Connect Personal API</a>.
+      It runs at least a day behind, and everything here is a daily, weekly or
+      monthly total.
     </p>
     <p class="health-meta" id="health-meta" hidden></p>
   </header>
@@ -98,8 +106,11 @@ permalink: /health/
     </section>
 
     <p class="health-footnote">
-      Data from Garmin. Sleep, HRV and Body Battery are dated by the morning I wake up.
-      Weeks run Monday to Sunday, and only finished weeks and months are shown.
+      Data from Garmin: an Instinct 2 until October 2026, then a fēnix 9 Pro. The two
+      watches have different sensors, so some readings, such as HRV, sleep and floors,
+      can shift a little from October 2026. Sleep, HRV and Body Battery are dated by the
+      morning I wake up. Weeks run Monday to Sunday, and only finished weeks and months
+      are shown.
     </p>
   </div>
 </div>

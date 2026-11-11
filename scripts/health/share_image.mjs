@@ -55,8 +55,9 @@ try {
     ws.send(JSON.stringify({ id, method, params }));
   });
 
-  // 1200x630 is the usual link-preview size; 2x keeps the text sharp.
-  await send('Emulation.setDeviceMetricsOverride', { width: 1200, height: 630, deviceScaleFactor: 2, mobile: false });
+  // Exactly LinkedIn's link-preview size, at 1x: LinkedIn shrinks larger
+  // images itself, and its resizing leaves text and thin lines rough.
+  await send('Emulation.setDeviceMetricsOverride', { width: 1200, height: 627, deviceScaleFactor: 1, mobile: false });
   await send('Page.navigate', { url: `file://${page}` });
   let ready = false;
   for (let i = 0; i < 100 && !ready; i++) {
@@ -69,7 +70,7 @@ try {
   }
   if (!ready) throw new Error('The card did not finish rendering (is the Inter font reachable?)');
   const { data: png } = await send('Page.captureScreenshot', {
-    format: 'png', clip: { x: 0, y: 0, width: 1200, height: 630, scale: 1 },
+    format: 'png', clip: { x: 0, y: 0, width: 1200, height: 627, scale: 1 },
   });
   writeFileSync(OUT, Buffer.from(png, 'base64'));
   ws.close();

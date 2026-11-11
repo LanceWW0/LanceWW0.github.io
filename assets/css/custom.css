@@ -96,6 +96,14 @@
 
   --card: #f7f7f8;
   --radius: 14px;
+
+  /* Layout + motion. One content width and one section rhythm for the
+     home page and apps index; one duration and easing for card hovers. */
+  --content-w:     1100px;
+  --space-section: clamp(48px, 7vw, 88px);
+  --dur-fast:      150ms;
+  --dur:           200ms;
+  --ease-out:      cubic-bezier(.2, .7, .3, 1);
   --header-h: 56px;
   --focus: #6366f1;
 
@@ -134,7 +142,7 @@ body {
 
 img, video, svg, iframe { max-width: 100%; height: auto; }
 h1, h2, h3, h4 { line-height: 1.2; }
-:focus-visible { outline: 2px solid #6366f1; outline-offset: 2px; border-radius: 4px; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 4px; }
 
 /* Long unbroken words (app names, URLs) must not push the page wider. */
 .app-title, .card-title, .blog-card h2 { overflow-wrap: anywhere; }
@@ -170,7 +178,7 @@ html.theme-transitioning *::after {
 .footer-social a,
 .section-cta a,
 .project-link,
-.about-card .connect-links a,
+.home-about-links a,
 .support-card a,
 .contact-link,
 .footer-brand .footer-title a {
@@ -519,67 +527,12 @@ html.is-locked, html.is-locked body { overflow: hidden; }
   display: grid; gap: 18px; grid-template-columns: repeat( auto-fit, minmax(260px, 1fr) );
 }
 
-/* Apps index header */
-.apps-header {
-  text-align: center;
-  padding: 50px 20px 40px;
-  margin-bottom: 30px;
-  background: linear-gradient(
-    135deg,
-    #667eea 0%,
-    #764ba2 25%,
-    #f093fb 50%,
-    #f5576c 75%,
-    #4facfe 100%
-  );
-  background-size: 300% 300%;
-  animation: gradient-shift 12s ease infinite;
-  border-radius: 24px;
-  position: relative;
-  overflow: hidden;
-}
-
-.apps-header::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: 
-    radial-gradient(circle at 20% 80%, rgba(255,255,255,0.15) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%);
-  pointer-events: none;
-}
-
 @keyframes gradient-shift {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-.apps-header-title {
-  font-size: clamp(32px, 6vw, 52px);
-  font-weight: 800;
-  color: var(--text-on-accent);
-  margin: 0 0 12px;
-  text-shadow: 0 2px 20px rgba(0,0,0,0.15);
-  position: relative;
-  z-index: 1;
-}
-
-.apps-header-subtitle {
-  font-size: clamp(16px, 2.5vw, 20px);
-  color: rgba(255,255,255,0.95);
-  margin: 0;
-  max-width: 500px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-
-.apps-intro {
-  color: #5f6368;
-  max-width: 60ch;
-  margin-bottom: 14px;
-}
 
 .apps-note {
   text-align: center;
@@ -591,46 +544,6 @@ html.is-locked, html.is-locked body { overflow: hidden; }
   border-radius: 12px;
 }
 
-
-.app-card {
-  background: var(--surface-2);
-  border-radius: 14px;
-  transition: transform .06s ease, box-shadow .2s ease;
-}
-
-.app-card:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,.08); }
-
-.app-card-link {
-  display: grid;
-  grid-template-columns: 88px 1fr;
-  gap: 14px;
-  padding: 16px;
-  text-decoration: none;
-  color: inherit;
-}
-
-.app-icon { border-radius: 22%; box-shadow: 0 2px 10px rgba(0,0,0,.06); }
-
-.app-title { margin: 2px 0 6px; font-size: 18px; line-height: 1.2; }
-.app-desc  { margin: 0; color: #636a73; }
-
-.app-actions { margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap; }
-.chip {
-  display: inline-block;
-  padding: 4px 8px;
-  font-size: 12px;
-  border-radius: 999px;
-  background: #e9eaee;
-  color: #3a3f45;
-}
-
-/* Small screens: shrink the icon rather than stacking it, which keeps the
-   card list scannable. Selector must match the specificity of
-   `.app-card.fancy .app-card-link` further down or it never applies —
-   that is why the previous `.app-card-link` version here did nothing. */
-/* The phone layout for these cards lives at the END of the .app-card.fancy
-   section below — it has to come after the base rules, because a media
-   query adds no specificity and would otherwise lose to them. */
 
 /* ---------- Grid layout: 3/2/1 columns ---------- */
 .apps-grid {
@@ -644,123 +557,182 @@ html.is-locked, html.is-locked body { overflow: hidden; }
 @media (max-width: 1023.98px) { .apps-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 767.98px)  { .apps-grid { grid-template-columns: 1fr; } }
 
-/* ---------- Fancy card base with colorful gradients ---------- */
-.app-card.fancy {
-  --accent:  #6C5CE7;
-  --accent2: #A29BFE;
-  --glow: color-mix(in oklab, var(--accent) 40%, transparent);
+/* ============================================================
+   SHARED CARD + PAGE HEAD
 
+   One card recipe and one hover for the apps grid and the home page:
+   a neutral surface with a hairline border that lifts 2px. Colour comes
+   from the content (app icons, screenshots), not from the card.
+   Keyboard focus gets the same treatment as hover.
+   ============================================================ */
+.app-card,
+.proj-card,
+.post-card {
   position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  
-  /* Full colorful gradient background */
-  background: linear-gradient(
-    160deg,
-    color-mix(in oklab, var(--accent) 35%, var(--mix-base, #fff)) 0%,
-    color-mix(in oklab, var(--accent2) 25%, var(--mix-base, #fff)) 50%,
-    color-mix(in oklab, var(--accent) 30%, var(--mix-base, #fff)) 100%
-  );
-  
-  /* Gradient border */
-  border: 2px solid color-mix(in oklab, var(--accent) 30%, transparent);
-  
-  box-shadow: 
-    0 4px 20px rgba(0,0,0,.08),
-    0 0 0 1px color-mix(in oklab, var(--accent) 20%, transparent);
-  
-  transition: 
-    transform .3s cubic-bezier(.34,1.56,.64,1),
-    box-shadow .3s ease,
-    border-color .3s ease;
-  
-  will-change: transform;
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-xs), var(--hairline);
+  transition:
+    transform var(--dur) var(--ease-out),
+    box-shadow var(--dur) var(--ease-out),
+    border-color var(--dur) var(--ease-out);
+}
+.app-card:hover,
+.app-card:focus-within,
+.proj-card:hover,
+.proj-card:focus-within,
+.post-card:hover,
+.post-card:focus-within {
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md), var(--hairline);
+}
+/* A dash of colour. Each card carries its own --accent (the app's, the
+   project's or the post's): a faint wash in one corner at rest, and a
+   tinted border and shadow on hover. */
+.app-card,
+.proj-card,
+.post-card {
+  background:
+    radial-gradient(130% 100% at 0% 0%,
+      color-mix(in oklab, var(--accent) 14%, transparent), transparent 60%),
+    var(--surface-1);
+}
+.app-card:hover,
+.app-card:focus-within,
+.proj-card:hover,
+.proj-card:focus-within,
+.post-card:hover,
+.post-card:focus-within {
+  border-color: color-mix(in oklab, var(--accent) 45%, var(--border-strong));
+  box-shadow:
+    0 12px 28px -14px color-mix(in oklab, var(--accent) 55%, transparent),
+    var(--shadow-sm), var(--hairline);
 }
 
-/* Gradient overlay that intensifies on hover - kept subtle for readability */
-.app-card.fancy::before {
+/* Link arrows step forward on hover. */
+.arrow {
+  display: inline-block;
+  margin-left: 0.3em;
+  transition: transform var(--dur) var(--ease-out);
+}
+a:hover > .arrow,
+.proj-card:hover .card-links a:first-child > .arrow { transform: translateX(3px); }
+
+/* Scroll-in. `reveal-on` is set in head.html before first paint and never
+   under reduced motion. The keyframes only define `from`, so once the
+   animation ends it holds nothing and the hover transforms still work. */
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(14px); }
+}
+.reveal-on [data-reveal]:not(.is-visible) { opacity: 0; }
+.reveal-on [data-reveal].is-visible {
+  animation: reveal-up 520ms var(--ease-out) backwards;
+  animation-delay: calc(var(--i, 0) * 70ms);
+}
+/* Home hero settles in on load. */
+.hero--home .hero-inner > * { animation: reveal-up 600ms var(--ease-out) backwards; }
+.hero--home .hero-inner > :nth-child(2) { animation-delay: 80ms; }
+.hero--home .hero-inner > :nth-child(3) { animation-delay: 160ms; }
+.hero--home .hero-inner > :nth-child(4) { animation-delay: 240ms; }
+
+@media (hover: none), (pointer: coarse) {
+  .app-card:hover,
+  .proj-card:hover,
+  .post-card:hover { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .app-card:hover, .app-card:focus-within,
+  .proj-card:hover, .proj-card:focus-within,
+  .post-card:hover, .post-card:focus-within,
+  .blog-card:hover { transform: none; }
+}
+
+/* Plain page heading (apps index) */
+.page-head {
+  max-width: var(--content-w);
+  margin: clamp(32px, 6vw, 64px) auto clamp(20px, 3vw, 32px);
+}
+.page-head h1 {
+  margin: 0;
+  font-size: var(--step-4);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.page-head h1::after {
   content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(
-    135deg,
-    color-mix(in oklab, var(--accent) 12%, transparent) 0%,
-    color-mix(in oklab, var(--accent2) 10%, transparent) 50%,
-    color-mix(in oklab, var(--accent) 8%, transparent) 100%
-  );
-  opacity: 0;
-  z-index: 0;
-  transition: opacity .4s ease;
+  display: block;
+  width: 48px;
+  height: 4px;
+  margin-top: 14px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+}
+.page-head p {
+  margin: 14px 0 0;
+  max-width: 56ch;
+  color: var(--muted);
 }
 
-/* Animated glow blob - subtle version */
-.app-card.fancy::after {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(
-    circle at 30% 30%,
-    color-mix(in oklab, var(--accent) 15%, transparent) 0%,
-    transparent 50%
-  ),
-  radial-gradient(
-    circle at 70% 70%,
-    color-mix(in oklab, var(--accent2) 12%, transparent) 0%,
-    transparent 50%
-  );
-  opacity: 0;
-  z-index: 0;
-  transition: opacity .5s ease, transform .6s ease;
-  animation: blob-float 8s ease-in-out infinite;
-  animation-play-state: paused;
+/* ---------- App card ---------- */
+.apps-grid {
+  max-width: var(--content-w);
+  padding: 0;
 }
-
-@keyframes blob-float {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  33% { transform: translate(5%, -5%) rotate(5deg); }
-  66% { transform: translate(-3%, 3%) rotate(-3deg); }
-}
-
-/* ========== HOVER STATE - The magic happens here ========== */
-.app-card.fancy:hover {
-  transform: translateY(-10px) scale(1.02);
-  
-  /* Intensified gradient on hover */
-  border-color: var(--accent);
-  
-  box-shadow: 
-    0 20px 50px color-mix(in oklab, var(--accent) 35%, transparent),
-    0 10px 30px rgba(0,0,0,.1),
-    0 0 0 2px var(--accent),
-    inset 0 1px 0 rgba(255,255,255,.5);
-}
-
-.app-card.fancy:hover::before {
-  opacity: 1;
-}
-
-.app-card.fancy:hover::after {
-  opacity: 1;
-  animation-play-state: running;
-}
-
-/* Inner layout */
-.app-card.fancy .app-card-link {
+.app-card-link {
   display: grid;
-  grid-template-columns: 88px 1fr;
+  grid-template-columns: 64px minmax(0, 1fr);
   gap: 16px;
-  padding: 22px;
-  text-decoration: none;
+  align-items: start;
+  height: 100%;
+  padding: 20px;
+  border-radius: inherit;
   color: inherit;
-  position: relative;
-  z-index: 1;
-  min-height: 100%;
+  text-decoration: none;
 }
-
+.app-card-link:focus-visible { outline-offset: 3px; }
+.app-card-icon {
+  display: block;
+  width: 64px;
+  height: 64px;
+  border-radius: 22%;
+  box-shadow: 0 0 0 1px var(--border);
+  transition: transform var(--dur) var(--ease-out);
+}
+.app-card:hover .app-card-icon,
+.app-card:focus-within .app-card-icon { transform: scale(1.05); }
+.app-card-title {
+  margin: 2px 0 6px;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+.app-card-desc {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--text-3);
+}
+.app-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 0;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--step--1);
+  color: var(--muted);
+}
+/* Trailing separator, so a wrapped line never starts with a dot. */
+.app-card-tags li:not(:last-child)::after {
+  content: "·";
+  margin: 0 7px;
+  color: var(--border-strong);
+}
 /* Icon with dramatic hover effect */
 .app-icon {
   position: relative;
@@ -774,255 +746,6 @@ html.is-locked, html.is-locked body { overflow: hidden; }
     box-shadow .3s ease;
 }
 
-.app-card.fancy:hover .app-icon { 
-  transform: translateY(-8px) scale(1.08) rotate(-3deg);
-  box-shadow: 
-    0 15px 35px color-mix(in oklab, var(--accent) 40%, transparent),
-    0 0 0 4px rgba(255,255,255,.9),
-    0 0 20px color-mix(in oklab, var(--accent) 30%, transparent);
-}
-
-/* Title/desc */
-.app-meta { 
-  z-index: 2; 
-  position: relative;
-  transition: transform .3s ease;
-}
-
-.app-card.fancy:hover .app-meta {
-  transform: translateX(4px);
-}
-
-.app-title { 
-  margin: 2px 0 8px; 
-  font-size: 19px; 
-  font-weight: 700;
-  line-height: 1.2;
-  transition: color .3s ease, text-shadow .3s ease;
-}
-
-.app-card.fancy:hover .app-title {
-  color: #111;
-  text-shadow: 0 1px 2px rgba(255,255,255,.6);
-}
-
-.app-desc { 
-  margin: 0; 
-  color: var(--text-3);
-  font-size: 14px;
-  line-height: 1.5;
-  transition: text-shadow .3s ease;
-}
-
-.app-card.fancy:hover .app-desc {
-  text-shadow: 0 1px 2px rgba(255,255,255,.5);
-}
-
-/* Colorful chips */
-.app-actions {
-  margin-top: 12px;
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  padding-bottom: 4px; /* Prevent clipping */
-}
-
-.app-card.fancy .chip {
-  display: inline-block;
-  padding: 5px 10px;
-  font-size: 10px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: .4px;
-  border-radius: 6px;
-  background: var(--surface-1);
-  color: #4b5563;
-  transition: transform .2s ease, box-shadow .2s ease;
-  border: none;
-  box-shadow: 0 1px 3px rgba(0,0,0,.1);
-  flex-shrink: 0;
-}
-
-.app-card.fancy:hover .chip {
-  background: var(--surface-1);
-  color: #1f2937;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 6px rgba(0,0,0,.15);
-}
-
-/* Shine sweep effect */
-.app-card.fancy .app-card-link::after {
-  content: "";
-  position: absolute;
-  top: 0; 
-  left: -150%;
-  width: 80%; 
-  height: 100%;
-  background: linear-gradient(
-    90deg, 
-    transparent, 
-    rgba(255,255,255,.6), 
-    rgba(255,255,255,.3),
-    transparent
-  );
-  transform: skewX(-20deg);
-  opacity: 0;
-  z-index: 3;
-  pointer-events: none;
-}
-
-.app-card.fancy:hover .app-card-link::after {
-  animation: shine-sweep 800ms ease-out forwards;
-  opacity: 1;
-}
-
-@keyframes shine-sweep {
-  0%   { left: -150%; opacity: 0; }
-  20%  { opacity: 1; }
-  100% { left: 150%; opacity: 0; }
-}
-
-/* Pulsing glow ring on hover */
-.app-card.fancy .app-card-link::before {
-  content: "";
-  position: absolute;
-  inset: -3px;
-  border-radius: 22px;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  opacity: 0;
-  z-index: -1;
-  transition: opacity .3s ease;
-}
-
-.app-card.fancy:hover .app-card-link::before {
-  opacity: 1;
-  animation: pulse-glow 2s ease-in-out infinite;
-}
-
-@keyframes pulse-glow {
-  0%, 100% { transform: scale(1); opacity: .6; }
-  50% { transform: scale(1.02); opacity: .8; }
-}
-
-/* Keyboard focus ring */
-.app-card-link:focus-visible {
-  outline: 3px solid var(--accent);
-  outline-offset: 4px;
-  border-radius: 16px;
-}
-
-/* Reduced motion is handled globally in the Base section at the top of
-   this file, which also covers the four infinite gradient animations
-   this block used to miss. */
-@media (prefers-reduced-motion: reduce) {
-  .app-card.fancy:hover { transform: translateY(-4px); }
-}
-
-/* ---------- App cards on phones ----------
-   Stack the icon above the text. Side by side the text column was only
-   ~200px, which wrapped every title onto two lines and pushed the tag
-   chips into four rows, making the cards very tall. Full width fits most
-   titles on one line and two or three chips per row.
-
-   This block MUST stay after the .app-card.fancy rules above: media
-   queries contribute no specificity, so an earlier copy of it silently
-   loses to the base `grid-template-columns: 88px 1fr`. */
-@media (max-width: 479.98px) {
-  .app-card.fancy .app-card-link {
-    grid-template-columns: 1fr;
-    gap: 10px;
-    padding: 16px 18px;
-    align-content: start;
-  }
-  /* Giving the icon its own row costs vertical space, so the surrounding
-     spacing is tightened to pay for it and then some. */
-  .app-card.fancy .app-icon { width: 56px; height: 56px; }
-  .app-meta { min-width: 0; }
-  .app-card.fancy .app-title { margin-bottom: 4px; }
-  .app-card.fancy .app-actions { margin-top: 10px; gap: 6px; }
-
-  /* The hover nudge slides the text sideways under a now-stacked icon,
-     which just reads as misalignment. */
-  .app-card.fancy:hover .app-meta { transform: none; }
-}
-
-/* Featured Apps Section */
-.featured-apps-highlight {
-  padding: 3.5rem 0;
-  background: linear-gradient(90deg, #f1f5f9 0%, #e0e7ff 100%);
-  border-radius: 18px;
-  box-shadow: 0 4px 24px rgba(60,60,120,0.08);
-  margin-bottom: 2.5rem;
-}
-
-.featured-wrap {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 2.5rem;
-}
-
-.featured-grid {
-  display: flex;
-  gap: 2.5rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-/* Featured Card Base.
-   NOTE: this block composes with the second .featured-card block further
-   down — it is not a duplicate. This one supplies the flex layout,
-   centring and hover-invert; the later one supplies padding and the
-   accent bar. Do not delete either. */
-.featured-card {
-  flex: 1 1 350px;
-  min-width: 0;   /* was 260px, which forced page scroll at 320px */
-  background: var(--surface-1);
-  border-radius: 16px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-  padding: 2rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-
-  transition: transform .2s ease, box-shadow .25s ease, background .2s ease, color .2s ease;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  color: #1e293b;
-}
-
-/* Hover invert effect */
-.featured-card:hover {
-  background: linear-gradient(135deg, #6366f1 0%, #a5b4fc 100%);
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
-  color: var(--text-on-accent);
-}
-
-/* Title styling */
-.featured-card .card-title {
-  font-size: 1.35rem;
-  color: var(--accent-deep);
-  margin-bottom: 0.7rem;
-  transition: color 0.18s;
-}
-.featured-card:hover .card-title {
-  color: var(--text-on-accent);
-}
-
-/* Body text */
-.featured-card .card-body {
-  font-size: 1.08em;
-  line-height: 1.6;
-  margin-bottom: 2rem;
-  margin-bottom: 2rem;
-  color: var(--text-2);
-  transition: color 0.18s;
-}
-.featured-card:hover .card-body {
-  color: #f8fafc;
-}
 
 /* Icon */
 .card-icon {
@@ -1030,33 +753,6 @@ html.is-locked, html.is-locked body { overflow: hidden; }
   margin-bottom: 1rem;
   transition: transform .2s ease, filter .2s ease;
 }
-.featured-card:hover .card-icon {
-  transform: translateY(-4px);
-  filter: brightness(1.1) contrast(1.05);
-}
-
-/* Actions */
-.card-actions {
-  display: flex;
-  gap: 0.7rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.btn-accent {
-  background: var(--accent-wash);
-  color: #3730a3;
-  transition: background .18s, color .18s;
-}
-.featured-card:hover .btn-primary {
-  background: var(--surface-1);
-  color: var(--accent-deep);
-}
-.featured-card:hover .btn-accent {
-  background: rgba(255,255,255,0.9);
-  color: #111827;
-}
-
 
 /* Container + base */
 .site-footer {
@@ -1482,59 +1178,19 @@ html.is-locked, html.is-locked body { overflow: hidden; }
   justify-content: center;
   gap: 12px;
 }
-/* Hero button group - unified style */
-.btn-hero-primary,
-.btn-hero-hire {
+/* Primary hero button: one solid accent fill, no glow. */
+.btn-hero-primary {
   padding: 14px 28px;
   font-size: 16px;
   font-weight: 600;
   border: none;
   border-radius: 12px;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-/* Primary hero button */
-.btn-hero-primary {
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
   color: var(--text-on-accent);
-  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.35);
+  transition: filter var(--dur) var(--ease-out);
 }
-.btn-hero-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(99, 102, 241, 0.5);
-}
+.btn-hero-primary:hover { filter: brightness(1.1); }
 
-/* Hire Me hero button - stands out with glow pulse */
-.btn-hero-hire {
-  background: linear-gradient(135deg, #f59e0b, #f97316);
-  color: var(--text-on-accent);
-  box-shadow: 
-    0 4px 20px rgba(249, 115, 22, 0.4),
-    0 0 0 0 rgba(249, 115, 22, 0.4);
-  animation: hire-pulse 2s ease-in-out infinite;
-}
-.btn-hero-hire:hover {
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 
-    0 8px 32px rgba(249, 115, 22, 0.5),
-    0 0 0 4px rgba(249, 115, 22, 0.2);
-  animation: none;
-}
-
-@keyframes hire-pulse {
-  0%, 100% {
-    box-shadow: 
-      0 4px 20px rgba(249, 115, 22, 0.4),
-      0 0 0 0 rgba(249, 115, 22, 0.4);
-  }
-  50% {
-    box-shadow: 
-      0 6px 24px rgba(249, 115, 22, 0.5),
-      0 0 0 8px rgba(249, 115, 22, 0.1);
-  }
-}
 
 /* Hire Me inline section */
 .hire-banner {
@@ -1581,459 +1237,187 @@ html.is-locked, html.is-locked body { overflow: hidden; }
   background: rgba(255,255,255,0.22);
 }
 
-/* Highlight cards (Latest App, Major Update, About) */
-.highlight-card {
-  padding: 0;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-  margin-bottom: 48px;
-  position: relative;
+/* ---------- Home page sections ----------
+   Every section shares one container width, one vertical rhythm and one
+   heading row (title on the left, optional "all" link on the right). */
+.hero--home { margin-bottom: 0; }
+.hero--home::before { display: none; }
+
+.home-section {
+  max-width: var(--content-w);
+  margin: var(--space-section) auto;
 }
-.highlight-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-}
-.highlight-card-inner {
-  padding: 48px 40px;
+.home-section-head {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-  max-width: 1100px;
-  margin: 0 auto;
   flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 24px;
+  margin-bottom: 24px;
 }
-.highlight-card .icon-wrap {
-  flex: 0 0 auto;
-  position: relative;
+.home-section-head h2::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 0.85em;
+  margin-right: 12px;
+  border-radius: 2px;
+  vertical-align: -0.06em;
+  background: linear-gradient(var(--accent), var(--accent-2));
 }
-.highlight-card .icon-wrap img {
-  border-radius: 22px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-  transition: transform 0.3s ease;
+.home-section-head h2 {
+  margin: 0;
+  font-size: var(--step-2);
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
-.highlight-card:hover .icon-wrap img {
-  transform: scale(1.05) rotate(-2deg);
-}
-.highlight-card .content-wrap {
-  flex: 1 1 400px;
-  /* min-width:0 — a flex item defaults to min-width:auto, and any floor
-     above the available width gets clipped rather than scrolled because
-     .highlight-card sets overflow:hidden. */
-  min-width: 0;
-}
-.highlight-card h2 {
-  margin: 0 0 16px;
-  font-size: clamp(1.5rem, 4vw, 2rem);
-  letter-spacing: -0.5px;
-  line-height: 1.2;
-}
-.highlight-card p {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: var(--text-3);
-  margin-bottom: 1rem;
-}
-.highlight-card .card-actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 20px;
-}
-.highlight-card .btn {
-  padding: 12px 24px;
+.home-section-head a,
+.text-link {
+  color: var(--link);
   font-weight: 600;
-  border-radius: 12px;
-  transition: all 0.2s ease;
+  font-size: 0.9375rem;
+  text-decoration: none;
 }
-.highlight-card .btn:hover {
-  transform: translateY(-2px);
-}
-
-/* Latest App specific */
-.latest-app {
-  background: linear-gradient(135deg, #f0f4ff 0%, #fafbff 50%, #f5f3ff 100%);
-}
-.latest-app::before {
-  background: linear-gradient(90deg, #6366f1, #8b5cf6);
-}
-.latest-app h2 span { color: var(--link); }
-.latest-app .btn-primary {
-  background: var(--accent);
-  color: var(--text-on-accent);
-  border: none;
-}
-.latest-app .btn-store {
-  background: linear-gradient(135deg, #4f46e5, #6366f1);
-  color: var(--text-on-accent);
-  border: none;
-}
-
-/* Major Update specific */
-.major-update {
-  background: linear-gradient(135deg, #fef9e7 0%, #fffdf5 50%, #fff7ed 100%);
-}
-.major-update::before {
-  background: linear-gradient(90deg, #f59e0b, #ef4444);
-}
-.major-update h2 { color: #92400e; }
-.major-update h2 span { color: #f59e0b; }
-.major-update .btn-primary {
-  background: #f59e0b;
-  color: var(--text-on-accent);
-  border: none;
-}
-.major-update .btn-store {
-  background: linear-gradient(135deg, #b45309, #f59e0b);
-  color: var(--text-on-accent);
-  border: none;
-}
-
-/* Twitter Bot specific */
-.twitter-bot {
-  background: linear-gradient(135deg, #f0f7ff 0%, #f8fbff 50%, #eef6ff 100%);
-}
-.twitter-bot::before {
-  background: linear-gradient(90deg, #1d9bf0, #0a66c2);
-}
-.twitter-bot h2 { color: #0c4a6e; }
-.twitter-bot h2 span { color: #1d9bf0; }
-.twitter-bot .btn-primary {
-  background: #1d9bf0;
-  color: var(--text-on-accent);
-  border: none;
-}
-.twitter-bot .btn-store {
-  background: linear-gradient(135deg, #f59e0b, #d97706);
-  color: var(--text-on-accent);
-  border: none;
-}
-.twitter-bot .coming-soon {
-  color: var(--muted);
-  font-size: 0.95rem;
-  margin-top: 8px;
-}
-
-/* Embedded tweet inside bot card */
-.rw-tweet-embed {
-  margin: 20px 0 8px;
-  border-radius: 14px;
-  overflow: hidden;
-  max-width: 550px;
-  min-height: 300px;
-}
-.rw-tweet-embed .twitter-timeline-rendered,
-.rw-tweet-embed iframe {
-  border-radius: 14px !important;
-}
-
-/* RiverWatch card */
-.riverwatch-card {
-  background: linear-gradient(135deg, #f8fafb 0%, #f5f7f8 50%, #f7f9fa 100%);
-  transition:
-    transform 0.3s cubic-bezier(.34,1.56,.64,1),
-    box-shadow 0.3s ease;
-  cursor: default;
-}
-.riverwatch-card::before {
-  background: linear-gradient(90deg, #2a8a8a, #3aadad);
-}
-.riverwatch-card:hover {
-  transform: translateY(-6px) scale(1.01);
-  box-shadow:
-    0 20px 50px rgba(42, 138, 138, 0.15),
-    0 8px 24px rgba(42, 138, 138, 0.08);
-}
-.riverwatch-card h2 span {
-  color: #2a8a8a;
-}
-.riverwatch-card .btn-primary {
-  background: #2a8a8a;
-  color: var(--text-on-accent);
-  border: none;
-}
-.riverwatch-card .btn-primary:hover {
-  box-shadow: 0 4px 16px rgba(42, 138, 138, 0.35);
-}
-.riverwatch-card .btn-store {
-  background: #1a202c;
-  color: var(--text-on-accent);
-  border: none;
-}
-.riverwatch-card .btn-store:hover {
-  background: #2d3748;
-}
-
-/* RiverWatch screenshot inside card */
-.rw-screenshot-wrap {
-  margin: 24px 0 8px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.riverwatch-card:hover .rw-screenshot-wrap {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(14, 165, 233, 0.18);
-}
-.rw-screenshot {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-}
-
-@media (max-width: 767.98px) {
-  .riverwatch-stats {
-    justify-content: center;
-  }
-}
-
-/* Cloud Point field guide card. Paper-cream background sampled from the
-   guide itself (#faf6ef); the slate-blue accent keeps it distinct from
-   RiverWatch's teal and the bot card's Twitter blue. */
-.cloudguide-card {
-  --cg-accent: #3d5a80;
-  background: linear-gradient(135deg, #faf6ef 0%, #fdfbf6 50%, #f6f1e8 100%);
-  transition:
-    transform 0.3s cubic-bezier(.34,1.56,.64,1),
-    box-shadow 0.3s ease;
-  cursor: default;
-}
-.cloudguide-card::before {
-  background: linear-gradient(90deg, #2b2822, var(--cg-accent));
-}
-.cloudguide-card:hover {
-  transform: translateY(-6px) scale(1.01);
-  box-shadow:
-    0 20px 50px rgba(61, 90, 128, 0.15),
-    0 8px 24px rgba(61, 90, 128, 0.08);
-}
-.cloudguide-card:hover .rw-screenshot-wrap {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(61, 90, 128, 0.18);
-}
-.cg-name { color: var(--cg-accent); }
-.cloudguide-card .btn-primary {
-  background: var(--cg-accent);
-  color: var(--text-on-accent);
-  border: none;
-}
-.cloudguide-card .btn-primary:hover {
-  box-shadow: 0 4px 16px rgba(61, 90, 128, 0.35);
-}
-.cloudguide-card .btn-store {
-  background: #1a202c;
-  color: var(--text-on-accent);
-  border: none;
-}
-.cloudguide-card .btn-store:hover {
-  background: #2d3748;
-}
-/* This is the only highlight card with links in its prose, and the
-   stylesheet has no global `a` rule — without this they fall back to the
-   UA blue, which is unreadable on the dark card. */
-.cloudguide-card p a {
-  color: var(--cg-accent);
-  font-weight: 600;
+.home-section-head a:hover,
+.text-link:hover {
   text-decoration: underline;
   text-underline-offset: 3px;
-  text-decoration-thickness: 1px;
-}
-.cloudguide-card p a:hover {
-  text-decoration-thickness: 2px;
 }
 
-/* Featured Apps Section */
-.featured-section {
-  max-width: 1100px;
-  margin: 60px auto;
-  padding: 0 20px;
-}
-.featured-section .section-header {
-  text-align: center;
-  margin-bottom: 40px;
-}
-.featured-section .section-header h2 {
-  font-size: clamp(1.8rem, 4vw, 2.4rem);
-  color: var(--text);
-  margin-bottom: 12px;
-  letter-spacing: -1px;
-}
-.featured-section .section-header p {
-  color: var(--muted);
-  font-size: 1.1rem;
-  max-width: 500px;
-  margin: 0 auto;
-}
-.featured-grid {
+.home-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  gap: 20px;
 }
-.featured-card {
-  background: var(--surface-1);
-  border-radius: 20px;
-  padding: 32px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-  border: 1px solid rgba(0,0,0,0.04);
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
+.home-grid--apps  { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.home-grid--three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 1023.98px) {
+  .home-grid--three { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-.featured-card::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--card-accent, #6366f1), var(--card-accent-end, #8b5cf6));
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-.featured-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.1);
-}
-.featured-card:hover::after {
-  opacity: 1;
-}
-.featured-card .card-icon {
-  border-radius: 18px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  margin-bottom: 20px;
-}
-.featured-card .card-title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--text);
-  margin: 0 0 12px;
-}
-.featured-card .card-body {
-  color: var(--muted);
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
-.featured-card .card-actions {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-.featured-card .btn-sm {
-  padding: 10px 18px;
-  font-size: 14px;
-  border-radius: 10px;
-}
-.featured-card .btn-accent {
-  background: linear-gradient(135deg, #10b981, #059669);
-  color: var(--text-on-accent);
-  border: none;
+@media (max-width: 767.98px) {
+  .home-grid--apps,
+  .home-grid--three { grid-template-columns: 1fr; }
 }
 
-/* Blog Section */
-.blog-section {
-  max-width: 1100px;
-  margin: 60px auto;
-  padding: 0 20px;
-}
-.blog-section .section-header {
-  text-align: center;
-  margin-bottom: 40px;
-}
-.blog-section .section-header h2 {
-  font-size: clamp(1.8rem, 4vw, 2.4rem);
-  color: var(--text);
-  margin-bottom: 8px;
-  letter-spacing: -1px;
-}
-.blog-tiles-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-}
-.blog-tile {
-  position: relative;
-  height: 340px;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+/* ---------- Project + post cards ---------- */
+.proj-card,
+.post-card {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: 32px;
-  color: white;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow: hidden;
 }
-.blog-tile::before {
-  content: '';
+.card-media {
+  display: block;
+  aspect-ratio: 16 / 10;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+}
+.card-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top left;
+  transition: transform 400ms var(--ease-out);
+}
+.card-media { overflow: hidden; }
+.proj-card:hover .card-media:not(.card-media--logo) img,
+.post-card:hover .card-media img { transform: scale(1.03); }
+.card-media--logo {
+  display: grid;
+  place-items: center;
+}
+.card-media--logo img {
+  width: 96px;
+  height: 96px;
+  border-radius: 22%;
+  box-shadow: var(--shadow-sm);
+}
+.post-card .card-media img { object-position: center; }
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px;
+}
+.card-eyebrow {
+  margin: 0 0 6px;
+  font-size: var(--step--1);
+  font-weight: 600;
+  color: color-mix(in oklab, var(--accent) 65%, var(--text));
+}
+.card-body h3 {
+  margin: 0 0 8px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+.card-body h3 a {
+  color: var(--text);
+  text-decoration: none;
+}
+/* The title link covers the whole card, so the card is one click target;
+   secondary links sit above it. */
+.card-body h3 a::after {
+  content: "";
   position: absolute;
   inset: 0;
-  background: inherit;
-  z-index: -1;
+  border-radius: var(--radius);
 }
-.blog-tile:hover {
-  transform: translateY(-8px) scale(1.01);
-  box-shadow: 0 20px 48px rgba(0,0,0,0.2);
+.card-body h3 a:focus-visible { outline: none; }
+.card-body h3 a:focus-visible::after {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
 }
-.blog-tile h3 {
-  margin: 0 0 12px;
-  font-size: 1.5rem;
-  font-weight: 700;
-  line-height: 1.3;
-  letter-spacing: -0.5px;
-}
-.blog-tile p {
+.card-text {
   margin: 0;
-  font-size: 1rem;
-  line-height: 1.6;
-  opacity: 0.92;
-}
-
-/* Homepage About Section */
-.about-card {
-  background: linear-gradient(135deg, #f0f4ff 0%, #fafbff 50%, #f8fafc 100%);
-}
-.about-card::before {
-  background: linear-gradient(90deg, #6366f1, #ec4899);
-}
-.about-card .about-headshot {
-  border-radius: 20px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-  transition: transform 0.3s ease;
-}
-.about-card:hover .about-headshot {
-  transform: scale(1.03) rotate(1deg);
-}
-.about-card h2 {
-  color: var(--text);
-  margin-bottom: 20px;
-}
-.about-card p {
+  font-size: 0.9375rem;
+  line-height: 1.55;
   color: var(--text-3);
 }
-.about-card .connect-links {
+.card-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 20px;
+  gap: 4px 20px;
+  margin: auto 0 0;
+  padding-top: 16px;
+}
+.card-links a {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
   align-items: center;
-  margin-top: 16px;
-  font-size: 0.95rem;
+  min-height: 32px;
 }
-.about-card .connect-links a {
-  color: var(--link);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s;
+
+/* ---------- Home about ---------- */
+.home-about {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 48px);
+  align-items: start;
 }
-.about-card .connect-links a:hover {
-  color: var(--accent-deep);
-  text-decoration: underline;
+.home-about-photo {
+  display: block;
+  width: 200px;
+  height: auto;
+  border-radius: 20px;
+}
+.home-about-text { max-width: 62ch; }
+.home-about-text p {
+  margin: 0 0 1em;
+  color: var(--text-2);
+}
+.home-about-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 24px;
+  margin-top: 8px;
+}
+@media (max-width: 767.98px) {
+  .home-about { grid-template-columns: 1fr; }
+  .home-about-photo { width: 140px; }
 }
 
 /* Section CTA links */
@@ -2053,29 +1437,6 @@ html.is-locked, html.is-locked body { overflow: hidden; }
   text-decoration: underline;
 }
 
-/* Homepage Responsive */
-@media (max-width: 767.98px) {
-  .highlight-card-inner {
-    padding: 32px 24px;
-    gap: 24px;
-    flex-direction: column;
-    text-align: center;
-  }
-  .highlight-card .card-actions {
-    justify-content: center;
-  }
-  .featured-grid,
-  .blog-tiles-grid {
-    grid-template-columns: 1fr;
-  }
-  .blog-tile {
-    height: 280px;
-    padding: 24px;
-  }
-  .about-card .connect-links {
-    justify-content: center;
-  }
-}
 
 /* ========== APP DETAIL PAGE STYLES ========== */
 
@@ -3396,29 +2757,12 @@ html.is-locked, html.is-locked body { overflow: hidden; }
    ============================================================ */
 @media (hover: none), (pointer: coarse) {
   .btn:hover,
-  .app-card:hover,
-  .app-card.fancy:hover .app-icon,
-  .app-card.fancy:hover .app-meta,
-  .app-card.fancy:hover .chip,
-  .app-card.fancy:hover,
-  .featured-card:hover .card-icon,
   .back-link:hover,
   .about-hero:hover .about-headshot,
   .float-right:hover,
   .float-left:hover,
   .contact-link:hover,
-  .btn-hero-primary:hover,
-  .btn-hero-hire:hover,
   .btn-hire:hover,
-  .highlight-card:hover .icon-wrap img,
-  .highlight-card .btn:hover,
-  .riverwatch-card:hover,
-  .riverwatch-card:hover .rw-screenshot-wrap,
-  .cloudguide-card:hover,
-  .cloudguide-card:hover .rw-screenshot-wrap,
-  .featured-card:hover,
-  .blog-tile:hover,
-  .about-card:hover .about-headshot,
   .app-hero:hover .app-icon,
   .app-hero .btn-primary:hover,
   .feature-card:hover,
@@ -3598,8 +2942,8 @@ html.is-locked, html.is-locked body { overflow: hidden; }
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 .blog-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 .blog-card img {
   width: 100%;
@@ -3902,12 +3246,6 @@ html[data-theme="dark"] {
 html[data-theme="dark"] .section.lead p,
 html[data-theme="dark"] .blog-card-content { color: var(--text-2); }
 
-html[data-theme="dark"] .chip { background: var(--surface-2); color: var(--text-2); }
-
-html[data-theme="dark"] .featured-apps-highlight {
-  background: linear-gradient(90deg, var(--surface-sunken) 0%, var(--accent-wash) 100%);
-}
-
 html[data-theme="dark"] .contact-section {
   background: linear-gradient(135deg, var(--inverse-bg-2) 0%, var(--inverse-bg-3) 100%);
 }
@@ -3928,12 +3266,6 @@ html[data-theme="dark"] .store-modal-close:hover { background: rgba(255,255,255,
 html[data-theme="dark"] .store-choice:hover { background: var(--surface-3); }
 html[data-theme="dark"] .store-choice-icon--play { background: var(--surface-1); }
 
-html[data-theme="dark"] .riverwatch-card .btn-store { background: var(--surface-2); color: var(--text); }
-html[data-theme="dark"] .riverwatch-card .btn-store:hover { background: var(--surface-3); }
-
-html[data-theme="dark"] .cloudguide-card .btn-store { background: var(--surface-2); color: var(--text); }
-html[data-theme="dark"] .cloudguide-card .btn-store:hover { background: var(--surface-3); }
-
 html[data-theme="dark"] .skip-link { background: var(--surface-raised); color: var(--text); }
 
 /* Feature-card washes. The light values are hand-picked Material pairs; the
@@ -3953,28 +3285,9 @@ html[data-theme="dark"] .fc--pink   { --feature-bg: linear-gradient(135deg, #331
    a white page. Each keeps its hue identity but sits just above the
    canvas rather than far above it. */
 html[data-theme="dark"] .about-hero,
-html[data-theme="dark"] .highlight-box,
-html[data-theme="dark"] .about-card {
+html[data-theme="dark"] .highlight-box {
   background: linear-gradient(135deg, #1a1e2b 0%, #171a21 50%, #191d28 100%);
 }
-html[data-theme="dark"] .riverwatch-card {
-  background: linear-gradient(135deg, #161b1c 0%, #14191a 50%, #151a1b 100%);
-}
-html[data-theme="dark"] .twitter-bot {
-  background: linear-gradient(135deg, #10202e 0%, #131e29 50%, #0f1e2c 100%);
-}
-html[data-theme="dark"] .twitter-bot h2 { color: #7dd3fc; }
-/* The guide card's paper cream has no dark equivalent, so it drops to a
-   neutral slate. The accent lifts to stay legible on it, and the primary
-   button darkens instead so white label text still clears AA. */
-html[data-theme="dark"] .cloudguide-card {
-  --cg-accent: #8fb0d9;
-  background: linear-gradient(135deg, #1a1c22 0%, #17191e 50%, #191b21 100%);
-}
-html[data-theme="dark"] .cloudguide-card::before {
-  background: linear-gradient(90deg, #4a5568, var(--cg-accent));
-}
-html[data-theme="dark"] .cloudguide-card .btn-primary { background: #2c4569; color: #ffffff; }
 html[data-theme="dark"] .hire-banner {
   background: linear-gradient(135deg, #241d0e 0%, #241a10 100%);
   border-color: rgba(249, 115, 22, .28);
@@ -3996,13 +3309,11 @@ html[data-theme="dark"] .privacy-warning {
 html[data-theme="dark"] .contact-card {
   background: linear-gradient(135deg, #201b33 0%, #272040 100%);
 }
-html[data-theme="dark"] .featured-apps-highlight,
 html[data-theme="dark"] .section.lead {
   color: var(--text-2);
 }
 
 /* Borders expressed as rgba(0,0,0,…) vanish on a dark surface. */
-html[data-theme="dark"] .featured-card,
 html[data-theme="dark"] .feature-card,
 html[data-theme="dark"] .steps-list li,
 html[data-theme="dark"] .btn {
@@ -4025,16 +3336,6 @@ html[data-theme="dark"] .btn {
 /* Nav links were 4.06:1 against the header. */
 .nav-link { color: var(--text-2); }
 
-/* Card chips: the app-card rule is more specific than the theme block,
-   so the dark override has to match its specificity. */
-html[data-theme="dark"] .app-card.fancy .chip {
-  background: var(--surface-2);
-  color: var(--text-2);
-}
-html[data-theme="dark"] .app-card.fancy:hover .chip {
-  background: var(--surface-3);
-  color: var(--text);
-}
 
 /* Store picker: both of these were #5b6b7d, fine on white, 2.9:1 on the
    dark card. */
@@ -4066,22 +3367,6 @@ html[data-theme="dark"] .timeline-date { color: var(--link); }
 /* .apps-note kept a literal #6b7280 that no token matched exactly. */
 .apps-note { color: var(--muted); }
 
-/* Brand buttons: white text on these two brand colours measured 4.12:1 and
-   3.0:1. Darkened just enough to clear AA while keeping the hue. */
-.riverwatch-card .btn-primary { background: #217070; }
-.riverwatch-card .btn-primary:hover { background: #1b5c5c; }
-.twitter-bot .btn-primary { background: #0c7abf; }
-.twitter-bot .btn-primary:hover { background: #0a67a1; }
-
-/* RiverWatch card brand accent — was four hardcoded #2a8a8a inline styles
-   on index.md, one of which (a background-color on the button) beat every
-   stylesheet rule and blocked the contrast fix below. */
-.riverwatch-card { --rw-accent: #217070; border-top: 4px solid var(--rw-accent); }
-html[data-theme="dark"] .riverwatch-card { --rw-accent: #4fbdbd; }
-.rw-name { color: var(--rw-accent); }
-.riverwatch-card .btn-primary { background: var(--rw-accent); }
-html[data-theme="dark"] .riverwatch-card .btn-primary { background: #1b5c5c; color: #ffffff; }
-.connect-label { font-weight: 600; color: var(--text-2); }
 
 /* Disabled controls are exempt from WCAG 1.4.3, but this one still has to
    be readable — it was 3.9:1. */

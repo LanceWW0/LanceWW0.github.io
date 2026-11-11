@@ -171,3 +171,21 @@
     });
   }
 })();
+
+/* Scroll-in for [data-reveal] elements. The `reveal-on` class is set by the
+   inline script in head.html (never under reduced motion); this only marks
+   elements visible as they enter the viewport. */
+(function () {
+  var root = document.documentElement;
+  if (!root.classList.contains('reveal-on')) return;
+  var els = document.querySelectorAll('[data-reveal]');
+  window.__revealReady = true;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      io.unobserve(entry.target);
+    });
+  }, { rootMargin: '0px 0px -6% 0px', threshold: 0.08 });
+  els.forEach(function (el) { io.observe(el); });
+})();

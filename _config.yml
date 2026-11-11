@@ -56,7 +56,6 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
-  - index.md.backup
   - .bundle/
   - vendor/
   - node_modules/

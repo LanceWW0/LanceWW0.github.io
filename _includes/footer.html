@@ -3,11 +3,11 @@
 
     <!-- Brand / Tagline -->
     <div class="footer-brand">
-      <h2 class="footer-title">
+      <p class="footer-title">
         <a href="{{ '/' | relative_url }}">
           {{ site.title | default: "My Site" }}
         </a>
-      </h2>
+      </p>
       {% if site.description %}
       <p class="footer-tagline">{{ site.description }}</p>
       {% endif %}
@@ -15,7 +15,7 @@
 
     <!-- Navigation -->
     <nav class="footer-nav" aria-label="Footer">
-      <h2 class="footer-title">Website Sections</h2>
+      <p class="footer-title">Website Sections</p>
       <a href="{{ '/apps/'  | relative_url }}">Apps</a>
       <a href="{{ '/blog/'  | relative_url }}">Blog</a>
       <a href="{{ '/about/' | relative_url }}">About</a>
@@ -29,7 +29,7 @@
 
     <!-- Contact + Social -->
     <div class="footer-meta">
-      <h2 class="footer-title">Connect with me</h2>
+      <p class="footer-title">Connect with me</p>
 
       <ul class="footer-contact">
         {% if site.email %}

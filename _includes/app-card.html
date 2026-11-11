@@ -1,0 +1,20 @@
+{%- comment -%}
+  One app card, used by /apps/ and the home page.
+  Params: app (an entry from _data/apps.yml), heading ("h2" or "h3"),
+  i (position in its row, used to stagger the scroll-in).
+{%- endcomment -%}
+{%- assign h = include.heading | default: "h2" -%}
+<article class="app-card" data-reveal style="--accent: {{ include.app.accent | default: '#6366f1' }}; --i: {{ include.i | default: 0 }};">
+  <a class="app-card-link" href="{{ include.app.url | relative_url }}">
+    <img class="app-card-icon" src="{{ include.app.icon | relative_url }}" alt="" width="64" height="64" loading="lazy" decoding="async">
+    <div>
+      <{{ h }} class="app-card-title">{{ include.app.name }}</{{ h }}>
+      <p class="app-card-desc">{{ include.app.description }}</p>
+      <ul class="app-card-tags">
+        {%- for tag in include.app.tags %}
+        <li>{{ tag }}</li>
+        {%- endfor %}
+      </ul>
+    </div>
+  </a>
+</article>

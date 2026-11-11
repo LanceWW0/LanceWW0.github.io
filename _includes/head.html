@@ -28,6 +28,18 @@
   m.name = 'theme-color';
   m.content = dark ? '#0f1115' : '#ffffff';
   d.querySelector('head').appendChild(m);
+  // Scroll-in for [data-reveal]. The class is set here, before first paint,
+  // so nothing flashes; site.js does the revealing. If site.js never runs,
+  // the class is dropped again so content cannot stay hidden.
+  if ('IntersectionObserver' in window &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    d.classList.add('reveal-on');
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        if (!window.__revealReady) d.classList.remove('reveal-on');
+      }, 1500);
+    });
+  }
 })();
 </script>
 
@@ -39,7 +51,7 @@
 <link rel="manifest" href="/site.webmanifest">
 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/custom.css">
 <script src="/assets/js/site.js" defer></script>
 

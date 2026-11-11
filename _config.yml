@@ -33,7 +33,7 @@ plugins:
 # /health dashboard. Read by Jekyll and by the daily data job
 # (scripts/health). Anything other than `public` is treated as private.
 health:
-  visibility: private        # private = encrypted data + passphrase; public = open
+  visibility: public         # private = encrypted data + passphrase; public = open
   delay_hours: 24            # a day is published once it's this long over everywhere (min 24)
   since: 2023-01-01          # earliest date to fetch from Garmin
   metrics: [sleep, hrv, rhr, body_battery, movement, activities]
@@ -51,13 +51,6 @@ defaults:
       path: "blog"
     values:
       image: /assets/images/me_snow.jpeg
-  # Keeps /health out of search engines while it's private.
-  # Delete this entry when switching health.visibility to public.
-  - scope:
-      path: "health"
-    values:
-      sitemap: false
-      noindex: true
 
 exclude:
   - Gemfile

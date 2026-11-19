@@ -23,6 +23,8 @@ last_updated: 2025-09-07
       <a class="btn btn-primary" href="{{ page.app_store_url }}">Download on the App&nbsp;Store</a>
       <a class="btn btn-ghost" href="#features">See features</a>
       <a class="btn btn-ghost" href="/apps/earthquake-tracker/privacy-policy/">Privacy&nbsp;policy</a>
+      <a class="btn btn-ghost" href="/apps/earthquake-tracker/terms/">Terms&nbsp;of&nbsp;use</a>
+      <a class="btn btn-ghost" href="/apps/earthquake-tracker/support/">Support</a>
     </div>
   </div>
 </section>

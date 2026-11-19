@@ -99,12 +99,14 @@ last_updated: 2025-09-07
         Sorry, your browser doesn't support embedded videos.
       </video>
     </div>
-    <img src="/assets/images/apps/earthquake-tracker/1.png" alt="Live earthquake feed" loading="lazy" decoding="async" width="369" height="800">
-    <img src="/assets/images/apps/earthquake-tracker/2.png" alt="List View of Earthquakes" loading="lazy" decoding="async" width="369" height="800">
-    <img src="/assets/images/apps/earthquake-tracker/3.png" alt="Real time alerts page" loading="lazy" decoding="async" width="369" height="800">
-    <img src="/assets/images/apps/earthquake-tracker/4.png" alt="Custom regions page" loading="lazy" decoding="async" width="369" height="800">
-    <img src="/assets/images/apps/earthquake-tracker/5.png" alt="Magnitude filter page" loading="lazy" decoding="async" width="369" height="800">
-    <img src="/assets/images/apps/earthquake-tracker/6.png" alt="Global tracking page" loading="lazy" decoding="async" width="369" height="800">
+    <img src="/assets/images/apps/earthquake-tracker/1.png" alt="Earthquakes near the people you love: a map of recent earthquakes near saved places such as Home and family" loading="lazy" decoding="async" width="552" height="1200">
+    <img src="/assets/images/apps/earthquake-tracker/2.png" alt="Alerts for every place: earthquake notifications on the Lock Screen" loading="lazy" decoding="async" width="552" height="1200">
+    <img src="/assets/images/apps/earthquake-tracker/3.png" alt="Every quake, worldwide: a world map of earthquakes from four agencies" loading="lazy" decoding="async" width="552" height="1200">
+    <img src="/assets/images/apps/earthquake-tracker/4.png" alt="Understand it at a glance: earthquake details with magnitude, depth and distance" loading="lazy" decoding="async" width="552" height="1200">
+    <img src="/assets/images/apps/earthquake-tracker/5.png" alt="See what's close to you: a list of earthquakes filtered by place, size and time" loading="lazy" decoding="async" width="552" height="1200">
+    <img src="/assets/images/apps/earthquake-tracker/6.png" alt="Your alerts, your rules: setting the minimum magnitude and alert radius for a place" loading="lazy" decoding="async" width="552" height="1200">
+    <img src="/assets/images/apps/earthquake-tracker/7.png" alt="On your Home Screen: widgets showing earthquakes near saved places" loading="lazy" decoding="async" width="552" height="1200">
+    <img src="/assets/images/apps/earthquake-tracker/8.png" alt="Places I care about: one free, unlimited with Premium" loading="lazy" decoding="async" width="552" height="1200">
   </div>
   <p class="app-cta"><a class="btn btn-primary" href="{{ page.app_store_url }}">Get Earthquake Tracker</a></p>
 </section>

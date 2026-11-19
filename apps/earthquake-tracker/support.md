@@ -29,13 +29,14 @@ last_updated: 2026-11-19
       <summary>Why am I not receiving alerts?</summary>
       <p>Check these three things:</p>
       <p><strong>1. Notification permission:</strong> open your device's <code>Settings → Notifications → Earthquake Tracker</code> and make sure Allow Notifications is on.</p>
-      <p><strong>2. Alerts in the app:</strong> open Settings inside the app and make sure alerts are switched on.</p>
-      <p><strong>3. The place's magnitude and distance:</strong> you only get an alert when an earthquake matches the settings for one of your places. The free place alerts for magnitude 5.0 or above within 100 km. With Premium you can change the magnitude and distance for each place.</p>
+      <p><strong>2. Alerts in the app:</strong> open Settings inside the app and make sure Earthquake alerts is switched on.</p>
+      <p><strong>3. The place's magnitude and distance:</strong> you only get an alert when an earthquake matches the settings for one of your places. In the app's Settings, tap the place under Places I care about and check that Alerts for this place is on, then check its Minimum magnitude and Alert radius. The free place alerts for magnitude 5.0 or above within 100 km. With Premium you can change both for each place.</p>
       <p>Alerts are sent after a seismic agency publishes an event, so they can arrive minutes after the shaking, and some events may be missed. The app is not an earthquake early warning system.</p>
     </details>
     <details>
       <summary>How do I add or edit a place?</summary>
-      <p>Open Places I care about in the app and add a new place. You can add your current location, which asks for location permission, or choose another location. To change a place, tap it in the list.</p>
+      <p>Open Settings in the app and, under Places I care about, tap Add a place. Give it a name, such as "Mum – Manila", and choose its location. You can use your current location, which asks for location permission, or pick anywhere else. Tap Save when you're done.</p>
+      <p>To change a place, tap it under Places I care about. You can rename it, tap Choose a different location, turn Alerts for this place on or off, and set its Minimum magnitude and Alert radius.</p>
       <p>The free version includes one place, with alerts for magnitude 5.0 or above within 100 km. Premium gives you unlimited places and lets you set the magnitude and distance for each one.</p>
     </details>
     <details>
@@ -50,7 +51,7 @@ last_updated: 2026-11-19
     </details>
     <details>
       <summary>How do I cancel my subscription?</summary>
-      <p>Premium is managed by Apple, not inside the app. On your iPhone or iPad, open <code>Settings → [your name] → Subscriptions</code>, choose Earthquake Tracker, and tap Cancel Subscription.</p>
+      <p>Premium is managed by Apple. In the app, open Settings and tap Manage subscription. Or, on your iPhone or iPad, open <code>Settings → [your name] → Subscriptions</code>, choose Earthquake Tracker, and tap Cancel Subscription.</p>
       <p>Cancel at least 24 hours before the end of the current period (or the free trial) to avoid being charged for the next one. Deleting the app does not cancel your subscription.</p>
     </details>
     <details>

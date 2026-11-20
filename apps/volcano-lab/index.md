@@ -1,0 +1,180 @@
+---
+layout: default
+title: Volcano Lab — 3D Eruption Simulator
+description: Make volcanoes erupt in 3D and discover why some ooze and others explode. An educational eruption simulator for iPhone, built by a volcanologist.
+permalink: /apps/volcano-lab/
+hero_background: /assets/images/apps/volcano-lab/hero-bg.jpg  # TODO: replace placeholder
+app_icon: /assets/images/apps/volcano-lab/logo.png  # TODO: replace placeholder
+app_store_url: https://apps.apple.com/app/idTODO  # TODO: replace placeholder with the real App Store URL
+last_updated: 2026-11-20
+---
+
+<a href="/apps/" class="back-link">← Back to All Apps</a>
+
+<!-- HERO -->
+<!-- TODO: replace placeholder (hero background: /assets/images/apps/volcano-lab/hero-bg.jpg) -->
+<section class="hero app-hero" style="background-image: linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.55)), url('{{ page.hero_background }}');">
+  <div class="hero-inner">
+    <!-- TODO: replace placeholder (app icon: /assets/images/apps/volcano-lab/logo.png) -->
+    <img class="app-icon" src="{{ page.app_icon }}" alt="Volcano Lab app icon" width="88" height="88" loading="eager" fetchpriority="high">
+    <h1 class="hero-title">Volcano Lab</h1>
+    <p class="hero-subtitle">
+      Make volcanoes erupt in 3D and discover why some ooze and others explode.
+    </p>
+    <div class="hero-ctas">
+      <!-- iOS only, so this links straight to the App Store (as on Earthquake Tracker) instead of opening the store picker. -->
+      <!-- TODO: replace placeholder (App Store URL is set in app_store_url in the front matter) -->
+      <a class="btn btn-primary" href="{{ page.app_store_url }}">Download on the App&nbsp;Store</a>
+      <a class="btn btn-ghost" href="#features">See features</a>
+      <a class="btn btn-ghost" href="/apps/volcano-lab/privacy-policy/">Privacy&nbsp;policy</a>
+      <a class="btn btn-ghost" href="/apps/volcano-lab/terms/">Terms&nbsp;of&nbsp;use</a>
+    </div>
+  </div>
+</section>
+
+<!-- SHORT PITCH -->
+<section class="section lead">
+  <p>
+    Volcano Lab puts a volcano in your hands. Turn up the silica, cool the magma, add crystals or dissolved water, and watch what happens next: a gentle lava fountain, a spitting Strombolian burst, or a towering Plinian ash column. Each eruption comes with a plain-English explanation of why it behaved the way it did. It's made for students, teachers and anyone who has ever wondered why some volcanoes ooze while others explode.
+  </p>
+</section>
+
+<!-- THE SCIENCE -->
+<section class="app-section">
+  <div class="highlight-box">
+    <h2>🌋 The science behind it</h2>
+    <p>
+      Before I built apps, I was a volcano researcher. My research modelled how crystals flowing through magma change the way a volcano erupts: how a magma crowded with crystals can stiffen, clog its conduit and turn what might have been a quiet lava flow into a violent explosion. Volcano Lab grew directly out of that work.
+    </p>
+    <p>
+      The Eruption Lab is built on published volcanology models, including melt viscosity models and crystal-suspension rheology, simplified so that anyone can play with them. Change the magma's ingredients and the app works out how sticky and gas-rich it is, how explosive it is likely to be, and which style of eruption would follow. Volcano Lab is a learning tool, not a forecast: it can't predict real eruptions, and you should always follow your local volcano observatory and civil authorities.
+    </p>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="app-section" id="features">
+  <h2 class="app-section-title">Why you'll love it</h2>
+  <div class="feature-grid">
+    <article class="feature-card fc--cyan">
+      <div class="feature-card-icon">🌋</div>
+      <h3>Eruption Lab in 3D</h3>
+      <p>Orbit and zoom around a 3D volcano, adjust four magma controls and watch anything from lava fountains to towering ash columns.</p>
+    </article>
+    <article class="feature-card fc--amber">
+      <div class="feature-card-icon">🔍</div>
+      <h3>See inside the volcano</h3>
+      <p>Slice it open with the cutaway view (Pro) to see the magma chamber and conduit, with crystals and gas bubbles rising through them.</p>
+    </article>
+    <article class="feature-card fc--violet">
+      <div class="feature-card-icon">📜</div>
+      <h3>Famous eruptions</h3>
+      <p>Recreate Mount St Helens 1980, Vesuvius 79 AD and Pinatubo 1991 (Pro), each with its story. Kīlauea and Stromboli are free.</p>
+    </article>
+    <article class="feature-card fc--green">
+      <div class="feature-card-icon">🎓</div>
+      <h3>Built by a volcanologist</h3>
+      <p>Designed by a former volcano researcher, with real magma physics behind every eruption you create.</p>
+    </article>
+    <article class="feature-card fc--yellow">
+      <div class="feature-card-icon">🗺️</div>
+      <h3>Explore &amp; learn</h3>
+      <p>Browse a map of the world's best-known volcanoes, take bite-sized lessons and try challenges like making a Plinian eruption from basalt.</p>
+    </article>
+    <article class="feature-card fc--teal">
+      <div class="feature-card-icon">💎</div>
+      <h3>One purchase, no subscription</h3>
+      <p>Free to download. Volcano Lab Pro is a one-time purchase that unlocks everything for good. No account and no ads.</p>
+    </article>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="app-section">
+  <h2 class="app-section-title">How it works</h2>
+  <ol class="steps-list">
+    <li><strong>Choose a volcano:</strong> Start with a preset such as Kīlauea or Stromboli, or pick one of the famous eruptions with Pro.</li>
+    <li><strong>Adjust the magma:</strong> Set the silica content (SiO<sub>2</sub>), temperature, crystal content and dissolved water. Pro adds vent radius and eruption rate.</li>
+    <li><strong>Watch it erupt:</strong> The app calculates the magma's viscosity and explosivity, then shows the eruption in 3D, from Hawaiian and Strombolian to Vulcanian, Sub-Plinian and Plinian.</li>
+    <li><strong>Understand why:</strong> Read a plain-English explanation of why your magma erupted the way it did, and what would change it.</li>
+  </ol>
+</section>
+
+<!-- SCREENSHOTS -->
+<section class="app-section">
+  <h2 class="app-section-title">Screenshots</h2>
+  <div class="screenshots-grid" role="region" tabindex="0" aria-label="App screenshots">
+    <!-- TODO: replace placeholder (video: /assets/images/apps/volcano-lab/video.mp4, poster: /assets/images/apps/volcano-lab/poster.jpg). Optional: delete this video-container if there's no video. -->
+    <div class="video-container">
+      <video
+        muted
+        playsinline
+        controls
+        preload="none"
+        poster="/assets/images/apps/volcano-lab/poster.jpg">
+        <source src="/assets/images/apps/volcano-lab/video.mp4" type="video/mp4">
+        Sorry, your browser doesn't support embedded videos.
+      </video>
+    </div>
+    <!-- TODO: replace placeholder (screenshot 1.png) -->
+    <img src="/assets/images/apps/volcano-lab/1.png" alt="Make a volcano erupt in 3D: the Eruption Lab with a 3D volcano and the four magma controls" loading="lazy" decoding="async" width="552" height="1200">
+    <!-- TODO: replace placeholder (screenshot 2.png) -->
+    <img src="/assets/images/apps/volcano-lab/2.png" alt="Sticky magma, explosive eruptions: a high-silica magma producing a towering ash column" loading="lazy" decoding="async" width="552" height="1200">
+    <!-- TODO: replace placeholder (screenshot 3.png) -->
+    <img src="/assets/images/apps/volcano-lab/3.png" alt="See inside with the cutaway view: the magma chamber and conduit with crystals and gas bubbles rising" loading="lazy" decoding="async" width="552" height="1200">
+    <!-- TODO: replace placeholder (screenshot 4.png) -->
+    <img src="/assets/images/apps/volcano-lab/4.png" alt="Recreate famous eruptions: presets for Mount St Helens, Vesuvius and Pinatubo" loading="lazy" decoding="async" width="552" height="1200">
+    <!-- TODO: replace placeholder (screenshot 5.png) -->
+    <img src="/assets/images/apps/volcano-lab/5.png" alt="Why each eruption behaves the way it does: a plain-English explanation of the eruption style" loading="lazy" decoding="async" width="552" height="1200">
+    <!-- TODO: replace placeholder (screenshot 6.png) -->
+    <img src="/assets/images/apps/volcano-lab/6.png" alt="Explore the world's volcanoes: a world map of well-known volcanoes with profiles" loading="lazy" decoding="async" width="552" height="1200">
+    <!-- TODO: replace placeholder (screenshot 7.png) -->
+    <img src="/assets/images/apps/volcano-lab/7.png" alt="Bite-sized volcano lessons: a short lesson on magma and eruption styles" loading="lazy" decoding="async" width="552" height="1200">
+  </div>
+  <p class="app-cta"><a class="btn btn-primary" href="{{ page.app_store_url }}">Get Volcano Lab</a></p>
+</section>
+
+<!-- FAQ -->
+<section class="app-section">
+  <h2 class="app-section-title">FAQ</h2>
+  <div class="faq-list">
+    <details>
+      <summary>Does Volcano Lab work offline?</summary>
+      <p>Yes. Once it's installed, the Eruption Lab, lessons and volcano profiles all work without an internet connection, so it's ideal for classrooms and field trips with patchy signal.</p>
+    </details>
+    <details>
+      <summary>Can Volcano Lab predict real eruptions?</summary>
+      <p>No. Volcano Lab is an educational simulator. Its models are based on published volcanology research but simplified for learning, and they don't use live monitoring data such as earthquakes, ground deformation or gas measurements. It can't tell you when or how a real volcano will erupt. For that, always follow official guidance from your local volcano observatory and civil authorities.</p>
+    </details>
+    <details>
+      <summary>Which devices are supported?</summary>
+      <p>Volcano Lab runs on iPhone with iOS 18 or later. It supports Dynamic Type, VoiceOver and Reduce Motion.</p>
+    </details>
+    <details>
+      <summary>What data does it collect?</summary>
+      <p>Very little. There's no account, no photo uploads and no location tracking, and your saved lab runs and progress stay on your device. Read the <a href="/apps/volcano-lab/privacy-policy/">Privacy Policy</a> for the details.</p>
+    </details>
+    <details>
+      <summary>How much does it cost?</summary>
+      <p>Volcano Lab is free to download, with plenty to explore straight away. Volcano Lab Pro is a one-time purchase, not a subscription, and unlocks everything: the cutaway view, famous eruptions, advanced controls, all lessons and all challenges. If you reinstall the app or move to a new iPhone, tap "Restore purchases" in the app to get Pro back.</p>
+    </details>
+    <details>
+      <summary>Is it suitable for students and classrooms?</summary>
+      <p>Yes. Volcano Lab was designed as a learning tool, covering the big ideas behind why eruptions differ, from magma viscosity and gas to volcanic hazards. Teachers are very welcome to get in touch at <a href="mailto:hello@laurence-wayne.com">hello@laurence-wayne.com</a>.</p>
+    </details>
+  </div>
+</section>
+
+<!-- SUPPORT -->
+<section class="app-section">
+  <div class="support-grid">
+    <div class="support-card">
+      <h3>📧 Support</h3>
+      <p>Questions or feedback? Email <a href="mailto:hello@laurence-wayne.com">hello@laurence-wayne.com</a>.</p>
+    </div>
+    <div class="support-card">
+      <h3>🔄 Version & updates</h3>
+      <p>Last updated: <time datetime="{{ page.last_updated }}">{{ page.last_updated }}</time>. See the App Store for release notes.</p>
+    </div>
+  </div>
+</section>

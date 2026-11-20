@@ -28,6 +28,7 @@ last_updated: 2026-11-20
       <a class="btn btn-ghost" href="#features">See features</a>
       <a class="btn btn-ghost" href="/apps/volcano-lab/privacy-policy/">Privacy&nbsp;policy</a>
       <a class="btn btn-ghost" href="/apps/volcano-lab/terms/">Terms&nbsp;of&nbsp;use</a>
+      <a class="btn btn-ghost" href="/apps/volcano-lab/support/">Support</a>
     </div>
   </div>
 </section>

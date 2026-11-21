@@ -4,7 +4,7 @@ title: Volcano Lab — 3D Eruption Simulator
 description: Make volcanoes erupt in 3D and discover why some ooze and others explode. An educational eruption simulator for iPhone, built by a volcanologist.
 permalink: /apps/volcano-lab/
 hero_background: /assets/images/apps/volcano-lab/hero-bg.jpg  # TODO: replace placeholder
-app_icon: /assets/images/apps/volcano-lab/logo.png  # TODO: replace placeholder
+app_icon: /assets/images/apps/volcano-lab/logo.png
 app_store_url: https://apps.apple.com/app/idTODO  # TODO: replace placeholder with the real App Store URL
 last_updated: 2026-11-20
 ---
@@ -15,7 +15,6 @@ last_updated: 2026-11-20
 <!-- TODO: replace placeholder (hero background: /assets/images/apps/volcano-lab/hero-bg.jpg) -->
 <section class="hero app-hero" style="background-image: linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.55)), url('{{ page.hero_background }}');">
   <div class="hero-inner">
-    <!-- TODO: replace placeholder (app icon: /assets/images/apps/volcano-lab/logo.png) -->
     <img class="app-icon" src="{{ page.app_icon }}" alt="Volcano Lab app icon" width="88" height="88" loading="eager" fetchpriority="high">
     <h1 class="hero-title">Volcano Lab</h1>
     <p class="hero-subtitle">
@@ -117,20 +116,13 @@ last_updated: 2026-11-20
         Sorry, your browser doesn't support embedded videos.
       </video>
     </div>
-    <!-- TODO: replace placeholder (screenshot 1.png) -->
-    <img src="/assets/images/apps/volcano-lab/1.png" alt="Make a volcano erupt in 3D: the Eruption Lab with a 3D volcano and the four magma controls" loading="lazy" decoding="async" width="552" height="1200">
-    <!-- TODO: replace placeholder (screenshot 2.png) -->
-    <img src="/assets/images/apps/volcano-lab/2.png" alt="Sticky magma, explosive eruptions: a high-silica magma producing a towering ash column" loading="lazy" decoding="async" width="552" height="1200">
-    <!-- TODO: replace placeholder (screenshot 3.png) -->
-    <img src="/assets/images/apps/volcano-lab/3.png" alt="See inside with the cutaway view: the magma chamber and conduit with crystals and gas bubbles rising" loading="lazy" decoding="async" width="552" height="1200">
-    <!-- TODO: replace placeholder (screenshot 4.png) -->
-    <img src="/assets/images/apps/volcano-lab/4.png" alt="Recreate famous eruptions: presets for Mount St Helens, Vesuvius and Pinatubo" loading="lazy" decoding="async" width="552" height="1200">
-    <!-- TODO: replace placeholder (screenshot 5.png) -->
-    <img src="/assets/images/apps/volcano-lab/5.png" alt="Why each eruption behaves the way it does: a plain-English explanation of the eruption style" loading="lazy" decoding="async" width="552" height="1200">
-    <!-- TODO: replace placeholder (screenshot 6.png) -->
-    <img src="/assets/images/apps/volcano-lab/6.png" alt="Explore the world's volcanoes: a world map of well-known volcanoes with profiles" loading="lazy" decoding="async" width="552" height="1200">
-    <!-- TODO: replace placeholder (screenshot 7.png) -->
-    <img src="/assets/images/apps/volcano-lab/7.png" alt="Bite-sized volcano lessons: a short lesson on magma and eruption styles" loading="lazy" decoding="async" width="552" height="1200">
+    <img src="/assets/images/apps/volcano-lab/1.png" alt="Simulate a volcano eruption: a Plinian ash column rising from a 3D volcano at sunset" loading="lazy" decoding="async" width="552" height="1200">
+    <img src="/assets/images/apps/volcano-lab/2.png" alt="Change the magma, change the eruption: the Eruption Lab with silica, temperature, crystal and water controls" loading="lazy" decoding="async" width="552" height="1200">
+    <img src="/assets/images/apps/volcano-lab/3.png" alt="Learn volcano geology: a short lesson on why some lava is runny and some stiff" loading="lazy" decoding="async" width="552" height="1200">
+    <img src="/assets/images/apps/volcano-lab/4.png" alt="See inside the volcano: a live cutaway of magma rising through the conduit, beside the story of Mount St Helens" loading="lazy" decoding="async" width="552" height="1200">
+    <img src="/assets/images/apps/volcano-lab/5.png" alt="Eruption types explained: the Learn screen with lessons and a guide to eruption styles" loading="lazy" decoding="async" width="552" height="1200">
+    <img src="/assets/images/apps/volcano-lab/6.png" alt="Relive famous volcanic eruptions: a Plinian column with the story of Vesuvius 79 AD" loading="lazy" decoding="async" width="552" height="1200">
+    <img src="/assets/images/apps/volcano-lab/7.png" alt="Explore real volcanoes: a map of volcanoes across Asia and the Pacific with a search bar" loading="lazy" decoding="async" width="552" height="1200">
   </div>
   <p class="app-cta"><a class="btn btn-primary" href="{{ page.app_store_url }}">Get Volcano Lab</a></p>
 </section>

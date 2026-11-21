@@ -2,7 +2,7 @@
 layout: default
 title: Volcano Lab – Privacy Policy
 description: Privacy policy for Volcano Lab — what data the app collects, how it is used, and how it is stored.
-app_icon: /assets/images/apps/volcano-lab/logo.png  # TODO: replace placeholder
+app_icon: /assets/images/apps/volcano-lab/logo.png
 permalink: /apps/volcano-lab/privacy-policy/
 last_updated: 2026-11-20
 ---
@@ -10,7 +10,6 @@ last_updated: 2026-11-20
 <a href="/apps/volcano-lab/" class="back-link">← Back to Volcano Lab</a>
 
 <header class="privacy-header">
-  <!-- TODO: replace placeholder (app icon: /assets/images/apps/volcano-lab/logo.png) -->
   <img class="app-icon" src="{{ page.app_icon }}" alt="Volcano Lab App Icon" loading="lazy" decoding="async">
   <h1>Privacy Policy</h1>
   <p class="last-updated">Last updated: <time datetime="{{ page.last_updated }}">November 2026</time></p>

@@ -26,7 +26,7 @@
 
 - name: Volcano Lab
   url: /apps/volcano-lab/
-  icon: /assets/images/apps/volcano-lab/logo.png  # TODO: replace placeholder
+  icon: /assets/images/apps/volcano-lab/logo.png
   description: Make volcanoes erupt in 3D and discover why some ooze and others explode.
   tags: [iOS, Education, 3D / Simulation, Science]
   accent:  "#F97316"   # Lava orange

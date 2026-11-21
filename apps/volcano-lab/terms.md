@@ -2,7 +2,7 @@
 layout: default
 title: Volcano Lab – Terms of Use
 description: Terms of use for Volcano Lab — the rules and conditions that apply when you use the app.
-app_icon: /assets/images/apps/volcano-lab/logo.png  # TODO: replace placeholder
+app_icon: /assets/images/apps/volcano-lab/logo.png
 permalink: /apps/volcano-lab/terms/
 last_updated: 2026-11-20
 ---
@@ -10,7 +10,6 @@ last_updated: 2026-11-20
 <a href="/apps/volcano-lab/" class="back-link">← Back to Volcano Lab</a>
 
 <header class="privacy-header">
-  <!-- TODO: replace placeholder (app icon: /assets/images/apps/volcano-lab/logo.png) -->
   <img class="app-icon" src="{{ page.app_icon }}" alt="Volcano Lab App Icon" loading="lazy" decoding="async">
   <h1>Terms of Use</h1>
   <p class="last-updated">Last updated: <time datetime="{{ page.last_updated }}">November 2026</time></p>

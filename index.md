@@ -1,6 +1,6 @@
 ---
 layout: default
-description: I build mobile apps, web tools and data projects — and write about the messy bits. Nine apps shipped across iOS and Android.
+description: I build mobile apps, web tools and data projects — and write about the messy bits. Ten apps shipped across iOS and Android.
 permalink: /
 image: /assets/images/me_snow.jpeg
 # Edit these paths:
@@ -15,7 +15,7 @@ headshot: /assets/images/me_snow.jpeg
     <h1 class="hero-title">Hi, I'm Laurence.</h1>
     <p>
       I build mobile apps, web tools and data projects.<br/>
-      Nine apps shipped on iOS and Android so far.
+      Ten apps shipped on iOS and Android so far.
     </p>
     <div class="hero-ctas">
       <a class="btn btn-hero-primary" href="/apps/">See my apps</a>

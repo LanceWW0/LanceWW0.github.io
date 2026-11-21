@@ -24,6 +24,14 @@
   accent:  "#FFCA1A"   # Warm yellow
   accent2: "#B91C1C"   # Dark red
 
+- name: Volcano Lab
+  url: /apps/volcano-lab/
+  icon: /assets/images/apps/volcano-lab/logo.png
+  description: Make volcanoes erupt in 3D and discover why some ooze and others explode.
+  tags: [iOS, Education, 3D / Simulation, Science]
+  accent:  "#F97316"   # Lava orange
+  accent2: "#7F1D1D"   # Basalt red
+
 - name: What Cow - AI Cattle Identifier
   url: /apps/what-cow/
   icon: /assets/images/apps/what-cow/logo.png

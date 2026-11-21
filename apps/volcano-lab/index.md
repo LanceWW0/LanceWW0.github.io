@@ -3,7 +3,7 @@ layout: default
 title: Volcano Lab — 3D Eruption Simulator
 description: Make volcanoes erupt in 3D and discover why some ooze and others explode. An educational eruption simulator for iPhone, built by a volcanologist.
 permalink: /apps/volcano-lab/
-hero_background: /assets/images/apps/volcano-lab/hero-bg.jpg  # TODO: replace placeholder
+hero_background: /assets/images/apps/volcano-lab/hero-bg.jpg
 app_icon: /assets/images/apps/volcano-lab/logo.png
 app_store_url: https://apps.apple.com/app/idTODO  # TODO: replace placeholder with the real App Store URL
 last_updated: 2026-11-20
@@ -12,7 +12,6 @@ last_updated: 2026-11-20
 <a href="/apps/" class="back-link">← Back to All Apps</a>
 
 <!-- HERO -->
-<!-- TODO: replace placeholder (hero background: /assets/images/apps/volcano-lab/hero-bg.jpg) -->
 <section class="hero app-hero" style="background-image: linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.55)), url('{{ page.hero_background }}');">
   <div class="hero-inner">
     <img class="app-icon" src="{{ page.app_icon }}" alt="Volcano Lab app icon" width="88" height="88" loading="eager" fetchpriority="high">

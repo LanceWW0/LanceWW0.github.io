@@ -5,8 +5,8 @@ description: Make volcanoes erupt in 3D and discover why some ooze and others ex
 permalink: /apps/volcano-lab/
 hero_background: /assets/images/apps/volcano-lab/hero-bg.jpg
 app_icon: /assets/images/apps/volcano-lab/logo.png
-app_store_url: https://apps.apple.com/app/idTODO  # TODO: replace placeholder with the real App Store URL
-last_updated: 2026-11-20
+app_store_url: https://apps.apple.com/app/idTODO  # TODO: set the real URL at launch (not linked while the coming-soon popup is on)
+last_updated: 2026-11-21
 ---
 
 <a href="/apps/" class="back-link">← Back to All Apps</a>
@@ -20,9 +20,8 @@ last_updated: 2026-11-20
       Make volcanoes erupt in 3D and discover why some ooze and others explode.
     </p>
     <div class="hero-ctas">
-      <!-- iOS only, so this links straight to the App Store (as on Earthquake Tracker) instead of opening the store picker. -->
-      <!-- TODO: replace placeholder (App Store URL is set in app_store_url in the front matter) -->
-      <a class="btn btn-primary" href="{{ page.app_store_url }}">Download on the App&nbsp;Store</a>
+      {% comment %}TODO at launch: replace this button with <a class="btn btn-primary" href="{{ page.app_store_url }}">Download on the App&nbsp;Store</a>, do the same for the "Get Volcano Lab" button, and delete the coming-soon popup at the bottom of this file.{% endcomment %}
+      <button type="button" class="btn btn-primary" data-store-trigger aria-haspopup="dialog" aria-controls="store-modal">Download</button>
       <a class="btn btn-ghost" href="#features">See features</a>
       <a class="btn btn-ghost" href="/apps/volcano-lab/privacy-policy/">Privacy&nbsp;policy</a>
       <a class="btn btn-ghost" href="/apps/volcano-lab/terms/">Terms&nbsp;of&nbsp;use</a>
@@ -103,18 +102,6 @@ last_updated: 2026-11-20
 <section class="app-section">
   <h2 class="app-section-title">Screenshots</h2>
   <div class="screenshots-grid" role="region" tabindex="0" aria-label="App screenshots">
-    <!-- TODO: replace placeholder (video: /assets/images/apps/volcano-lab/video.mp4, poster: /assets/images/apps/volcano-lab/poster.jpg). Optional: delete this video-container if there's no video. -->
-    <div class="video-container">
-      <video
-        muted
-        playsinline
-        controls
-        preload="none"
-        poster="/assets/images/apps/volcano-lab/poster.jpg">
-        <source src="/assets/images/apps/volcano-lab/video.mp4" type="video/mp4">
-        Sorry, your browser doesn't support embedded videos.
-      </video>
-    </div>
     <img src="/assets/images/apps/volcano-lab/1.png" alt="Simulate a volcano eruption: a Plinian ash column rising from a 3D volcano at sunset" loading="lazy" decoding="async" width="552" height="1200">
     <img src="/assets/images/apps/volcano-lab/2.png" alt="Change the magma, change the eruption: the Eruption Lab with silica, temperature, crystal and water controls" loading="lazy" decoding="async" width="552" height="1200">
     <img src="/assets/images/apps/volcano-lab/3.png" alt="Learn volcano geology: a short lesson on why some lava is runny and some stiff" loading="lazy" decoding="async" width="552" height="1200">
@@ -123,7 +110,7 @@ last_updated: 2026-11-20
     <img src="/assets/images/apps/volcano-lab/6.png" alt="Relive famous volcanic eruptions: a Plinian column with the story of Vesuvius 79 AD" loading="lazy" decoding="async" width="552" height="1200">
     <img src="/assets/images/apps/volcano-lab/7.png" alt="Explore real volcanoes: a map of volcanoes across Asia and the Pacific with a search bar" loading="lazy" decoding="async" width="552" height="1200">
   </div>
-  <p class="app-cta"><a class="btn btn-primary" href="{{ page.app_store_url }}">Get Volcano Lab</a></p>
+  <p class="app-cta"><button type="button" class="btn btn-primary" data-store-trigger aria-haspopup="dialog" aria-controls="store-modal">Get Volcano Lab</button></p>
 </section>
 
 <!-- FAQ -->
@@ -166,7 +153,22 @@ last_updated: 2026-11-20
     </div>
     <div class="support-card">
       <h3>🔄 Version & updates</h3>
-      <p>Last updated: <time datetime="{{ page.last_updated }}">{{ page.last_updated }}</time>. See the App Store for release notes.</p>
+      <p>Last updated: <time datetime="{{ page.last_updated }}">{{ page.last_updated }}</time>. Coming to the App Store in the next few days.</p>
     </div>
   </div>
 </section>
+
+<!-- COMING SOON POPUP -->
+<div class="store-modal" id="store-modal" role="dialog" aria-modal="true" aria-labelledby="store-modal-title" aria-describedby="store-modal-desc" hidden>
+  <div class="store-modal-backdrop" data-store-close></div>
+  <div class="store-modal-card" role="document">
+    <button type="button" class="store-modal-close" aria-label="Close" data-store-close>&times;</button>
+    <h2 class="store-modal-title" id="store-modal-title">🌋 Coming very soon</h2>
+    <p class="store-modal-subtitle" id="store-modal-desc">Volcano Lab isn't on the App Store just yet. It will be available for iPhone in the next few days, so please check back soon.</p>
+    <div class="store-choices">
+      <button type="button" class="store-choice" data-store-close style="width: 100%; justify-content: center; font: inherit; cursor: pointer;">
+        <span class="store-choice-name">Got it</span>
+      </button>
+    </div>
+  </div>
+</div>

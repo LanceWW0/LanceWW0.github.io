@@ -81,7 +81,7 @@ last_updated: 2026-11-20
       <span class="service-name">RevenueCat</span>
       <span class="service-desc">Purchase management</span>
     </div>
-    <!-- TODO: if Mixpanel is added (see the Privacy Policy), add a Mixpanel item here and to the sentence above. -->
+    {% comment %}TODO: if Mixpanel is added (see the Privacy Policy), add a Mixpanel item here and to the sentence above.{% endcomment %}
   </div>
   <p style="margin-top: 16px;">Scientific and volcano data sources used in the App are credited within the App.</p>
 </section>

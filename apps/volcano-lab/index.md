@@ -55,7 +55,7 @@ last_updated: 2026-11-23
   <div class="highlight-box">
     <h2>🎓 Credentials</h2>
     <p>
-      I studied at Durham University in the Department of Earth Sciences. For my third-year research dissertation, I modelled the dynamics of magma with differing crystal fractions, running a numerical model in Cython (Python with C). Many of the equations I worked with then are the ones Volcano Lab is built on today.
+      I studied at Durham University in the Department of Earth Sciences. For my third-year research dissertation, I modelled the dynamics of magma with differing crystal fractions, running a numerical model in Cython (Python with C). I used the same melt viscosity model that powers Volcano Lab, and my main finding, that magma in a volcanic conduit may behave as a simple, evenly mixed fluid, is how the app models it.
     </p>
     <p><a href="/dissertation/">Read a plain-English summary of my dissertation →</a></p>
     {% comment %}TODO: add a sentence here linking to the published paper these results helped make, once the link is found.{% endcomment %}
@@ -105,7 +105,7 @@ last_updated: 2026-11-23
   <ol class="steps-list">
     <li><strong>Choose a volcano:</strong> Start with a preset such as Kīlauea or Stromboli, or pick one of the famous eruptions with Pro.</li>
     <li><strong>Adjust the magma:</strong> Set the silica content (SiO<sub>2</sub>), temperature, crystal content and dissolved water. Pro adds vent radius and eruption rate.</li>
-    <li><strong>Watch it erupt:</strong> The app calculates the magma's viscosity and explosivity, then shows the eruption in 3D, from Hawaiian and Strombolian to Vulcanian, Sub-Plinian and Plinian.</li>
+    <li><strong>Watch it erupt:</strong> The app calculates the magma's viscosity and explosivity, then shows the eruption in 3D, from effusive lava domes and Hawaiian fountains to Strombolian, Vulcanian, Sub-Plinian and Plinian eruptions.</li>
     <li><strong>Understand why:</strong> Read a plain-English explanation of why your magma erupted the way it did, and what would change it.</li>
   </ol>
 </section>
@@ -143,7 +143,7 @@ last_updated: 2026-11-23
     </details>
     <details>
       <summary>What data does it collect?</summary>
-      <p>Very little. There's no account, no photo uploads and no location tracking, and your saved lab runs and progress stay on your device. Read the <a href="/apps/volcano-lab/privacy-policy/">Privacy Policy</a> for the details.</p>
+      <p>Very little. There's no account, no photo uploads and no location tracking, and your saved lab runs and progress stay on your device. The app records which parts you use under a random ID, and you can turn that off in Settings. Read the <a href="/apps/volcano-lab/privacy-policy/">Privacy Policy</a> for the details.</p>
     </details>
     <details>
       <summary>How much does it cost?</summary>

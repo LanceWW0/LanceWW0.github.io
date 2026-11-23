@@ -4,7 +4,7 @@ title: Volcano Lab – Terms of Use
 description: Terms of use for Volcano Lab — the rules and conditions that apply when you use the app.
 app_icon: /assets/images/apps/volcano-lab/logo.png
 permalink: /apps/volcano-lab/terms/
-last_updated: 2026-11-20
+last_updated: 2026-11-23
 ---
 
 <a href="/apps/volcano-lab/" class="back-link">← Back to Volcano Lab</a>
@@ -69,7 +69,7 @@ last_updated: 2026-11-20
 
 <section class="privacy-section">
   <h2><span class="section-icon">🔗</span> Third-Party Services</h2>
-  <p>The App integrates with third-party services including Apple and RevenueCat. Your use of these services is subject to their respective terms and privacy policies. We are not responsible for the practices or availability of any third-party service.</p>
+  <p>The App integrates with third-party services including Apple, RevenueCat and Mixpanel. Your use of these services is subject to their respective terms and privacy policies. We are not responsible for the practices or availability of any third-party service.</p>
   <div class="third-party-list">
     <div class="third-party-item">
       <span class="service-icon">🍎</span>
@@ -81,7 +81,11 @@ last_updated: 2026-11-20
       <span class="service-name">RevenueCat</span>
       <span class="service-desc">Purchase management</span>
     </div>
-    {% comment %}TODO: if Mixpanel is added (see the Privacy Policy), add a Mixpanel item here and to the sentence above.{% endcomment %}
+    <div class="third-party-item">
+      <span class="service-icon">📊</span>
+      <span class="service-name">Mixpanel</span>
+      <span class="service-desc">Usage analytics</span>
+    </div>
   </div>
   <p style="margin-top: 16px;">Scientific and volcano data sources used in the App are credited within the App.</p>
 </section>

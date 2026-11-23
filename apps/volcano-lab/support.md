@@ -4,7 +4,7 @@ title: Volcano Lab – Support
 description: Help and support for Volcano Lab — answers to common questions about eruptions, Volcano Lab Pro, restoring purchases and accessibility.
 app_icon: /assets/images/apps/volcano-lab/logo.png
 permalink: /apps/volcano-lab/support/
-last_updated: 2026-11-20
+last_updated: 2026-11-23
 ---
 
 <a href="/apps/volcano-lab/" class="back-link">← Back to Volcano Lab</a>
@@ -32,7 +32,7 @@ last_updated: 2026-11-20
       <p><strong>Temperature:</strong> cooler magma is stickier.</p>
       <p><strong>Crystal content:</strong> more crystals make the magma stiffer and can clog the conduit.</p>
       <p><strong>Dissolved water:</strong> more water means more gas to drive the eruption.</p>
-      <p>Hot, runny, low-silica magma tends to give gentle Hawaiian or Strombolian eruptions. Sticky, gas-rich magma traps its gas until it bursts out explosively, giving Vulcanian, Sub-Plinian or Plinian eruptions. After every eruption, the app explains in plain English why it behaved the way it did.</p>
+      <p>Hot, runny, low-silica magma tends to give gentle Hawaiian or Strombolian eruptions. Sticky, gas-rich magma traps its gas until it bursts out explosively, giving Vulcanian, Sub-Plinian or Plinian eruptions. Magma that is too stiff or too gas-poor to explode oozes out as an effusive lava dome. After every eruption, the app explains in plain English why it behaved the way it did.</p>
     </details>
     <details>
       <summary>What's free, and what does Volcano Lab Pro add?</summary>

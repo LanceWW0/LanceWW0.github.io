@@ -149,7 +149,7 @@ volcanoes:
     <p>This was an undergraduate research project, and these are the conclusions I reached at the time.</p>
 
     <h2>From dissertation to Volcano Lab</h2>
-    <p>Many of the equations from this work sit behind <a href="/apps/volcano-lab/">Volcano Lab</a>, my iPhone app for exploring why eruptions behave the way they do. Change the crystal content in the app and you can see what it does to viscosity and eruption style. It's a simplified learning tool rather than a forecast.</p>
+    <p>This work connects directly to <a href="/apps/volcano-lab/">Volcano Lab</a>, my iPhone app for exploring why eruptions behave the way they do. The app uses the same melt viscosity model (Giordano et al., 2008), and it treats magma as a simple, evenly mixed fluid, the behaviour this dissertation points to at conduit scale. Its crystal equation and eruption physics come from other published models, and it's a simplified learning tool rather than a forecast.</p>
 
     <p class="dissertation-note"><strong>About this online version:</strong> to respect other people's copyright, I've removed the code appendix and 11 figures reproduced from published papers. Each removed figure keeps its caption and citation, so you can find it in the original source. All of my own writing, results and model plots are included.</p>
 

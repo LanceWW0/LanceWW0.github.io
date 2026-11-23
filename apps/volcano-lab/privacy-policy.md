@@ -4,7 +4,7 @@ title: Volcano Lab – Privacy Policy
 description: Privacy policy for Volcano Lab — what data the app collects, how it is used, and how it is stored.
 app_icon: /assets/images/apps/volcano-lab/logo.png
 permalink: /apps/volcano-lab/privacy-policy/
-last_updated: 2026-11-21
+last_updated: 2026-11-23
 ---
 
 <a href="/apps/volcano-lab/" class="back-link">← Back to Volcano Lab</a>
@@ -41,19 +41,16 @@ last_updated: 2026-11-21
   <h3>Purchases</h3>
   <ul>
     <li>Purchases of Volcano Lab Pro are processed by Apple. We never see your payment details.</li>
-    <li>RevenueCat manages your purchase status using an anonymous app user ID, so the app knows whether Pro is unlocked and can restore your purchase. This ID is not linked to your name, email address or Apple ID.</li>
+    <li>RevenueCat manages your purchase status using an anonymous app user ID, so the app knows whether Pro is unlocked and can restore your purchase. This ID is not linked to your name, email address or Apple ID. If you share usage data, RevenueCat also passes your purchase events to Mixpanel under your random ID.</li>
   </ul>
 
   <h3>Crash Reports and App Analytics</h3>
   <p>If you have chosen to share analytics with app developers, Apple may provide us with anonymous crash reports and app analytics (for example, how many people use the app and on which iOS versions). This information is aggregated and does not personally identify you.</p>
 
-  {% comment %}TODO: confirm Mixpanel. Keep this sub-section if Mixpanel is added to the app; delete it (and the Mixpanel item under Third-Party Services) if not. Keep the in-app opt-out line under Your Rights only if the app has that setting.{% endcomment %}
   <h3>Product Analytics</h3>
-  <p>We may use Mixpanel to collect anonymous usage events, such as which features are opened or which challenges are completed, to understand how the app is used and improve it. These events are not linked to your name, email address or any other personal identifier. You can turn this analytics tracking off at any time in the app.</p>
-
-  {% comment %}TODO: confirm the live volcano activity feed. Keep this sub-section if the feature ships; delete it if not.{% endcomment %}
-  <h3>Live Volcano Activity</h3>
-  <p>Some features may show live volcano activity fetched from public sources such as the <a href="https://volcano.si.edu/" target="_blank" rel="noopener">Smithsonian Global Volcanism Program</a> and the <a href="https://www.usgs.gov/programs/VHP" target="_blank" rel="noopener">USGS Volcano Hazards Program</a>. Fetching this data involves a standard network request (which, like any request on the internet, includes your device's IP address), but no personal data is sent beyond that.</p>
+  <p>We use Mixpanel, our analytics provider, to understand which parts of the app are used and for how long, so we can improve it. This covers screens, steps, taps and timings, your text size and Reduce Motion settings, and your device model, operating system, screen size and app version.</p>
+  <p>This data is tied to a random ID made for this app and, if you buy Pro, to that purchase. It never includes your name, your location or an advertising identifier.</p>
+  <p>In the UK, EU and EEA, nothing is sent unless you agree. Elsewhere, sharing is on by default and the app tells you about it. You can turn it off at any time in the app under <code>Settings → Share usage data</code>, and the app works the same either way.</p>
 </section>
 
 <section class="privacy-section">
@@ -65,7 +62,7 @@ last_updated: 2026-11-21
     <li>To understand general trends in how the app is used.</li>
   </ul>
   <div class="privacy-highlight">
-    <p>We do <strong>not</strong> sell, rent, or share your information with advertisers or third parties, and Volcano Lab contains <strong>no ads</strong>.</p>
+    <p>We do <strong>not</strong> sell or rent your information or share it with advertisers, and Volcano Lab contains <strong>no ads</strong>. We only use the service providers listed below.</p>
   </div>
 </section>
 
@@ -88,11 +85,10 @@ last_updated: 2026-11-21
       <span class="service-name"><a href="https://www.revenuecat.com/privacy/" target="_blank" rel="noopener">RevenueCat</a></span>
       <span class="service-desc">Purchase management</span>
     </div>
-    {% comment %}TODO: confirm Mixpanel. Delete this item if Mixpanel isn't used.{% endcomment %}
     <div class="third-party-item">
       <span class="service-icon">📊</span>
       <span class="service-name"><a href="https://mixpanel.com/legal/privacy-policy/" target="_blank" rel="noopener">Mixpanel</a></span>
-      <span class="service-desc">Anonymous product analytics</span>
+      <span class="service-desc">Usage analytics</span>
     </div>
   </div>
   <p style="margin-top: 16px;">Each third-party service has its own privacy policy, linked above.</p>
@@ -102,7 +98,7 @@ last_updated: 2026-11-21
   <h2><span class="section-icon">⚖️</span> Your Rights</h2>
   <ul>
     <li>You can delete the app at any time, which removes all of your Volcano Lab data from your device.</li>
-    <li>You can turn off analytics tracking at any time in the app.</li>
+    <li>You can turn off analytics tracking at any time in the app: <code>Settings → Share usage data</code>.</li>
     <li>You can opt out of sharing analytics with app developers via your device settings: <code>Settings → Privacy & Security → Analytics & Improvements</code>.</li>
     <li>If you have any questions about your data, or would like us to delete anything held by our service providers, contact us using the details below.</li>
   </ul>

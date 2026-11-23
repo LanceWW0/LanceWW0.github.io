@@ -1,12 +1,12 @@
 ---
 layout: default
 title: Volcano Lab — 3D Eruption Simulator
-description: Make volcanoes erupt in 3D and discover why some ooze and others explode. An educational eruption simulator for iPhone, built by a volcanologist.
+description: Make volcanoes erupt in 3D and discover why some ooze and others explode. An educational eruption simulator for iPhone, built by an Earth scientist.
 permalink: /apps/volcano-lab/
 hero_background: /assets/images/apps/volcano-lab/hero-bg.jpg
 app_icon: /assets/images/apps/volcano-lab/logo.png
 app_store_url: https://apps.apple.com/app/idTODO  # TODO: set the real URL at launch (not linked while the coming-soon popup is on)
-last_updated: 2026-11-21
+last_updated: 2026-11-23
 ---
 
 <a href="/apps/" class="back-link">← Back to All Apps</a>
@@ -42,11 +42,23 @@ last_updated: 2026-11-21
   <div class="highlight-box">
     <h2>🌋 The science behind it</h2>
     <p>
-      Before I built apps, I was a volcano researcher. My research modelled how crystals flowing through magma change the way a volcano erupts: how a magma crowded with crystals can stiffen, clog its conduit and turn what might have been a quiet lava flow into a violent explosion. Volcano Lab grew directly out of that work.
+      Before I built apps, I studied volcanoes at Durham University. My dissertation modelled how crystals move through magma as it rises up a volcanic conduit, and what that means for the way magma flows. Volcano Lab grew directly out of that work.
     </p>
     <p>
       The Eruption Lab is built on published volcanology models, including melt viscosity models and crystal-suspension rheology, simplified so that anyone can play with them. Change the magma's ingredients and the app works out how sticky and gas-rich it is, how explosive it is likely to be, and which style of eruption would follow. Volcano Lab is a learning tool, not a forecast: it can't predict real eruptions, and you should always follow your local volcano observatory and civil authorities.
     </p>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section class="app-section">
+  <div class="highlight-box">
+    <h2>🎓 Credentials</h2>
+    <p>
+      I studied at Durham University in the Department of Earth Sciences. For my third-year research dissertation, I modelled the dynamics of magma with differing crystal fractions, running a numerical model in Cython (Python with C). Many of the equations I worked with then are the ones Volcano Lab is built on today.
+    </p>
+    <p><a href="/dissertation/">Read a plain-English summary of my dissertation →</a></p>
+    {% comment %}TODO: add a sentence here linking to the published paper these results helped make, once the link is found.{% endcomment %}
   </div>
 </section>
 
@@ -71,8 +83,8 @@ last_updated: 2026-11-21
     </article>
     <article class="feature-card fc--green">
       <div class="feature-card-icon">🎓</div>
-      <h3>Built by a volcanologist</h3>
-      <p>Designed by a former volcano researcher, with real magma physics behind every eruption you create.</p>
+      <h3>Built by an Earth scientist</h3>
+      <p>Made by someone who modelled magma dynamics at Durham University, with real physics behind every eruption you create.</p>
     </article>
     <article class="feature-card fc--yellow">
       <div class="feature-card-icon">🗺️</div>

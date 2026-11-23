@@ -1,6 +1,7 @@
 # Projects shown on the home page, in this order.
 # media: "screenshot" fills the top of the card; "logo" centres an icon.
 # The first link is the card's main destination.
+# wide: true makes the card span the whole row.
 
 - name: River Watch
   label: Open source
@@ -40,3 +41,19 @@
       url: https://x.com/GeologyToolkit
     - label: View the app
       url: /apps/geology-toolkit/
+
+- name: Flow Localisation in a Crystal Bearing Magma
+  label: Research
+  wide: true
+  accent: "#F97316"
+  description: My Durham University dissertation, in plain English. I modelled whether crystals migrate in rising magma at seven real volcanoes, and the work later inspired Volcano Lab.
+  media: screenshot
+  image: /assets/images/dissertation/base-example.png
+  image_alt: Five plots from the dissertation's model of crystals flowing through a volcanic conduit
+  links:
+    - label: Read the summary
+      url: /dissertation/
+    - label: Dissertation (PDF)
+      url: /assets/dissertation/wayne-2021-flow-localisation-crystal-bearing-magma.pdf
+    - label: Volcano Lab
+      url: /apps/volcano-lab/

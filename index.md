@@ -46,7 +46,7 @@ headshot: /assets/images/me_snow.jpeg
   <div class="home-grid home-grid--three">
     {%- for project in site.data.projects %}
     {%- assign main = project.links | first %}
-    <article class="proj-card" data-reveal style="--accent: {{ project.accent | default: '#6366f1' }}; --i: {{ forloop.index0 }};">
+    <article class="proj-card{% if project.wide %} proj-card--wide{% endif %}" data-reveal style="--accent: {{ project.accent | default: '#6366f1' }}; --i: {{ forloop.index0 }};">
       <div class="card-media{% if project.media == 'logo' %} card-media--logo{% endif %}">
         <img src="{{ project.image | relative_url }}" alt="{{ project.image_alt | escape }}" loading="lazy" decoding="async">
       </div>

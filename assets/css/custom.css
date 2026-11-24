@@ -4104,3 +4104,15 @@ html[data-theme="dark"] .dissertation {
   color: var(--brand-contrast);
   text-decoration: none;
 }
+
+/* ---------- Accessibility statement (/apps/<app>/accessibility/) ----------
+   Reuses the privacy-policy layout. A few shared colours fall just under
+   4.5:1 (the muted text and #6366f1 links on the light washes), so this page
+   swaps in darker existing tokens. Dark mode already passes. */
+.accessibility-statement .privacy-header .last-updated { color: var(--text-3); }
+.accessibility-statement .privacy-header .last-updated time,
+.accessibility-statement .contact-card .contact-email { color: var(--accent-deep); }
+.accessibility-statement .privacy-section p,
+.accessibility-statement .privacy-section li { color: var(--text-2); }
+html[data-theme="dark"] .accessibility-statement .privacy-header .last-updated time,
+html[data-theme="dark"] .accessibility-statement .contact-card .contact-email { color: var(--link); }

@@ -25,6 +25,7 @@ last_updated: 2026-11-23
       <a class="btn btn-ghost" href="#features">See features</a>
       <a class="btn btn-ghost" href="/apps/volcano-lab/privacy-policy/">Privacy&nbsp;policy</a>
       <a class="btn btn-ghost" href="/apps/volcano-lab/terms/">Terms&nbsp;of&nbsp;use</a>
+      <a class="btn btn-ghost" href="/apps/volcano-lab/accessibility/">Accessibility</a>
       <a class="btn btn-ghost" href="/apps/volcano-lab/support/">Support</a>
     </div>
   </div>
@@ -139,7 +140,7 @@ last_updated: 2026-11-23
     </details>
     <details>
       <summary>Which devices are supported?</summary>
-      <p>Volcano Lab runs on iPhone with iOS 18 or later. It supports Dynamic Type, VoiceOver and Reduce Motion.</p>
+      <p>Volcano Lab runs on iPhone with iOS 18 or later. It supports Dynamic Type, VoiceOver and Reduce Motion. Read the <a href="/apps/volcano-lab/accessibility/">Accessibility</a> page for the details.</p>
     </details>
     <details>
       <summary>What data does it collect?</summary>

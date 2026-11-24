@@ -65,6 +65,7 @@ last_updated: 2026-11-23
       <p><strong>Larger text:</strong> <code>Settings → Accessibility → Display & Text Size → Larger Text</code>.</p>
       <p><strong>VoiceOver:</strong> <code>Settings → Accessibility → VoiceOver</code>.</p>
       <p><strong>Reduce Motion:</strong> <code>Settings → Accessibility → Motion → Reduce Motion</code>.</p>
+      <p>Read the <a href="/apps/volcano-lab/accessibility/">Accessibility</a> page to see how the app works with each setting.</p>
     </details>
     <details>
       <summary>Can I use Volcano Lab in my classroom?</summary>

@@ -12,7 +12,7 @@ last_updated: 2026-11-26
 <a href="/apps/" class="back-link">← Back to All Apps</a>
 
 <!-- HERO -->
-<section class="hero app-hero" style="background-image: linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.55)), url('{{ page.hero_background }}');">
+<section class="hero app-hero" style="background-image: linear-gradient(to bottom, rgba(0,0,0,.5), rgba(0,0,0,.7)), url('{{ page.hero_background }}');">
   <div class="hero-inner">
     <img class="app-icon" src="{{ page.app_icon }}" alt="Seismometer app icon" width="88" height="88" loading="eager" fetchpriority="high">
     <h1 class="hero-title">Seismometer</h1>
@@ -29,6 +29,7 @@ last_updated: 2026-11-26
       <a class="btn btn-ghost" href="/apps/seismometer/support/">Support</a>
     </div>
   </div>
+  <p class="hero-credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Seismogram_at_Weston_Observatory.JPG" target="_blank" rel="noopener">a seismograph at Weston Observatory</a> by Z22, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a>, via Wikimedia Commons</p>
 </section>
 
 <!-- SHORT PITCH -->

@@ -1490,6 +1490,23 @@ a:hover > .arrow,
   opacity: 0.95;
   line-height: 1.6;
 }
+/* Photo credit for a licensed hero image, in the bottom corner of the hero. */
+.app-hero .hero-credit {
+  position: absolute;
+  right: 16px;
+  bottom: 10px;
+  left: 16px;
+  z-index: 1;
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.4;
+  text-align: right;
+  color: rgba(255,255,255,0.85);
+}
+.app-hero .hero-credit a {
+  color: inherit;
+  text-decoration: underline;
+}
 .app-hero .hero-ctas {
   display: flex;
   flex-wrap: wrap;

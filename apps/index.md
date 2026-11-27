@@ -7,7 +7,7 @@ permalink: /apps/
 
 <header class="page-head" data-reveal>
   <h1>My Apps</h1>
-  <p>Ten apps for iOS and Android, built to educate, inspire and simplify everyday life.</p>
+  <p>Eleven apps for iOS and Android, built to educate, inspire and simplify everyday life.</p>
 </header>
 
 <section class="apps-grid">

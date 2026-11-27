@@ -38,7 +38,7 @@ permalink: /about/
 </p>
 
 <p>
-  I'm back in the UK now — ten apps shipped, a handful of regular freelance clients and a much clearer sense of what I want to build next. It was worth every stuffy hotel room.
+  I'm back in the UK now — eleven apps shipped, a handful of regular freelance clients and a much clearer sense of what I want to build next. It was worth every stuffy hotel room.
 </p>
 </section>
 

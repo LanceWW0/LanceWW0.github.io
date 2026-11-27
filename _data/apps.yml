@@ -32,6 +32,14 @@
   accent:  "#F97316"   # Lava orange
   accent2: "#7F1D1D"   # Basalt red
 
+- name: Seismometer
+  url: /apps/seismometer/
+  icon: /assets/images/apps/seismometer/logo.png
+  description: Turn your phone into a live seismograph and see the vibrations around you.
+  tags: [iOS, Education, Science, Sensors]
+  accent:  "#FFB224"   # Trace amber
+  accent2: "#0B0D10"   # Seismograph black
+
 - name: What Cow - AI Cattle Identifier
   url: /apps/what-cow/
   icon: /assets/images/apps/what-cow/logo.png

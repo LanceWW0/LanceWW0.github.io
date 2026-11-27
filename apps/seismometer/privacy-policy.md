@@ -4,7 +4,7 @@ title: Seismometer – Privacy Policy
 description: Privacy policy for Seismometer — what data the app collects, how it is used, and how it is stored.
 app_icon: /assets/images/apps/seismometer/logo.png
 permalink: /apps/seismometer/privacy-policy/
-last_updated: 2026-11-26
+last_updated: 2026-11-27
 ---
 
 <a href="/apps/seismometer/" class="back-link">← Back to Seismometer</a>
@@ -54,16 +54,23 @@ last_updated: 2026-11-26
   <p>If you have chosen to share analytics with app developers, Apple may provide us with anonymous crash reports and app analytics (for example, how many people use the app and on which iOS versions). This information is aggregated and does not personally identify you.</p>
 
   <h3>Usage Statistics</h3>
-  <p>We use Mixpanel, our analytics provider, to count how a few parts of the app are used, so we can improve it. Only these events are recorded:</p>
+  <p>When usage statistics are turned on, Seismometer sends usage data to Mixpanel, our analytics provider, so we can see how the app is used and improve it. This covers:</p>
   <ul>
-    <li>the app was opened;</li>
-    <li>the introduction was finished;</li>
-    <li>a recording was saved, with its length rounded to ten seconds;</li>
-    <li>a recording was exported, with the format (image or CSV);</li>
-    <li>a lesson was opened, with which lesson it was;</li>
-    <li>the Pro screen was shown, with which feature led to it.</li>
+    <li><strong>Which screens and features you use.</strong> For example, that a recording was started, saved, exported or deleted and roughly how long it was, which lesson you opened and whether you reached the end, and whether the Pro offer was shown and a purchase or restore went through.</li>
+    <li><strong>When the app is opened</strong>, and for how long.</li>
+    <li><strong>A few of your settings:</strong> units, theme, sensitivity and haptics.</li>
+    <li><strong>Basic device information:</strong> make and model, system version, screen size, hardware features such as NFC, connection type (Wi-Fi, or the name of your mobile network), the language and region your phone is set to, and the app version.</li>
+    <li><strong>A random identifier</strong> created for this copy of the app.</li>
   </ul>
-  <p>No event carries a recording, sensor data, or any name you typed, such as the name of a recording.</p>
+  <p>Usage statistics never include:</p>
+  <ul>
+    <li>your recordings or their names;</li>
+    <li>any sensor readings;</li>
+    <li>your location (your network address is not used to work one out);</li>
+    <li>your name, email address, contacts or advertising ID;</li>
+    <li>prices or payment details;</li>
+    <li>your accessibility settings.</li>
+  </ul>
   <p>In the EU, EEA, United Kingdom and Switzerland, and wherever the app can't tell which region you're in, nothing is sent unless you turn sharing on. Elsewhere, sharing is on by default. The app goes by your device's region setting and doesn't look up where you are. You can turn sharing on or off at any time in the app under <code>Settings → Privacy → Share usage statistics</code>, and the app works the same either way.</p>
 </section>
 

@@ -29,7 +29,13 @@ last_updated: 2026-11-26
       <a class="btn btn-ghost" href="/apps/seismometer/support/">Support</a>
     </div>
   </div>
-  <p class="hero-credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Seismogram_at_Weston_Observatory.JPG" target="_blank" rel="noopener">a seismograph at Weston Observatory</a> by Z22, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a>, via Wikimedia Commons</p>
+  <p class="hero-credit">
+    <span class="hero-credit-icon" aria-hidden="true">📷</span>
+    <span class="hero-credit-label">Header photo:</span>
+    <a href="https://commons.wikimedia.org/wiki/File:Seismogram_at_Weston_Observatory.JPG" target="_blank" rel="noopener" title="Seismogram at Weston Observatory, Wikimedia Commons">Z22 / Wikimedia Commons</a>
+    <span class="hero-credit-sep" aria-hidden="true">·</span>
+    <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener license">CC BY-SA 3.0</a>
+  </p>
 </section>
 
 <!-- SHORT PITCH -->
@@ -49,17 +55,6 @@ last_updated: 2026-11-26
     <p>
       Seismometer is a learning tool, not an earthquake detector or a warning system. A resting phone picks up its own electronic noise, which is far larger than the motion of small or distant earthquakes, so they never show up. And no single phone can warn before shaking starts: early warning needs a network of stations near the fault and a way to alert people before the waves arrive. One phone can only show shaking that has already reached it. In an earthquake, always follow official guidance from your local authorities.
     </p>
-  </div>
-</section>
-
-<!-- CREDENTIALS -->
-<section class="app-section">
-  <div class="highlight-box">
-    <h2>🎓 Credentials</h2>
-    <p>
-      I studied at Durham University in the Department of Earth Sciences. For my third-year research dissertation, I modelled the dynamics of magma with differing crystal fractions, running a numerical model in Cython (Python with C). That research was about magma, not seismology. Seismometer comes from the same Earth science background, and it's written to be plain about what a phone can and can't measure.
-    </p>
-    <p><a href="/dissertation/">Read a plain-English summary of my dissertation →</a></p>
   </div>
 </section>
 
@@ -149,7 +144,8 @@ last_updated: 2026-11-26
     </details>
     <details>
       <summary>What data does it collect?</summary>
-      <p>Very little. There's no account and no sign-up, and the app doesn't use your location, photos, microphone or contacts. The only sensor it reads is the accelerometer, which needs no permission, and your sensor readings and recordings stay on your device. If sharing is on, the app sends a few usage statistics, such as which lesson was opened. These never include a recording or sensor data, and you can turn them off in Settings. Read the <a href="/apps/seismometer/privacy-policy/">Privacy Policy</a> for the details.</p>
+      <p>Very little. There's no account and no sign-up, and the app doesn't use your location, photos, microphone or contacts. The only sensor it reads is the accelerometer, which needs no permission, and your sensor readings and recordings stay on your device.</p>
+      <p>If usage statistics are on, the app sends Mixpanel which screens and features you use, when the app is opened and for how long, a few settings, and basic device information such as your phone's model and system version, together with a random identifier for this copy of the app. It never sends your recordings, sensor readings, location, name, email or payment details. You can turn usage statistics off under <code>Settings → Privacy → Share usage statistics</code>. Read the <a href="/apps/seismometer/privacy-policy/">Privacy Policy</a> for the full list.</p>
     </details>
     <details>
       <summary>How much does it cost?</summary>
